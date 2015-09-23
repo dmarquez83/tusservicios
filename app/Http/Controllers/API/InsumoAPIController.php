@@ -27,7 +27,9 @@ class InsumoAPIController extends AppBaseController
 	{
 		$insumos = $this->insumoRepository->all();
 
-		return $this->sendResponse($insumos->toArray(), "Insumos retrieved successfully");
+		//return $this->sendResponse($insumos->toArray(), "Insumos retrieved successfully");
+
+	     return response()->json($insumos);
 	}
 
 	/**
@@ -101,6 +103,8 @@ class InsumoAPIController extends AppBaseController
 		$insumo = $this->insumoRepository->apiFindOrFail($id);
 
 		return $this->sendResponse($insumo->toArray(), "Insumo retrieved successfully");
+
+	  //return User::findOrFail($id);
 	}
 
 	/**

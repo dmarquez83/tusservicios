@@ -54,6 +54,8 @@ Route::resource('insumos', 'InsumoController');
 
 Route::get('api/insumos','API\InsumoAPIController@index');
 
+Route::get('api/insumos/{id}','API\InsumoAPIController@show');
+
 Route::post('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos');
 
 
