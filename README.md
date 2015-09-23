@@ -1,5 +1,10 @@
 Servicios.com
 
+para levantar el proyecto correr en la carpeta del proyecto back-tusservicios
+
+php artisan serve
+
+
 *-Modulo base de autenticar
 
 http://localhost:8000/home
