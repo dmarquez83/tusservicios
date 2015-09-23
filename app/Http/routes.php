@@ -52,6 +52,11 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function ()
 
 Route::resource('insumos', 'InsumoController');
 
+Route::get('api/insumos','API\InsumoAPIController@index');
+
+Route::post('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos');
+
+
 Route::get('insumos/{id}/delete', [
     'as' => 'insumos.delete',
     'uses' => 'InsumoController@destroy',

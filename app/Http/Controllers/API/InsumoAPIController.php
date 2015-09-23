@@ -32,14 +32,42 @@ class InsumoAPIController extends AppBaseController
 
 	/**
 	 * Show the form for creating a new Insumo.
-	 * GET|HEAD /insumos/create
+	 * GET|HEAD /insumos/newInsumos
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
-	}
 
+  public function newInsumos($des,$ref){
+
+	$insumo = new Insumo;
+	$insumo->descripcion = $des;
+	$insumo->referencia = $ref;
+	$insumo->save();
+
+	return 'Insumo Registrado';
+  }
+  /**
+   * Show the form for creating a new Insumo.
+   * GET|HEAD /insumos/saveInsumos
+   *
+   * @return Response
+   */
+  public function saveInsumos(Request $request){
+
+	$insumo = Insumo::create($request->all());
+
+	return response()->json($insumo);
+
+  }
+  /**
+   * Show the form for creating a new Insumo.
+   * GET|HEAD /insumos/create
+   *
+   * @return Response
+   */
+  public function create(){
+
+  }
 	/**
 	 * Store a newly created Insumo in storage.
 	 * POST /insumos
