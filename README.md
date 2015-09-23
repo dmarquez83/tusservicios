@@ -2,6 +2,9 @@ Servicios.com
 
 *-Modulo base de autenticar
 
+http://localhost:8000/home
+http://localhost:8000/auth/login
+
 *-Modulo de insumos
 
 http://localhost:8000/api/insumos/
