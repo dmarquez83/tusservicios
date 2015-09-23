@@ -12,8 +12,8 @@
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 				    @if (Auth::guest())
-				        <li><a href="{{route('auth/login')}}">{{ trans('nav.login') }}</a></li>
-						<li><a href="{{route('auth/register')}}">{{ trans('nav.signup') }}</a></li>
+				        <li><a href="{{route('auth/login')}}">{{ trans('Ingresa') }}</a></li>
+						<li><a href="{{route('auth/register')}}">{{ trans('Inscribete') }}</a></li>
 				    @else
 		                <li>
 		                    <a href="#">{{ Auth::user()->name }}</a>
