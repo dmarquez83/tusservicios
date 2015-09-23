@@ -4,12 +4,21 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/mitulgolakiya/laracast-flash"
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "laravelcollective/html": "5.1.*",
         "barryvdh/laravel-debugbar": "^2.0@dev",
-        "styde/blade-pagination": "5.1.*@dev"
+        "styde/blade-pagination": "5.1.*@dev",
+        "laracasts/flash": "dev-master",
+        "bosnadev/repositories": "dev-master",
+        "mitulgolakiya/laravel-api-generator": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

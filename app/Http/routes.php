@@ -34,3 +34,25 @@ Route::post('password/email', ['as' => 'password/postEmail', 'uses' => 'Auth\Pas
 // Password reset routes...
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', ['as' => 'password/postReset', 'uses' =>  'Auth\PasswordController@postReset']);
+
+/*
+|--------------------------------------------------------------------------
+| API routes
+|--------------------------------------------------------------------------
+*/
+
+Route::group(['prefix' => 'api', 'namespace' => 'API'], function ()
+{
+	Route::group(['prefix' => 'v1'], function ()
+	{
+        require Config::get('generator.path_api_routes');
+	});
+});
+
+
+Route::resource('insumos', 'InsumoController');
+
+Route::get('insumos/{id}/delete', [
+    'as' => 'insumos.delete',
+    'uses' => 'InsumoController@destroy',
+]);
