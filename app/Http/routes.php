@@ -35,6 +35,12 @@ Route::post('password/email', ['as' => 'password/postEmail', 'uses' => 'Auth\Pas
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', ['as' => 'password/postReset', 'uses' =>  'Auth\PasswordController@postReset']);
 
+Route::get('auth', function(){
+  return OAuth::authorize('facebook');
+});
+
+Route::get('login', 'WelcomeController@index');
+
 /*
 |--------------------------------------------------------------------------
 | API routes

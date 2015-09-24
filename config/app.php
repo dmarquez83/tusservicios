@@ -147,7 +147,8 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Styde\BladePagination\ServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
-        Mitul\Generator\GeneratorServiceProvider::class
+        Mitul\Generator\GeneratorServiceProvider::class,
+        AdamWathan\EloquentOAuthL5\EloquentOAuthServiceProvider::class
 
     ],
 
@@ -200,6 +201,7 @@ return [
         'Form'      => 'Collective\Html\FormFacade',
         'Html'      => 'Collective\Html\HtmlFacade',
         'Debugbar'  => 'Barryvdh\Debugbar\Facade',
+        'OAuth' => 'AdamWathan\EloquentOAuth\Facades\OAuth',
     ],
 
 ];

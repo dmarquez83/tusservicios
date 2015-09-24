@@ -18,7 +18,8 @@
         "styde/blade-pagination": "5.1.*@dev",
         "laracasts/flash": "dev-master",
         "bosnadev/repositories": "dev-master",
-        "mitulgolakiya/laravel-api-generator": "dev-master"
+        "mitulgolakiya/laravel-api-generator": "dev-master",
+        "adamwathan/eloquent-oauth-l5": "0.1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

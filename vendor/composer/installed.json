@@ -3366,5 +3366,613 @@
             }
         ],
         "description": "Easy flash notifications"
+    },
+    {
+        "name": "react/promise",
+        "version": "v2.2.1",
+        "version_normalized": "2.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/reactphp/promise.git",
+            "reference": "3b6fca09c7d56321057fa8867c8dbe1abf648627"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/reactphp/promise/zipball/3b6fca09c7d56321057fa8867c8dbe1abf648627",
+            "reference": "3b6fca09c7d56321057fa8867c8dbe1abf648627",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2015-07-03 13:48:55",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "React\\Promise\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jan Sorgalla",
+                "email": "jsorgalla@gmail.com"
+            }
+        ],
+        "description": "A lightweight implementation of CommonJS Promises/A for PHP"
+    },
+    {
+        "name": "guzzlehttp/streams",
+        "version": "3.0.0",
+        "version_normalized": "3.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/streams.git",
+            "reference": "47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/streams/zipball/47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5",
+            "reference": "47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2014-10-12 19:18:40",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Stream\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Provides a simple abstraction over streams of data",
+        "homepage": "http://guzzlephp.org/",
+        "keywords": [
+            "Guzzle",
+            "stream"
+        ]
+    },
+    {
+        "name": "guzzlehttp/ringphp",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/RingPHP.git",
+            "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/RingPHP/zipball/dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
+            "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/streams": "~3.0",
+            "php": ">=5.4.0",
+            "react/promise": "~2.0"
+        },
+        "require-dev": {
+            "ext-curl": "*",
+            "phpunit/phpunit": "~4.0"
+        },
+        "suggest": {
+            "ext-curl": "Guzzle will use specific adapters if cURL is present"
+        },
+        "time": "2015-05-20 03:37:09",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Ring\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Provides a simple API and specification that abstracts away the details of HTTP into a single PHP function."
+    },
+    {
+        "name": "guzzlehttp/guzzle",
+        "version": "5.3.0",
+        "version_normalized": "5.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/guzzle.git",
+            "reference": "f3c8c22471cb55475105c14769644a49c3262b93"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f3c8c22471cb55475105c14769644a49c3262b93",
+            "reference": "f3c8c22471cb55475105c14769644a49c3262b93",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/ringphp": "^1.1",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "ext-curl": "*",
+            "phpunit/phpunit": "^4.0",
+            "psr/log": "^1.0"
+        },
+        "time": "2015-05-20 03:47:55",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+        "homepage": "http://guzzlephp.org/",
+        "keywords": [
+            "client",
+            "curl",
+            "framework",
+            "http",
+            "http client",
+            "rest",
+            "web service"
+        ]
+    },
+    {
+        "name": "socialnorm/socialnorm",
+        "version": "v0.1.1",
+        "version_normalized": "0.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/socialnorm.git",
+            "reference": "248206dd56db4f1524abe4745a9d390cd787dd7f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/socialnorm/zipball/248206dd56db4f1524abe4745a9d390cd787dd7f",
+            "reference": "248206dd56db4f1524abe4745a9d390cd787dd7f",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "~5.0",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.8"
+        },
+        "time": "2015-05-27 22:37:54",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SocialNorm\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "Normalize user details between various OAuth providers"
+    },
+    {
+        "name": "socialnorm/soundcloud",
+        "version": "v0.1.0",
+        "version_normalized": "0.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/socialnorm-soundcloud.git",
+            "reference": "022777248ee61678c78e6a0a00a16ceb3e221f8d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/socialnorm-soundcloud/zipball/022777248ee61678c78e6a0a00a16ceb3e221f8d",
+            "reference": "022777248ee61678c78e6a0a00a16ceb3e221f8d",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "~5.0",
+            "php": ">=5.4.0",
+            "socialnorm/socialnorm": "0.1.*"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.8"
+        },
+        "time": "2015-03-21 16:39:19",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SocialNorm\\SoundCloud\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "SoundCloud provider for SocialNorm"
+    },
+    {
+        "name": "socialnorm/instagram",
+        "version": "v0.1.0",
+        "version_normalized": "0.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/socialnorm-instagram.git",
+            "reference": "33482570157b447f4d8c8a27ea2cbc672bddb886"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/socialnorm-instagram/zipball/33482570157b447f4d8c8a27ea2cbc672bddb886",
+            "reference": "33482570157b447f4d8c8a27ea2cbc672bddb886",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "~5.0",
+            "php": ">=5.4.0",
+            "socialnorm/socialnorm": "0.1.*"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.8"
+        },
+        "time": "2015-03-21 16:39:10",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SocialNorm\\Instagram\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "Instagram provider for SocialNorm"
+    },
+    {
+        "name": "socialnorm/google",
+        "version": "v0.1.0",
+        "version_normalized": "0.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/socialnorm-google.git",
+            "reference": "123ea887ce10ad99c3c6da096f46f364faa4a9bc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/socialnorm-google/zipball/123ea887ce10ad99c3c6da096f46f364faa4a9bc",
+            "reference": "123ea887ce10ad99c3c6da096f46f364faa4a9bc",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "~5.0",
+            "php": ">=5.4.0",
+            "socialnorm/socialnorm": "0.1.*"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.8"
+        },
+        "time": "2015-03-21 16:39:05",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SocialNorm\\Google\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "Google provider for SocialNorm"
+    },
+    {
+        "name": "socialnorm/linkedin",
+        "version": "v0.1.0",
+        "version_normalized": "0.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/socialnorm-linkedin.git",
+            "reference": "76c58730962d428d27db13129a2d8d0df646530a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/socialnorm-linkedin/zipball/76c58730962d428d27db13129a2d8d0df646530a",
+            "reference": "76c58730962d428d27db13129a2d8d0df646530a",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "~5.0",
+            "php": ">=5.4.0",
+            "socialnorm/socialnorm": "0.1.*"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.8"
+        },
+        "time": "2015-03-21 16:39:14",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SocialNorm\\LinkedIn\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "LinkedIn provider for SocialNorm"
+    },
+    {
+        "name": "socialnorm/github",
+        "version": "v0.1.0",
+        "version_normalized": "0.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/socialnorm-github.git",
+            "reference": "817dceeee969658c7bf0d70d84e42b8cb84f9d5c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/socialnorm-github/zipball/817dceeee969658c7bf0d70d84e42b8cb84f9d5c",
+            "reference": "817dceeee969658c7bf0d70d84e42b8cb84f9d5c",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "~5.0",
+            "php": ">=5.4.0",
+            "socialnorm/socialnorm": "0.1.*"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.8"
+        },
+        "time": "2015-03-21 16:39:01",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SocialNorm\\GitHub\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "GitHub provider for SocialNorm"
+    },
+    {
+        "name": "socialnorm/facebook",
+        "version": "v0.1.3",
+        "version_normalized": "0.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/socialnorm-facebook.git",
+            "reference": "75111bbe510bffe2a8ad5e5d48f38ed21733dc93"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/socialnorm-facebook/zipball/75111bbe510bffe2a8ad5e5d48f38ed21733dc93",
+            "reference": "75111bbe510bffe2a8ad5e5d48f38ed21733dc93",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "~5.0",
+            "php": ">=5.4.0",
+            "socialnorm/socialnorm": "0.1.*"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.8"
+        },
+        "time": "2015-08-05 11:53:15",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SocialNorm\\Facebook\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "Facebook provider for SocialNorm"
+    },
+    {
+        "name": "adamwathan/eloquent-oauth",
+        "version": "v6.1.0",
+        "version_normalized": "6.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/eloquent-oauth.git",
+            "reference": "39a1ff0b4c86df491aa8bf963faa68553ac14058"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/eloquent-oauth/zipball/39a1ff0b4c86df491aa8bf963faa68553ac14058",
+            "reference": "39a1ff0b4c86df491aa8bf963faa68553ac14058",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/auth": "4.*|5.*",
+            "illuminate/database": "4.*|5.*",
+            "illuminate/http": "4.*|5.*",
+            "illuminate/routing": "4.*|5.*",
+            "illuminate/session": "4.*|5.*",
+            "illuminate/support": "4.*|5.*",
+            "php": ">=5.4.0",
+            "socialnorm/facebook": "0.1.*",
+            "socialnorm/github": "0.1.*",
+            "socialnorm/google": "0.1.*",
+            "socialnorm/instagram": "0.1.*",
+            "socialnorm/linkedin": "0.1.*",
+            "socialnorm/socialnorm": "0.1.*",
+            "socialnorm/soundcloud": "0.1.*"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9"
+        },
+        "time": "2015-05-19 11:11:19",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "AdamWathan\\EloquentOAuth\\": "src/"
+            },
+            "classmap": [
+                "tests/FunctionalTestCase.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "Stupid simple OAuth authentication with Laravel and Eloquent"
+    },
+    {
+        "name": "adamwathan/eloquent-oauth-l5",
+        "version": "v0.1.0",
+        "version_normalized": "0.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/eloquent-oauth-l5.git",
+            "reference": "4a00e60298712e773c7669df56d9611bb67e7bc9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/eloquent-oauth-l5/zipball/4a00e60298712e773c7669df56d9611bb67e7bc9",
+            "reference": "4a00e60298712e773c7669df56d9611bb67e7bc9",
+            "shasum": ""
+        },
+        "require": {
+            "adamwathan/eloquent-oauth": "~6.0",
+            "guzzlehttp/guzzle": "~5.0",
+            "php": ">=5.4.0"
+        },
+        "time": "2015-05-14 00:41:07",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "AdamWathan\\EloquentOAuthL5\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "Stupid simple OAuth authentication with Laravel and Eloquent"
     }
 ]
