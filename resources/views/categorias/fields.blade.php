@@ -9,7 +9,7 @@
 
 <div class="form-group">
     <label>{{ trans('Descripción') }}</label>
-    {!! Form::input('text', 'descripcion', '', ['class'=> 'form-control']) !!}
+    {!! Form::input('text', 'decripcion', '', ['class'=> 'form-control']) !!}
 </div>
 
 <div class="form-group col-sm-12">

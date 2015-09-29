@@ -24,8 +24,7 @@ class Categoria extends Model
     ];
 
 	public static $rules = [
-	    "nombre" => "requiere",
-		"descripcion" => "requiere"
+
 	];
 
 }

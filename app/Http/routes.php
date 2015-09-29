@@ -63,7 +63,7 @@ Route::get('api/insumos','API\InsumoAPIController@index');
 
 Route::get('api/insumos/{id}','API\InsumoAPIController@show');
 
-//Route::get('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos'); esto para probar el registro
+//Route::get('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos'); esto para probar el re+gistro
 
 Route::post('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos');
 

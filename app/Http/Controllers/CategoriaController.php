@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateCategoriaRequest;
 use App\Http\Requests\UpdateCategoriaRequest;
 use App\Libraries\Repositories\CategoriaRepository;
+use App\Models\Categoria;
 use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
@@ -52,11 +53,11 @@ class CategoriaController extends AppBaseController
 	public function store(CreateCategoriaRequest $request)
 	{
 
-
 		$this->validate($request, [
-			'nombre' => 'required|unique:posts|max:255',
-			'descripcion' => 'required',
+			'nombre' => 'required|unique:categorias|max:255',
+			'decripcion' => 'max:500'
 		]);
+
 
 
 		$input = $request->all();
@@ -66,6 +67,16 @@ class CategoriaController extends AppBaseController
 		Flash::success('Categoria Guardada Correctamente.');
 
 		return redirect(route('categorias.index'));
+
+		/*$nombre='Pintura';
+		$descripcion='mano de obra en pintura';
+
+		return Categoria::create([
+			'nombre' =>$nombre,
+			'decripcion' =>$descripcion,
+		]);*/
+
+
 	}
 
 	/**
@@ -120,6 +131,13 @@ class CategoriaController extends AppBaseController
 	 */
 	public function update($id, UpdateCategoriaRequest $request)
 	{
+
+		$this->validate($request, [
+			'nombre' => 'max:255',
+			'decripcion' => 'max:500'
+		]);
+
+
 		$categoria = $this->categoriaRepository->find($id);
 
 		if(empty($categoria))
