@@ -1,8 +1,8 @@
 <table class="table">
     <thead>
     <th>Nombre</th>
-			<th>Decripcion</th>
-    <th width="50px">Action</th>
+			<th>Descripcion</th>
+    <th width="50px">Acción</th>
     </thead>
     <tbody>
     @foreach($categorias as $categoria)
@@ -11,7 +11,7 @@
 			<td>{!! $categoria->decripcion !!}</td>
             <td>
                 <a href="{!! route('categorias.edit', [$categoria->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
-                <a href="{!! route('categorias.delete', [$categoria->id]) !!}" onclick="return confirm('Are you sure wants to delete this Categoria?')"><i class="glyphicon glyphicon-remove"></i></a>
+                <a href="{!! route('categorias.delete', [$categoria->id]) !!}" onclick="return confirm('¿Estás seguro quiere eliminar esta Categoria?')"><i class="glyphicon glyphicon-remove"></i></a>
             </td>
         </tr>
     @endforeach

@@ -7,7 +7,7 @@
 
     {!! Form::model($categoria, ['route' => ['categorias.update', $categoria->id], 'method' => 'patch']) !!}
 
-        @include('categorias.fields')
+        @include('categorias.fields_edit')
 
     {!! Form::close() !!}
 </div>

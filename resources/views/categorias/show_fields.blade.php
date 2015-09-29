@@ -6,7 +6,7 @@
 
 <!-- Decripcion Field -->
 <div class="form-group">
-    {!! Form::label('decripcion', 'Decripcion:') !!}
+    {!! Form::label('decripcion', 'Descripcion:') !!}
     <p>{!! $categoria->decripcion !!}</p>
 </div>
 
