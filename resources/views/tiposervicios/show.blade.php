@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container">
-	 @include('estatus.show_fields')
+	 @include('tiposervicios.show_fields')
 </div>
 @endsection

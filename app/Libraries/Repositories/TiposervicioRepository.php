@@ -1,11 +1,11 @@
 <?php namespace App\Libraries\Repositories;
 
-use App\Models\Estatu;
+use App\Models\Tiposervicio;
 use Bosnadev\Repositories\Eloquent\Repository;
 use Schema;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class EstatuRepository extends Repository
+class TiposervicioRepository extends Repository
 {
 
     /**
@@ -14,14 +14,14 @@ class EstatuRepository extends Repository
     **/
     public function model()
     {
-      return 'App\Models\Estatu';
+      return 'App\Models\Tiposervicio';
     }
 
 	public function search($input)
     {
-        $query = Estatu::query();
+        $query = Tiposervicio::query();
 
-        $columns = Schema::getColumnListing('estatus');
+        $columns = Schema::getColumnListing('tiposervicios');
         $attributes = array();
 
         foreach($columns as $attribute)
@@ -46,7 +46,7 @@ class EstatuRepository extends Repository
 
         if(empty($model))
         {
-            throw new HttpException(1001, "Estatu not found");
+            throw new HttpException(1001, "Tiposervicio not found");
         }
 
         return $model;
@@ -58,7 +58,7 @@ class EstatuRepository extends Repository
 
         if(empty($model))
         {
-            throw new HttpException(1001, "Estatu not found");
+            throw new HttpException(1001, "Tiposervicio not found");
         }
 
         return $model->delete();

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEstatusTable extends Migration
+class CreateTiposerviciosTable extends Migration
 {
 
 	/**
@@ -13,11 +13,12 @@ class CreateEstatusTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('estatus', function(Blueprint $table)
+		Schema::create('tiposervicios', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('nombre');
 			$table->string('descripcion');
+			$table->integer('id_categoria')->unsigned()->foreign()->references('id')->on('categorias')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}
@@ -29,7 +30,7 @@ class CreateEstatusTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('estatus');
+		Schema::drop('tiposervicios');
 	}
 
 }

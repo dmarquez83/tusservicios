@@ -85,13 +85,14 @@ Route::get('categorias/{id}/delete', [
 
 
 
-/**********************************Estatus**********************************/
-
-Route::resource('estatus', 'EstatuController');
+/**********************************tipo_servicios**********************************/
 
 
+Route::resource('tiposervicios', 'TiposervicioController');
 
-Route::get('estatus/{id}/delete', [
-    'as' => 'estatus.delete',
-    'uses' => 'EstatuController@destroy',
+Route::get('tiposervicios/{id}/delete', [
+    'as' => 'tiposervicios.delete',
+    'uses' => 'TiposervicioController@destroy',
 ]);
+
+

@@ -2,15 +2,16 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 
-class Estatu extends Model
+class Tiposervicio extends Model
 {
     
-	public $table = "estatus";
+	public $table = "tiposervicios";
     
 
 	public $fillable = [
 	    "nombre",
-		"descripcion"
+		"descripcion",
+		"id_categoria"
 	];
 
     /**
@@ -20,11 +21,14 @@ class Estatu extends Model
      */
     protected $casts = [
         "nombre" => "string",
-		"descripcion" => "string"
+		"descripcion" => "string",
+		"id_categoria" => "integer"
     ];
 
 	public static $rules = [
-	    "nombre" => "requiere"
+	    "nombre" => "validator",
+		"descripcion" => "validator",
+		"id_categoria" => "validator"
 	];
 
 }

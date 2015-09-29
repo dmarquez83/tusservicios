@@ -1,9 +1,9 @@
 <?php namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
-use App\Models\Estatu;
+use App\Models\Tiposervicio;
 
-class CreateEstatuRequest extends Request {
+class CreateTiposervicioRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class CreateEstatuRequest extends Request {
 	 */
 	public function rules()
 	{
-		return Estatu::$rules;
+		return Tiposervicio::$rules;
 	}
 
 }

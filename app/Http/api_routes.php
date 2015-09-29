@@ -40,3 +40,23 @@ Route::resource("categorias", "CategoriaAPIController");
 Route::resource("categorias", "CategoriaAPIController");
 
 Route::resource("estatus", "EstatuAPIController");
+
+Route::resource("tipoServicios", "Tipo_servicioAPIController");
+
+Route::resource("tipoServicios", "Tipo_servicioAPIController");
+
+Route::resource("tipoServicios", "Tipo_servicioAPIController");
+
+Route::resource("tipoServicios", "Tipo_servicioAPIController");
+
+Route::resource("tipoServicios", "Tipo_servicioAPIController");
+
+Route::resource("tiposervicios", "TiposervicioAPIController");
+
+Route::resource("tiposervicios", "TiposervicioAPIController");
+
+Route::resource("tiposervicios", "TiposervicioAPIController");
+
+Route::resource("tiposervicios", "TiposervicioAPIController");
+
+Route::resource("tiposervicios", "TiposervicioAPIController");

@@ -5,9 +5,12 @@
 
     @include('common.errors')
 
-    {!! Form::model($estatu, ['route' => ['estatus.update', $estatu->id], 'method' => 'patch']) !!}
 
-        @include('estatus.fields')
+
+    {!! Form::open(['route' => 'tiposervicios.store']) !!}
+
+
+        @include('tiposervicios.fields')
 
     {!! Form::close() !!}
 </div>
