@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/var/www/back-tusservicios/app/Http/Controllers/Auth/AuthController.php</file>
+        <file>file:/var/www/back-tusservicios/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesAndRegistersUsers.php</file>
+        <file>file:/var/www/back-tusservicios/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php</file>
+        <file>file:/var/www/back-tusservicios/app/Http/routes.php</file>
+        <file>file:/var/www/back-tusservicios/resources/views/auth/register.blade.php</file>
+        <file>file:/var/www/back-tusservicios/resources/views/auth/reset.blade.php</file>
+    </open-files>
+</project-private>
