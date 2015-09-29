@@ -148,7 +148,8 @@ return [
         Styde\BladePagination\ServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Mitul\Generator\GeneratorServiceProvider::class,
-        AdamWathan\EloquentOAuthL5\EloquentOAuthServiceProvider::class
+        AdamWathan\EloquentOAuthL5\EloquentOAuthServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
 
     ],
 

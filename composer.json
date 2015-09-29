@@ -19,7 +19,8 @@
         "laracasts/flash": "dev-master",
         "bosnadev/repositories": "dev-master",
         "mitulgolakiya/laravel-api-generator": "dev-master",
-        "adamwathan/eloquent-oauth-l5": "0.1.*"
+        "adamwathan/eloquent-oauth-l5": "0.1.*",
+        "barryvdh/laravel-ide-helper": "^2.1@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -43,6 +44,7 @@
     "scripts": {
         "post-install-cmd": [
             "php artisan clear-compiled",
+            "php artisan ide-helper:generate",
             "php artisan optimize"
         ],
         "post-update-cmd": [
