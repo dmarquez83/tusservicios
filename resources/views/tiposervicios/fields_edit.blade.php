@@ -1,13 +1,13 @@
 
 <div class="form-group">
     <label>{{ trans('Nombre') }}</label>
-    {!! Form::input('text', 'nombre',  '', ['class'=> 'form-control']) !!}
+    {!! Form::input('text', 'nombre',  $tiposervicio->nombre, ['class'=> 'form-control']) !!}
 </div>
 
 
 <div class="form-group">
     <label>{{ trans('Descripción') }}</label>
-    {!! Form::input('text', 'descripcion', '', ['class'=> 'form-control']) !!}
+    {!! Form::input('text', 'descripcion', $tiposervicio->descripcion, ['class'=> 'form-control']) !!}
 </div>
 
 <!--- Id Categoria Field --->
@@ -23,7 +23,7 @@
 --}}
 
 <div class="form-group col-sm-6 col-lg-4">
-    {!! Form::label('id_categoria', 'Id Categoria:') !!}
+    {!! Form::label('id_categoria', 'Categoria:') !!}
     {!! Form::select('id_categoria', $categorias, null, ['class' => 'form-control']) !!}
 </div>
 

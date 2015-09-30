@@ -7,7 +7,7 @@
 
     {!! Form::model($tiposervicio, ['route' => ['tiposervicios.update', $tiposervicio->id], 'method' => 'patch']) !!}
 
-        @include('tiposervicios.fields')
+        @include('tiposervicios.fields_edit')
 
     {!! Form::close() !!}
 </div>

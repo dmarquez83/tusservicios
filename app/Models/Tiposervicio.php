@@ -26,9 +26,7 @@ class Tiposervicio extends Model
     ];
 
 	public static $rules = [
-	    "nombre" => "validator",
-		"descripcion" => "validator",
-		"id_categoria" => "validator"
+
 	];
 
 }
