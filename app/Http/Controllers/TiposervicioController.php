@@ -29,7 +29,7 @@ class TiposervicioController extends AppBaseController
 	 */
 	public function index()
 	{
-	//	$tiposervicios = $this->tiposervicioRepository->paginate(10);
+		$tiposervicios = $this->tiposervicioRepository->paginate(10);
 
 		//$sele = marca::distinct()->select('marca.COD_MARCA','marca.NOMBRE_MARCA')->join('modelo','modelo.COD_MARCA' ,'=','marca.COD_MARCA')->where('modelo.COD_CATEGORIA','=',$id)->where('marca.ACTIVO','=',1)->get();
 
@@ -41,17 +41,18 @@ class TiposervicioController extends AppBaseController
 
 		//$tiposervicios = Tiposervicio::distinct()->select('tiposervicios.NOMBRE','tiposervicios.DESCRIPCION','categorias.NOMBRE')->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')->get();
 
-		$tiposervicios = DB::table('tiposervicios')
+		//este me funciona bien con retur json
+		/*$tiposervicios = DB::table('tiposervicios')
 			->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
 			->select('tiposervicios.id','tiposervicios.nombre','tiposervicios.descripcion','tiposervicios.id_categoria','categorias.nombre as categoria'  )
-			->get();
+			->get();*/
 
 		//return view('tiposervicios.index', ['tiposervicios' => $tiposervicios]);
 
-		//return view('tiposervicios.index')
-		//	->with('tiposervicios', $tiposervicios);
+		return view('tiposervicios.index')
+			->with('tiposervicios', $tiposervicios);
 
-		return response()->json($tiposervicios);
+		//return response()->json($tiposervicios);
 
 
 
