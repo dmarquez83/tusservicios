@@ -107,18 +107,7 @@ Route::get('estatus/{id}/delete', [
 
 
 
-
-
-
-Route::resource('servicios', 'ServiciosController');
-
-Route::get('servicios/{id}/delete', [
-    'as' => 'servicios.delete',
-    'uses' => 'ServiciosController@destroy',
-]);
-
-
-
+/**********************************Servicios**********************************/
 
 
 Route::resource('servicios', 'ServiciosController');
@@ -128,10 +117,20 @@ Route::get('servicios/{id}/delete', [
     'uses' => 'ServiciosController@destroy',
 ]);
 
+/**********************************Ponderacions**********************************/
 
 Route::resource('ponderacions', 'PonderacionController');
 
 Route::get('ponderacions/{id}/delete', [
     'as' => 'ponderacions.delete',
     'uses' => 'PonderacionController@destroy',
+]);
+
+/**********************************Tipo usuarios**********************************/
+
+Route::resource('tipousuarios', 'TipousuariosController');
+
+Route::get('tipousuarios/{id}/delete', [
+    'as' => 'tipousuarios.delete',
+    'uses' => 'TipousuariosController@destroy',
 ]);

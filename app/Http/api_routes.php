@@ -72,3 +72,9 @@ Route::resource("gregories", "GregoryAPIController");
 Route::resource("servicios", "ServiciosAPIController");
 
 Route::resource("ponderacions", "PonderacionAPIController");
+
+Route::resource("tipoUsuarios", "Tipo_usuariosAPIController");
+
+Route::resource("tipousuarios", "TipousuariosAPIController");
+
+Route::resource("tipousuarios", "TipousuariosAPIController");
