@@ -96,3 +96,15 @@ Route::get('tiposervicios/{id}/delete', [
 ]);
 
 
+/**********************************Estatus**********************************/
+
+Route::resource('estatus', 'EstatuController');
+
+Route::get('estatus/{id}/delete', [
+    'as' => 'estatus.delete',
+    'uses' => 'EstatuController@destroy',
+]);
+
+
+
+

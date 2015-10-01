@@ -60,3 +60,7 @@ Route::resource("tiposervicios", "TiposervicioAPIController");
 Route::resource("tiposervicios", "TiposervicioAPIController");
 
 Route::resource("tiposervicios", "TiposervicioAPIController");
+
+Route::resource("estatus", "EstatuAPIController");
+
+Route::resource("estatus", "EstatuAPIController");
