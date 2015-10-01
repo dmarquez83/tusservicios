@@ -31,19 +31,19 @@ class ServiciosController extends AppBaseController
 	 */
 	public function index()
 	{
-		//$servicios = $this->serviciosRepository->paginate(10);
+		$servicios = $this->serviciosRepository->paginate(10);
 
 		/*$servicios = Servicios::join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
 			->orderBy('servicios.id', 'asc')
 			->lists('servicios.nombre', 'servicios.id','servicios.descripcion','tiposervicios.nombre as nombre_tipo_servicio','servicios.id_estatus','servicios.ponderacion');*/
 
-		$servicios = DB::table('servicios')
+		/*$servicios = DB::table('servicios')
         ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
 		->join('estatus','estatus.id' ,'=','servicios.id_estatus')
 		->join('ponderacions','ponderacions.id' ,'=','servicios.ponderacion')
         ->select('servicios.nombre', 'servicios.id','servicios.descripcion','tiposervicios.nombre as nombre_tipo_servicio','estatus.nombre as nombre_estatus','ponderacions.nombre as nombre_ponderacion')
         ->get();
-
+*/
 
 		return view('servicios.index')
 			->with('servicios', $servicios);
@@ -123,6 +123,12 @@ class ServiciosController extends AppBaseController
 	{
 		$servicios = $this->serviciosRepository->find($id);
 
+		$tiposervicios = Tiposervicio::where('id_categoria','6')->orderBy('id', 'asc')->lists('nombre', 'id');
+
+		$estatu = Estatu::where('tabla','servicios')->orderBy('id', 'asc')->lists('nombre', 'id');
+
+		$ponderacion = Ponderacion::orderBy('id', 'asc')->lists('nombre','valor', 'id');
+
 		if(empty($servicios))
 		{
 			Flash::error('Servicios not found');
@@ -130,7 +136,7 @@ class ServiciosController extends AppBaseController
 			return redirect(route('servicios.index'));
 		}
 
-		return view('servicios.edit')->with('servicios', $servicios);
+		return view('servicios.edit',compact('servicios','tiposervicios','estatu','ponderacion'));
 	}
 
 	/**
