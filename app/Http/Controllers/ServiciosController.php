@@ -121,7 +121,7 @@ class ServiciosController extends AppBaseController
 	 */
 	public function edit($id)
 	{
-		
+		/* */
 		$servicios = $this->serviciosRepository->find($id);
 
 		$tiposervicios = Tiposervicio::where('id_categoria','6')->orderBy('id', 'asc')->lists('nombre', 'id');
