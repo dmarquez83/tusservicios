@@ -64,3 +64,11 @@ Route::resource("tiposervicios", "TiposervicioAPIController");
 Route::resource("estatus", "EstatuAPIController");
 
 Route::resource("estatus", "EstatuAPIController");
+
+Route::resource("servicios", "ServiciosAPIController");
+
+Route::resource("gregories", "GregoryAPIController");
+
+Route::resource("servicios", "ServiciosAPIController");
+
+Route::resource("ponderacions", "PonderacionAPIController");

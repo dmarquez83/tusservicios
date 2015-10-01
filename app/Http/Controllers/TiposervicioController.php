@@ -41,7 +41,7 @@ class TiposervicioController extends AppBaseController
 
 		//$tiposervicios = Tiposervicio::distinct()->select('tiposervicios.NOMBRE','tiposervicios.DESCRIPCION','categorias.NOMBRE')->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')->get();
 
-		//este me funciona bien con retur json
+		//este me funciona bien con retur json   ***********************ojo es esta
 		/*$tiposervicios = DB::table('tiposervicios')
 			->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
 			->select('tiposervicios.id','tiposervicios.nombre','tiposervicios.descripcion','tiposervicios.id_categoria','categorias.nombre as categoria'  )
