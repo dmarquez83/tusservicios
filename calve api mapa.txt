@@ -1,0 +1,23 @@
+Clave de API
+
+Esta es tu clave de API
+AIzaSyBXYKSOv_7lMM4z32tpfhSf6dtKf4HKZDE
+
+https://console.developers.google.com/project/lyrical-diagram-108618/apiui/credential?highlightKey=0
+
+pasos:
+
+https://console.developers.google.com/project/lyrical-diagram-108618/apiui/credential?highlightKey=0
+
+https://console.developers.google.com/project/lyrical-diagram-108618/apiui/credential?highlightKey=0
+
+https://github.com/alexpechkarev/google-geocoder
+
+https://console.developers.google.com/project/lyrical-diagram-108618/apiui/credential
+
+
+https://developers.google.com/maps/documentation/geocoding/intro#api_key
+
+https://developers.google.com/maps/documentation/geocoding/get-api-key#key
+
+http://nepras.pl/geocoder-laravel-5-kurs-mapa-google-25/

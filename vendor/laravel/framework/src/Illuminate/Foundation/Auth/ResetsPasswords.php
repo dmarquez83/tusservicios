@@ -2,7 +2,6 @@
 
 namespace Illuminate\Foundation\Auth;
 
-
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Auth;
@@ -51,7 +50,7 @@ trait ResetsPasswords
      */
     protected function getEmailSubject()
     {
-        return isset($this->subject) ? $this->subject : 'Enlace para resetear tu clave';
+        return property_exists($this, 'subject') ? $this->subject : 'Your Password Reset Link';
     }
 
     /**

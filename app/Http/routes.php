@@ -128,6 +128,7 @@ Route::get('ponderacions/{id}/delete', [
 
 /**********************************Tipo usuarios**********************************/
 
+
 Route::resource('tipousuarios', 'TipousuariosController');
 
 Route::get('tipousuarios/{id}/delete', [
@@ -135,6 +136,7 @@ Route::get('tipousuarios/{id}/delete', [
     'uses' => 'TipousuariosController@destroy',
 ]);
 
+/**********************************Evaluaciones**********************************/
 
 Route::resource('evaluaciones', 'EvaluacionesController');
 
@@ -143,42 +145,17 @@ Route::get('evaluaciones/{id}/delete', [
     'uses' => 'EvaluacionesController@destroy',
 ]);
 
+/**********************************Mapa**********************************/
 
-Route::resource('evaluaciones', 'EvaluacionesController');
-
-Route::get('evaluaciones/{id}/delete', [
-    'as' => 'evaluaciones.delete',
-    'uses' => 'EvaluacionesController@destroy',
-]);
+Route::get('geocoder', 'OtherGeocoderController@index');
 
 
-Route::resource('tipousuarios', 'TipousuariosController');
-
-Route::get('tipousuarios/{id}/delete', [
-    'as' => 'tipousuarios.delete',
-    'uses' => 'TipousuariosController@destroy',
-]);
+/**********************************solicitudes**********************************/
 
 
-Route::resource('tipousuarios', 'TipousuariosController');
+Route::resource('solicitudes', 'SolicitudesController');
 
-Route::get('tipousuarios/{id}/delete', [
-    'as' => 'tipousuarios.delete',
-    'uses' => 'TipousuariosController@destroy',
-]);
-
-
-Route::resource('tipousuarios', 'TipousuariosController');
-
-Route::get('tipousuarios/{id}/delete', [
-    'as' => 'tipousuarios.delete',
-    'uses' => 'TipousuariosController@destroy',
-]);
-
-
-Route::resource('evaluaciones', 'EvaluacionesController');
-
-Route::get('evaluaciones/{id}/delete', [
-    'as' => 'evaluaciones.delete',
-    'uses' => 'EvaluacionesController@destroy',
+Route::get('solicitudes/{id}/delete', [
+    'as' => 'solicitudes.delete',
+    'uses' => 'SolicitudesController@destroy',
 ]);

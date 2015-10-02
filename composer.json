@@ -20,7 +20,8 @@
         "bosnadev/repositories": "dev-master",
         "mitulgolakiya/laravel-api-generator": "dev-master",
         "adamwathan/eloquent-oauth-l5": "0.1.*",
-        "barryvdh/laravel-ide-helper": "^2.1@dev"
+        "barryvdh/laravel-ide-helper": "^2.1@dev",
+        "alexpechkarev/google-geocoder": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

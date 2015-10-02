@@ -149,7 +149,13 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         Mitul\Generator\GeneratorServiceProvider::class,
         AdamWathan\EloquentOAuthL5\EloquentOAuthServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+        /*
+         * Mapa
+         */
+
+        Alexpechkarev\GoogleGeocoder\GoogleGeocoderServiceProvider::class
 
     ],
 

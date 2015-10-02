@@ -57,6 +57,7 @@ class ServiciosController extends AppBaseController
 	public function create()
 	{
 		/*ojo aqui debe venir la categoria para seleccionar el tipo de servicio*/
+		/*ojo debe salir la opcion para que selecciona la categoria y de hay se desplegue los tipos de servicios segun la categoria*/
 
 		$tiposervicios = Tiposervicio::where('id_categoria','6')->orderBy('id', 'asc')->lists('nombre', 'id');
 
