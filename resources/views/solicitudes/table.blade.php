@@ -18,7 +18,7 @@
 			<td>{!! $solicitudes->direccion !!}</td>
 			<td>{!! $solicitudes->telefono !!}</td>
 			<td>{!! $solicitudes->horas !!}</td>
-		
+
 			<td>{!! $solicitudes->id_servicio !!}</td>
             <td>
                 <a href="{!! route('solicitudes.edit', [$solicitudes->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>

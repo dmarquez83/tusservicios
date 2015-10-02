@@ -1,10 +1,12 @@
 <?php namespace App\Http\Controllers;
 
+use Mail;
 use App\Http\Requests;
 use App\Http\Requests\CreateSolicitudesRequest;
 use App\Http\Requests\UpdateSolicitudesRequest;
 use App\Libraries\Repositories\SolicitudesRepository;
 use App\Models\Servicios;
+use App\User;
 use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
@@ -65,6 +67,16 @@ class SolicitudesController extends AppBaseController
 		$solicitudes = $this->solicitudesRepository->create($input);
 
 		Flash::success('Solicitudes saved successfully.');
+
+		$id=7;
+
+		$user = User::findOrFail($id);
+
+		Mail::send('emails.solicitud', ['user' => $user], function ($m) use ($user) {
+			$m->to($user->email, $user->name)->subject('Tu Solicitud a sido registrada');
+		});
+
+
 
 		return redirect(route('solicitudes.index'));
 	}
