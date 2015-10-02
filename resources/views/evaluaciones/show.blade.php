@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container">
-	 @include('tipoUsuarios.show_fields')
+	 @include('evaluaciones.show_fields')
 </div>
 @endsection

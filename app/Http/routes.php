@@ -134,3 +134,51 @@ Route::get('tipousuarios/{id}/delete', [
     'as' => 'tipousuarios.delete',
     'uses' => 'TipousuariosController@destroy',
 ]);
+
+
+Route::resource('evaluaciones', 'EvaluacionesController');
+
+Route::get('evaluaciones/{id}/delete', [
+    'as' => 'evaluaciones.delete',
+    'uses' => 'EvaluacionesController@destroy',
+]);
+
+
+Route::resource('evaluaciones', 'EvaluacionesController');
+
+Route::get('evaluaciones/{id}/delete', [
+    'as' => 'evaluaciones.delete',
+    'uses' => 'EvaluacionesController@destroy',
+]);
+
+
+Route::resource('tipousuarios', 'TipousuariosController');
+
+Route::get('tipousuarios/{id}/delete', [
+    'as' => 'tipousuarios.delete',
+    'uses' => 'TipousuariosController@destroy',
+]);
+
+
+Route::resource('tipousuarios', 'TipousuariosController');
+
+Route::get('tipousuarios/{id}/delete', [
+    'as' => 'tipousuarios.delete',
+    'uses' => 'TipousuariosController@destroy',
+]);
+
+
+Route::resource('tipousuarios', 'TipousuariosController');
+
+Route::get('tipousuarios/{id}/delete', [
+    'as' => 'tipousuarios.delete',
+    'uses' => 'TipousuariosController@destroy',
+]);
+
+
+Route::resource('evaluaciones', 'EvaluacionesController');
+
+Route::get('evaluaciones/{id}/delete', [
+    'as' => 'evaluaciones.delete',
+    'uses' => 'EvaluacionesController@destroy',
+]);

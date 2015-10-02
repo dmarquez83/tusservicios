@@ -78,3 +78,15 @@ Route::resource("tipoUsuarios", "Tipo_usuariosAPIController");
 Route::resource("tipousuarios", "TipousuariosAPIController");
 
 Route::resource("tipousuarios", "TipousuariosAPIController");
+
+Route::resource("evaluaciones", "EvaluacionesAPIController");
+
+Route::resource("evaluaciones", "EvaluacionesAPIController");
+
+Route::resource("tipousuarios", "TipousuariosAPIController");
+
+Route::resource("tipousuarios", "TipousuariosAPIController");
+
+Route::resource("tipousuarios", "TipousuariosAPIController");
+
+Route::resource("evaluaciones", "EvaluacionesAPIController");
