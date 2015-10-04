@@ -100,12 +100,16 @@ Route::get('tiposervicios/{id}/delete', [
 
 /**********************************Estatus**********************************/
 
-Route::resource('estatus', 'EstatuController');
+Route::resource('estatus', 'API\EstatuAPIController');
 
 Route::get('estatus/{id}/delete', [
     'as' => 'estatus.delete',
     'uses' => 'EstatuController@destroy',
 ]);
+
+Route::get('estatus_tab', function ()    {
+    return view('estatus.table');
+});
 
 
 
@@ -161,3 +165,6 @@ Route::get('solicitudes/{id}/delete', [
     'as' => 'solicitudes.delete',
     'uses' => 'SolicitudesController@destroy',
 ]);
+
+
+

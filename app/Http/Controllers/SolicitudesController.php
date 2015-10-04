@@ -68,13 +68,13 @@ class SolicitudesController extends AppBaseController
 
 		Flash::success('Solicitudes saved successfully.');
 
-		$id=7;
+	/*	$id=7;
 
 		$user = User::findOrFail($id);
 
 		Mail::send('emails.solicitud', ['user' => $user], function ($m) use ($user) {
 			$m->to($user->email, $user->name)->subject('Tu Solicitud a sido registrada');
-		});
+		});*/
 
 
 

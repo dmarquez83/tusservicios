@@ -21,5 +21,6 @@ return array(
     'DebugBar' => array($vendorDir . '/maximebf/debugbar/src'),
     'Cron' => array($vendorDir . '/mtdowling/cron-expression/src'),
     'Carbon' => array($vendorDir . '/nesbot/carbon/src'),
+    'Asm89\\Stack' => array($vendorDir . '/asm89/stack-cors/src'),
     'Alexpechkarev\\GoogleGeocoder' => array($vendorDir . '/alexpechkarev/google-geocoder/src'),
 );

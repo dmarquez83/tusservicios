@@ -28,8 +28,11 @@ class EstatuController extends AppBaseController
 	{
 		$estatus = $this->estatuRepository->paginate(10);
 
-		return view('estatus.index')
-			->with('estatus', $estatus);
+		/*return view('estatus.index')
+			->with('estatus', $estatus);*/
+
+	   return response()->json($estatus);
+
 	}
 
 	/**

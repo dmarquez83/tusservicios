@@ -27,7 +27,8 @@ class EstatuAPIController extends AppBaseController
 	{
 		$estatus = $this->estatuRepository->all();
 
-		return $this->sendResponse($estatus->toArray(), "Estatus retrieved successfully");
+		//return $this->sendResponse($estatus->toArray(), "Estatus retrieved successfully");
+	  return response()->json($estatus);
 	}
 
 	/**

@@ -1,17 +1,25 @@
 <!--- Nombre Field --->
-<div class="form-group">
-    {!! Form::label('nombre', 'Nombre:') !!}
-	{!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+<div class="row">
+    <div class="input-field">
+        {!! Form::label('nombre', 'Nombre:') !!}
+        {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+    </div>
 </div>
 
+
+
+
 <!--- Descripcion Field --->
-<div class="form-group">
+<div class="row">
+    <div class="input-field">
     {!! Form::label('descripcion', 'Descripcion:') !!}
-	{!! Form::textarea('descripcion', null, ['class' => 'form-control']) !!}
+	{!! Form::textarea('descripcion', null, ['class' => 'materialize-textarea']) !!}
+    </div>
 </div>
 
 <!--- Tabla Field --->
-<div class="form-group">
+<div class="row">
+    <div class="input-field">
     {!! Form::label('tabla', 'Tabla:') !!}
 
     {!! Form::select('tabla', array(
@@ -21,8 +29,10 @@
     'servicios' => 'Servicios',
     'catalogos' => 'Catalogos',
     'catalogos_insumos' => 'Catalogos Insumos',
-), null, ['class' => 'form-control']) !!}
+), null, []) !!}
 </div>
+</div>
+
 
 
 <!--- Submit Field --->

@@ -4138,5 +4138,96 @@
             "google geocoding api",
             "laravel"
         ]
+    },
+    {
+        "name": "asm89/stack-cors",
+        "version": "0.2.1",
+        "version_normalized": "0.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/asm89/stack-cors.git",
+            "reference": "2d77e77251a434e4527315313a672f5801b29fa2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/asm89/stack-cors/zipball/2d77e77251a434e4527315313a672f5801b29fa2",
+            "reference": "2d77e77251a434e4527315313a672f5801b29fa2",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2",
+            "symfony/http-foundation": "~2.1",
+            "symfony/http-kernel": "~2.1"
+        },
+        "time": "2014-07-28 07:22:35",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Asm89\\Stack": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexander",
+                "email": "iam.asm89@gmail.com"
+            }
+        ],
+        "description": "Cross-origin resource sharing library and stack middleware",
+        "homepage": "https://github.com/asm89/stack-cors",
+        "keywords": [
+            "cors",
+            "stack"
+        ]
+    },
+    {
+        "name": "skydiver/laravel-materialize-css",
+        "version": "v0.97.0",
+        "version_normalized": "0.97.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/skydiver/laravel-materialize-css.git",
+            "reference": "35ef221b99e26d328aa6dc8a7ba28c79445cd79a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/skydiver/laravel-materialize-css/zipball/35ef221b99e26d328aa6dc8a7ba28c79445cd79a",
+            "reference": "35ef221b99e26d328aa6dc8a7ba28c79445cd79a",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "5.*",
+            "php": ">=5.4.0"
+        },
+        "time": "2015-08-13 01:31:57",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Skydiver\\LaravelMaterializeCSS\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Martin",
+                "email": "martin@flydev.com"
+            }
+        ],
+        "description": "Add Materialize CSS Framework to Laravel",
+        "keywords": [
+            "css",
+            "css framework",
+            "laravel",
+            "material design",
+            "materialize"
+        ]
     }
 ]
