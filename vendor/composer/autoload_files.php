@@ -15,6 +15,7 @@ return array(
     $vendorDir . '/danielstjules/stringy/src/Create.php',
     $vendorDir . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
     $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
+    $vendorDir . '/guzzlehttp/psr7/src/functions_include.php',
     $vendorDir . '/barryvdh/laravel-debugbar/src/helpers.php',
     $vendorDir . '/laracasts/flash/src/Laracasts/Flash/functions.php',
     $vendorDir . '/laravelcollective/html/src/helpers.php',

@@ -77,15 +77,42 @@ class ServiciosController extends AppBaseController
 	 *
 	 * @return Response
 	 */
+
+
+  //return response()->json($data);
+
+
 	public function store(CreateServiciosRequest $request)
 	{
-		$input = $request->all();
+		//$input = $request->all();
 
-		$servicios = $this->serviciosRepository->create($input);
+
+	  $data = [
+		'nombre' => $request->get('nombre'),
+		'descripcion' => str_slug($request->get('descripcion')),
+		'id_tipo_servicio' => $request->get('id_tipo_servicio'),
+		'id_estatus' => $request->get('id_estatus'),
+	  	'ponderacion' => $request->get('ponderacion'),
+	  	'foto' => $request->get('foto'),
+		'foto' => $request->file('foto')
+	  ];
+
+	  //obtenemos el campo file definido en el formulario
+	/*  $file = $request->file('file');
+
+	  //obtenemos el nombre del archivo
+	  $nombre = $request->get('foto');
+
+	  //indicamos que queremos guardar un nuevo archivo en el disco local
+	  \Storage::disk('local')->put($nombre,  \File::get($file));
+
+		$servicios = $this->serviciosRepository->create($data);
 
 		Flash::success('Servicios saved successfully.');
 
-		return redirect(route('servicios.index'));
+		return redirect(route('servicios.index'));*/
+
+	    return $this->sendResponse($data, "Ponderacion retrieved successfully");
 	}
 
 	/**

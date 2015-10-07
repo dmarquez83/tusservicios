@@ -156,7 +156,13 @@ return [
          * Mapa
          */
 
-        Alexpechkarev\GoogleGeocoder\GoogleGeocoderServiceProvider::class
+        Alexpechkarev\GoogleGeocoder\GoogleGeocoderServiceProvider::class,
+
+      /*
+       * Imagen
+       */
+
+        Intervention\Image\ImageServiceProvider::class
 
     ],
 
@@ -206,10 +212,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Flash'     => Laracasts\Flash\Flash::class,
+        'Image'     => Intervention\Image\Facades\Image::class,
         'Form'      => 'Collective\Html\FormFacade',
         'Html'      => 'Collective\Html\HtmlFacade',
         'Debugbar'  => 'Barryvdh\Debugbar\Facade',
-        'OAuth' => 'AdamWathan\EloquentOAuth\Facades\OAuth',
+        'OAuth'     => 'AdamWathan\EloquentOAuth\Facades\OAuth',
+
     ],
 
 ];

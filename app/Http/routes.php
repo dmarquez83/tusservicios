@@ -167,4 +167,4 @@ Route::get('solicitudes/{id}/delete', [
 ]);
 
 
-
+Route::resource('thumbnail', 'ThumbnailController');

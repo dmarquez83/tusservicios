@@ -1,3 +1,5 @@
+<form method="POST" action="http://localhost:8000/servicios/create" accept-charset="UTF-8" enctype="multipart/form-data">
+
 <!--- Nombre Field --->
 
     <div class="input-field">
@@ -44,19 +46,32 @@
 
     </div>
 
-<!--- Submit Field --->
 
-<div class="row">
+
+<div class="form-group">
+    <label class="col-md-4 control-label">Subir Imagen</label>
+    <div class="col-md-6">
+        <input type="file" class="form-control" name="foto" >
+    </div>
+</div>
+
+<!--- Submit Field
+
+
     <div class="col s12 m12">
         <a class="waves-effect waves-light orange darken-3 right btn" href="des_solicitud.php">
             <i class="mdi-action-add-shopping-cart left"></i>
             Solicitar Servicio
         </a>
     </div>
-</div>
+--->
+
+
 
 <div class="row">
     <div class="col s12 m12">
         {!! Form::submit(' Solicitar Servicio', ['class' => 'btn btn-primary']) !!}
     </div>
 </div>
+
+</form>

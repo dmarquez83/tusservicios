@@ -13,7 +13,8 @@ class Servicios extends Model
 		"descripcion",
 		"id_tipo_servicio",
 		"id_estatus",
-		"ponderacion"
+		"ponderacion",
+	    "foto"
 	];
 
     /**
@@ -26,7 +27,8 @@ class Servicios extends Model
 		"descripcion" => "string",
 		"id_tipo_servicio" => "integer",
 		"id_estatus" => "integer",
-		"ponderacion" => "integer"
+		"ponderacion" => "integer",
+	    "foto" => "string"
     ];
 
 	public static $rules = [
