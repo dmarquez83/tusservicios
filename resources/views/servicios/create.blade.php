@@ -2,13 +2,17 @@
 
 @section('content')
 <div class="container">
-
+    <div class="row margin-top_small">
+        <div class="col s12 m6 ">
     @include('common.errors')
 
-    {!! Form::open(['route' => 'servicios.store']) !!}
+            {!! Form::open(['route' => 'servicios.store']) !!}
 
-        @include('servicios.fields')
+                @include('servicios.fields')
 
-    {!! Form::close() !!}
+            {!! Form::close() !!}
+
+        </div>
+    </div>
 </div>
 @endsection
