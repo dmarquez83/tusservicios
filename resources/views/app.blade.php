@@ -31,7 +31,7 @@
 
             if(tab != undefined){
                 $.get('/estatus',function(r){
-                    console.log(r[1]);
+                 /*   console.log(r[1]);
 
                     fila = $('tr');
 
@@ -43,7 +43,7 @@
                     fila.append(c2);
                     fila.append(c3);
 
-                    tab.append(fila);
+                    tab.append(fila);*/
 
                    /* for(i=0;i< r.length;i++){
                         fila = $('tr');
