@@ -20,7 +20,7 @@ class ThumbnailController extends Controller
     {
 
         $thumbnails = Thumbnail::all();
-        return view('thumbnailForm', compact('thumbnails'));
+        return view('thumbnailIndex', compact('thumbnails'));
 
     }
 
@@ -31,7 +31,8 @@ class ThumbnailController extends Controller
      */
     public function create()
     {
-        //
+        $thumbnails = Thumbnail::all();
+        return view('thumbnailForm', compact('thumbnails'));
     }
 
     /**
