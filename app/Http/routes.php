@@ -10,12 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
 });
-
+*/
 Route::get('home', 'HomeController@index');
+
+Route::get('/', 'HomeController@index');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -34,3 +36,135 @@ Route::post('password/email', ['as' => 'password/postEmail', 'uses' => 'Auth\Pas
 // Password reset routes...
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', ['as' => 'password/postReset', 'uses' =>  'Auth\PasswordController@postReset']);
+
+Route::get('auth', function(){
+  return OAuth::authorize('facebook');
+});
+
+Route::get('login', 'WelcomeController@index');
+
+/*
+|--------------------------------------------------------------------------
+| API routes
+|--------------------------------------------------------------------------
+*/
+
+Route::group(['prefix' => 'api', 'namespace' => 'API'], function ()
+{
+	Route::group(['prefix' => 'v1'], function ()
+	{
+        require Config::get('generator.path_api_routes');
+	});
+});
+
+/**********************************Insumos**********************************/
+
+Route::resource('insumos', 'InsumoController');
+
+Route::get('api/insumos','API\InsumoAPIController@index');
+
+Route::get('api/insumos/{id}','API\InsumoAPIController@show');
+
+//Route::get('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos'); esto para probar el re+gistro
+
+Route::post('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos');
+
+
+Route::get('insumos/{id}/delete', [
+    'as' => 'insumos.delete',
+    'uses' => 'InsumoController@destroy',
+]);
+
+/**********************************Categoria**********************************/
+
+Route::resource('categorias', 'CategoriaController');
+
+
+Route::get('categorias/{id}/delete', [
+    'as' => 'categorias.delete',
+    'uses' => 'CategoriaController@destroy',
+]);
+
+
+
+/**********************************tipo_servicios**********************************/
+
+
+Route::resource('tiposervicios', 'TiposervicioController');
+
+Route::get('tiposervicios/{id}/delete', [
+    'as' => 'tiposervicios.delete',
+    'uses' => 'TiposervicioController@destroy',
+]);
+
+
+/**********************************Estatus**********************************/
+
+Route::resource('estatus', 'API\EstatuAPIController');
+
+Route::get('estatus/{id}/delete', [
+    'as' => 'estatus.delete',
+    'uses' => 'EstatuController@destroy',
+]);
+
+Route::get('estatus_tab', function ()    {
+    return view('estatus.table');
+});
+
+
+
+/**********************************Servicios**********************************/
+
+
+Route::resource('servicios', 'ServiciosController');
+
+Route::get('servicios/{id}/delete', [
+    'as' => 'servicios.delete',
+    'uses' => 'ServiciosController@destroy',
+]);
+
+/**********************************Ponderacions**********************************/
+
+Route::resource('ponderacions', 'PonderacionController');
+
+Route::get('ponderacions/{id}/delete', [
+    'as' => 'ponderacions.delete',
+    'uses' => 'PonderacionController@destroy',
+]);
+
+/**********************************Tipo usuarios**********************************/
+
+
+Route::resource('tipousuarios', 'TipousuariosController');
+
+Route::get('tipousuarios/{id}/delete', [
+    'as' => 'tipousuarios.delete',
+    'uses' => 'TipousuariosController@destroy',
+]);
+
+/**********************************Evaluaciones**********************************/
+
+Route::resource('evaluaciones', 'EvaluacionesController');
+
+Route::get('evaluaciones/{id}/delete', [
+    'as' => 'evaluaciones.delete',
+    'uses' => 'EvaluacionesController@destroy',
+]);
+
+/**********************************Mapa**********************************/
+
+Route::get('geocoder', 'OtherGeocoderController@index');
+
+
+/**********************************solicitudes**********************************/
+
+
+Route::resource('solicitudes', 'SolicitudesController');
+
+Route::get('solicitudes/{id}/delete', [
+    'as' => 'solicitudes.delete',
+    'uses' => 'SolicitudesController@destroy',
+]);
+
+
+

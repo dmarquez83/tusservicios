@@ -12,6 +12,7 @@ return array(
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'PhpSpec' => array($vendorDir . '/phpspec/phpspec/src'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
+    'Laracasts\\Flash' => array($vendorDir . '/laracasts/flash/src'),
     'JakubOnderka\\PhpConsoleHighlighter' => array($vendorDir . '/jakub-onderka/php-console-highlighter/src'),
     'JakubOnderka\\PhpConsoleColor' => array($vendorDir . '/jakub-onderka/php-console-color/src'),
     'Dotenv' => array($vendorDir . '/vlucas/phpdotenv/src'),
@@ -20,4 +21,6 @@ return array(
     'DebugBar' => array($vendorDir . '/maximebf/debugbar/src'),
     'Cron' => array($vendorDir . '/mtdowling/cron-expression/src'),
     'Carbon' => array($vendorDir . '/nesbot/carbon/src'),
+    'Asm89\\Stack' => array($vendorDir . '/asm89/stack-cors/src'),
+    'Alexpechkarev\\GoogleGeocoder' => array($vendorDir . '/alexpechkarev/google-geocoder/src'),
 );

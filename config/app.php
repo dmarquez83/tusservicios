@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -145,7 +145,18 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        Styde\BladePagination\ServiceProvider::class
+        Styde\BladePagination\ServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+        Mitul\Generator\GeneratorServiceProvider::class,
+        AdamWathan\EloquentOAuthL5\EloquentOAuthServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Skydiver\LaravelMaterializeCSS\MaterializeCSSServiceProvider::class,
+
+        /*
+         * Mapa
+         */
+
+        Alexpechkarev\GoogleGeocoder\GoogleGeocoderServiceProvider::class
 
     ],
 
@@ -194,9 +205,11 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        'Flash'     => Laracasts\Flash\Flash::class,
         'Form'      => 'Collective\Html\FormFacade',
         'Html'      => 'Collective\Html\HtmlFacade',
         'Debugbar'  => 'Barryvdh\Debugbar\Facade',
+        'OAuth' => 'AdamWathan\EloquentOAuth\Facades\OAuth',
     ],
 
 ];
