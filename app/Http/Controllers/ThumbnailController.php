@@ -9,6 +9,7 @@ use App\Thumbnail;
 use Illuminate\Support\Facades\Input;
 use Intervention\Image\Image as Image;
 
+
 class ThumbnailController extends Controller
 {
     /**
@@ -20,7 +21,7 @@ class ThumbnailController extends Controller
     {
 
         $thumbnails = Thumbnail::all();
-        return view('thumbnailIndex', compact('thumbnails'));
+        return view('thumbnails.index', compact('thumbnails'));
 
     }
 
@@ -32,7 +33,7 @@ class ThumbnailController extends Controller
     public function create()
     {
         $thumbnails = Thumbnail::all();
-        return view('thumbnailForm', compact('thumbnails'));
+        return view('thumbnails.create', compact('thumbnails'));
     }
 
     /**

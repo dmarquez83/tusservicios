@@ -1,11 +1,12 @@
 @extends('app')
+
 @section('content')
     <div >
         <div >
             <div>
                 <div >
                     <div>Listado de Imagenes
-                        <a href="" class="btn-xs btn-primary pull-right" role="button">Agregar</a>
+                        <a href="{!! route('thumbnail.create') !!}" class="btn-xs btn-primary pull-right" role="button">Agregar</a>
                     </div>
 
                     <div class="row">
