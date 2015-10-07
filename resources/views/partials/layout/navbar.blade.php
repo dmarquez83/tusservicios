@@ -3,7 +3,7 @@
 		<div class="nav-wrapper ">
 			<a class="brand-logo">
 
-				{!! Html::image('assets/img/logo-hz.png', 'a picture', array('class' => 'bordered')) !!}
+				{!! Html::image('assets/img/logo.png', 'a picture', array('class' => 'bordered')) !!}
 
 			</a>
 <ul class="right hide-on-small-only">
