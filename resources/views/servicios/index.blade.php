@@ -12,12 +12,14 @@
         </div>
 
         <div class="row">
+
+
     {{--  @if($servicios->isEmpty())
             <div class="well text-center">No Servicios found.</div>--}}
   {{--      @else --}}
             @include('servicios.table')
    {{--     @endif --}}
-    </div>
+        </div>
 
     @include('common.paginate', ['records' => $servicios])
 

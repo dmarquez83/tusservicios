@@ -48,12 +48,11 @@
 
 
 
-<div class="form-group">
-    <label class="col-md-4 control-label">Subir Imagen</label>
-    <div class="col-md-6">
-        <input type="file" class="form-control" name="foto" >
+
+    <div class="form-group">
+        {!! form::label('image','Imagen ff')!!}
+        {!! form::file('foto',null,['class' => 'form-control']) !!}
     </div>
-</div>
 
 <!--- Submit Field
 

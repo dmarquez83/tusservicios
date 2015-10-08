@@ -2,10 +2,18 @@
 
 use App\Http\Requests;
 use App\Libraries\Repositories\ServiciosRepository;
-use App\Models\Servicios;
 use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\Input;
+//use Intervention\Image\Facades\Image;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
+
+use App\Models\Ponderacion;
+use App\Models\Servicios;
+use App\Models\Tiposervicio;
+use App\Models\Estatu;
+
+use Image;
 
 class ServiciosAPIController extends AppBaseController
 {
@@ -27,7 +35,7 @@ class ServiciosAPIController extends AppBaseController
 	{
 		$servicios = $this->serviciosRepository->all();
 
-		return $this->sendResponse($servicios->toArray(), "Servicios retrieved successfully");
+		return response()->json($servicios);
 	}
 
 	/**
@@ -38,6 +46,18 @@ class ServiciosAPIController extends AppBaseController
 	 */
 	public function create()
 	{
+		/*ojo aqui debe venir la categoria para seleccionar el tipo de servicio*/
+		/*ojo debe salir la opcion para que selecciona la categoria y de hay se desplegue los tipos de servicios segun la categoria*/
+
+		$tiposervicios = Tiposervicio::where('id_categoria','6')->orderBy('id', 'asc')->lists('nombre', 'id');
+
+		$estatu = Estatu::where('tabla','servicios')->orderBy('id', 'asc')->lists('nombre', 'id');
+
+		$ponderacion = Ponderacion::orderBy('id', 'asc')->lists('nombre','valor', 'id');
+
+		//$email = DB::table('users')->where('name', 'John')->value('email');
+
+		return view('servicios.create', compact('tiposervicios','estatu','ponderacion'));
 	}
 
 	/**
@@ -50,6 +70,32 @@ class ServiciosAPIController extends AppBaseController
 	 */
 	public function store(Request $request)
 	{
+		/***************************/
+
+		//$file = Input::file('image');
+		//Creamos una instancia de la libreria instalada
+
+		//$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
+
+		//$image = Image::make(Input::file('image'));
+
+		$img = Image::make('public/foo.jpg');
+
+		//   $image = Image::make(Input::file('image'));
+/*
+		//Ruta donde queremos guardar las imagenes
+		$path = public_path().'/thumbnails/';
+
+		// Guardar Original
+		$image->save($path.$file->getClientOriginalName());
+		// Cambiar de tamaño
+		$image->resize(240,200);
+		// Guardar
+		$image->save($path.'thumb_'.$file->getClientOriginalName());*/
+
+		/**************************/
+
+
 		if(sizeof(Servicios::$rules) > 0)
 			$this->validateRequestOrFail($request, Servicios::$rules);
 
@@ -57,7 +103,9 @@ class ServiciosAPIController extends AppBaseController
 
 		$servicios = $this->serviciosRepository->create($input);
 
-		return $this->sendResponse($servicios->toArray(), "Servicios saved successfully");
+		//return $this->sendResponse($servicios->toArray(), "Servicios saved successfully");
+
+		return response()->json($servicios);
 	}
 
 	/**
@@ -87,6 +135,24 @@ class ServiciosAPIController extends AppBaseController
 	{
 		// maybe, you can return a template for JS
 //		Errors::throwHttpExceptionWithCode(Errors::EDITION_FORM_NOT_EXISTS, ['id' => $id], static::getHATEOAS(['%id' => $id]));
+
+		/* */
+		$servicios = $this->serviciosRepository->find($id);
+
+		$tiposervicios = Tiposervicio::where('id_categoria','6')->orderBy('id', 'asc')->lists('nombre', 'id');
+
+		$estatu = Estatu::where('tabla','servicios')->orderBy('id', 'asc')->lists('nombre', 'id');
+
+		$ponderacion = Ponderacion::orderBy('id', 'asc')->lists('nombre','valor', 'id');
+
+		if(empty($servicios))
+		{
+			Flash::error('Servicios not found');
+
+			return redirect(route('servicios.index'));
+		}
+
+		return view('servicios.edit',compact('servicios','tiposervicios','estatu','ponderacion'));
 	}
 
 	/**

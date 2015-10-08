@@ -123,6 +123,9 @@ Route::get('servicios/{id}/delete', [
     'uses' => 'ServiciosController@destroy',
 ]);
 
+
+
+
 /**********************************Ponderacions**********************************/
 
 Route::resource('ponderacions', 'PonderacionController');
@@ -168,3 +171,18 @@ Route::get('solicitudes/{id}/delete', [
 
 
 Route::resource('thumbnail', 'ThumbnailController');
+
+
+Route::get('foo', function() {
+
+    $image = Image::make('http://placehold.it/500x500/000/e8117f');
+    return Response::make($image->encode('jpg'), 200, ['Content-Type' => 'image/jpeg']);
+});
+
+
+Route::get('otro', function()
+{
+    $img = Image::make('foo.jpg')->resize(300, 200);
+
+    return $img->response('jpg');
+});

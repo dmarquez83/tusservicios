@@ -1,29 +1,50 @@
-<div class="container">
-    <div class="col s12">
-        <table class="table">
-            <thead>
-            <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Id Tipo Servicio</th>
-                    <th>Id Estatus</th>
-                    <th>Ponderacion</th>
-            <th width="50px">Action</th>
-            </thead>
-            <tbody>
-            @foreach($servicios as $servicios)
-                <tr>
-                    <td>{!! $servicios->nombre !!}</td>
-                    <td>{!! $servicios->descripcion !!}</td>
-                    <td>{!! $servicios->nombre_tipo_servicio !!}</td>
-                    <td>{!! $servicios->nombre_estatus !!}</td>
-                    <td>{!! $servicios->nombre_ponderacion !!}</td>
-                    <td>
-                        <a href="{!! route('servicios.edit', [$servicios->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
-                        <a href="{!! route('servicios.delete', [$servicios->id]) !!}" onclick="return confirm('Are you sure wants to delete this Servicios?')"><i class="glyphicon glyphicon-remove"></i></a>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+@extends('app')
+
+@section('content')
+    <div >
+        <div >
+            <div>
+                <div >
+                    <div>Categorías de Servicios
+                        <a href="{!! route('servicios.create') !!}" class="btn-xs btn-primary pull-right" role="button">Agregar</a>
+                    </div>
+
+                    <div class="row">
+                        @foreach($servicios as $servicios)
+
+                            <div class="col s12 m6 l4">
+                                <div class="card small">
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img src="servicios-img/{{$servicios->foto}}" alt="{{$servicios->nombre}}" class="responsive-img">
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="card-title activator grey-text text-darken-4">
+                                    <span>
+                                       {{$servicios->nombre}}
+                                        <i class="mdi-navigation-more-vert right"></i>
+                                    </span>
+                                        </div>
+                                    </div>
+                                    <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">
+                                   {{$servicios->nombre}}
+                                    <i class="mdi-navigation-close right"></i>
+                                </span>
+                                        <p> {{$servicios->descripcion}}</p>
+                                        <div class="card-action">
+                                            <a class="right" href="servicios.php"><i class="mdi-content-add-circle"></i>Ver Servicios</a>
+                                        </div>
+                                    </div>
+                                    <div class="card-action">
+                                        <a class="right" href="servicios.php"><i class="mdi-content-add-circle"></i>Ver Servicios</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+@endsection

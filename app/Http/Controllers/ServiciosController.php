@@ -4,14 +4,20 @@ use App\Http\Requests;
 use App\Http\Requests\CreateServiciosRequest;
 use App\Http\Requests\UpdateServiciosRequest;
 use App\Libraries\Repositories\ServiciosRepository;
+
+use Flash;
+use Response;
+use Mitul\Controller\AppBaseController as AppBaseController;
+
+
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\Image as Image;
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Ponderacion;
 use App\Models\Servicios;
-use Flash;
-use Mitul\Controller\AppBaseController as AppBaseController;
-use Response;
 use App\Models\Tiposervicio;
 use App\Models\Estatu;
-use Illuminate\Support\Facades\DB;
 
 class ServiciosController extends AppBaseController
 {
@@ -31,7 +37,7 @@ class ServiciosController extends AppBaseController
 	 */
 	public function index()
 	{
-		$servicios = $this->serviciosRepository->paginate(10);
+		$servicios = $this->serviciosRepository->paginate(3);
 
 		/*$servicios = Servicios::join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
 			->orderBy('servicios.id', 'asc')
@@ -84,7 +90,25 @@ class ServiciosController extends AppBaseController
 
 	public function store(CreateServiciosRequest $request)
 	{
-		//$input = $request->all();
+		/***************************/
+
+		$file = Input::file('foto');
+		//Creamos una instancia de la libreria instalada
+
+		$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
+
+		//Ruta donde queremos guardar las imagenes
+		$path = public_path().'/servicios-img/';
+
+		// Guardar Original
+		$image->save($path.$file->getClientOriginalName());
+		// Cambiar de tamaño
+		$image->resize(240,200);
+		// Guardar
+		$image->save($path.'thumb_'.$file->getClientOriginalName());
+
+
+		/**************************/
 
 
 	  $data = [
@@ -93,26 +117,17 @@ class ServiciosController extends AppBaseController
 		'id_tipo_servicio' => $request->get('id_tipo_servicio'),
 		'id_estatus' => $request->get('id_estatus'),
 	  	'ponderacion' => $request->get('ponderacion'),
-	  	'foto' => $request->get('foto'),
-		'foto' => $request->file('foto')
+	  	'foto' => $file->getClientOriginalName()
 	  ];
 
-	  //obtenemos el campo file definido en el formulario
-	/*  $file = $request->file('file');
 
-	  //obtenemos el nombre del archivo
-	  $nombre = $request->get('foto');
-
-	  //indicamos que queremos guardar un nuevo archivo en el disco local
-	  \Storage::disk('local')->put($nombre,  \File::get($file));
 
 		$servicios = $this->serviciosRepository->create($data);
 
-		Flash::success('Servicios saved successfully.');
+		Flash::success('Servicios Guardado Correctamente.');
 
-		return redirect(route('servicios.index'));*/
+		return redirect(route('servicios.index'));
 
-	    return $this->sendResponse($data, "Ponderacion retrieved successfully");
 	}
 
 	/**

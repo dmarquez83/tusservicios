@@ -6,7 +6,8 @@
         <div class="col s12 m6 ">
     @include('common.errors')
 
-            {!! Form::open(['route' => 'servicios.store']) !!}
+            {!! Form::open(['route' => 'servicios.store', 'method' => 'POST', 'files' => 'true']) !!}
+
 
                 @include('servicios.fields')
 
