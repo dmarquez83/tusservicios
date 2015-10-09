@@ -4,6 +4,10 @@ use App\Http\Requests;
 use App\Http\Requests\CreateTiposervicioRequest;
 use App\Http\Requests\UpdateTiposervicioRequest;
 use App\Libraries\Repositories\TiposervicioRepository;
+
+use App\Libraries\Repositories\CategoriaRepository;
+
+
 use App\Models\Tiposervicio;
 use Flash;
 use Illuminate\Support\Facades\DB;
@@ -17,10 +21,16 @@ class TiposervicioController extends AppBaseController
 	/** @var  TiposervicioRepository */
 	private $tiposervicioRepository;
 
-	function __construct(TiposervicioRepository $tiposervicioRepo)
+
+
+	function __construct(TiposervicioRepository $tiposervicioRepo, CategoriaRepository $categoriaRepo)
 	{
 		$this->tiposervicioRepository = $tiposervicioRepo;
+
+		$this->categoriaRepository = $categoriaRepo;
+
 	}
+
 
 	/**
 	 * Display a listing of the Tiposervicio.
@@ -29,17 +39,10 @@ class TiposervicioController extends AppBaseController
 	 */
 	public function index()
 	{
-		$tiposervicios = $this->tiposervicioRepository->paginate(10);
 
-		//$sele = marca::distinct()->select('marca.COD_MARCA','marca.NOMBRE_MARCA')->join('modelo','modelo.COD_MARCA' ,'=','marca.COD_MARCA')->where('modelo.COD_CATEGORIA','=',$id)->where('marca.ACTIVO','=',1)->get();
 
-       //$users = DB::table('users')
-		//->join('contacts', 'users.id', '=', 'contacts.user_id')
-		//->join('orders', 'users.id', '=', 'orders.user_id')
-		//->select('users.*', 'contacts.phone', 'orders.price')
-		//->get();
 
-		//$tiposervicios = Tiposervicio::distinct()->select('tiposervicios.NOMBRE','tiposervicios.DESCRIPCION','categorias.NOMBRE')->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')->get();
+		$categorias = $this->categoriaRepository->paginate(10);
 
 		//este me funciona bien con retur json   ***********************ojo es esta
 		/*$tiposervicios = DB::table('tiposervicios')
@@ -47,14 +50,10 @@ class TiposervicioController extends AppBaseController
 			->select('tiposervicios.id','tiposervicios.nombre','tiposervicios.descripcion','tiposervicios.id_categoria','categorias.nombre as categoria'  )
 			->get();*/
 
-		//return view('tiposervicios.index', ['tiposervicios' => $tiposervicios]);
-
-		return view('tiposervicios.index')
-			->with('tiposervicios', $tiposervicios);
-
 		//return response()->json($tiposervicios);
 
 
+		return view('tiposervicios.index')->with('categorias', $categorias);
 
 	}
 
@@ -66,43 +65,29 @@ class TiposervicioController extends AppBaseController
 	public function create()
 	{
 
-		/*	$categorias_todo = Categoria::all();
-
-		foreach ($categorias_todo as $ct){
-		//$categorias[0]=$ct->id;
-		$categorias[0]=$ct->nombre;
-
-		}*/
-
-		/*    $categories = Category::orderBy('id', 'asc')->lists('name', 'id');
-
-		return view('admin.product.create', compact('categories'));*/
-
-		/*	$categorias = Categoria::all();
-		return view('tiposervicios.create')
-		->with('categorias', $categorias);*/
-
 		$categorias = Categoria::orderBy('id', 'asc')->lists('nombre', 'id');
 		return view('tiposervicios.create', compact('categorias'));
 	}
 
 	/**
-	 * Store a newly created Tiposervicio in storage.
+	 * store a newly created Tiposervicio in storage.
 	 *
 	 * @param CreateTiposervicioRequest $request
-	 *
+	 * @param  int  $id
 	 * @return Response
 	 */
-	public function store(CreateTiposervicioRequest $request)
+	public function store($id)
 	{
 
-		$data = [
+		/*$data = [
 			'nombre' => $request->get('nombre'),
 			'descripcion' => str_slug($request->get('descripcion')),
-			'id_categoria' => $request->get('id_categoria')
-		];
+			'id_categoria' => $id
+		];*/
 		//return response()->json($data);
 
+		return response($id);
+/*
 		$tiposervicio = $this->tiposervicioRepository->create($data);
 
 
@@ -111,7 +96,7 @@ class TiposervicioController extends AppBaseController
 
 		Flash::success($message);
 
-		return redirect()->route('tiposervicios.index')->with('message', $message);
+		return redirect()->route('tiposervicios.index')->with('message', $message);*/
 
 		//Flash::success('Tipo de Servicio agregado correctamente');
 
@@ -142,6 +127,32 @@ class TiposervicioController extends AppBaseController
 		}
 
 		return view('tiposervicios.show')->with('tiposervicio', $tiposervicio);
+	}
+
+	/**
+	 * Show the form for editing the specified Tiposervicio.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function createnew($id)
+	{
+		$categoria = Categoria::where('id', $id)->lists('nombre', 'id');
+		//return response()->json($categorias);
+		return view('tiposervicios.create')->with('categoria', $categoria);
+	}
+
+	/**
+	 * storenew a newly created Tiposervicio in storage.
+	 *
+	 * @param CreateTiposervicioRequest $request
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function storenew($id)
+	{
+           return 'hola';
 	}
 
 	/**

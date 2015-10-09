@@ -1,21 +1,16 @@
-<table class="table">
-    <thead>
-    <th>Nombre</th>
-			<th>Descripcion</th>
-			<th>Categoria</th>
-    <th width="50px">Action</th>
-    </thead>
-    <tbody>
-    @foreach($tiposervicios as $tiposervicio)
-        <tr>
-            <td>{!! $tiposervicio->nombre !!}</td>
-			<td>{!! $tiposervicio->descripcion !!}</td>
-			<td>{!! $tiposervicio->categoria !!}</td>
-            <td>
-                <a href="{!! route('tiposervicios.edit', [$tiposervicio->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
-                <a href="{!! route('tiposervicios.delete', [$tiposervicio->id]) !!}" onclick="return confirm('Are you sure wants to delete this Tiposervicio?')"><i class="glyphicon glyphicon-remove"></i></a>
-            </td>
-        </tr>
-    @endforeach
-    </tbody>
-</table>
+ @foreach($categorias as $categoria)
+    <div class="col s12 m7">
+        <div class="card small">
+            <div class="card-image">
+                <img src="categorias-img/{{$categoria->foto}}" alt="{{$categoria->nombre}}" class="responsive-img">
+                <span class="card-title"> {{$categoria->nombre}}</span>
+            </div>
+            <div class="card-content">
+                <p> {{$categoria->descripcion}}</p>
+            </div>
+            <div class="card-action">
+                <a class="right" href="{!! route('tiposervicios.createnew', [$categoria->id]) !!}"><i class="mdi-content-add-circle"></i>Agregar Tipos de servicios</a>
+            </div>
+        </div>
+    </div>
+@endforeach

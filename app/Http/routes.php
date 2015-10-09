@@ -65,7 +65,7 @@ Route::get('api/insumos','API\InsumoAPIController@index');
 
 Route::get('api/insumos/{id}','API\InsumoAPIController@show');
 
-//Route::get('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos'); esto para probar el re+gistro
+//Route::get('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos'); //esto para probar el re+gistro
 
 Route::post('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos');
 
@@ -92,6 +92,17 @@ Route::get('categorias/{id}/delete', [
 
 Route::resource('tiposervicios', 'TiposervicioController');
 
+Route::get('tiposervicios/{id}/createnew', [
+    'as' => 'tiposervicios.createnew',
+    'uses' => 'TiposervicioController@createnew',
+]);
+
+Route::get('tiposervicios/{id}/storenew', [
+    'as' => 'tiposervicios.storenew',
+    'uses' => 'TiposervicioController@storenew',
+]);
+
+
 Route::get('tiposervicios/{id}/delete', [
     'as' => 'tiposervicios.delete',
     'uses' => 'TiposervicioController@destroy',
@@ -117,6 +128,8 @@ Route::get('estatus_tab', function ()    {
 
 
 Route::resource('servicios', 'ServiciosController');
+
+
 
 Route::get('servicios/{id}/delete', [
     'as' => 'servicios.delete',

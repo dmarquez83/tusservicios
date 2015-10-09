@@ -167,6 +167,8 @@ class ServiciosController extends AppBaseController
 		/* */
 		$servicios = $this->serviciosRepository->find($id);
 
+		//$tiposervicios = Tiposervicio::where('id_categoria','6')->orderBy('id', 'asc')->lists('nombre', 'id');
+
 		$tiposervicios = Tiposervicio::where('id_categoria','6')->orderBy('id', 'asc')->lists('nombre', 'id');
 
 		$estatu = Estatu::where('tabla','servicios')->orderBy('id', 'asc')->lists('nombre', 'id');

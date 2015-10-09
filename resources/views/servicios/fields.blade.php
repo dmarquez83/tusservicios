@@ -54,6 +54,18 @@
         {!! form::file('foto',null,['class' => 'form-control']) !!}
     </div>
 
+    <form action="#">
+        <div class="file-field input-field">
+            <div class="btn">
+                <span>Imagen</span>
+                <input type="file" multiple>
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Sube una imagen">
+            </div>
+        </div>
+    </form>
+
 <!--- Submit Field
 
 

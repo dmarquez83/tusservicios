@@ -8,7 +8,7 @@
 
                     <input id="search" type="search" required class="grey lighten-4">
                     <label for="search" class="valign-wrapper black-text flow-text">
-                        <i class="material-icons">Buscar</i>
+                        <i class="mdi-action-room"></i>
                         Encuentra el servicio que necesitas
                     </label>
                     <i class="material-icons">close</i>
