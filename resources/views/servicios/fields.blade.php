@@ -50,7 +50,7 @@
 
 
     <div class="form-group">
-        {!! form::label('image','Imagen ff')!!}
+        {!! form::label('image','Imagen')!!}
         {!! form::file('foto',null,['class' => 'form-control']) !!}
     </div>
 

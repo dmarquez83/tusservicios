@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTipousuariosTable extends Migration
+class CreatefernandosTable extends Migration
 {
 
 	/**
@@ -13,12 +13,11 @@ class CreateTipousuariosTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('tipousuarios', function(Blueprint $table)
+		Schema::create('fernandos', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('nombre');
-			$table->string('descripcion');
-			$table->string('abreviatura')->refe;
+			$table->string('descr');
 			$table->timestamps();
 		});
 	}
@@ -30,7 +29,7 @@ class CreateTipousuariosTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('tipousuarios');
+		Schema::drop('fernandos');
 	}
 
 }

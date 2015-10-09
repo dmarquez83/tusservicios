@@ -96,3 +96,5 @@ Route::resource("solicitudes", "solicitudesAPIController");
 Route::resource("solicitudes", "SolicitudesAPIController");
 
 Route::resource("pruebas", "PruebaAPIController");
+
+Route::resource("fernandos", "fernandoAPIController");

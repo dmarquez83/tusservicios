@@ -186,3 +186,10 @@ Route::get('otro', function()
 
     return $img->response('jpg');
 });
+
+Route::resource('fernandos', 'fernandoController');
+
+Route::get('fernandos/{id}/delete', [
+    'as' => 'fernandos.delete',
+    'uses' => 'fernandoController@destroy',
+]);

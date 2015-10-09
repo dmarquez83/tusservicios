@@ -9,6 +9,9 @@ use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
 
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\Image as Image;
+
 class CategoriaController extends AppBaseController
 {
 
@@ -53,24 +56,52 @@ class CategoriaController extends AppBaseController
 	public function store(CreateCategoriaRequest $request)
 	{
 
+		/***************************/
+
+		$file = Input::file('foto');
+		//Creamos una instancia de la libreria instalada
+
+		$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
+
+		//Ruta donde queremos guardar las imagenes
+		$path = public_path().'/categorias-img/';
+
+		// Guardar Original
+		$image->save($path.$file->getClientOriginalName());
+		// Cambiar de tamaño
+		$image->resize(240,200);
+		// Guardar
+		$image->save($path.'thumb_'.$file->getClientOriginalName());
+
+
+		/**************************/
+
 		$this->validate($request, [
 			'nombre' => 'required|unique:categorias|max:255',
 			'decripcion' => 'max:500'
 		]);
 
+		//$input = $request->all();
+
+		//return response($input); //asi veo lo que viene del formulario incluyendo el token {"_token":"fYOAOVc7JawpdobkgdcpsNoDcXKW6xkzEdbq9SWb","nombre":"tget","descripcion":"ergf","foto":{}}
+
+		//$categoria = $this->categoriaRepository->create($input);
+		//$categoria = Categoria::create($input);
+
+		$data = [
+			'nombre' => $request->get('nombre'),
+			'decripcion' => str_slug($request->get('decripcion')),
+			'foto' => $file->getClientOriginalName()
+		];
 
 
-		$input = $request->all();
-
-		$categoria = $this->categoriaRepository->create($input);
+		$this->categoriaRepository->create($data);
 
 		Flash::success('Categoria Guardada Correctamente.');
 
 		return redirect(route('categorias.index'));
 
-		/*$nombre='Pintura';
-		$descripcion='mano de obra en pintura';
-
+		/*
 		return Categoria::create([
 			'nombre' =>$nombre,
 			'decripcion' =>$descripcion,
@@ -147,7 +178,34 @@ class CategoriaController extends AppBaseController
 			return redirect(route('categorias.index'));
 		}
 
-		$categoria = $this->categoriaRepository->updateRich($request->all(), $id);
+		/***************************/
+
+		$file = Input::file('foto');
+		//Creamos una instancia de la libreria instalada
+
+		$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
+
+		//Ruta donde queremos guardar las imagenes
+		$path = public_path().'/categorias-img/';
+
+		// Guardar Original
+		$image->save($path.$file->getClientOriginalName());
+		// Cambiar de tamaño
+		$image->resize(240,200);
+		// Guardar
+		$image->save($path.'thumb_'.$file->getClientOriginalName());
+
+
+		/**************************/
+
+		$data = [
+			'nombre' => $request->get('nombre'),
+			'decripcion' => str_slug($request->get('decripcion')),
+			'foto' => $file->getClientOriginalName()
+		];
+
+
+		$categoria = $this->categoriaRepository->updateRich($data, $id);
 
 		Flash::success('Categoria Actualizada Correctamente.');
 

@@ -1,9 +1,9 @@
 <?php namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
-use App\Models\Categoria;
+use App\Models\fernando;
 
-class CreateCategoriaRequest extends Request {
+class CreatefernandoRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -22,9 +22,7 @@ class CreateCategoriaRequest extends Request {
 	 */
 	public function rules()
 	{
-		return Categoria::$rules;
+		return fernando::$rules;
 	}
-
-
 
 }

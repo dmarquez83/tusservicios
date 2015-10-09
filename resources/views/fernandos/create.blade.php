@@ -5,9 +5,9 @@
 
     @include('common.errors')
 
-    {!! Form::open(['route' => 'categorias.store', 'method' => 'POST', 'files' => 'true']) !!}
+    {!! Form::open(['route' => 'fernandos.store']) !!}
 
-        @include('categorias.fields')
+        @include('fernandos.fields')
 
     {!! Form::close() !!}
 </div>

@@ -5,9 +5,9 @@
 
     @include('common.errors')
 
-    {!! Form::model($categoria, ['route' => ['categorias.update', $categoria->id], 'method' => 'patch']) !!}
+    {!! Form::model($categoria, ['route' => ['categorias.update', $categoria->id], 'method' => 'patch', 'files' => 'true']) !!}
 
-        @include('categorias.fields_edit')
+        @include('categorias.fields')
 
     {!! Form::close() !!}
 </div>

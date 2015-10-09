@@ -2,15 +2,17 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 
+
 class Categoria extends Model
 {
     
-	public $table = "categorias";
+	//public $table = "categorias";
     
 
 	public $fillable = [
 	    "nombre",
-		"decripcion"
+		"decripcion",
+		"foto"
 	];
 
     /**
@@ -20,11 +22,29 @@ class Categoria extends Model
      */
     protected $casts = [
         "nombre" => "string",
-		"decripcion" => "string"
+		"decripcion" => "string",
+		"foto"
     ];
 
 	public static $rules = [
 
 	];
 
+	/**
+	 * Set the foto
+	 *
+	 * @param  string  $value
+	 * @return string
+	 */
+	/*public function setFotoAttribute($value)
+	{
+		if (! empty ($value))
+		{
+			$this->attributes['foto'] = strtolower($value);
+		}
+	}*/
+    /* esto es para procesar los valores al momento de guardalos automaticamente lo toma sin llamarlo ni nada*/
 }
+
+
+
