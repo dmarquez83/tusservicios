@@ -97,7 +97,7 @@ Route::get('tiposervicios/{id}/createnew', [
     'uses' => 'TiposervicioController@createnew',
 ]);
 
-Route::get('tiposervicios/{id}/storenew', [
+Route::post('tiposervicios/{id}/storenew', [
     'as' => 'tiposervicios.storenew',
     'uses' => 'TiposervicioController@storenew',
 ]);
