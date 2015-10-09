@@ -6,20 +6,20 @@
 
         @include('flash::message')
 
-        <div class="row">
-            <h1 class="pull-left">Servicios</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('servicios.create') !!}">Add New</a>
-        </div>
+           <div class="row">
 
-        <div class="row">
+           <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('servicios.create') !!}">Nuevo</a>
+       </div>--
 
 
-    {{--  @if($servicios->isEmpty())
-            <div class="well text-center">No Servicios found.</div>--}}
+
+           @include('servicios.buscar')
+   {{--  @if($servicios->isEmpty())
+           <div class="well text-center">No Servicios found.</div>--}}
   {{--      @else --}}
             @include('servicios.table')
    {{--     @endif --}}
-        </div>
+
 
     @include('common.paginate', ['records' => $servicios])
 
