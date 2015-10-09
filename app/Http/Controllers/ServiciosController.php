@@ -37,7 +37,7 @@ class ServiciosController extends AppBaseController
 	 */
 	public function index()
 	{
-		$servicios = $this->serviciosRepository->paginate(3);
+		$servicios = $this->serviciosRepository->paginate(9);
 
 		/*$servicios = Servicios::join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
 			->orderBy('servicios.id', 'asc')
@@ -193,16 +193,48 @@ class ServiciosController extends AppBaseController
 	 */
 	public function update($id, UpdateServiciosRequest $request)
 	{
-		$servicios = $this->serviciosRepository->find($id);
 
-		if(empty($servicios))
+		/***************************muy importante , 'files' => 'true' esto debe ir en la cabecera del form de lo contrario da error con la imagen por que no la consigue Image source not readable*/
+
+		/*validar qie la imagen este llegando de lo contrario explota*/
+
+		$file = Input::file('foto');
+		//Creamos una instancia de la libreria instalada
+
+		$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
+
+		//Ruta donde queremos guardar las imagenes
+		$path = public_path().'/servicios-img/';
+
+		// Guardar Original
+		$image->save($path.$file->getClientOriginalName());
+		// Cambiar de tamaño
+		$image->resize(240,200);
+		// Guardar
+		$image->save($path.'thumb_'.$file->getClientOriginalName());
+
+
+		/**************************/
+
+
+		$data = [
+			'nombre' => $request->get('nombre'),
+			'descripcion' => str_slug($request->get('descripcion')),
+			'id_tipo_servicio' => $request->get('id_tipo_servicio'),
+			'id_estatus' => $request->get('id_estatus'),
+			'ponderacion' => $request->get('ponderacion'),
+			'foto' => $file->getClientOriginalName()
+		];
+
+
+		if(empty($data))
 		{
-			Flash::error('Servicios not found');
+			Flash::error('No hay Servicios');
 
 			return redirect(route('servicios.index'));
 		}
 
-		$servicios = $this->serviciosRepository->updateRich($request->all(), $id);
+		$servicios = $this->serviciosRepository->updateRich($data, $id);
 
 		Flash::success('Servicios updated successfully.');
 
@@ -229,7 +261,7 @@ class ServiciosController extends AppBaseController
 
 		$this->serviciosRepository->delete($id);
 
-		Flash::success('Servicios deleted successfully.');
+		Flash::success('Servicio Borrado Correctamente.');
 
 		return redirect(route('servicios.index'));
 	}

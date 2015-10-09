@@ -6,23 +6,26 @@
 
         @include('flash::message')
 
-           <div class="row">
+        <div class="row">
 
-           <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('servicios.create') !!}">Nuevo</a>
-       </div>--
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('servicios.create') !!}">Nuevo</a>
 
+        </div>
 
+        @include('servicios.buscar')
 
-           @include('servicios.buscar')
-   {{--  @if($servicios->isEmpty())
-           <div class="well text-center">No Servicios found.</div>--}}
-  {{--      @else --}}
+        @if($servicios->isEmpty())
+            <div class="well text-center">No Hay Servicios Cargados.</div>
+        @else
             @include('servicios.table')
-   {{--     @endif --}}
+        @endif
 
 
-    @include('common.paginate', ['records' => $servicios])
+
+        @include('common.paginate', ['records' => $servicios])
 
 
- </div>
+
+    </div>
+
  @endsection

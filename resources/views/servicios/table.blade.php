@@ -20,11 +20,11 @@
         </span>
                 <p> {{$servicios->descripcion}}</p>
                 <div class="card-action">
-                    <a class="right" href="servicios.php"><i class="mdi-content-add-circle"></i>Ver Servicios</a>
+                    <a class="right" href="{!! route('servicios.delete', [$servicios->id]) !!}"><i class="mdi-content-add-circle"></i>Eliminar</a>
                 </div>
             </div>
             <div class="card-action">
-                <a class="right" href="servicios.php"><i class="mdi-content-add-circle"></i>Ver Servicios</a>
+                <a class="right" href="{!! route('servicios.edit', [$servicios->id]) !!}"><i class="mdi-content-add-circle"></i>Editar</a>
             </div>
         </div>
     </div>
