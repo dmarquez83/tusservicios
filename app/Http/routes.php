@@ -103,6 +103,12 @@ Route::post('tiposervicios/{id}/storenew', [
 ]);
 
 
+Route::get('tiposerviciost/indextiposervicio', [
+  'as' => 'tiposerviciost.indextiposervicio',
+  'uses' => 'TiposervicioController@indextiposervicio',
+]);
+
+
 Route::get('tiposervicios/{id}/delete', [
     'as' => 'tiposervicios.delete',
     'uses' => 'TiposervicioController@destroy',

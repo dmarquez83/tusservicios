@@ -40,22 +40,34 @@ class TiposervicioController extends AppBaseController
 	public function index()
 	{
 
-
-
 		$categorias = $this->categoriaRepository->paginate(10);
-
-		//este me funciona bien con retur json   ***********************ojo es esta
-		/*$tiposervicios = DB::table('tiposervicios')
-			->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
-			->select('tiposervicios.id','tiposervicios.nombre','tiposervicios.descripcion','tiposervicios.id_categoria','categorias.nombre as categoria'  )
-			->get();*/
-
-		//return response()->json($tiposervicios);
-
 
 		return view('tiposervicios.index')->with('categorias', $categorias);
 
 	}
+
+  /**
+   * Display a listing of the Tiposervicio.
+   *
+   * @return Response
+   */
+  public function indextiposervicio()
+  {
+
+	$tiposervicios = DB::table('tiposervicios')
+        ->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
+	    ->orderBy('id', 'desc')
+        ->select('tiposervicios.id','tiposervicios.nombre','tiposervicios.descripcion','tiposervicios.id_categoria','categorias.nombre as categoria')
+        ->get();
+
+	//$tiposervicios = $this->tiposervicioRepository->all();
+
+	//return response()->json($tiposervicios);
+
+
+	return view('tiposervicios.indextiposervicios')->with('tiposervicios', $tiposervicios);
+
+  }
 
 	/**
 	 * Show the form for creating a new Tiposervicio.
@@ -69,44 +81,6 @@ class TiposervicioController extends AppBaseController
 		return view('tiposervicios.create', compact('categorias'));
 	}
 
-	/**
-	 * store a newly created Tiposervicio in storage.
-	 *
-	 * @param CreateTiposervicioRequest $request
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function store($id)
-	{
-
-		/*$data = [
-			'nombre' => $request->get('nombre'),
-			'descripcion' => str_slug($request->get('descripcion')),
-			'id_categoria' => $id
-		];*/
-		//return response()->json($data);
-
-		return response($id);
-/*
-		$tiposervicio = $this->tiposervicioRepository->create($data);
-
-
-
-		$message = $tiposervicio ? 'Tipo de Servicio agregado correctamente!' : 'Tipo de Servicio NO pudo agregarse!';
-
-		Flash::success($message);
-
-		return redirect()->route('tiposervicios.index')->with('message', $message);*/
-
-		//Flash::success('Tipo de Servicio agregado correctamente');
-
-	//	return view('tiposervicios.index')
-		//	->with('message', $message);
-
-		/*Flash::success('Tiposervicio saved successfully.');
-
-		return redirect(route('tiposervicios.index'));*/
-	}
 
 	/**
 	 * Display the specified Tiposervicio.
@@ -138,7 +112,8 @@ class TiposervicioController extends AppBaseController
 	 */
 	public function createnew($id)
 	{
-		$categoria = Categoria::where('id', $id)->lists('nombre', 'id');
+	    $categoria = $this->categoriaRepository->find($id);
+		//$categoria = Categoria::where('id', $id)->lists('nombre', 'id');
 		//return response()->json($categorias);
 		return view('tiposervicios.create')->with('categoria', $categoria);
 	}
@@ -150,9 +125,24 @@ class TiposervicioController extends AppBaseController
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function storenew($id)
+	public function storenew($id, CreateTiposervicioRequest $request)
 	{
-           return 'hola';
+         //  return response($id);
+
+	  $data = [
+          'nombre' => $request->get('nombre'),
+          'descripcion' => str_slug($request->get('descripcion')),
+          'id_categoria' => $id
+      ];
+	  //return response()->json($data);
+
+              $tiposervicio = $this->tiposervicioRepository->create($data);
+
+              $message = $tiposervicio ? 'Tipo de Servicio agregado correctamente!' : 'Tipo de Servicio NO pudo agregarse!';
+
+              Flash::success($message);
+
+              return redirect()->route('tiposerviciost.indextiposervicio')->with('message', $message);
 	}
 
 	/**
@@ -199,9 +189,9 @@ class TiposervicioController extends AppBaseController
 
 		$tiposervicio = $this->tiposervicioRepository->updateRich($request->all(), $id);
 
-		Flash::success('Tiposervicio updated successfully.');
+		Flash::success('Tipo de Servicio Actulizado correctamente.');
 
-		return redirect(route('tiposervicios.index'));
+		return redirect(route('tiposerviciost.indextiposervicio'));
 	}
 
 	/**
@@ -224,8 +214,8 @@ class TiposervicioController extends AppBaseController
 
 		$this->tiposervicioRepository->delete($id);
 
-		Flash::success('Tiposervicio deleted successfully.');
+		Flash::success('Tipo de servicio Borrado Correctamente.');
 
-		return redirect(route('tiposervicios.index'));
+		return redirect(route('tiposerviciost.indextiposervicio'));
 	}
 }
