@@ -3,19 +3,11 @@
 use App\Http\Requests;
 use App\Http\Requests\CreateServiciosRequest;
 use App\Http\Requests\UpdateServiciosRequest;
-
 use App\Libraries\Repositories\ServiciosRepository;
-use App\Libraries\Repositories\CategoriaRepository;
-use App\Libraries\Repositories\TiposervicioRepository;
-use App\Libraries\Repositories\PonderacionRepository;
-use App\Libraries\Repositories\EstatuRepository;
-
 
 use Flash;
 use Response;
 use Mitul\Controller\AppBaseController as AppBaseController;
-
-use Illuminate\Support\Collection as Collection;
 
 
 use Illuminate\Support\Facades\Input;
@@ -35,17 +27,9 @@ class ServiciosController extends AppBaseController
 	/** @var  ServiciosRepository */
 	private $serviciosRepository;
 
-	function __construct(ServiciosRepository $serviciosRepo,  CategoriaRepository $categoriaRepo, EstatuRepository $estatuRepo, PonderacionRepository $ponderacionRepo, TiposervicioRepository $tiposervicioRepo)
+	function __construct(ServiciosRepository $serviciosRepo)
 	{
 		$this->serviciosRepository = $serviciosRepo;
-
-		$this->categoriaRepository = $categoriaRepo;
-
-		$this->estatuRepository = $estatuRepo;
-
-		$this->ponderacionRepository = $ponderacionRepo;
-
-		$this->tiposervicioRepository = $tiposervicioRepo;
 	}
 
 	/**
@@ -55,38 +39,22 @@ class ServiciosController extends AppBaseController
 	 */
 	public function index()
 	{
-		$categorias = $this->categoriaRepository->paginate(10);
+		$servicios = $this->serviciosRepository->paginate(9);
 
-		return view('servicios.index')->with('categorias', $categorias);
-	}
+		/*$servicios = Servicios::join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
+			->orderBy('servicios.id', 'asc')
+			->lists('servicios.nombre', 'servicios.id','servicios.descripcion','tiposervicios.nombre as nombre_tipo_servicio','servicios.id_estatus','servicios.ponderacion');*/
 
-
-	/**
-	 * Display a listing of the Tiposervicio.
-	 *
-	 * @return Response
-	 */
-	public function indexservicio()
-	{
-
-		$servicios1 = DB::table('servicios')
+		/*$servicios = DB::table('servicios')
         ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
 		->join('estatus','estatus.id' ,'=','servicios.id_estatus')
 		->join('ponderacions','ponderacions.id' ,'=','servicios.ponderacion')
-        ->select('servicios.nombre','servicios.foto', 'servicios.id','servicios.descripcion','tiposervicios.nombre as nombre_tipo_servicio','estatus.nombre as nombre_estatus','ponderacions.nombre as nombre_ponderacion')
+        ->select('servicios.nombre', 'servicios.id','servicios.descripcion','tiposervicios.nombre as nombre_tipo_servicio','estatus.nombre as nombre_estatus','ponderacions.nombre as nombre_ponderacion')
         ->get();
+*/
 
-		//este query de devuelve un arreglo lo convierto en una collection para enviarselo a la vista
-
-		$servicios = Collection::make($servicios1);
-
-		//dd($servicios);
-
-		//return response()->json($servicios);
-
-
-		return view('servicios.indexservicios')->with('servicios', $servicios);
-
+		return view('servicios.index')
+			->with('servicios', $servicios);
 	}
 
 	/**
@@ -110,32 +78,6 @@ class ServiciosController extends AppBaseController
 		return view('servicios.create', compact('tiposervicios','estatu','ponderacion'));
 	}
 
-
-	/**
-	 * Show the form for editing the specified Tiposervicio.
-	 *
-	 * @param  int $id
-	 *
-	 * @return Response
-	 */
-	public function createnew($id)
-	{
-
-		//return $id;
-		//$tiposervicios = $this->tiposervicioRepository->all();
-
-		$tiposervicios = Tiposervicio::where('id_categoria',$id)->orderBy('id', 'asc')->lists('nombre', 'id');
-
-		//dd($tiposervicios);
-
-		$estatu = Estatu::where('tabla','servicios')->orderBy('id', 'asc')->lists('nombre', 'id');
-
-		$ponderacion = Ponderacion::orderBy('id', 'asc')->lists('nombre','valor', 'id');
-
-
-		return view('servicios.create', compact('tiposervicios','estatu','ponderacion'));
-	}
-
 	/**
 	 * Store a newly created Servicios in storage.
 	 *
@@ -143,6 +85,9 @@ class ServiciosController extends AppBaseController
 	 *
 	 * @return Response
 	 */
+
+
+  //return response()->json($data);
 
 
 	public function store(CreateServiciosRequest $request)
@@ -168,26 +113,24 @@ class ServiciosController extends AppBaseController
 		/**************************/
 
 
-		$data = [
-			'nombre' => $request->get('nombre'),
-			'descripcion' => str_slug($request->get('descripcion')),
-			'id_tipo_servicio' => $request->get('id_tipo_servicio'),
-			'id_estatus' => $request->get('id_estatus'),
-			'ponderacion' => $request->get('ponderacion'),
-			'foto' => $file->getClientOriginalName()
-		];
+	  $data = [
+		'nombre' => $request->get('nombre'),
+		'descripcion' => str_slug($request->get('descripcion')),
+		'id_tipo_servicio' => $request->get('id_tipo_servicio'),
+		'id_estatus' => $request->get('id_estatus'),
+	  	'ponderacion' => $request->get('ponderacion'),
+	  	'foto' => $file->getClientOriginalName()
+	  ];
+
 
 
 		$servicios = $this->serviciosRepository->create($data);
 
-		$message = $servicios ? 'Servicios Guardado Correctamente.!' : 'Servicios no pudo ser guardado.!';
+		Flash::success('Servicios Guardado Correctamente.');
 
-		Flash::success($message);
+		return redirect(route('servicios.index'));
 
-		return redirect()->route('serviciostodos.index')->with('message', $message);
 	}
-
-
 
 	/**
 	 * Display the specified Servicios.

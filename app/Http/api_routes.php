@@ -98,3 +98,11 @@ Route::resource("solicitudes", "SolicitudesAPIController");
 Route::resource("pruebas", "PruebaAPIController");
 
 Route::resource("fernandos", "fernandoAPIController");
+
+Route::resource("pruebas", "pruebaAPIController");
+
+Route::resource("pruebas", "pruebaAPIController");
+
+Route::resource("pruebas", "pruebaAPIController");
+
+Route::resource("pruebas", "pruebaAPIController");

@@ -1,32 +1,16 @@
-@foreach($servicios as $servicios)
-
-    <div class="col s12 m6 l4">
+@foreach($categorias as $categoria)
+    <div class="col s12 m7">
         <div class="card small">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img src="servicios-img/{{$servicios->foto}}" alt="{{$servicios->nombre}}" class="responsive-img">
+            <div class="card-image">
+                <img src="categorias-img/{{$categoria->foto}}" alt="{{$categoria->nombre}}" class="responsive-img">
+                <span class="card-title"> {{$categoria->nombre}}</span>
             </div>
             <div class="card-content">
-                <div class="card-title activator grey-text text-darken-4">
-            <span>
-               {{$servicios->nombre}}
-                <i class="mdi-navigation-more-vert right"></i>
-            </span>
-                </div>
-            </div>
-            <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">
-           {{$servicios->nombre}}
-            <i class="mdi-navigation-close right"></i>
-        </span>
-                <p> {{$servicios->descripcion}}</p>
-                <div class="card-action">
-                    <a class="right" href="{!! route('servicios.delete', [$servicios->id]) !!}"><i class="mdi-content-add-circle"></i>Eliminar</a>
-                </div>
+                <p> {{$categoria->descripcion}}</p>
             </div>
             <div class="card-action">
-                <a class="right" href="{!! route('servicios.edit', [$servicios->id]) !!}"><i class="mdi-content-add-circle"></i>Editar</a>
+                <a class="right" href="{!! route('serviciostodos.create', [$categoria->id]) !!}"><i class="mdi-content-add-circle"></i>Agregar Servicios</a>
             </div>
         </div>
     </div>
-
 @endforeach

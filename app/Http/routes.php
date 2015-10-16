@@ -57,24 +57,6 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function ()
 	});
 });
 
-/**********************************Insumos**********************************/
-
-Route::resource('insumos', 'InsumoController');
-
-Route::get('api/insumos','API\InsumoAPIController@index');
-
-Route::get('api/insumos/{id}','API\InsumoAPIController@show');
-
-//Route::get('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos'); //esto para probar el re+gistro
-
-Route::post('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos');
-
-
-Route::get('insumos/{id}/delete', [
-    'as' => 'insumos.delete',
-    'uses' => 'InsumoController@destroy',
-]);
-
 /**********************************Categoria**********************************/
 
 Route::resource('categorias', 'CategoriaController');
@@ -84,7 +66,6 @@ Route::get('categorias/{id}/delete', [
     'as' => 'categorias.delete',
     'uses' => 'CategoriaController@destroy',
 ]);
-
 
 
 /**********************************tipo_servicios**********************************/
@@ -104,8 +85,8 @@ Route::post('tiposervicios/{id}/storenew', [
 
 
 Route::get('tiposerviciost/indextiposervicio', [
-  'as' => 'tiposerviciost.indextiposervicio',
-  'uses' => 'TiposervicioController@indextiposervicio',
+    'as' => 'tiposerviciost.indextiposervicio',
+    'uses' => 'TiposervicioController@indextiposervicio',
 ]);
 
 
@@ -113,6 +94,47 @@ Route::get('tiposervicios/{id}/delete', [
     'as' => 'tiposervicios.delete',
     'uses' => 'TiposervicioController@destroy',
 ]);
+
+/**********************************Servicios**********************************/
+
+
+Route::resource('servicios', 'ServiciosController');
+
+
+Route::get('servicios/{id}/delete', [
+    'as' => 'servicios.delete',
+    'uses' => 'ServiciosController@destroy',
+]);
+
+Route::resource('serviciostodos', 'ServiciosTodosController');
+
+Route::get('serviciostodos/{id}/create', [
+    'as' => 'serviciostodos.create',
+    'uses' => 'ServiciosTodosController@create',
+]);
+
+
+/**********************************Insumos**********************************/
+
+Route::resource('insumos', 'InsumoController');
+
+Route::get('api/insumos','API\InsumoAPIController@index');
+
+Route::get('api/insumos/{id}','API\InsumoAPIController@show');
+
+//Route::get('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos'); //esto para probar el re+gistro
+
+Route::post('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos');
+
+
+Route::get('insumos/{id}/delete', [
+    'as' => 'insumos.delete',
+    'uses' => 'InsumoController@destroy',
+]);
+
+
+
+
 
 
 /**********************************Estatus**********************************/
@@ -129,18 +151,6 @@ Route::get('estatus_tab', function ()    {
 });
 
 
-
-/**********************************Servicios**********************************/
-
-
-Route::resource('servicios', 'ServiciosController');
-
-
-
-Route::get('servicios/{id}/delete', [
-    'as' => 'servicios.delete',
-    'uses' => 'ServiciosController@destroy',
-]);
 
 
 
@@ -211,4 +221,44 @@ Route::resource('fernandos', 'fernandoController');
 Route::get('fernandos/{id}/delete', [
     'as' => 'fernandos.delete',
     'uses' => 'fernandoController@destroy',
+]);
+
+
+Route::resource('lorenzos', 'LorenzoController');
+
+Route::get('lorenzos/{id}/delete', [
+    'as' => 'lorenzos.delete',
+    'uses' => 'LorenzoController@destroy',
+]);
+
+
+Route::resource('pruebas', 'pruebaController');
+
+Route::get('pruebas/{id}/delete', [
+    'as' => 'pruebas.delete',
+    'uses' => 'pruebaController@destroy',
+]);
+
+
+Route::resource('pruebas', 'pruebaController');
+
+Route::get('pruebas/{id}/delete', [
+    'as' => 'pruebas.delete',
+    'uses' => 'pruebaController@destroy',
+]);
+
+
+Route::resource('pruebas', 'pruebaController');
+
+Route::get('pruebas/{id}/delete', [
+    'as' => 'pruebas.delete',
+    'uses' => 'pruebaController@destroy',
+]);
+
+
+Route::resource('pruebas', 'pruebaController');
+
+Route::get('pruebas/{id}/delete', [
+    'as' => 'pruebas.delete',
+    'uses' => 'pruebaController@destroy',
 ]);

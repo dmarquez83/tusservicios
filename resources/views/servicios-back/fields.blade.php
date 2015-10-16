@@ -54,7 +54,28 @@
         {!! form::file('foto',null,['class' => 'form-control']) !!}
     </div>
 
+    <form action="#">
+        <div class="file-field input-field">
+            <div class="btn">
+                <span>Imagen</span>
+                <input type="file" multiple>
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Sube una imagen">
+            </div>
+        </div>
+    </form>
 
+<!--- Submit Field
+
+
+    <div class="col s12 m12">
+        <a class="waves-effect waves-light orange darken-3 right btn" href="des_solicitud.php">
+            <i class="mdi-action-add-shopping-cart left"></i>
+            Solicitar Servicio
+        </a>
+    </div>
+--->
 
 
 

@@ -3,8 +3,8 @@
 use App\Http\Requests;
 use App\Http\Requests\CreateTiposervicioRequest;
 use App\Http\Requests\UpdateTiposervicioRequest;
-use App\Libraries\Repositories\TiposervicioRepository;
 
+use App\Libraries\Repositories\TiposervicioRepository;
 use App\Libraries\Repositories\CategoriaRepository;
 
 
