@@ -151,6 +151,17 @@ Route::get('tipousuarios/{id}/delete', [
 
 Route::resource('solicitudes', 'SolicitudesController');
 
+Route::post('solicitudes/{id}/create', [
+  'as' => 'solicitudes.create',
+  'uses' => 'SolicitudesController@create',
+]);
+
+Route::post('solicitudes/{id}/store', [
+  'as' => 'solicitudes.store',
+  'uses' => 'SolicitudesController@store',
+]);
+
+
 
 Route::get('solicitudes/{id}/delete', [
   'as' => 'solicitudes.delete',
@@ -165,6 +176,7 @@ Route::get('solicitudservicios/{id}/index', [
   'as' => 'solicitudservicios.index',
   'uses' => 'SolicitudserviciosController@index',
 ]);
+
 
 /**********************************Insumos**********************************/
 

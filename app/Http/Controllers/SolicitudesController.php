@@ -5,6 +5,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateSolicitudesRequest;
 use App\Http\Requests\UpdateSolicitudesRequest;
 
+use App\Libraries\Repositories\ServiciosRepository;
 use App\Libraries\Repositories\SolicitudesRepository;
 use App\Libraries\Repositories\CategoriaRepository;
 
@@ -28,11 +29,13 @@ class SolicitudesController extends AppBaseController
 	/** @var  SolicitudesRepository */
 	private $solicitudesRepository;
 
-	function __construct(SolicitudesRepository $solicitudesRepo,  CategoriaRepository $categoriaRepo)
+	function __construct(SolicitudesRepository $solicitudesRepo,  CategoriaRepository $categoriaRepo,ServiciosRepository $serviciosRepo)
 	{
 		$this->solicitudesRepository = $solicitudesRepo;
 
 	    $this->categoriaRepository = $categoriaRepo;
+
+	    $this->serviciosRepository = $serviciosRepo;
 	}
 
 	/**
@@ -52,13 +55,17 @@ class SolicitudesController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create($id)
 	{
 	    /*ojo aqui debe venir ya el id del usuario que lo esta registrando preguntar si alguien sin registrarse puedde hacer una solicitud*/
 
 		/*ojo aqui debe venir la categoria para seleccionar el tipo de servicio*/
 
-		$servicios = Servicios::where('id', '1')->orderBy('id', 'asc')->lists('nombre', 'id');
+	//	$servicios = Servicios::where('id', $id)->lists('nombre', 'id','descripcion');
+
+	  $servicios = $this->serviciosRepository->find($id);
+
+	   // dd($servicios);
 
 
 		return view('solicitudes.create')->with('servicios', $servicios);
@@ -72,11 +79,24 @@ class SolicitudesController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function store(CreateSolicitudesRequest $request)
+	public function store($id, CreateSolicitudesRequest $request)
 	{
-		$input = $request->all();
+		//$input = $request->all();
 
-		$solicitudes = $this->solicitudesRepository->create($input);
+	   $data = [
+		'descripcion'  => $request->get('descripcion'),
+		'fecha'  => $request->get('fecha'),
+		'hora'  => $request->get('hora'),
+		'direccion'  => $request->get('direccion'),
+		'telefono'  => $request->get('telefono'),
+		'horas'  => $request->get('horas'),
+		'costo'  => 0,
+		'id_usuario'  => '7',
+		'id_estatus'  => '3',
+     	'id_servicio'  => $id
+       ];
+
+	  $solicitudes = $this->solicitudesRepository->create($data);
 
 		Flash::success('Solicitudes saved successfully.');
 

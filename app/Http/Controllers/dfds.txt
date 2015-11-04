@@ -1,0 +1,12 @@
+  $data = [
+	'descripcion => $request->get('descripcion'),
+	'fecha => $request->get('fecha'),
+	'hora => $request->get('hora'),
+	'direccion => $request->get('direccion'),
+	'telefono => $request->get('telefono'),
+	'horas => $request->get('horas'),
+	'costo => 0,
+	'id_usuario => '7',
+	'id_estatus => '1'
+	'id_servicio' => $id
+  ];
