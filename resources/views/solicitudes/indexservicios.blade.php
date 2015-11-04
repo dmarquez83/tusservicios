@@ -8,13 +8,13 @@
 
         <div class="row">
 
-            @include('solicitudes.table')
+            @include('solicitudes.tableservicios')
 
         </div>
 
-        @include('common.paginate', ['records' => $categorias])
+    {{-- @include('common.paginate', ['records' => $servicios])--}}
 
 
 
-    </div>
+ </div>
 @endsection

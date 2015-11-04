@@ -12,8 +12,8 @@
 			<td>{!! $tipousuarios->descripcion !!}</td>
 			<td>{!! $tipousuarios->abreviatura !!}</td>
             <td>
-                <a href="{!! route('tipousuarios.edit', [$tipousuarios->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
-                <a href="{!! route('tipousuarios.delete', [$tipousuarios->id]) !!}" onclick="return confirm('Are you sure wants to delete this Tipousuarios?')"><i class="glyphicon glyphicon-remove"></i></a>
+                <a href="{!! route('tipousuarios.edit', [$tipousuarios->id]) !!}"><i class="mdi-content-send"></i></a>
+                <a href="{!! route('tipousuarios.delete', [$tipousuarios->id]) !!}" onclick="return confirm('Are you sure wants to delete this Tipousuarios?')"><i class="mdi-action-delete"></i></a>
             </td>
         </tr>
     @endforeach

@@ -1,30 +1,30 @@
-<table class="table">
-    <thead>
-    <th>Descripcion</th>
-			<th>Fecha</th>
-			<th>Hora</th>
-			<th>Direccion</th>
-			<th>Telefono</th>
-			<th>Horas</th>
-			<th>Id Servicio</th>
-    <th width="50px">Action</th>
-    </thead>
-    <tbody>
-    @foreach($solicitudes as $solicitudes)
-        <tr>
-            <td>{!! $solicitudes->descripcion !!}</td>
-			<td>{!! $solicitudes->fecha !!}</td>
-			<td>{!! $solicitudes->hora !!}</td>
-			<td>{!! $solicitudes->direccion !!}</td>
-			<td>{!! $solicitudes->telefono !!}</td>
-			<td>{!! $solicitudes->horas !!}</td>
-
-			<td>{!! $solicitudes->id_servicio !!}</td>
-            <td>
-                <a href="{!! route('solicitudes.edit', [$solicitudes->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
-                <a href="{!! route('solicitudes.delete', [$solicitudes->id]) !!}" onclick="return confirm('Are you sure wants to delete this Solicitudes?')"><i class="glyphicon glyphicon-remove"></i></a>
-            </td>
-        </tr>
-    @endforeach
-    </tbody>
-</table>
+@foreach($categorias as $categoria)
+    <div class="col s12 m6 l4">
+        <div class="card small">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img src="categorias-img/{{$categoria->foto}}" alt="{{$categoria->nombre}}" class="responsive-img">
+            </div>
+            <div class="card-content">
+                <div class="card-title activator grey-text text-darken-4">
+                                    <span>
+                                       {{$categoria->nombre}}
+                                        <i class="mdi-navigation-more-vert right"></i>
+                                    </span>
+                </div>
+            </div>
+            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">
+                                    {{$categoria->nombre}}
+                                    <i class="mdi-navigation-close right"></i>
+                                </span>
+                <p>{{$categoria->decripcion}}</p>
+                <div class="card-action">
+                    <a class="right" href="servicios.php"><i class="mdi-content-add-circle"></i>Ver Servicios</a>
+                </div>
+            </div>
+            <div class="card-action">
+                <a class="right" href="{!! route('solicitudservicios.index', [$categoria->id]) !!}"><i class="mdi-content-add-circle"></i>Ver Servicios</a>
+            </div>
+        </div>
+    </div>
+@endforeach

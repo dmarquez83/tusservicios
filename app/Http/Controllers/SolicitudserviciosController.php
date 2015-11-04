@@ -7,6 +7,9 @@ use App\Http\Requests\UpdateSolicitudesRequest;
 
 use App\Libraries\Repositories\SolicitudesRepository;
 use App\Libraries\Repositories\CategoriaRepository;
+use App\Libraries\Repositories\ServiciosRepository;
+
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Categoria;
 use App\Models\Servicios;
@@ -22,17 +25,19 @@ use Illuminate\Support\Collection as Collection;
 
 
 
-class SolicitudesController extends AppBaseController
+class SolicitudserviciosController extends AppBaseController
 {
 
 	/** @var  SolicitudesRepository */
 	private $solicitudesRepository;
 
-	function __construct(SolicitudesRepository $solicitudesRepo,  CategoriaRepository $categoriaRepo)
+	function __construct(SolicitudesRepository $solicitudesRepo,  CategoriaRepository $categoriaRepo, ServiciosRepository $serviciosRepo)
 	{
 		$this->solicitudesRepository = $solicitudesRepo;
 
 	    $this->categoriaRepository = $categoriaRepo;
+
+	    $this->serviciosRepository = $serviciosRepo;
 	}
 
 	/**
@@ -40,11 +45,24 @@ class SolicitudesController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($id)
 	{
-	  $categorias = $this->categoriaRepository->paginate(10);
 
-	  return view('solicitudes.index')->with('categorias', $categorias);
+	 $servicios1 = DB::table('servicios')
+		->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
+		->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
+		->where('categorias.id','=',$id)
+		->select('servicios.id as id','servicios.nombre','servicios.descripcion','servicios.id_tipo_servicio','servicios.id_estatus','servicios.ponderacion','servicios.created_at','servicios.updated_at','servicios.foto','categorias.id as id_categoria')
+		->get();
+
+	  $servicios = Collection::make($servicios1);
+
+
+	 // dd($servicios);
+
+
+	  return view('solicitudes.indexservicios')->with('servicios', $servicios);
+
 	}
 
 	/**

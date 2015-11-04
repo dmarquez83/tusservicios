@@ -112,7 +112,59 @@ Route::get('serviciostodos/{id}/create', [
     'as' => 'serviciostodos.create',
     'uses' => 'ServiciosTodosController@create',
 ]);
+/**********************************Estatus**********************************/
 
+//Route::resource('estatus', 'API\EstatuAPIController');
+
+Route::resource('estatus', 'EstatuController');
+
+Route::get('estatus/{id}/delete', [
+  'as' => 'estatus.delete',
+  'uses' => 'EstatuController@destroy',
+]);
+
+Route::get('estatus_tab', function ()    {
+    return view('estatus.table');
+});
+
+/**********************************Ponderacions**********************************/
+
+Route::resource('ponderacions', 'PonderacionController');
+
+Route::get('ponderacions/{id}/delete', [
+  'as' => 'ponderacions.delete',
+  'uses' => 'PonderacionController@destroy',
+]);
+
+/**********************************Tipo usuarios**********************************/
+
+
+Route::resource('tipousuarios', 'TipousuariosController');
+
+Route::get('tipousuarios/{id}/delete', [
+  'as' => 'tipousuarios.delete',
+  'uses' => 'TipousuariosController@destroy',
+]);
+
+/**********************************solicitudes**********************************/
+
+
+Route::resource('solicitudes', 'SolicitudesController');
+
+
+Route::get('solicitudes/{id}/delete', [
+  'as' => 'solicitudes.delete',
+  'uses' => 'SolicitudesController@destroy',
+]);
+
+
+Route::resource('solicitudservicios', 'SolicitudserviciosController');
+
+
+Route::get('solicitudservicios/{id}/index', [
+  'as' => 'solicitudservicios.index',
+  'uses' => 'SolicitudserviciosController@index',
+]);
 
 /**********************************Insumos**********************************/
 
@@ -133,47 +185,6 @@ Route::get('insumos/{id}/delete', [
 ]);
 
 
-
-
-
-
-/**********************************Estatus**********************************/
-
-Route::resource('estatus', 'API\EstatuAPIController');
-
-Route::get('estatus/{id}/delete', [
-    'as' => 'estatus.delete',
-    'uses' => 'EstatuController@destroy',
-]);
-
-Route::get('estatus_tab', function ()    {
-    return view('estatus.table');
-});
-
-
-
-
-
-
-/**********************************Ponderacions**********************************/
-
-Route::resource('ponderacions', 'PonderacionController');
-
-Route::get('ponderacions/{id}/delete', [
-    'as' => 'ponderacions.delete',
-    'uses' => 'PonderacionController@destroy',
-]);
-
-/**********************************Tipo usuarios**********************************/
-
-
-Route::resource('tipousuarios', 'TipousuariosController');
-
-Route::get('tipousuarios/{id}/delete', [
-    'as' => 'tipousuarios.delete',
-    'uses' => 'TipousuariosController@destroy',
-]);
-
 /**********************************Evaluaciones**********************************/
 
 Route::resource('evaluaciones', 'EvaluacionesController');
@@ -188,15 +199,7 @@ Route::get('evaluaciones/{id}/delete', [
 Route::get('geocoder', 'OtherGeocoderController@index');
 
 
-/**********************************solicitudes**********************************/
 
-
-Route::resource('solicitudes', 'SolicitudesController');
-
-Route::get('solicitudes/{id}/delete', [
-    'as' => 'solicitudes.delete',
-    'uses' => 'SolicitudesController@destroy',
-]);
 
 /**********************************Pruebas de Imagenes**********************************/
 
