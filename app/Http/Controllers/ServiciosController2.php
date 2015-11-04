@@ -221,41 +221,48 @@ class ServiciosController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-  public function edit($id)
-  {
-
-	$servicios = $this->serviciosRepository->find($id);
-
-	$servicios1 = DB::table('servicios')
-	  ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
-	  ->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
-	  ->where('servicios.id','=',$id)
-	  ->select('servicios.id as id','servicios.nombre','servicios.descripcion','servicios.id_tipo_servicio','servicios.id_estatus','servicios.ponderacion','servicios.created_at','servicios.updated_at','servicios.foto','categorias.id as id_categoria')
-	  ->get();
-
-	//este query de devuelve un arreglo lo convierto en una collection para enviarselo a la vista
-
-	 $servicios1 = Collection::make($servicios1);
-
-	 $value = $servicios1->lists('id_categoria');
-
-	$tiposervicios = Tiposervicio::where('id_categoria',$value[0])->orderBy('id', 'asc')->lists('nombre', 'id');
-
-	//dd($tiposervicios);
-
-	$estatu = Estatu::where('tabla','servicios')->orderBy('id', 'asc')->lists('nombre', 'id');
-
-	$ponderacion = Ponderacion::orderBy('id', 'asc')->lists('nombre','valor', 'id');
-
-	if(empty($servicios))
+	public function edit($id)
 	{
-	  Flash::error('Servicios not found');
+	  $servicios = $this->serviciosRepository->find($id);
 
-	  return redirect(route('servicios.index'));
+	  $servicios1 = DB::table('servicios')
+		->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
+		->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
+		->where('servicios.id','=',$id)
+		->select('servicios.id','servicios.nombre','servicios.foto','servicios.descripcion','servicios.ponderacion','servicios.id_tipo_servicio','servicios.id_estatus','categorias.id as id_categoria')
+		->get();
+
+	   //este query de devuelve un arreglo lo convierto en una collection para enviarselo a la vista
+
+	 // $servicios = Collection::make($servicios1);
+
+	 // dd($servicios);
+
+	  //$value = $servicios->lists('id_categoria');
+
+	  //return $value[0];
+
+	  $tiposervicios1 = Tiposervicio::where('id_categoria',31)->orderBy('id', 'asc')->lists('nombre', 'id');
+
+	 // $tiposervicios = Collection::make($tiposervicios1);
+
+	 // dd($tiposervicios);
+
+	  $estatu = Estatu::where('tabla','servicios')->orderBy('id', 'asc')->lists('nombre', 'id');
+
+	  $ponderacion = Ponderacion::orderBy('id', 'asc')->lists('nombre','valor', 'id');
+
+	  if(empty($servicios))
+		{
+			Flash::error('Servicios not found');
+
+			return redirect(route('servicios.index'));
+		}
+
+	  //return $servicios->toArray();
+
+	  return view('servicios.edit',compact('servicios','tiposervicios','estatu','ponderacion'));
 	}
-
-	return view('servicios.edit',compact('servicios','tiposervicios','estatu','ponderacion'));
-  }
 
 	/**
 	 * Update the specified Servicios in storage.
