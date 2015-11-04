@@ -198,6 +198,7 @@ Route::get('solicitudes/{id}/delete', [
     'uses' => 'SolicitudesController@destroy',
 ]);
 
+/**********************************Pruebas de Imagenes**********************************/
 
 Route::resource('thumbnail', 'ThumbnailController');
 
@@ -216,49 +217,3 @@ Route::get('otro', function()
     return $img->response('jpg');
 });
 
-Route::resource('fernandos', 'fernandoController');
-
-Route::get('fernandos/{id}/delete', [
-    'as' => 'fernandos.delete',
-    'uses' => 'fernandoController@destroy',
-]);
-
-
-Route::resource('lorenzos', 'LorenzoController');
-
-Route::get('lorenzos/{id}/delete', [
-    'as' => 'lorenzos.delete',
-    'uses' => 'LorenzoController@destroy',
-]);
-
-
-Route::resource('pruebas', 'pruebaController');
-
-Route::get('pruebas/{id}/delete', [
-    'as' => 'pruebas.delete',
-    'uses' => 'pruebaController@destroy',
-]);
-
-
-Route::resource('pruebas', 'pruebaController');
-
-Route::get('pruebas/{id}/delete', [
-    'as' => 'pruebas.delete',
-    'uses' => 'pruebaController@destroy',
-]);
-
-
-Route::resource('pruebas', 'pruebaController');
-
-Route::get('pruebas/{id}/delete', [
-    'as' => 'pruebas.delete',
-    'uses' => 'pruebaController@destroy',
-]);
-
-
-Route::resource('pruebas', 'pruebaController');
-
-Route::get('pruebas/{id}/delete', [
-    'as' => 'pruebas.delete',
-    'uses' => 'pruebaController@destroy',
-]);

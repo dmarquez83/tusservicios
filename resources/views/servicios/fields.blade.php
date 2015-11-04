@@ -21,7 +21,7 @@
 
     <div class="input-field col s12">
 
-        {!! Form::select('id_tipo_servicio', $tiposervicios, 'Tipo Servicio:', ['class' => 'form-control']) !!}
+        {!! Form::select('id_tipo_servicio', $tiposervicios, null, ['class' => 'form-control']) !!}
         {!! Form::label('id_tipo_servicio', 'Tipo Servicio:') !!}
 
     </div>
@@ -50,10 +50,9 @@
 
 
     <div class="form-group">
-        {!! form::label('image','Imagen')!!}
+        {!! form::label('foto','Imagen:')!!}
         {!! form::file('foto',null,['class' => 'form-control']) !!}
     </div>
-
 
 
 
