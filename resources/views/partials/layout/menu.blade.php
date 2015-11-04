@@ -3,12 +3,12 @@
         <h5>Opciones</h5>
     </li>
     <li class="collection-item grey lighten-5 ">
-        <a href="index.php" class="black-text">
+        <a href="{!! route('categorias.index') !!}" class="black-text">
             Categorias <span  class="secondary-content black-text"><i class="material-icons">list</i></span>
         </a>
     </li>
     <li class="collection-item grey lighten-5 ">
-        <a href="#" class="black-text">
+        <a href="{!! route('solicitudes.index') !!}" class="black-text">
             Solicitudes <span  class="secondary-content black-text"><i class="material-icons">assignment</i></span>
         </a>
     </li>
@@ -23,7 +23,7 @@
         </a>
     </li>
     <li class="collection-item grey lighten-5 ">
-        <a href="#" class="black-text">
+        <a href="{!! route('auth/logout') !!}" class="black-text">
             Cerrar Sesión
                             <span  class="secondary-content black-text">
                                 <i class="material-icons">exit_to_app</i>

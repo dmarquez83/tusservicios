@@ -8,7 +8,8 @@
 			</a>
 <ul class="right hide-on-small-only">
 <li>
-    <a class="dropdown-button" href="#">
+
+        <a href="{!! route('auth/login') !!}" class="dropdown-button">
         <i class="mdi-action-account-circle"></i>
     </a>
 </li>

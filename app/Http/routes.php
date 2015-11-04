@@ -151,17 +151,16 @@ Route::get('tipousuarios/{id}/delete', [
 
 Route::resource('solicitudes', 'SolicitudesController');
 
-Route::post('solicitudes/{id}/create', [
+Route::get('solicitudes/{id}/create', [
   'as' => 'solicitudes.create',
   'uses' => 'SolicitudesController@create',
 ]);
 
-Route::post('solicitudes/{id}/store', [
+Route::get('solicitudes/{id}/store', [
+  'middleware' => 'auth',
   'as' => 'solicitudes.store',
   'uses' => 'SolicitudesController@store',
 ]);
-
-
 
 Route::get('solicitudes/{id}/delete', [
   'as' => 'solicitudes.delete',
