@@ -1,5 +1,3 @@
-<form method="POST" action="http://localhost:8000/categorias/create" accept-charset="UTF-8" enctype="multipart/form-data">
-
     <div class="input-field">
         {!! Form::label('nombre', 'Nombre:') !!}
         {!! Form::text('nombre', null, ['class' => 'form-control']) !!}

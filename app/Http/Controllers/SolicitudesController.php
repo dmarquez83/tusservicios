@@ -91,7 +91,7 @@ class SolicitudesController extends AppBaseController
 		'telefono'  => $request->get('telefono'),
 		'horas'  => $request->get('horas'),
 		'costo'  => 0,
-		'id_usuario'  => '7',
+		'id_usuario'  => \Auth::user()->id,
 		'id_estatus'  => '3',
      	'id_servicio'  => $id
        ];

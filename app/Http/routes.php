@@ -12,12 +12,26 @@
 */
 /*
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index');
 });
 */
-Route::get('home', 'HomeController@index');
 
-Route::get('/', 'HomeController@index');
+//Route::get('home', 'HomeController@index');
+
+//Route::get('/', 'HomeController@index');
+
+
+Route::get('/', [
+  'as' => 'home',
+  'uses' => 'HomeController@index',
+]);
+
+
+Route::get('home', [
+  'as' => 'home',
+  'uses' => 'HomeController@index',
+]);
+
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -57,95 +71,130 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function ()
 	});
 });
 
-/**********************************Categoria**********************************/
+// ADMIN -------------
 
-Route::resource('categorias', 'CategoriaController');
-
-
-Route::get('categorias/{id}/delete', [
-    'as' => 'categorias.delete',
-    'uses' => 'CategoriaController@destroy',
-]);
+Route::group(['middleware' => ['auth']], function()
+{
 
 
-/**********************************tipo_servicios**********************************/
+    /**********************************Categoria**********************************/
+
+    Route::resource('categorias', 'CategoriaController');
 
 
-Route::resource('tiposervicios', 'TiposervicioController');
-
-Route::get('tiposervicios/{id}/createnew', [
-    'as' => 'tiposervicios.createnew',
-    'uses' => 'TiposervicioController@createnew',
-]);
-
-Route::post('tiposervicios/{id}/storenew', [
-    'as' => 'tiposervicios.storenew',
-    'uses' => 'TiposervicioController@storenew',
-]);
+    Route::get('categorias/{id}/delete', [
+        'as' => 'categorias.delete',
+        'uses' => 'CategoriaController@destroy',
+    ]);
 
 
-Route::get('tiposerviciost/indextiposervicio', [
-    'as' => 'tiposerviciost.indextiposervicio',
-    'uses' => 'TiposervicioController@indextiposervicio',
-]);
+    /**********************************tipo_servicios**********************************/
 
 
-Route::get('tiposervicios/{id}/delete', [
-    'as' => 'tiposervicios.delete',
-    'uses' => 'TiposervicioController@destroy',
-]);
+    Route::resource('tiposervicios', 'TiposervicioController');
 
-/**********************************Servicios**********************************/
+    Route::get('tiposervicios/{id}/createnew', [
+        'as' => 'tiposervicios.createnew',
+        'uses' => 'TiposervicioController@createnew',
+    ]);
+
+    Route::post('tiposervicios/{id}/storenew', [
+        'as' => 'tiposervicios.storenew',
+        'uses' => 'TiposervicioController@storenew',
+    ]);
 
 
-Route::resource('servicios', 'ServiciosController');
+    Route::get('tiposerviciost/indextiposervicio', [
+        'as' => 'tiposerviciost.indextiposervicio',
+        'uses' => 'TiposervicioController@indextiposervicio',
+    ]);
 
 
-Route::get('servicios/{id}/delete', [
-    'as' => 'servicios.delete',
-    'uses' => 'ServiciosController@destroy',
-]);
+    Route::get('tiposervicios/{id}/delete', [
+        'as' => 'tiposervicios.delete',
+        'uses' => 'TiposervicioController@destroy',
+    ]);
 
-Route::resource('serviciostodos', 'ServiciosTodosController');
+    /**********************************Servicios**********************************/
 
-Route::get('serviciostodos/{id}/create', [
-    'as' => 'serviciostodos.create',
-    'uses' => 'ServiciosTodosController@create',
-]);
-/**********************************Estatus**********************************/
 
-//Route::resource('estatus', 'API\EstatuAPIController');
+    Route::resource('servicios', 'ServiciosController');
 
-Route::resource('estatus', 'EstatuController');
 
-Route::get('estatus/{id}/delete', [
-  'as' => 'estatus.delete',
-  'uses' => 'EstatuController@destroy',
-]);
+    Route::get('servicios/{id}/delete', [
+        'as' => 'servicios.delete',
+        'uses' => 'ServiciosController@destroy',
+    ]);
 
-Route::get('estatus_tab', function ()    {
-    return view('estatus.table');
+    Route::resource('serviciostodos', 'ServiciosTodosController');
+
+    Route::get('serviciostodos/{id}/create', [
+        'as' => 'serviciostodos.create',
+        'uses' => 'ServiciosTodosController@create',
+    ]);
+    /**********************************Estatus**********************************/
+
+    //Route::resource('estatus', 'API\EstatuAPIController');
+
+    Route::resource('estatus', 'EstatuController');
+
+    Route::get('estatus/{id}/delete', [
+      'as' => 'estatus.delete',
+      'uses' => 'EstatuController@destroy',
+    ]);
+
+    Route::get('estatus_tab', function ()    {
+        return view('estatus.table');
+    });
+
+    /**********************************Ponderacions**********************************/
+
+    Route::resource('ponderacions', 'PonderacionController');
+
+    Route::get('ponderacions/{id}/delete', [
+      'as' => 'ponderacions.delete',
+      'uses' => 'PonderacionController@destroy',
+    ]);
+
+    /**********************************Tipo usuarios**********************************/
+
+
+    Route::resource('tipousuarios', 'TipousuariosController');
+
+    Route::get('tipousuarios/{id}/delete', [
+      'as' => 'tipousuarios.delete',
+      'uses' => 'TipousuariosController@destroy',
+    ]);
 });
 
-/**********************************Ponderacions**********************************/
 
-Route::resource('ponderacions', 'PonderacionController');
+/**********************************Insumos**********************************/
 
-Route::get('ponderacions/{id}/delete', [
-  'as' => 'ponderacions.delete',
-  'uses' => 'PonderacionController@destroy',
+Route::resource('insumos', 'InsumoController');
+
+Route::get('api/insumos','API\InsumoAPIController@index');
+
+Route::get('api/insumos/{id}','API\InsumoAPIController@show');
+
+//Route::get('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos'); //esto para probar el re+gistro
+
+Route::post('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos');
+
+
+Route::get('insumos/{id}/delete', [
+  'as' => 'insumos.delete',
+  'uses' => 'InsumoController@destroy',
 ]);
 
-/**********************************Tipo usuarios**********************************/
 
+/**********************************Evaluaciones**********************************/
 
-Route::resource('tipousuarios', 'TipousuariosController');
+Route::resource('evaluaciones', 'EvaluacionesController');
 
-Route::get('tipousuarios/{id}/delete', [
-  'as' => 'tipousuarios.delete',
-  'uses' => 'TipousuariosController@destroy',
+Route::get('evaluaciones/{id}/delete', [
+  'as' => 'evaluaciones.delete',
+  'uses' => 'EvaluacionesController@destroy',
 ]);
-
 /**********************************solicitudes**********************************/
 
 
@@ -176,34 +225,6 @@ Route::get('solicitudservicios/{id}/index', [
   'uses' => 'SolicitudserviciosController@index',
 ]);
 
-
-/**********************************Insumos**********************************/
-
-Route::resource('insumos', 'InsumoController');
-
-Route::get('api/insumos','API\InsumoAPIController@index');
-
-Route::get('api/insumos/{id}','API\InsumoAPIController@show');
-
-//Route::get('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos'); //esto para probar el re+gistro
-
-Route::post('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos');
-
-
-Route::get('insumos/{id}/delete', [
-    'as' => 'insumos.delete',
-    'uses' => 'InsumoController@destroy',
-]);
-
-
-/**********************************Evaluaciones**********************************/
-
-Route::resource('evaluaciones', 'EvaluacionesController');
-
-Route::get('evaluaciones/{id}/delete', [
-    'as' => 'evaluaciones.delete',
-    'uses' => 'EvaluacionesController@destroy',
-]);
 
 /**********************************Mapa**********************************/
 

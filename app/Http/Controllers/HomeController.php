@@ -10,9 +10,9 @@ use Auth;
 
 class HomeController extends Controller
 {
-    public function __construct() {
+   /* public function __construct() {
         $this->middleware('auth');
-    }
+    }*/
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +20,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return \View::make('home');
+       return \View::make('home.index');
+
+      //  return view('home');
+
+       // return   view('home.index');
     }
 }
