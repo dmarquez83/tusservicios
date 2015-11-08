@@ -48,7 +48,11 @@ return array(
     'App\\Http\\Controllers\\OtherGeocoderController' => $baseDir . '/app/Http/Controllers/OtherGeocoderController.php',
     'App\\Http\\Controllers\\PonderacionController' => $baseDir . '/app/Http/Controllers/PonderacionController.php',
     'App\\Http\\Controllers\\PruebaController' => $baseDir . '/app/Http/Controllers/PruebaController.php',
+<<<<<<< HEAD
     'App\\Http\\Controllers\\ServiciosController' => $baseDir . '/app/Http/Controllers/ServiciosController_back.php',
+=======
+    'App\\Http\\Controllers\\ServiciosController' => $baseDir . '/app/Http/Controllers/ServiciosController.php',
+>>>>>>> cc8ebb57a650041ba76ff41ec85b4fa94e67d93f
     'App\\Http\\Controllers\\ServiciosImgController' => $baseDir . '/app/Http/Controllers/ServiciosImgController.php',
     'App\\Http\\Controllers\\ServiciosTodosController' => $baseDir . '/app/Http/Controllers/ServiciosTodosController.php',
     'App\\Http\\Controllers\\SolicitudesController' => $baseDir . '/app/Http/Controllers/SolicitudesController-back.php',

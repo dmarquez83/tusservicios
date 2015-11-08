@@ -5,9 +5,10 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2>Hola Home 2</h2><hr></div>
+                        <h2>{{ trans('app.prueba.title') }}</h2><hr></div>
                     <div class="panel-body">
-                        <p> </p>
+                        <p></p>
+
                     </div>
                 </div>
             </div>
