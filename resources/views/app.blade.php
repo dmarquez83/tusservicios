@@ -31,8 +31,11 @@
 <div class="page-loader"></div>
 
 <div class="l-wrapper">
+    @include('partials.layout.navbar')
+    @include('partials.layout.errors')
     @yield('content')
 </div><!-- l-wrapper -->
+
 
 
 <!-- LOAD SCRIPTS -->
@@ -40,7 +43,12 @@
 <script src="{{asset('assets/inc/js/jquery-1.11.0.min.js')}}"></script>
 <script src="{{asset('assets/inc/bootstrap/js/bootstrap.min.js')}}"></script>
 
-@yield('scripts')
+<!-- flexslider -->
+<script src="{{asset('assets/inc/flexslider/jquery.flexslider.js')}}"></script>
+
+<!-- script calling -->
+<script src="{{asset('assets/inc/js/common.js')}}"></script>
+
 
 </body>
 </Html>
