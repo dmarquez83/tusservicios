@@ -224,25 +224,26 @@ class ServiciosController extends AppBaseController
   public function edit($id)
   {
 
-	$servicios = $this->serviciosRepository->find($id);
 
-	$servicios1 = DB::table('servicios')
+
+	//$servicios = $this->serviciosRepository->find($id);
+
+	$servicios = DB::table('servicios')
 	  ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
 	  ->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
 	  ->where('servicios.id','=',$id)
 	  ->select('servicios.id as id','servicios.nombre','servicios.descripcion','servicios.id_tipo_servicio','servicios.id_estatus','servicios.ponderacion','servicios.created_at','servicios.updated_at','servicios.foto','categorias.id as id_categoria')
 	  ->get();
 
+
 	//este query de devuelve un arreglo lo convierto en una collection para enviarselo a la vista
 
-	 $servicios1 = Collection::make($servicios1);
+	//$servicios = Collection::make($servicios);
 
-	 $value = $servicios1->lists('id_categoria');
+	$value= $servicios[0]->id_categoria;
+	//$value = $servicios1->lists('id_categoria');
 
-	$tiposervicios = Tiposervicio::where('id_categoria',$value[0])->orderBy('id', 'asc')->lists('nombre', 'id');
-
-
-	//dd($tiposervicios);
+	$tiposervicios = Tiposervicio::where('id_categoria',$value)->orderBy('id', 'asc')->lists('nombre', 'id');
 
 	$estatu = Estatu::where('tabla','servicios')->orderBy('id', 'asc')->lists('nombre', 'id');
 
@@ -255,7 +256,7 @@ class ServiciosController extends AppBaseController
 	  return redirect(route('servicios.index'));
 	}
 
-	return view('servicios.edit',compact('servicios','tiposervicios','estatu','ponderacion'));
+	return view('servicios.edit')->with(array('servicios'=>$servicios,'tiposervicios'=>$tiposervicios,'estatu'=>$estatu,'ponderacion'=>$ponderacion));
   }
 
 	/**
