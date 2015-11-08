@@ -128,7 +128,7 @@ class OptimizeCommand extends Command
             $files = array_merge($files, forward_static_call([$provider, 'compiles']));
         }
 
-        return array_map('realpath', $files);
+        return $files;
     }
 
     /**

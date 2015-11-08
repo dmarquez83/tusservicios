@@ -20,10 +20,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-       return \View::make('home.index');
+       //return \View::make('home.index');
 
       //  return view('home');
 
-       // return   view('home.index');
+       return   view('home.index');
     }
 }

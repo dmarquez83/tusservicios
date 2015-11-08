@@ -54,9 +54,7 @@ class SQLiteGrammar extends Grammar
     {
         $columns = implode(', ', $this->getColumns($blueprint));
 
-        $sql = $blueprint->temporary ? 'create temporary' : 'create';
-
-        $sql .= ' table '.$this->wrapTable($blueprint)." ($columns";
+        $sql = 'create table '.$this->wrapTable($blueprint)." ($columns";
 
         // SQLite forces primary keys to be added when the table is initially created
         // so we will need to check for a primary key commands and add the columns
@@ -562,17 +560,6 @@ class SQLiteGrammar extends Grammar
     protected function typeBinary(Fluent $column)
     {
         return 'blob';
-    }
-
-    /**
-     * Create the column definition for a uuid type.
-     *
-     * @param  \Illuminate\Support\Fluent  $column
-     * @return string
-     */
-    protected function typeUuid(Fluent $column)
-    {
-        return 'varchar';
     }
 
     /**

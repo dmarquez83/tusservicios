@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.1.19 (LTS) on 2015-11-08.
+ * Generated for Laravel 5.1.17 (LTS) on 2015-09-29.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -738,12 +738,11 @@ namespace {
          * @param string $concrete
          * @param string $abstract
          * @param \Closure|string $implementation
-         * @return void 
          * @static 
          */
         public static function addContextualBinding($concrete, $abstract, $implementation){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::addContextualBinding($concrete, $abstract, $implementation);
+            return \Illuminate\Foundation\Application::addContextualBinding($concrete, $abstract, $implementation);
         }
         
         /**
@@ -1156,7 +1155,7 @@ namespace {
         }
         
         /**
-         * Bootstrap the application for artisan commands.
+         * Bootstrap the application for HTTP requests.
          *
          * @return void 
          * @static 
@@ -2493,11 +2492,10 @@ namespace {
          * Remove a cookie from the queue.
          *
          * @param string $name
-         * @return void 
          * @static 
          */
         public static function unqueue($name){
-            \Illuminate\Cookie\CookieJar::unqueue($name);
+            return \Illuminate\Cookie\CookieJar::unqueue($name);
         }
         
         /**
@@ -2707,17 +2705,6 @@ namespace {
         public static function table($table){
             //Method inherited from \Illuminate\Database\Connection            
             return \Illuminate\Database\PostgresConnection::table($table);
-        }
-        
-        /**
-         * Get a new query builder instance.
-         *
-         * @return \Illuminate\Database\Query\Builder 
-         * @static 
-         */
-        public static function query(){
-            //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\PostgresConnection::query();
         }
         
         /**
@@ -4440,7 +4427,7 @@ namespace {
          * @return string 
          * @static 
          */
-        public static function implode($column, $glue = ''){
+        public static function implode($column, $glue = null){
             return \Illuminate\Database\Query\Builder::implode($column, $glue);
         }
         
@@ -4507,17 +4494,6 @@ namespace {
          */
         public static function avg($column){
             return \Illuminate\Database\Query\Builder::avg($column);
-        }
-        
-        /**
-         * Alias for the "avg" method.
-         *
-         * @param string $column
-         * @return float|int 
-         * @static 
-         */
-        public static function average($column){
-            return \Illuminate\Database\Query\Builder::average($column);
         }
         
         /**
@@ -4673,30 +4649,6 @@ namespace {
          */
         public static function useWritePdo(){
             return \Illuminate\Database\Query\Builder::useWritePdo();
-        }
-        
-        /**
-         * Checks if macro is registered.
-         *
-         * @param string $name
-         * @return bool 
-         * @static 
-         */
-        public static function hasMacro($name){
-            return \Illuminate\Database\Query\Builder::hasMacro($name);
-        }
-        
-        /**
-         * Dynamically handle calls to the class.
-         *
-         * @param string $method
-         * @param array $parameters
-         * @return mixed 
-         * @throws \BadMethodCallException
-         * @static 
-         */
-        public static function macroCall($method, $parameters){
-            return \Illuminate\Database\Query\Builder::macroCall($method, $parameters);
         }
         
     }
@@ -5667,8 +5619,6 @@ namespace {
         /**
          * Determine if the given content types match.
          *
-         * @param string $actual
-         * @param string $type
          * @return bool 
          * @static 
          */
@@ -8404,8 +8354,6 @@ namespace {
         /**
          * Determine if the given content types match.
          *
-         * @param string $actual
-         * @param string $type
          * @return bool 
          * @static 
          */
@@ -12781,59 +12729,6 @@ namespace {
     }
 
 
-    class Image extends \Intervention\Image\Facades\Image{
-        
-        /**
-         * Overrides configuration settings
-         *
-         * @param array $config
-         * @static 
-         */
-        public static function configure($config = array()){
-            return \Intervention\Image\ImageManager::configure($config);
-        }
-        
-        /**
-         * Initiates an Image instance from different input types
-         *
-         * @param mixed $data
-         * @return \Intervention\Image\Image 
-         * @static 
-         */
-        public static function make($data){
-            return \Intervention\Image\ImageManager::make($data);
-        }
-        
-        /**
-         * Creates an empty image canvas
-         *
-         * @param integer $width
-         * @param integer $height
-         * @param mixed $background
-         * @return \Intervention\Image\Image 
-         * @static 
-         */
-        public static function canvas($width, $height, $background = null){
-            return \Intervention\Image\ImageManager::canvas($width, $height, $background);
-        }
-        
-        /**
-         * Create new cached image and run callback
-         * (requires additional package intervention/imagecache)
-         *
-         * @param \Closure $callback
-         * @param integer $lifetime
-         * @param boolean $returnObj
-         * @return \Intervention\Image\Image 
-         * @static 
-         */
-        public static function cache($callback, $lifetime = null, $returnObj = false){
-            return \Intervention\Image\ImageManager::cache($callback, $lifetime, $returnObj);
-        }
-        
-    }
-
-
     class Debugbar extends \Barryvdh\Debugbar\Facade{
         
         /**
@@ -13330,23 +13225,6 @@ namespace {
          */
         public static function registerProvider($alias, $provider){
             return \AdamWathan\EloquentOAuth\OAuthManager::registerProvider($alias, $provider);
-        }
-        
-    }
-
-
-    class Geocoder extends \Alexpechkarev\GoogleGeocoder\Facades\GoogleGeocoderFacade{
-        
-        /**
-         * Geocoding request
-         *
-         * @param string $format - output format json or xml
-         * @param array $param - geocoding request parameters
-         * @return string 
-         * @static 
-         */
-        public static function geocode($format, $param){
-            return \Alexpechkarev\GoogleGeocoder\GoogleGeocoder::geocode($format, $param);
         }
         
     }
