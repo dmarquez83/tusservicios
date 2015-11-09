@@ -39,16 +39,14 @@
 
 
 <!-- LOAD SCRIPTS -->
-
-<script src="{{asset('assets/inc/js/jquery-1.11.0.min.js')}}"></script>
-<script src="{{asset('assets/inc/bootstrap/js/bootstrap.min.js')}}"></script>
+{!! Html::script('assets/inc/js/jquery-1.11.0.min.js') !!}
+{!! Html::script('assets/inc/bootstrap/js/bootstrap.min.js') !!}
 
 <!-- flexslider -->
-<script src="{{asset('assets/inc/flexslider/jquery.flexslider.js')}}"></script>
+{!! Html::script('assets/inc/flexslider/jquery.flexslider.js') !!}
 
 <!-- script calling -->
-<script src="{{asset('assets/inc/js/common.js')}}"></script>
-
+{!! Html::script('assets/inc/js/common.js') !!}
 
 </body>
 </Html>

@@ -36,47 +36,45 @@
 
 
     <!-- LOAD SCRIPTS -->
-
-    <script src="{{asset('assets/inc/js/jquery-1.11.0.min.js')}}"></script>
-    <script src="{{asset('assets/inc/bootstrap/js/bootstrap.min.js')}}"></script>
+    {!! Html::script('assets/inc/js/jquery-1.11.0.min.js') !!}
+    {!! Html::script('assets/inc/bootstrap/js/bootstrap.min.js') !!}
 
     <!-- flexslider -->
-    <script src="{{asset('assets/inc/flexslider/jquery.flexslider.js')}}"></script>
+    {!! Html::script('assets/inc/flexslider/jquery.flexslider.js') !!}
 
     <!-- skrollr -->
-    <script src="{{asset('assets/inc/skrollr/dist/skrollr.min.js')}}"></script>
+    {!! Html::script('assets/inc/skrollr/dist/skrollr.min.js') !!}
 
     <!-- easy pie chart -->
-    <script src="{{asset('assets/inc/easy-pie-chart/dist/jquery.easypiechart.min.js')}}"></script>
+    {!! Html::script('assets/inc/easy-pie-chart/dist/jquery.easypiechart.min.js') !!}
 
     <!-- isotope -->
-    <script src="{{asset('assets/inc/isotope/jquery.isotope.min.js')}}" ></script>
-    <script src="{{asset('assets/inc/isotope/jquery.isotope.sloppy-masonry.js')}}" ></script>
+    {!! Html::script('assets/inc/isotope/jquery.isotope.min.js') !!}
+    {!! Html::script('assets/inc/isotope/jquery.isotope.sloppy-masonry.js') !!}
 
     <!-- nice scroll -->
-    <script src="{{asset('assets/inc/nice-scroll/jquery.nicescroll.min.js')}}" ></script>
+    {!! Html::script('assets/inc/nice-scroll/jquery.nicescroll.min.js') !!}
 
     <!-- google maps -->
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    {!! Html::script('https://maps.googleapis.com/maps/api/js?sensor=false') !!}
 
     <!-- Magnific Popup core JS file -->
-    <script src="{{asset('assets/inc/magnific/dist/jquery.magnific-popup.js')}}"></script>
+    {!! Html::script('assets/inc/magnific/dist/jquery.magnific-popup.js') !!}
 
     <!-- Waypoints -->
-    <script src="{{asset('assets/inc/waypoints/waypoints.min.js')}}"></script>
+    {!! Html::script('assets/inc/waypoints/waypoints.min.js') !!}
 
     <!-- YTP -->
-    <script src="{{asset('assets/inc/YTPlayer/inc/jquery.mb.YTPlayer.js')}}"></script>
+    {!! Html::script('assets/inc/YTPlayer/inc/jquery.mb.YTPlayer.js') !!}
 
     <!-- TWITTER SCRIPT -->
-    <script src="{{asset('assets/inc/tweet/twitter/jquery.tweet.js')}}"></script>
+    {!! Html::script('assets/inc/tweet/twitter/jquery.tweet.js') !!}
 
     <!-- contact form checker -->
-    <script src="{{asset('assets/inc/form-validator/dist/jquery.validate.js')}}"></script>
+    {!! Html::script('assets/inc/form-validator/dist/jquery.validate.js') !!}
 
     <!-- script calling -->
-    <script src="{{asset('assets/inc/js/common.js')}}"></script>
-
+    {!! Html::script('assets/inc/js/common.js') !!}
 
 </body>
 </Html>
