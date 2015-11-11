@@ -13,7 +13,10 @@
                                     .
                                 </div><!-- comments -->
                                 <div class="post-date text-right">
-                                    <a href="#{{$categoria->nombre}}">Leer Mas</a>
+                                    <button type="button" class="btn btn-link text-muted" data-toggle="modal" data-target="#{{$categoria->nombre}}">
+                                        Leer Mas
+                                        <span class="glyphicon glyphicon-plus text-muted" aria-hidden="true"></span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -26,16 +29,27 @@
                     <a class="btn btn-danger btn-xs" href="{!! route('categorias.delete', [$categoria->id]) !!}" role="button">Eliminar</a>
                 </div>
                 <div class="news-content">
-                    <p>
-                        {{$categoria->decripcion}}
-                    </p>
+                    <p></p>
 
                     <div class="clearfix"></div><!-- clearfix -->
 
                 </div>
-                <div id="{{$categoria->nombre}}" class="white-popup mfp-hide">
-                    <img src="categorias-img/{{$categoria->foto}}" alt="{{$categoria->nombre}}" class="img-responsive">
-                    <p>{{$categoria->decripcion}}</p>
+                <!-- Modal -->
+                <div id="{{$categoria->nombre}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">{{$categoria->nombre}}</h4>
+                            </div>
+                            <div class="modal-body">
+                                {{$categoria->decripcion}}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
