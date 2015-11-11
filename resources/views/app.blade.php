@@ -8,6 +8,8 @@
 
     <link rel="shortcut icon" href="img/favicon.ico">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css'>
+
+
     {!! Html::style('assets/inc/bootstrap/css/bootstrap.min.css') !!}
     {!! Html::style('assets/inc/bootstrap/css/bootstrap-theme.min.css') !!}
     {!! Html::style('assets/inc/bootstrap/css/bootstrap-reset.css') !!}
@@ -18,6 +20,7 @@
     {!! Html::style('assets/inc/font-awesome/css/font-awesome.min.css') !!}
     {!! Html::style('assets/css/style.css') !!}
     {!! Html::style('assets/css/colors.css') !!}
+    {!! Html::style('assets/css/main.css') !!}
 
 </head>
 <body>
@@ -47,6 +50,11 @@
 
 <!-- script calling -->
 {!! Html::script('assets/inc/js/common.js') !!}
+
+
+<!-- Footer -->
+
+@include('partials.layout.footer')
 
 </body>
 </Html>
