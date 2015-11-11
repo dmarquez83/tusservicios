@@ -48,7 +48,7 @@
                                                 </p>
 
                                                 <div class="clearfix"></div><!-- clearfix -->
-                                                </div><!-- news-content -->
+                                            </div><!-- news-content -->
 
                                         </div><!-- m-news-post -->                                                                
 

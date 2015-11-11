@@ -1,20 +1,58 @@
 @if(Auth::check()) {{-- verifico si inicio session--}}
-<li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-        <i class="mdi-action-account-circle"></i> {{ Auth::user()->name }} <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu" role="menu">
-        <li><a href="{{ route('auth/logout') }}">Finalizar sesión</a></li>
+<div class="collapse navbar-collapse" id="navbar">
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Categorias
+            </a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Solicitudes
+            </a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Panel
+            </a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <i class="mdi-action-account-circle"></i> {{ Auth::user()->name }} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="{{ route('auth/logout') }}">Finalizar sesión</a></li>
+            </ul>
+        </li>
     </ul>
-</li>
+</div>
 @else
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-            <i class="fa fa-user"></i> <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu" role="menu">
-            <li><a href="{{ route('auth/login') }}">Iniciar sesión</a></li>
-            <li><a href="{{ route('auth/register') }}">Registrarse</a></li>
-        </ul>
-    </li>
+<div class="collapse navbar-collapse" id="navbar">
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Categorias
+            </a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Solicitudes
+            </a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Panel
+            </a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <i class="fa fa-user"></i> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="{{ route('auth/login') }}">Iniciar sesión</a></li>
+                <li><a href="{{ route('auth/register') }}">Registrarse</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
 @endif
