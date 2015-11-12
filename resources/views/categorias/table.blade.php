@@ -39,12 +39,8 @@
                     <a class="btn btn-primary btn-xs" href="{!! route('categorias.edit', [$categoria->id]) !!}" role="button">Editar</a>
                     <a class="btn btn-danger btn-xs" href="{!! route('categorias.delete', [$categoria->id]) !!}" role="button">Eliminar</a>
                 </div>
-                <div class="news-content">
-                    <p></p>
-
-                    <div class="clearfix"></div><!-- clearfix -->
-
-                </div>
+                <br>
+                <br>
                 <!-- Modal -->
                 <div id="{{$categoria->nombre}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
