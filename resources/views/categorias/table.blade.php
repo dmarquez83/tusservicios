@@ -1,3 +1,14 @@
+<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="input-group">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+        </div>
+        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Encuentra el Servicio que necesitas">
+    </div>
+</div>
+<br>
+<br>
+
 @foreach($categorias as $categoria)
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
