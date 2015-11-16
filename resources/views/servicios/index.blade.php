@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="">
 
         @include('flash::message')
         <div class="row">
