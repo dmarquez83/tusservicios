@@ -1,43 +1,39 @@
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="input-group">
-        <div class="input-group-addon">
-            <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
-        </div>
-        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Encuentra el Servicio que necesitas">
-    </div>
+        <h1 class="pull-left">Categorias</h1>
+        <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('categorias.create') !!}">Agregar</a>
 </div>
-<br>
-<br>
 
+<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="input-group">
+    <div class="input-group-addon">
+        <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+    </div>
+    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Encuentra el Servicio que necesitas">
+</div>
+</div>
+
+<br>
+<br>
 @foreach($categorias as $categoria)
-
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-                <div class="m-image-wrap">
-                    <div class="hover-wrap">
-                        <div class="image-hover">
-                            <div class="categories">
+                <div class="box box-warning">
+                    <div class="box-header with-border">
+                        <div class="user-block">
+                            <h3>
                                 <a href="#">{{$categoria->nombre}}</a>
-                                <div class="m-heading-border"></div>
-                            </div>
-                            <div class="post-meta">
-                                <div class="post-comments text-left">
-                                    .
-                                </div><!-- comments -->
-                                <div class="post-date text-right">
-                                    <button type="button" class="btn btn-link text-muted" data-toggle="modal" data-target="#{{$categoria->nombre}}">
-                                        Leer Mas
-                                        <span class="glyphicon glyphicon-plus text-muted" aria-hidden="true"></span>
-                                    </button>
-                                </div>
+                            </h3>
+                        </div>
+                        <div class="box-body">
+                            <img src="categorias-img/{{$categoria->foto}}" alt="{{$categoria->nombre}}" class="img-responsive">
+                            <a class="btn btn-default btn-xs pull-right" href="{!! route('categorias.edit', [$categoria->id]) !!}" role="button">Editar</a>
+                            <a class="btn btn-default btn-xs pull-right" href="{!! route('categorias.delete', [$categoria->id]) !!}" role="button">Eliminar</a>
+                        </div>
+                        <div class="box-footer box-comments">
+                            <div class="box-comment">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorem doloremque ea est fugit illo, illum inventore iusto laborum magni neque quis repellat repellendus saepe unde, vel veritatis vitae voluptatibus?
                             </div>
                         </div>
                     </div>
-
-                    <img src="categorias-img/{{$categoria->foto}}" alt="{{$categoria->nombre}}" class="img-responsive">
-                </div>
-                <div class="text-right">
-                    <a class="btn btn-primary btn-xs" href="{!! route('categorias.edit', [$categoria->id]) !!}" role="button">Editar</a>
-                    <a class="btn btn-danger btn-xs" href="{!! route('categorias.delete', [$categoria->id]) !!}" role="button">Eliminar</a>
                 </div>
                 <br>
                 <br>
