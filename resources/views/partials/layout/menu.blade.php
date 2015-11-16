@@ -79,11 +79,11 @@
                     </a>
                 </li>
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <li class="treeview">
+                    <a href="#">
                         <i class="fa fa-user"></i> <span class="caret"></span>
                     </a>
-                    <ul class="dropdown-menu" role="menu">
+                    <ul class="treeview-menu" style="list-style: none">
                         <li><a href="{{ route('auth/login') }}">Iniciar sesión</a></li>
                         <li><a href="{{ route('auth/register') }}">Registrarse</a></li>
                     </ul>

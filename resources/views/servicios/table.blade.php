@@ -1,4 +1,8 @@
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1 class="pull-left">Servicios</h1>
+</div>
+
+<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="input-group">
         <div class="input-group-addon">
             <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
