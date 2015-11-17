@@ -5,7 +5,7 @@
 
     @include('common.errors')
 
-    {!! Form::open(['route' => 'categorias.store', 'method' => 'POST', 'files' => 'true']) !!}
+    {!! Form::open(['route' => 'admin.categorias.store', 'method' => 'POST', 'files' => 'true']) !!}
 
         @include('categorias.fields')
 

@@ -32,12 +32,11 @@
                             </div>
                         </div>
                     </div>
-
-                    <img src="categorias-img/{{$categoria->foto}}" alt="{{$categoria->nombre}}" class="img-responsive">
+                    {!! Html::image('categorias-img/'.$categoria->foto, $categoria->nombre, array('class' => 'img-responsive')) !!}
                 </div>
                 <div class="text-right">
-                    <a class="btn btn-primary btn-xs" href="{!! route('categorias.edit', [$categoria->id]) !!}" role="button">Editar</a>
-                    <a class="btn btn-danger btn-xs" href="{!! route('categorias.delete', [$categoria->id]) !!}" role="button">Eliminar</a>
+                    <a class="btn btn-primary btn-xs" href="{!! route('admin.categorias.edit', [$categoria->id]) !!}" role="button">Editar</a>
+                    <a class="btn btn-danger btn-xs" href="{!! route('admin.categorias.delete', [$categoria->id]) !!}" role="button">Eliminar</a>
                 </div>
                 <br>
                 <br>

@@ -79,11 +79,11 @@ Route::group(['middleware' => ['auth']], function()
 
     /**********************************Categoria**********************************/
 
-    Route::resource('categorias', 'CategoriaController');
+    Route::resource('admin/categorias', 'CategoriaController');
 
 
-    Route::get('categorias/{id}/delete', [
-        'as' => 'categorias.delete',
+    Route::get('admin/categorias/{id}/delete', [
+        'as' => 'admin.categorias.delete',
         'uses' => 'CategoriaController@destroy',
     ]);
 
@@ -118,19 +118,19 @@ Route::group(['middleware' => ['auth']], function()
     /**********************************Servicios**********************************/
 
 
-    Route::resource('servicios', 'ServiciosController');
+    Route::resource('categorias/servicios', 'ServiciosController');
 
 
-    Route::get('servicios/{id}/delete', [
-        'as' => 'servicios.delete',
+    Route::get('categorias/servicios/{id}/delete', [
+        'as' => 'categorias.servicios.delete',
         'uses' => 'ServiciosController@destroy',
     ]);
 
-    Route::resource('serviciostodos', 'ServiciosTodosController');
+    Route::resource('admin/servicios', 'ServiciosAdminController');
 
-    Route::get('serviciostodos/{id}/create', [
-        'as' => 'serviciostodos.create',
-        'uses' => 'ServiciosTodosController@create',
+    Route::get('admin/servicios/{id}/create', [
+        'as' => 'admin.servicios.create',
+        'uses' => 'ServiciosAdminController@create',
     ]);
     /**********************************Estatus**********************************/
 
