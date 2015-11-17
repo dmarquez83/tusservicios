@@ -15,30 +15,34 @@
 @foreach($categorias as $categoria)
 
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-        <div class="box box-warning">
-            <div class="box-header with-border">
-                <div class="user-block">
-                    <h3>
-                    <a href="#">{{$categoria->nombre}}</a>
+        <div class="box box-widget widget-user">
+            <div class="widget-user-header bg-black" style="background: url('categorias-img/{{$categoria->foto}}') center center;">
+                    <h3 class="widget-user-username">
+                        {{$categoria->nombre}}
                     </h3>
-                </div>
-            <div class="box-body">
-                <img src="categorias-img/{{$categoria->foto}}" alt="{{$categoria->nombre}}" class="img-responsive pad">
-
-                <a class="btn btn-default btn-xs pull-right" href="{!! route('serviciostodos.create', [$categoria->id]) !!}" role="button">Agregar</a>
-
-                <a class="btn btn-default btn-xs pull-right" href="#">Comprar <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
-
-                <!-- <button type="button" class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#//$categoria->nombre">
-                Leer Mas
-                    <span class="glyphicon glyphicon-plus text-muted" aria-hidden="true"></span>
-                </button> -->
             </div>
-            <div class="box-footer box-comments">
-                <div class="box-comment">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorem doloremque ea est fugit illo, illum inventore iusto laborum magni neque quis repellat repellendus saepe unde, vel veritatis vitae voluptatibus?
-                </div>
+            <div class="widget-user-image">
+                <img src="servicios-img/user1-128x128.jpg" alt="{{$categoria->nombre}}" class="img-circle">
             </div>
+
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorem doloremque ea est fugit illo, illum inventore iusto laborum magni neque quis repellat repellendus saepe unde, vel veritatis vitae voluptatibus?
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="description-block">
+                            <a class="description-header" href="{!! route('serviciostodos.create', [$categoria->id]) !!}" role="button">Agregar</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 border-right">
+                        <div class="description-block">
+                            <a class="description-header" href="#">Comprar <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
