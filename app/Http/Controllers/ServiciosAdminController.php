@@ -29,7 +29,7 @@ use App\Models\Estatu;
 use App\Models\Categoria;
 
 
-class ServiciosTodosController extends AppBaseController
+class ServiciosAdminController extends AppBaseController
 {
 
 	/** @var  ServiciosRepository */
