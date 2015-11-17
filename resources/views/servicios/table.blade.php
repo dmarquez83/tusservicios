@@ -1,4 +1,8 @@
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1 class="pull-left">Servicios</h1>
+</div>
+
+<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="input-group">
         <div class="input-group-addon">
             <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
@@ -11,40 +15,31 @@
 @foreach($categorias as $categoria)
 
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-        <div class="m-image-wrap">
-            <div class="hover-wrap">
-                <div class="image-hover">
-                    <div class="categories">
-                        <a href="#">{{$categoria->nombre}}</a>
-                        <div class="m-heading-border"></div>
-                    </div>
-                    <div class="post-meta">
-                        <div class="post-comments text-left">
-                            .
-                        </div><!-- comments -->
-                        <div class="post-date text-right">
-                            <button type="button" class="btn btn-link text-muted" data-toggle="modal" data-target="#{{$categoria->nombre}}">
-                                Leer Mas
-                                <span class="glyphicon glyphicon-plus text-muted" aria-hidden="true"></span>
-                            </button>
-                        </div>
-                    </div>
+        <div class="box box-warning">
+            <div class="box-header with-border">
+                <div class="user-block">
+                    <h3>
+                    <a href="#">{{$categoria->nombre}}</a>
+                    </h3>
+                </div>
+            <div class="box-body">
+                <img src="categorias-img/{{$categoria->foto}}" alt="{{$categoria->nombre}}" class="img-responsive pad">
+
+                <a class="btn btn-default btn-xs pull-right" href="{!! route('serviciostodos.create', [$categoria->id]) !!}" role="button">Agregar</a>
+
+                <a class="btn btn-default btn-xs pull-right" href="#">Comprar <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+
+                <!-- <button type="button" class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#//$categoria->nombre">
+                Leer Mas
+                    <span class="glyphicon glyphicon-plus text-muted" aria-hidden="true"></span>
+                </button> -->
+            </div>
+            <div class="box-footer box-comments">
+                <div class="box-comment">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorem doloremque ea est fugit illo, illum inventore iusto laborum magni neque quis repellat repellendus saepe unde, vel veritatis vitae voluptatibus?
                 </div>
             </div>
-
-            <img src="categorias-img/{{$categoria->foto}}" alt="{{$categoria->nombre}}" class="img-responsive">
-        </div>
-        <div class="text-right">
-            <a class="btn btn-primary btn-xs" href="{!! route('serviciostodos.create', [$categoria->id]) !!}" role="button">Agregar</a>
-
-            <a class="btn btn-warning btn-xs" href="#">Comprar <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
-
-        </div>
-        <div class="news-content">
-            <p></p>
-
-            <div class="clearfix"></div><!-- clearfix -->
-
+            </div>
         </div>
         <!-- Modal -->
         <div id="{{$categoria->nombre}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

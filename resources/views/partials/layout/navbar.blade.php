@@ -1,14 +1,13 @@
-<div class="l-navigation-wrap menu-padd navbar-fixed-top" id="l-navigation">
-    <div class="m-navbar container">
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container-fluid">
-                <div class="l-logo">
-                    <a href="#splash-image-wrap">
-                        {!! Html::image('assets/img/logo.png', 'logo', array('class' => '')) !!}
-                    </a>
-                </div><!-- l-logo -->
-                @include('partials.layout.menu')
-            </div><!-- /.container-fluid -->
-        </nav>
-    </div><!-- m-navbar -->
-</div><!-- l-navigation -->
+<header class="main-header">
+    <!-- Logo -->
+    <a href="" class="logo">
+        {!! Html::image('assets/img/logo.png', 'logo', array('class' => '')) !!}
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </a>
+    </nav>
+</header>
