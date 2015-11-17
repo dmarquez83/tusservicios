@@ -1,7 +1,7 @@
 <?php namespace App\Models;
 
 use Response;
-use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Database\Eloquent\Model as Model;
 use App\Http\Controllers\Controller;
@@ -26,6 +26,7 @@ class UserRepository  extends Controller{
                'name' => '',
                'username' => '',
                'email' => '',
+               'id_tipo_usuario' => '',
              ]);
 
             }
@@ -42,6 +43,7 @@ class UserRepository  extends Controller{
               'username' => $userData->nickname,
               'provider_id' => $userData->id,
               'provider' => $provider,
+              'id_tipo_usuario' => '2',
             ];
 
             $dbData = [
@@ -50,6 +52,7 @@ class UserRepository  extends Controller{
               'username' => $user->username,
               'provider_id' => $userData->id,
               'provider' => $provider,
+              'id_tipo_usuario' => '2',
             ];
 
             if (!empty(array_diff($socialData, $dbData))) {
@@ -58,6 +61,7 @@ class UserRepository  extends Controller{
               $user->username = $userData->nickname;
               $user->provider_id = $userData->id;
               $user->provider = $provider;
+              $user->id_tipo_usuario = '2';
               $user->save();
             }
       }

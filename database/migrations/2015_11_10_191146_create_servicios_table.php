@@ -17,7 +17,7 @@ class CreateServiciosTable extends Migration
 		{
 			$table->increments('id');
 			$table->string('nombre');
-			$table->string('descripcion');
+			$table->string('descripcion')->nullable();
 		    $table->string('foto')->nullable();
 		    $table->integer('id_tipo_servicio')->unsigned();
 		    $table->foreign('id_tipo_servicio')->references('id')->on('tiposervicios')->onDelete('cascade');

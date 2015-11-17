@@ -16,8 +16,8 @@ class CreatePonderacionesTable extends Migration
 		Schema::create('ponderaciones', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('valor');
-			$table->string('nombre');
+			$table->integer('valor')->nullable();
+			$table->string('nombre')->nullable();
 			$table->timestamps();
 		});
 	}

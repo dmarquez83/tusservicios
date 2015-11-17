@@ -48,7 +48,7 @@ return [
    ],
 
    'google' => [
-        'client_id' => '457551230680-e3vfbqh2olinvaicqbgdp1tnc191dg66.apps.googleusercontent.com ',
+        'client_id' => '457551230680-e3vfbqh2olinvaicqbgdp1tnc191dg66.apps.googleusercontent.com',
         'client_secret' => 'ryWQhrC9da22mYzdwBAv-zLo',
         'redirect' => 'http://backservicios.com/login/google',
    ],

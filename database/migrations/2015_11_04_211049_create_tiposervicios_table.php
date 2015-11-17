@@ -16,9 +16,9 @@ class CreateTiposerviciosTable extends Migration
 		Schema::create('tiposervicios', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('nombre');
-			$table->string('descripcion');
-		    $table->integer('id_categoria')->unsigned();
+			$table->string('nombre')->nullable();
+			$table->string('descripcion')->nullable();
+		    $table->integer('id_categoria')->unsigned()->nullable();
 		    $table->foreign('id_categoria')->references('id')->on('categorias')->onDelete('cascade');
 			$table->timestamps();
 		});
