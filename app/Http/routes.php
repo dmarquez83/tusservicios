@@ -126,11 +126,11 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'ServiciosController@destroy',
     ]);
 
-    Route::resource('admin/servicios', 'ServiciosTodosController');
+    Route::resource('admin/servicios', 'ServiciosAdminController');
 
     Route::get('admin/servicios/{id}/create', [
         'as' => 'admin.servicios.create',
-        'uses' => 'ServiciosTodosController@create',
+        'uses' => 'ServiciosAdminController@create',
     ]);
     /**********************************Estatus**********************************/
 
