@@ -79,11 +79,11 @@ Route::group(['middleware' => ['auth']], function()
 
     /**********************************Categoria**********************************/
 
-    Route::resource('categorias', 'CategoriaController');
+    Route::resource('admin/categorias', 'CategoriaController');
 
 
-    Route::get('categorias/{id}/delete', [
-        'as' => 'categorias.delete',
+    Route::get('admin/categorias/{id}/delete', [
+        'as' => 'admin.categorias.delete',
         'uses' => 'CategoriaController@destroy',
     ]);
 

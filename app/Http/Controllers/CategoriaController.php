@@ -56,6 +56,13 @@ class CategoriaController extends AppBaseController
 	public function store(CreateCategoriaRequest $request)
 	{
 
+
+	  $this->validate($request, [
+		'nombre' => 'required|unique:categorias|max:255',
+		'decripcion' => 'required|max:500',
+		'foto'  => 'required'
+	  ]);
+
 		/***************************/
 
 		$file = Input::file('foto');
@@ -73,20 +80,9 @@ class CategoriaController extends AppBaseController
 		// Guardar
 		$image->save($path.'thumb_'.$file->getClientOriginalName());
 
-
 		/**************************/
 
-		$this->validate($request, [
-			'nombre' => 'required|unique:categorias|max:255',
-			'decripcion' => 'max:500'
-		]);
 
-		//$input = $request->all();
-
-		//return response($input); //asi veo lo que viene del formulario incluyendo el token {"_token":"fYOAOVc7JawpdobkgdcpsNoDcXKW6xkzEdbq9SWb","nombre":"tget","descripcion":"ergf","foto":{}}
-
-		//$categoria = $this->categoriaRepository->create($input);
-		//$categoria = Categoria::create($input);
 
 		$data = [
 			'nombre' => $request->get('nombre'),
@@ -99,14 +95,7 @@ class CategoriaController extends AppBaseController
 
 		Flash::success('Categoria Guardada Correctamente.');
 
-		return redirect(route('categorias.index'));
-
-		/*
-		return Categoria::create([
-			'nombre' =>$nombre,
-			'decripcion' =>$descripcion,
-		]);*/
-
+		return redirect(route('admin.categorias.index'));
 
 	}
 
@@ -162,7 +151,7 @@ class CategoriaController extends AppBaseController
 	 */
 	public function update($id, UpdateCategoriaRequest $request)
 	{
-
+	    //dd($request);
 		$this->validate($request, [
 			'nombre' => 'max:255',
 			'decripcion' => 'max:500'
@@ -175,41 +164,48 @@ class CategoriaController extends AppBaseController
 		{
 			Flash::error('Categoria no encontrada');
 
-			return redirect(route('categorias.index'));
+			return redirect(route('admin.categorias.index'));
 		}
 
 		/***************************/
+        if($request->get('foto')<>''){
+			$file = Input::file('foto');
+			//Creamos una instancia de la libreria instalada
 
-		$file = Input::file('foto');
-		//Creamos una instancia de la libreria instalada
+			$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
 
-		$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
+			//Ruta donde queremos guardar las imagenes
+			$path = public_path().'/categorias-img/';
 
-		//Ruta donde queremos guardar las imagenes
-		$path = public_path().'/categorias-img/';
+			// Guardar Original
+			$image->save($path.$file->getClientOriginalName());
+			// Cambiar de tamaño
+			$image->resize(240,200);
+			// Guardar
+			$image->save($path.'thumb_'.$file->getClientOriginalName());
 
-		// Guardar Original
-		$image->save($path.$file->getClientOriginalName());
-		// Cambiar de tamaño
-		$image->resize(240,200);
-		// Guardar
-		$image->save($path.'thumb_'.$file->getClientOriginalName());
+		  /**************************/
 
-
-		/**************************/
-
-		$data = [
+		  $data = [
+			  'nombre' => $request->get('nombre'),
+			  'decripcion' => str_slug($request->get('decripcion')),
+			  'foto' => $file->getClientOriginalName()
+		  ];
+		}else{
+		  $data = [
 			'nombre' => $request->get('nombre'),
 			'decripcion' => str_slug($request->get('decripcion')),
-			'foto' => $file->getClientOriginalName()
-		];
+			'foto' => $request->get('foto_name')
+		  ];
+
+		}
 
 
 		$categoria = $this->categoriaRepository->updateRich($data, $id);
 
 		Flash::success('Categoria Actualizada Correctamente.');
 
-		return redirect(route('categorias.index'));
+		return redirect(route('admin.categorias.index'));
 	}
 
 	/**
@@ -234,7 +230,7 @@ class CategoriaController extends AppBaseController
 
 		Flash::success('Categoria Borrada Correctamente.');
 
-		return redirect(route('categorias.index'));
+		return redirect(route('admin.categorias.index'));
 	}
 
 	/**
