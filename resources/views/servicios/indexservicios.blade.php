@@ -2,30 +2,20 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="">
 
         @include('flash::message')
 
-        <div class="row">
-
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('servicios.index') !!}">Nuevo</a>
-
-        </div>
-
           @include('servicios.buscar')
 
+        <div class="row">
           @if($servicios->isEmpty())
               <div class="well text-center">No Hay Servicios Cargados.</div>
           @else
               @include('servicios.tableservicios')
           @endif
-
-
-
+        </div>
         {{--   @include('common.paginate', ['records' => $servicios]) --}}
-
-
-
     </div>
 
  @endsection
