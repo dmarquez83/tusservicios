@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Socialite;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -62,5 +63,16 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+
+    public function login(AuthenticateUser $authenticateUser, Request $request, $provider = null) {
+        return $authenticateUser->execute($request->all(), $this, $provider);
+    }
+
+    public function userHasLoggedIn($user) {
+        \Session::flash('message', 'Welcome, ' . $user->username);
+        return redirect('/');
+
     }
 }
