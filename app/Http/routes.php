@@ -198,31 +198,31 @@ Route::get('evaluaciones/{id}/delete', [
 /**********************************solicitudes**********************************/
 
 
-Route::resource('solicitudes', 'SolicitudesController');
+Route::resource('categorias', 'SolicitudesCategoriasController');
 
 Route::get('solicitudes/{id}/create', [
   'as' => 'solicitudes.create',
-  'uses' => 'SolicitudesController@create',
+  'uses' => 'SolicitudesCategoriasController@create',
 ]);
 
 Route::get('solicitudes/{id}/store', [
   'middleware' => 'auth',
   'as' => 'solicitudes.store',
-  'uses' => 'SolicitudesController@store',
+  'uses' => 'SolicitudesCategoriasController@store',
 ]);
 
 Route::get('solicitudes/{id}/delete', [
   'as' => 'solicitudes.delete',
-  'uses' => 'SolicitudesController@destroy',
+  'uses' => 'SolicitudesCategoriasController@destroy',
 ]);
 
 
-Route::resource('solicitudservicios', 'SolicitudserviciosController');
+Route::resource('servicios', 'SolicitudServiciosController');
 
 
-Route::get('solicitudservicios/{id}/index', [
-  'as' => 'solicitudservicios.index',
-  'uses' => 'SolicitudserviciosController@index',
+Route::get('servicios/{id}/index', [
+  'as' => 'servicios.index',
+  'uses' => 'SolicitudServiciosController@index',
 ]);
 
 
