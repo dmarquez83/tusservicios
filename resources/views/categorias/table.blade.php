@@ -17,15 +17,24 @@
 @foreach($categorias as $categoria)
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
         <div class="box box-widget widget-user">
-            <div class="widget-user-header bg-aqua-active">
+            <div class="widget-user-header bg-black" style="background: url('categorias-img/{{$categoria->foto}}') center center;">
                 <h3  class="widget-user-username">
                     {{$categoria->nombre}}
                 </h3>
             </div>
             <div class="widget-user-image">
-                <img src="categorias-img/{{$categoria->foto}}" alt="{{$categoria->nombre}}" class="img-responsive">
+                <img src="categorias-img/user1-128x128.jpg" alt="user1-128x128.jpg" class="img-circle">
             </div>
             <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="description-block">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto blanditiis commodi cumque doloremque error, id ipsum iure odio omnis perspiciatis placeat porro quam quibusdam sequi, sunt ullam voluptas voluptatum!
+                            </p>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-sm-6 border-right">
                         <div class="description-block">
