@@ -23,9 +23,12 @@ class CreateSolicitudesTable extends Migration
 			$table->string('telefono');
 			$table->string('horas');
 			$table->float('costo',12,2);
-			$table->integer('id_usuario');
-			$table->integer('id_estatus');
-			$table->integer('id_servicio');
+		    $table->integer('id_usuario');
+		    $table->foreign('id_usuario')->references('id')->on('users')->onDelete('cascade');
+		    $table->integer('id_estatus');
+		    $table->foreign('id_estatus')->references('id')->on('estatus')->onDelete('cascade');
+		    $table->integer('id_servicio');
+		    $table->foreign('id_servicio')->references('id')->on('servicios')->onDelete('cascade');
 			$table->timestamps();
 
 		});

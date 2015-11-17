@@ -18,7 +18,7 @@ class CreateTipousuariosTable extends Migration
 			$table->increments('id');
 			$table->string('nombre');
 			$table->string('descripcion');
-			$table->string('abreviatura')->refe;
+			$table->string('abreviatura');
 			$table->timestamps();
 		});
 	}
