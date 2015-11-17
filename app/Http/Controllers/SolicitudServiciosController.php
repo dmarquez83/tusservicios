@@ -5,9 +5,11 @@ use App\Http\Requests;
 use App\Http\Requests\CreateSolicitudesRequest;
 use App\Http\Requests\UpdateSolicitudesRequest;
 
-use App\Libraries\Repositories\ServiciosRepository;
 use App\Libraries\Repositories\SolicitudesRepository;
 use App\Libraries\Repositories\CategoriaRepository;
+use App\Libraries\Repositories\ServiciosRepository;
+
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Categoria;
 use App\Models\Servicios;
@@ -23,13 +25,13 @@ use Illuminate\Support\Collection as Collection;
 
 
 
-class SolicitudesController extends AppBaseController
+class SolicitudServiciosController extends AppBaseController
 {
 
 	/** @var  SolicitudesRepository */
 	private $solicitudesRepository;
 
-	function __construct(SolicitudesRepository $solicitudesRepo,  CategoriaRepository $categoriaRepo,ServiciosRepository $serviciosRepo)
+	function __construct(SolicitudesRepository $solicitudesRepo,  CategoriaRepository $categoriaRepo, ServiciosRepository $serviciosRepo)
 	{
 		$this->solicitudesRepository = $solicitudesRepo;
 
@@ -43,11 +45,24 @@ class SolicitudesController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($id)
 	{
-	  $categorias = $this->categoriaRepository->paginate(10);
 
-	  return view('solicitudes.index')->with('categorias', $categorias);
+	 $servicios1 = DB::table('servicios')
+		->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
+		->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
+		->where('categorias.id','=',$id)
+		->select('servicios.id as id','servicios.nombre','servicios.descripcion','servicios.id_tipo_servicio','servicios.id_estatus','servicios.ponderacion','servicios.created_at','servicios.updated_at','servicios.foto','categorias.id as id_categoria')
+		->get();
+
+	  $servicios = Collection::make($servicios1);
+
+
+	 // dd($servicios);
+
+
+	  return view('solicitudes.indexservicios')->with('servicios', $servicios);
+
 	}
 
 	/**
@@ -55,17 +70,13 @@ class SolicitudesController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function create($id)
+	public function create()
 	{
 	    /*ojo aqui debe venir ya el id del usuario que lo esta registrando preguntar si alguien sin registrarse puedde hacer una solicitud*/
 
 		/*ojo aqui debe venir la categoria para seleccionar el tipo de servicio*/
 
-	//	$servicios = Servicios::where('id', $id)->lists('nombre', 'id','descripcion');
-
-	  $servicios = $this->serviciosRepository->find($id);
-
-	   // dd($servicios);
+		$servicios = Servicios::where('id', '1')->orderBy('id', 'asc')->lists('nombre', 'id');
 
 
 		return view('solicitudes.create')->with('servicios', $servicios);
@@ -79,24 +90,11 @@ class SolicitudesController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function store($id, CreateSolicitudesRequest $request)
+	public function store(CreateSolicitudesRequest $request)
 	{
-		//$input = $request->all();
+		$input = $request->all();
 
-	   $data = [
-		'descripcion'  => $request->get('descripcion'),
-		'fecha'  => $request->get('fecha'),
-		'hora'  => $request->get('hora'),
-		'direccion'  => $request->get('direccion'),
-		'telefono'  => $request->get('telefono'),
-		'horas'  => $request->get('horas'),
-		'costo'  => 0,
-		'id_usuario'  => \Auth::user()->id,
-		'id_estatus'  => '3',
-     	'id_servicio'  => $id
-       ];
-
-	  $solicitudes = $this->solicitudesRepository->create($data);
+		$solicitudes = $this->solicitudesRepository->create($input);
 
 		Flash::success('Solicitudes saved successfully.');
 

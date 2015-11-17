@@ -162,7 +162,13 @@ return [
        * Imagen
        */
 
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+
+        /*
+         * Socialite
+         */
+
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 
@@ -214,6 +220,7 @@ return [
         'Flash'     => Laracasts\Flash\Flash::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Image'     => 'Intervention\Image\Facades\Image',
         'Debugbar'  => 'Barryvdh\Debugbar\Facade',
         'OAuth'     => 'AdamWathan\EloquentOAuth\Facades\OAuth',

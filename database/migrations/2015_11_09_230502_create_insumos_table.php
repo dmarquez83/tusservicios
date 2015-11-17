@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEvaluacionesTable extends Migration
+class CreateInsumosTable extends Migration
 {
 
 	/**
@@ -13,11 +13,12 @@ class CreateEvaluacionesTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('evaluaciones', function(Blueprint $table)
+		Schema::create('insumos', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('valor');
-			$table->string('nombre');
+			$table->string('descripcion')->nullable();
+			$table->string('referencia')->nullable();
+		    $table->string('foto')->nullable();
 			$table->timestamps();
 		});
 	}
@@ -29,7 +30,7 @@ class CreateEvaluacionesTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('evaluaciones');
+		Schema::drop('insumos');
 	}
 
 }

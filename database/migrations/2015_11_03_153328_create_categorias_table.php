@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInsumosTable extends Migration
+class CreateCategoriasTable extends Migration
 {
 
 	/**
@@ -13,11 +13,12 @@ class CreateInsumosTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('insumos', function(Blueprint $table)
+		Schema::create('categorias', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('descripcion');
-			$table->string('referencia');
+			$table->string('nombre')->nullable();
+			$table->string('descripcion')->nullable();
+		    $table->string('foto')->nullable();
 			$table->timestamps();
 		});
 	}
@@ -29,7 +30,7 @@ class CreateInsumosTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('insumos');
+		Schema::drop('categorias');
 	}
 
 }

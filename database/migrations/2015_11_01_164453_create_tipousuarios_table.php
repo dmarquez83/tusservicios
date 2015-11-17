@@ -16,9 +16,9 @@ class CreateTipousuariosTable extends Migration
 		Schema::create('tipousuarios', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('nombre');
-			$table->string('descripcion');
-			$table->string('abreviatura')->refe;
+			$table->string('nombre')->nullable();
+			$table->string('descripcion')->nullable();
+			$table->string('abreviatura')->nullable();
 			$table->timestamps();
 		});
 	}

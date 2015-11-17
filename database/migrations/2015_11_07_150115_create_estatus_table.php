@@ -16,9 +16,9 @@ class CreateEstatusTable extends Migration
 		Schema::create('estatus', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('nombre');
-			$table->string('descripcion');
-			$table->string('tabla');
+			$table->string('nombre')->nullable();
+			$table->string('descripcion')->nullable();
+			$table->string('tabla')->nullable();
 			$table->timestamps();
 		});
 	}
