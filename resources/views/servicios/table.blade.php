@@ -1,5 +1,5 @@
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h1 class="pull-left">Servicios</h1>
+        <h1 class="pull-left">Seleccione la Categoria</h1>
 </div>
 
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -23,11 +23,10 @@
                     </h3>
                 </div>
             <div class="box-body">
-                <img src="categorias-img/{{$categoria->foto}}" alt="{{$categoria->nombre}}" class="img-responsive pad">
+                {!! Html::image('categorias-img/'.$categoria->foto, $categoria->nombre, array('class' => 'img-responsive pad')) !!}
 
-                <a class="btn btn-default btn-xs pull-right" href="{!! route('serviciostodos.create', [$categoria->id]) !!}" role="button">Agregar</a>
+                <a class="btn btn-default btn-xs pull-right" href="{!! route('admin.servicios.create', [$categoria->id]) !!}" role="button">Agregar</a>
 
-                <a class="btn btn-default btn-xs pull-right" href="#">Comprar <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
 
                 <!-- <button type="button" class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#//$categoria->nombre">
                 Leer Mas
@@ -36,7 +35,7 @@
             </div>
             <div class="box-footer box-comments">
                 <div class="box-comment">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorem doloremque ea est fugit illo, illum inventore iusto laborum magni neque quis repellat repellendus saepe unde, vel veritatis vitae voluptatibus?
+                    {{$categoria->decripcion}}
                 </div>
             </div>
             </div>

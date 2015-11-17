@@ -184,7 +184,7 @@ class ServiciosController extends AppBaseController
 
 	Flash::success($message);
 
-	return redirect()->route('serviciostodos.index')->with('message', $message);
+	return redirect()->route('admin.servicios.index')->with('message', $message);
   }
 
 
@@ -253,7 +253,7 @@ class ServiciosController extends AppBaseController
 	{
 	  Flash::error('Servicios not found');
 
-	  return redirect(route('servicios.index'));
+	  return redirect(route('categorias.servicios.index'));
 	}
 
 	return view('servicios.edit')->with(array('servicios'=>$servicios,'tiposervicios'=>$tiposervicios,'estatu'=>$estatu,'ponderacion'=>$ponderacion));
@@ -307,14 +307,14 @@ class ServiciosController extends AppBaseController
 	{
 	  Flash::error('No hay Servicios');
 
-	  return redirect(route('servicios.index'));
+	  return redirect(route('categorias.servicios.index'));
 	}
 
 	$servicios = $this->serviciosRepository->updateRich($data, $id);
 
 	Flash::success('Servicios updated successfully.');
 
-	return redirect(route('servicios.index'));
+	return redirect(route('categorias.servicios.index'));
   }
 
   /**
@@ -332,13 +332,13 @@ class ServiciosController extends AppBaseController
 	{
 	  Flash::error('Servicios not found');
 
-	  return redirect(route('servicios.index'));
+	  return redirect(route('categorias.servicios.index'));
 	}
 
 	$this->serviciosRepository->delete($id);
 
 	Flash::success('Servicio Borrado Correctamente.');
 
-	return redirect(route('servicios.index'));
+	return redirect(route('categorias.servicios.index'));
   }
 }

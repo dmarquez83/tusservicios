@@ -118,18 +118,18 @@ Route::group(['middleware' => ['auth']], function()
     /**********************************Servicios**********************************/
 
 
-    Route::resource('servicios', 'ServiciosController');
+    Route::resource('categorias/servicios', 'ServiciosController');
 
 
-    Route::get('servicios/{id}/delete', [
-        'as' => 'servicios.delete',
+    Route::get('categorias/servicios/{id}/delete', [
+        'as' => 'categorias.servicios.delete',
         'uses' => 'ServiciosController@destroy',
     ]);
 
-    Route::resource('serviciostodos', 'ServiciosTodosController');
+    Route::resource('admin/servicios', 'ServiciosTodosController');
 
-    Route::get('serviciostodos/{id}/create', [
-        'as' => 'serviciostodos.create',
+    Route::get('admin/servicios/{id}/create', [
+        'as' => 'admin.servicios.create',
         'uses' => 'ServiciosTodosController@create',
     ]);
     /**********************************Estatus**********************************/
