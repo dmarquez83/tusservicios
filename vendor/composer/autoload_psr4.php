@@ -33,6 +33,7 @@ return array(
     'SocialNorm\\' => array($vendorDir . '/socialnorm/socialnorm/src'),
     'Skydiver\\LaravelMaterializeCSS\\' => array($vendorDir . '/skydiver/laravel-materialize-css/src'),
     'React\\Promise\\' => array($vendorDir . '/react/promise/src'),
+    'Psy\\' => array($vendorDir . '/psy/psysh/src/Psy'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Mitul\\' => array($vendorDir . '/mitulgolakiya/laravel-api-generator/src/Mitul'),
