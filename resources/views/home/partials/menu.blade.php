@@ -28,12 +28,12 @@
                                       <li class="active">
                                        <a href="#page-section">Nosotros</a>
                                       </li>
-                                      <li><a href="#whatwedo">Que hacemos</a></li>
-                                      <li><a href="#news">Categorías</a></li>
-                                      <li><a href="#testimonials">Testimonios</a></li>
-                                      <li><a href="#skills">Populares</a></li>
-                                      <li><a href="#gallery">Galería</a></li>
-                                      <!--<li><a href="#team">Equipo</a></li>-->
+                                        <!--<li><a href="#whatwedo">Que hacemos</a></li>-->
+                                        <li><a href="#news">Categorías</a></li>
+                                        <li><a href="#testimonials">Testimonios</a></li>
+                                        <li><a href="#skills">Populares</a></li>
+                                          <!--<li><a href="#gallery">Galería</a></li>-->
+                                       <!--<li><a href="#team">Equipo</a></li>-->
                                       <li><a href="#contact">Contacto</a></li>
                                         @if(Auth::check()) {{-- verifico si inicio session--}}
                                         <li class="dropdown">
