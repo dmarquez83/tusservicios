@@ -60,7 +60,7 @@ class CategoriaController extends AppBaseController
 
 	  $this->validate($request, [
 		'nombre' => 'required|unique:categorias|max:255',
-		'decripcion' => 'required|max:500',
+		'descripcion' => 'required|max:500',
 		'foto'  => 'required'
 	  ]);
 
@@ -87,7 +87,7 @@ class CategoriaController extends AppBaseController
 
 		$data = [
 			'nombre' => $request->get('nombre'),
-			'decripcion' => str_slug($request->get('decripcion')),
+			'descripcion' => str_slug($request->get('descripcion')),
 			'foto' => $file->getClientOriginalName()
 		];
 
@@ -155,7 +155,7 @@ class CategoriaController extends AppBaseController
 	    //dd($request);
 		$this->validate($request, [
 			'nombre' => 'max:255',
-			'decripcion' => 'max:500'
+			'descripcion' => 'max:500'
 		]);
 
 
@@ -189,13 +189,13 @@ class CategoriaController extends AppBaseController
 
 		  $data = [
 			  'nombre' => $request->get('nombre'),
-			  'decripcion' => str_slug($request->get('decripcion')),
+			  'descripcion' => str_slug($request->get('descripcion')),
 			  'foto' => $file->getClientOriginalName()
 		  ];
 		}else{
 		  $data = [
 			'nombre' => $request->get('nombre'),
-			'decripcion' => str_slug($request->get('decripcion')),
+			'descripcion' => str_slug($request->get('descripcion')),
 			'foto' => $request->get('foto_name')
 		  ];
 
