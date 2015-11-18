@@ -11,6 +11,7 @@ use Response;
 
 use Illuminate\Support\Facades\Input;
 use Intervention\Image\Image as Image;
+use Illuminate\Support\Facades\File;
 
 class CategoriaController extends AppBaseController
 {
