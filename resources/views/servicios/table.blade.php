@@ -15,44 +15,33 @@
 @foreach($categorias as $categoria)
 
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-        <div class="box box-warning">
-            <div class="box-header with-border">
-                <div class="user-block">
-                    <h3>
-                    <a href="#">{{$categoria->nombre}}</a>
+        <div class="box box-widget widget-user">
+            <div class="widget-user-header bg-black" style="background: url('categorias-img/{{$categoria->foto}}') center center;">
+                    <h3 class="widget-user-username">
+                        {{$categoria->nombre}}
                     </h3>
-                </div>
-            <div class="box-body">
-                {!! Html::image('categorias-img/'.$categoria->foto, $categoria->nombre, array('class' => 'img-responsive pad')) !!}
 
-                <a class="btn btn-default btn-xs pull-right" href="{!! route('admin.servicios.create', [$categoria->id]) !!}" role="button">Agregar</a>
+            </div>
+            <div class="widget-user-image">
+                <img src="servicios-img/user1-128x128.jpg" alt="{{$categoria->nombre}}" class="img-circle">
+            </div>
 
-
-                <!-- <button type="button" class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#//$categoria->nombre">
-                Leer Mas
-                    <span class="glyphicon glyphicon-plus text-muted" aria-hidden="true"></span>
-                </button> -->
-            </div>
-            <div class="box-footer box-comments">
-                <div class="box-comment">
-                    {{$categoria->decripcion}}
-                </div>
-            </div>
-            </div>
-        </div>
-        <!-- Modal -->
-        <div id="{{$categoria->nombre}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">{{$categoria->nombre}}</h4>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorem doloremque ea est fugit illo, illum inventore iusto laborum magni neque quis repellat repellendus saepe unde, vel veritatis vitae voluptatibus?
                     </div>
-                    <div class="modal-body">
-                        {{$categoria->decripcion}}
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="description-block">
+                            <a class="description-header" href="{!! route('serviciostodos.create', [$categoria->id]) !!}" role="button">Agregar</a>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <div class="col-sm-6 border-right">
+                        <div class="description-block">
+                            <a class="description-header" href="#">Comprar <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+                        </div>
                     </div>
                 </div>
             </div>

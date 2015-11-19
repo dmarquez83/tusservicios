@@ -29,4 +29,8 @@ class Tipousuarios extends Model
 	    
 	];
 
+   public function Users() {
+	 return $this->belongsTo('App\Models\User');
+   }
+
 }

@@ -6,7 +6,7 @@
 
 <div class="input-field col s12 m12">
     {!! Form::label('descripcion', 'Descripcion:') !!}
-    {!! Form::textarea('decripcion', null, ['class' => 'materialize-textarea']) !!}
+    {!! Form::textarea('descripcion', null, ['class' => 'materialize-textarea']) !!}
 </div>
 
 <div class="form-group">
