@@ -5,9 +5,9 @@
 
     @include('common.errors')
     {{-- var_dump($servicios) ESTO MUESTRA LA VARIABLE --}}
-    {!! Form::model($servicios[0], ['route' => ['servicios.update', $servicios[0]->id], 'method' => 'patch', 'files' => 'true']) !!}
+    {!! Form::model($servicios[0], ['route' => ['categorias.servicios.update', $servicios[0]->id], 'method' => 'patch', 'files' => 'true']) !!}
 
-    @include('servicios.fields')
+    @include('servicios.fields_edit')
 
     {!! Form::close() !!}
 </div>

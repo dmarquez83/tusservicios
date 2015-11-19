@@ -62,6 +62,7 @@
                 </div>
                 <div class="col-sm-6">
                     {!! Form::file('foto',null,['class' => 'form-control']) !!}
+                    {!! Form::hidden('foto_name', $servicios[0]->foto) !!}
                 </div>
             </div>
 

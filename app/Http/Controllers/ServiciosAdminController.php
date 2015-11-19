@@ -59,8 +59,8 @@ class ServiciosAdminController extends AppBaseController
 		$servicios1 = DB::table('servicios')
 			->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
 			->join('estatus','estatus.id' ,'=','servicios.id_estatus')
-			->join('ponderacions','ponderacions.id' ,'=','servicios.ponderacion')
-			->select('servicios.nombre','servicios.foto', 'servicios.id','servicios.descripcion','tiposervicios.nombre as nombre_tipo_servicio','estatus.nombre as nombre_estatus','ponderacions.nombre as nombre_ponderacion')
+			->join('ponderaciones','ponderaciones.id' ,'=','servicios.ponderacion')
+			->select('servicios.nombre','servicios.foto', 'servicios.id','servicios.descripcion','tiposervicios.nombre as nombre_tipo_servicio','estatus.nombre as nombre_estatus','ponderaciones.nombre as nombre_ponderacion')
 			->get();
 
 		//este query de devuelve un arreglo lo convierto en una collection para enviarselo a la vista

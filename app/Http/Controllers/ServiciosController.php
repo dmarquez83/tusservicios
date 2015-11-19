@@ -14,6 +14,8 @@ use App\Libraries\Repositories\EstatuRepository;
 use Flash;
 use Response;
 use Mitul\Controller\AppBaseController as AppBaseController;
+use Exception;
+
 
 use Illuminate\Support\Collection as Collection;
 
@@ -152,7 +154,15 @@ class ServiciosController extends AppBaseController
 	$file = Input::file('foto');
 	//Creamos una instancia de la libreria instalada
 
-	$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
+	try {
+
+	  	$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
+
+	} catch (Exception $e) {
+
+	  	return redirect()->back()->withErrors('Error: ' . $e->getMessage());
+
+	}
 
 	//Ruta donde queremos guardar las imagenes
 	$path = public_path().'/servicios-img/';
@@ -163,6 +173,8 @@ class ServiciosController extends AppBaseController
 	$image->resize(240,200);
 	// Guardar
 	$image->save($path.'thumb_'.$file->getClientOriginalName());
+
+	/*ojo esta fallando cuano la imagen es grande cuando pesa mb y ademas me falta eliminar la imagen cuando elimino e registro*/
 
 
 	/**************************/
@@ -232,7 +244,7 @@ class ServiciosController extends AppBaseController
 	  ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
 	  ->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
 	  ->where('servicios.id','=',$id)
-	  ->select('servicios.id as id','servicios.nombre','servicios.descripcion','servicios.id_tipo_servicio','servicios.id_estatus','servicios.ponderacion','servicios.created_at','servicios.updated_at','servicios.foto','categorias.id as id_categoria')
+	  ->select('servicios.id as id','servicios.nombre','servicios.descripcion','servicios.id_tipo_servicio','servicios.id_estatus','servicios.ponderacion','servicios.created_at','servicios.updated_at','servicios.foto as foto','categorias.id as id_categoria')
 	  ->get();
 
 
@@ -269,26 +281,37 @@ class ServiciosController extends AppBaseController
    */
   public function update($id, UpdateServiciosRequest $request)
   {
-
+    // dd($request);
 	/***************************muy importante , 'files' => 'true' esto debe ir en la cabecera del form de lo contrario da error con la imagen por que no la consigue Image source not readable*/
 
-	/*validar qie la imagen este llegando de lo contrario explota*/
+	/*validar que la imagen este llegando de lo contrario explota*/
+	if(!Input::file('foto'))
+	  $foto = $request->get('foto_name');
+	else {
+	  $file = Input::file('foto');
+	  //Creamos una instancia de la libreria instalada
 
-	$file = Input::file('foto');
-	//Creamos una instancia de la libreria instalada
 
-	$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
 
-	//Ruta donde queremos guardar las imagenes
-	$path = public_path().'/servicios-img/';
+	  try {
+		$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
+	  } catch (Exception $e) {
+		return redirect()->back()->withErrors('Error: ' . $e->getMessage());
 
-	// Guardar Original
-	$image->save($path.$file->getClientOriginalName());
-	// Cambiar de tamaño
-	$image->resize(240,200);
-	// Guardar
-	$image->save($path.'thumb_'.$file->getClientOriginalName());
+	  }
 
+	  //Ruta donde queremos guardar las imagenes
+	  $path = public_path() . '/servicios-img/';
+
+	  // Guardar Original
+	  $image->save($path . $file->getClientOriginalName());
+	  // Cambiar de tamaño
+	  $image->resize(240, 200);
+	  // Guardar
+	  $image->save($path . 'thumb_' . $file->getClientOriginalName());
+
+	  $foto =  $file->getClientOriginalName();
+	 }
 
 	/**************************/
 
@@ -299,7 +322,7 @@ class ServiciosController extends AppBaseController
 	  'id_tipo_servicio' => $request->get('id_tipo_servicio'),
 	  'id_estatus' => $request->get('id_estatus'),
 	  'ponderacion' => $request->get('ponderacion'),
-	  'foto' => $file->getClientOriginalName()
+	  'foto' => $foto,
 	];
 
 
@@ -314,7 +337,7 @@ class ServiciosController extends AppBaseController
 
 	Flash::success('Servicios updated successfully.');
 
-	return redirect(route('categorias.servicios.index'));
+	return redirect(route('admin.servicios.index'));
   }
 
   /**
