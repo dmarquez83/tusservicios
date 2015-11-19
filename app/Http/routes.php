@@ -51,11 +51,10 @@ Route::post('password/email', ['as' => 'password/postEmail', 'uses' => 'Auth\Pas
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', ['as' => 'password/postReset', 'uses' =>  'Auth\PasswordController@postReset']);
 
-Route::get('auth', function(){
-  return OAuth::authorize('facebook');
-});
-
-Route::get('login', 'WelcomeController@index');
+Route::get('login/{provider}',[
+  'uses' => 'Auth\AuthController@login',
+  'as'   => 'auth.getSocialAuth'
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -79,11 +78,11 @@ Route::group(['middleware' => ['auth']], function()
 
     /**********************************Categoria**********************************/
 
-    Route::resource('categorias', 'CategoriaController');
+    Route::resource('admin/categorias', 'CategoriaController');
 
 
-    Route::get('categorias/{id}/delete', [
-        'as' => 'categorias.delete',
+    Route::get('admin/categorias/{id}/delete', [
+        'as' => 'admin.categorias.delete',
         'uses' => 'CategoriaController@destroy',
     ]);
 
@@ -118,19 +117,19 @@ Route::group(['middleware' => ['auth']], function()
     /**********************************Servicios**********************************/
 
 
-    Route::resource('servicios', 'ServiciosController');
+    Route::resource('categorias/servicios', 'ServiciosController');
 
 
-    Route::get('servicios/{id}/delete', [
-        'as' => 'servicios.delete',
+    Route::get('categorias/servicios/{id}/delete', [
+        'as' => 'categorias.servicios.delete',
         'uses' => 'ServiciosController@destroy',
     ]);
 
-    Route::resource('serviciostodos', 'ServiciosTodosController');
+    Route::resource('admin/servicios', 'ServiciosAdminController');
 
-    Route::get('serviciostodos/{id}/create', [
-        'as' => 'serviciostodos.create',
-        'uses' => 'ServiciosTodosController@create',
+    Route::get('admin/servicios/{id}/create', [
+        'as' => 'admin.servicios.create',
+        'uses' => 'ServiciosAdminController@create',
     ]);
     /**********************************Estatus**********************************/
 
@@ -198,31 +197,31 @@ Route::get('evaluaciones/{id}/delete', [
 /**********************************solicitudes**********************************/
 
 
-Route::resource('solicitudes', 'SolicitudesController');
+Route::resource('categorias', 'SolicitudesCategoriasController');
 
 Route::get('solicitudes/{id}/create', [
   'as' => 'solicitudes.create',
-  'uses' => 'SolicitudesController@create',
+  'uses' => 'SolicitudesCategoriasController@create',
 ]);
 
 Route::get('solicitudes/{id}/store', [
   'middleware' => 'auth',
   'as' => 'solicitudes.store',
-  'uses' => 'SolicitudesController@store',
+  'uses' => 'SolicitudesCategoriasController@store',
 ]);
 
 Route::get('solicitudes/{id}/delete', [
   'as' => 'solicitudes.delete',
-  'uses' => 'SolicitudesController@destroy',
+  'uses' => 'SolicitudesCategoriasController@destroy',
 ]);
 
 
-Route::resource('solicitudservicios', 'SolicitudserviciosController');
+Route::resource('servicios', 'SolicitudServiciosController');
 
 
-Route::get('solicitudservicios/{id}/index', [
-  'as' => 'solicitudservicios.index',
-  'uses' => 'SolicitudserviciosController@index',
+Route::get('servicios/{id}/index', [
+  'as' => 'servicios.index',
+  'uses' => 'SolicitudServiciosController@index',
 ]);
 
 

@@ -19,11 +19,11 @@
                                 </span>
                 <p>{{$categoria->decripcion}}</p>
                 <div class="card-action">
-                    <a class="right" href="servicios.php"><i class="mdi-content-add-circle"></i>Ver Servicios</a>
+                    <a class="right" href="{!! route('servicios.index', [$categoria->id]) !!}"><i class="mdi-content-add-circle"></i>Ver Servicios</a>
                 </div>
             </div>
             <div class="card-action">
-                <a class="right" href="{!! route('solicitudservicios.index', [$categoria->id]) !!}"><i class="mdi-content-add-circle"></i>Ver Servicios</a>
+                <a class="right" href="{!! route('servicios.index', [$categoria->id]) !!}"><i class="mdi-content-add-circle"></i>Ver Servicios</a>
             </div>
         </div>
     </div>
