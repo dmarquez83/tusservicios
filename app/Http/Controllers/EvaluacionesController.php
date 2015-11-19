@@ -28,10 +28,10 @@ class EvaluacionesController extends AppBaseController
 	{
 		$evaluaciones = $this->evaluacionesRepository->paginate(10);
 
-		/*return view('evaluaciones.index')
-			->with('evaluaciones', $evaluaciones);*/
+		return view('evaluaciones.index')
+			->with('evaluaciones', $evaluaciones);
 
-	  return response()->json($evaluaciones);
+	 // return response()->json($evaluaciones);
 	}
 
 	/**

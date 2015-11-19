@@ -86,6 +86,16 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'CategoriaController@destroy',
     ]);
 
+   /**********************************Tipo usuarios**********************************/
+
+
+    Route::resource('tipousuarios', 'TipousuariosController');
+
+    Route::get('tipousuarios/{id}/delete', [
+      'as' => 'tipousuarios.delete',
+      'uses' => 'TipousuariosController@destroy',
+    ]);
+
 
     /**********************************tipo_servicios**********************************/
 
@@ -123,7 +133,23 @@ Route::group(['middleware' => ['auth']], function()
       'uses' => 'PonderacionController@destroy',
     ]);
 
-    /**********************************Servicios**********************************/
+    /**********************************Estatus**********************************/
+
+    //Route::resource('estatus', 'API\EstatuAPIController');
+
+    Route::resource('estatus', 'EstatuController');
+
+    Route::get('estatus/{id}/delete', [
+      'as' => 'estatus.delete',
+      'uses' => 'EstatuController@destroy',
+    ]);
+
+    Route::get('estatus_tab', function ()    {
+      return view('estatus.table');
+    });
+
+
+  /**********************************Servicios**********************************/
 
 
     Route::resource('categorias/servicios', 'ServiciosController');
@@ -140,62 +166,28 @@ Route::group(['middleware' => ['auth']], function()
         'as' => 'admin.servicios.create',
         'uses' => 'ServiciosAdminController@create',
     ]);
-    /**********************************Estatus**********************************/
 
-    //Route::resource('estatus', 'API\EstatuAPIController');
+    /**********************************Evaluaciones**********************************/
 
-    Route::resource('estatus', 'EstatuController');
+    Route::resource('evaluaciones', 'EvaluacionesController');
 
-    Route::get('estatus/{id}/delete', [
-      'as' => 'estatus.delete',
-      'uses' => 'EstatuController@destroy',
+    Route::get('evaluaciones/{id}/delete', [
+      'as' => 'evaluaciones.delete',
+      'uses' => 'EvaluacionesController@destroy',
     ]);
 
-    Route::get('estatus_tab', function ()    {
-        return view('estatus.table');
-    });
+    /**********************************Insumos faltan las vistas**********************************/
 
+    Route::resource('insumos', 'InsumoController');
 
-
-    /**********************************Tipo usuarios**********************************/
-
-
-    Route::resource('tipousuarios', 'TipousuariosController');
-
-    Route::get('tipousuarios/{id}/delete', [
-      'as' => 'tipousuarios.delete',
-      'uses' => 'TipousuariosController@destroy',
+    Route::get('insumos/{id}/delete', [
+      'as' => 'insumos.delete',
+      'uses' => 'InsumoController@destroy',
     ]);
+
 });
 
 
-/**********************************Insumos**********************************/
-
-Route::resource('insumos', 'InsumoController');
-
-Route::get('api/insumos','API\InsumoAPIController@index');
-
-Route::get('api/insumos/{id}','API\InsumoAPIController@show');
-
-//Route::get('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos'); //esto para probar el re+gistro
-
-Route::post('api/insumos/{des}/{ref}','API\InsumoAPIController@newInsumos');
-
-
-Route::get('insumos/{id}/delete', [
-  'as' => 'insumos.delete',
-  'uses' => 'InsumoController@destroy',
-]);
-
-
-/**********************************Evaluaciones**********************************/
-
-Route::resource('evaluaciones', 'EvaluacionesController');
-
-Route::get('evaluaciones/{id}/delete', [
-  'as' => 'evaluaciones.delete',
-  'uses' => 'EvaluacionesController@destroy',
-]);
 /**********************************solicitudes**********************************/
 
 
@@ -234,22 +226,4 @@ Route::get('geocoder', 'OtherGeocoderController@index');
 
 
 
-/**********************************Pruebas de Imagenes**********************************/
-
-Route::resource('thumbnail', 'ThumbnailController');
-
-
-Route::get('foo', function() {
-
-    $image = Image::make('http://placehold.it/500x500/000/e8117f');
-    return Response::make($image->encode('jpg'), 200, ['Content-Type' => 'image/jpeg']);
-});
-
-
-Route::get('otro', function()
-{
-    $img = Image::make('foo.jpg')->resize(300, 200);
-
-    return $img->response('jpg');
-});
 
