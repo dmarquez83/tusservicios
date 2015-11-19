@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model as Model;
 class Ponderacion extends Model
 {
     
-	public $table = "ponderacions";
+	public $table = "ponderaciones";
     
 
 	public $fillable = [

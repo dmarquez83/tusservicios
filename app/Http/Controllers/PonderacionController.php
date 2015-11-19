@@ -26,10 +26,10 @@ class PonderacionController extends AppBaseController
 	 */
 	public function index()
 	{
-		$ponderacions = $this->ponderacionRepository->paginate(10);
-
-		return view('ponderacions.index')
-			->with('ponderacions', $ponderacions);
+		$ponderaciones = $this->ponderacionRepository->paginate(10);
+        //dd($ponderaciones);
+		return view('ponderaciones.index')
+			->with('ponderaciones', $ponderaciones);
 	}
 
 	/**
@@ -39,7 +39,7 @@ class PonderacionController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('ponderacions.create');
+		return view('ponderaciones.create');
 	}
 
 	/**
@@ -51,13 +51,19 @@ class PonderacionController extends AppBaseController
 	 */
 	public function store(CreatePonderacionRequest $request)
 	{
+	  $this->validate($request, [
+		'valor' => 'required|unique:ponderaciones|max:100',
+		'nombre' => 'required|max:255',
+
+	  ]);
+
 		$input = $request->all();
 
-		$ponderacion = $this->ponderacionRepository->create($input);
+		$this->ponderacionRepository->create($input);
 
-		Flash::success('Ponderacion saved successfully.');
+		Flash::success('Ponderacion guardada correctamente.');
 
-		return redirect(route('ponderacions.index'));
+		return redirect(route('ponderaciones.index'));
 	}
 
 	/**
@@ -73,12 +79,12 @@ class PonderacionController extends AppBaseController
 
 		if(empty($ponderacion))
 		{
-			Flash::error('Ponderacion not found');
+			Flash::error('Ponderacion no funciona');
 
-			return redirect(route('ponderacions.index'));
+			return redirect(route('ponderaciones.index'));
 		}
 
-		return view('ponderacions.show')->with('ponderacion', $ponderacion);
+		return view('ponderaciones.show')->with('ponderacion', $ponderacion);
 	}
 
 	/**
@@ -94,12 +100,12 @@ class PonderacionController extends AppBaseController
 
 		if(empty($ponderacion))
 		{
-			Flash::error('Ponderacion not found');
+			Flash::error('Ponderacion no funciona');
 
-			return redirect(route('ponderacions.index'));
+			return redirect(route('ponderaciones.index'));
 		}
 
-		return view('ponderacions.edit')->with('ponderacion', $ponderacion);
+		return view('ponderaciones.edit')->with('ponderacion', $ponderacion);
 	}
 
 	/**
@@ -116,16 +122,16 @@ class PonderacionController extends AppBaseController
 
 		if(empty($ponderacion))
 		{
-			Flash::error('Ponderacion not found');
+			Flash::error('Ponderacion no funciona');
 
-			return redirect(route('ponderacions.index'));
+			return redirect(route('ponderaciones.index'));
 		}
 
 		$ponderacion = $this->ponderacionRepository->updateRich($request->all(), $id);
 
-		Flash::success('Ponderacion updated successfully.');
+		Flash::success('Ponderacion modificada correctamente.');
 
-		return redirect(route('ponderacions.index'));
+		return redirect(route('ponderaciones.index'));
 	}
 
 	/**
@@ -141,15 +147,15 @@ class PonderacionController extends AppBaseController
 
 		if(empty($ponderacion))
 		{
-			Flash::error('Ponderacion not found');
+			Flash::error('Ponderacion no funciona');
 
-			return redirect(route('ponderacions.index'));
+			return redirect(route('ponderaciones.index'));
 		}
 
 		$this->ponderacionRepository->delete($id);
 
 		Flash::success('Ponderacion deleted successfully.');
 
-		return redirect(route('ponderacions.index'));
+		return redirect(route('ponderaciones.index'));
 	}
 }

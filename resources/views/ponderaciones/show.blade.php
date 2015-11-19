@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container">
-	 @include('ponderacions.show_fields')
+	 @include('ponderaciones.show_fields')
 </div>
 @endsection

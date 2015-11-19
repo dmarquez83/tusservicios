@@ -7,7 +7,7 @@
 
     {!! Form::model($ponderacion, ['route' => ['ponderacions.update', $ponderacion->id], 'method' => 'patch']) !!}
 
-        @include('ponderacions.fields')
+        @include('ponderaciones.fields')
 
     {!! Form::close() !!}
 </div>

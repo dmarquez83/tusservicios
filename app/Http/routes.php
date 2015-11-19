@@ -114,6 +114,15 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'TiposervicioController@destroy',
     ]);
 
+    /**********************************Ponderacions**********************************/
+
+    Route::resource('ponderaciones', 'PonderacionController');
+
+    Route::get('ponderaciones/{id}/delete', [
+      'as' => 'ponderaciones.delete',
+      'uses' => 'PonderacionController@destroy',
+    ]);
+
     /**********************************Servicios**********************************/
 
 
@@ -146,14 +155,7 @@ Route::group(['middleware' => ['auth']], function()
         return view('estatus.table');
     });
 
-    /**********************************Ponderacions**********************************/
 
-    Route::resource('ponderacions', 'PonderacionController');
-
-    Route::get('ponderacions/{id}/delete', [
-      'as' => 'ponderacions.delete',
-      'uses' => 'PonderacionController@destroy',
-    ]);
 
     /**********************************Tipo usuarios**********************************/
 
