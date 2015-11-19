@@ -28,6 +28,14 @@ class UsersTableSeeder extends Seeder
         'id_tipo_usuario' => '2',
         'created_at' => new DateTime,
         'updated_at' =>  new DateTime,
+      ],
+      [
+        'name' => 'dmarquez',
+        'email' => 'marquezdigna83@gmail.com',
+        'password' => bcrypt('123456'),
+        'id_tipo_usuario' => '1',
+        'created_at' => new DateTime,
+        'updated_at' =>  new DateTime,
       ]
     );
 

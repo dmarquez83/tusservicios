@@ -19,7 +19,7 @@ class CreateEstatusTable extends Migration
 			$table->string('nombre')->nullable();
 			$table->string('descripcion')->nullable();
 			$table->string('tabla')->nullable();
-			$table->timestamps();
+		    $table->nullableTimestamps();
 		});
 	}
 

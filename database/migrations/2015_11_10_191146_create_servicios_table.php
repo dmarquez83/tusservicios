@@ -25,7 +25,7 @@ class CreateServiciosTable extends Migration
 		    $table->foreign('id_estatus')->references('id')->on('estatus')->onDelete('cascade');
 			$table->integer('ponderacion');
 		    $table->foreign('ponderacion')->references('id')->on('ponderaciones')->onDelete('cascade');
-			$table->timestamps();
+		    $table->nullableTimestamps();
 		});
 	}
 

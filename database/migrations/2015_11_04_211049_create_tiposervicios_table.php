@@ -20,7 +20,7 @@ class CreateTiposerviciosTable extends Migration
 			$table->string('descripcion')->nullable();
 		    $table->integer('id_categoria')->unsigned()->nullable();
 		    $table->foreign('id_categoria')->references('id')->on('categorias')->onDelete('cascade');
-			$table->timestamps();
+		    $table->nullableTimestamps();
 		});
 	}
 

@@ -18,7 +18,7 @@ class CreateEvaluacionesTable extends Migration
 			$table->increments('id');
 			$table->integer('valor')->nullable();
 			$table->string('nombre')->nullable();
-			$table->timestamps();
+		    $table->nullableTimestamps();
 		});
 	}
 

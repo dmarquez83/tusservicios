@@ -5,8 +5,8 @@ use Illuminate\Database\Eloquent\Model as Model;
 
 class Categoria extends Model
 {
-    
-	//public $table = "categorias";
+
+    public $table = "categorias";
     
 
 	public $fillable = [

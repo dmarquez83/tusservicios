@@ -29,7 +29,7 @@ class CreateSolicitudesTable extends Migration
 		    $table->foreign('id_estatus')->references('id')->on('estatus')->onDelete('cascade');
 		    $table->integer('id_servicio');
 		    $table->foreign('id_servicio')->references('id')->on('servicios')->onDelete('cascade');
-			$table->timestamps();
+		    $table->nullableTimestamps();
 
 		});
 	}

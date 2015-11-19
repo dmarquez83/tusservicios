@@ -19,7 +19,7 @@ class CreateInsumosTable extends Migration
 			$table->string('descripcion')->nullable();
 			$table->string('referencia')->nullable();
 		    $table->string('foto')->nullable();
-			$table->timestamps();
+		    $table->nullableTimestamps();
 		});
 	}
 
