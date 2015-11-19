@@ -27,4 +27,3 @@
     {!! Form::label('ponderacion', 'Ponderacion:') !!}
     <p>{!! $servicios->ponderacion !!}</p>
 </div>
-

@@ -19,7 +19,7 @@ class CreateTipousuariosTable extends Migration
 			$table->string('nombre')->nullable();
 			$table->string('descripcion')->nullable();
 			$table->string('abreviatura')->nullable();
-			$table->timestamps();
+
 		});
 	}
 

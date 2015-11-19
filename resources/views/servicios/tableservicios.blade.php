@@ -3,7 +3,7 @@
     <div class="col s12 m6 l4">
         <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
-                {!! Html::image('categorias-img/'.$servicios->foto, $servicios->nombre, array('class' => 'responsive-img')) !!}
+                <img src="servicios-img/{{$servicios->foto}}" alt="{{$servicios->nombre}}" class="responsive-img">
             </div>
             <div class="card-content">
                 <div class="card-title activator grey-text text-darken-4">

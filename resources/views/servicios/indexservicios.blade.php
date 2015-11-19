@@ -12,13 +12,13 @@
 
         </div>
 
-          @include('servicios.buscar')
+        @include('servicios.buscar')
 
-          @if($servicios->isEmpty())
-              <div class="well text-center">No Hay Servicios Cargados.</div>
-          @else
-              @include('servicios.tableservicios')
-          @endif
+        @if($servicios->isEmpty())
+            <div class="well text-center">No Hay Servicios Cargados.</div>
+        @else
+            @include('servicios.tableservicios')
+        @endif
 
 
 
@@ -28,4 +28,4 @@
 
     </div>
 
- @endsection
+@endsection

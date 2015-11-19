@@ -1,63 +1,16 @@
-<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h1 class="pull-left">Seleccione la Categoria</h1>
-</div>
-
-<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="input-group">
-        <div class="input-group-addon">
-            <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
-        </div>
-            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Encuentra el Servicio que necesitas">
-    </div>
-</div>
-<br>
-<br>
 @foreach($categorias as $categoria)
-
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-        <div class="box box-warning">
-            <div class="box-header with-border">
-                <div class="user-block">
-                    <h3>
-                    <a href="#">{{$categoria->nombre}}</a>
-                    </h3>
-                </div>
-            <div class="box-body">
-                {!! Html::image('categorias-img/'.$categoria->foto, $categoria->nombre, array('class' => 'img-responsive pad')) !!}
-
-                <a class="btn btn-default btn-xs pull-right" href="{!! route('admin.servicios.create', [$categoria->id]) !!}" role="button">Agregar</a>
-
-
-                <!-- <button type="button" class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#//$categoria->nombre">
-                Leer Mas
-                    <span class="glyphicon glyphicon-plus text-muted" aria-hidden="true"></span>
-                </button> -->
+    <div class="col s12 m7">
+        <div class="card small">
+            <div class="card-image">
+                {!! Html::image('categorias-img/'.$categoria->foto, $categoria->nombre, array('class' => 'img-responsive')) !!}
+                <span class="card-title"> {{$categoria->nombre}}</span>
             </div>
-            <div class="box-footer box-comments">
-                <div class="box-comment">
-                    {{$categoria->decripcion}}
-                </div>
+            <div class="card-content">
+                <p> {{$categoria->descripcion}}</p>
             </div>
-            </div>
-        </div>
-        <!-- Modal -->
-        <div id="{{$categoria->nombre}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">{{$categoria->nombre}}</h4>
-                    </div>
-                    <div class="modal-body">
-                        {{$categoria->decripcion}}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
+            <div class="card-action">
+                <a class="right" href="{!! route('admin.servicios.create', [$categoria->id]) !!}"><i class="mdi-content-add-circle"></i>Agregar Servicios</a>
             </div>
         </div>
     </div>
-
 @endforeach
-
