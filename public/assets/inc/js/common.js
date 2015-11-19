@@ -159,7 +159,7 @@ Setting slider height on load
   Google maps
 =============================================== */
     
-    var iconBase = 'img/google-marker.png';
+    var iconBase = 'assets/img/google-marker.png';
     var myLatlng = new google.maps.LatLng(40.7240252, -73.9941299);
 
     var mapContainer = document.getElementById('map');

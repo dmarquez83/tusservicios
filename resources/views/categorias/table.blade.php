@@ -1,32 +1,63 @@
+<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="input-group">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+        </div>
+        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Encuentra el Servicio que necesitas">
+    </div>
+</div>
+<br>
+<br>
+
 @foreach($categorias as $categoria)
 
-    <div class="col s12 m6 l4">
-        <div class="card small">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img src="categorias-img/{{$categoria->foto}}" alt="{{$categoria->nombre}}" class="responsive-img">
-            </div>
-            <div class="card-content">
-                <div class="card-title activator grey-text text-darken-4">
-            <span>
-               {{$categoria->nombre}}
-                <i class="mdi-navigation-more-vert right"></i>
-            </span>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                <div class="m-image-wrap">
+                    <div class="hover-wrap">
+                        <div class="image-hover">
+                            <div class="categories">
+                                <a href="#">{{$categoria->nombre}}</a>
+                                <div class="m-heading-border"></div>
+                            </div>
+                            <div class="post-meta">
+                                <div class="post-comments text-left">
+                                    .
+                                </div><!-- comments -->
+                                <div class="post-date text-right">
+                                    <button type="button" class="btn btn-link text-muted" data-toggle="modal" data-target="#{{$categoria->nombre}}">
+                                        Leer Mas
+                                        <span class="glyphicon glyphicon-plus text-muted" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {!! Html::image('categorias-img/'.$categoria->foto, $categoria->nombre, array('class' => 'img-responsive')) !!}
+                </div>
+                <div class="text-right">
+                    <a class="btn btn-primary btn-xs" href="{!! route('admin.categorias.edit', [$categoria->id]) !!}" role="button">Editar</a>
+                    <a class="btn btn-danger btn-xs" href="{!! route('admin.categorias.delete', [$categoria->id]) !!}" role="button">Eliminar</a>
+                </div>
+                <br>
+                <br>
+                <!-- Modal -->
+                <div id="{{$categoria->nombre}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">{{$categoria->nombre}}</h4>
+                            </div>
+                            <div class="modal-body">
+                                {{$categoria->decripcion}}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">
-           {{$categoria->nombre}}
-            <i class="mdi-navigation-close right"></i>
-        </span>
-                <p> {{$categoria->decripcion}}</p>
-                <div class="card-action">
-                    <a class="right" href="{!! route('categorias.delete', [$categoria->id]) !!}"><i class="mdi-content-add-circle"></i>Eliminar</a>
-                </div>
-            </div>
-            <div class="card-action">
-                <a class="right" href="{!! route('categorias.edit', [$categoria->id]) !!}"><i class="mdi-content-add-circle"></i>Editar</a>
-            </div>
-        </div>
-    </div>
 
 @endforeach
+

@@ -8,7 +8,7 @@
 
         <div class="row">
 
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('servicios.index') !!}">Nuevo</a>
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('categorias.servicios.index') !!}">Nuevo</a>
 
         </div>
 

@@ -18,6 +18,17 @@
                             <div class="checkbox">
                                 <label><input name="remember" type="checkbox">{{ trans('form.label.remember') }}</label>
                             </div>
+                            <div>
+
+                                <ul >
+                                    <a href="{{ route('auth.getSocialAuth','facebook') }}">Facebook</a>
+
+                                    <a href="{{ route('auth.getSocialAuth','twitter') }}">Twitter</a>
+
+                                    <a href="{{ route('auth.getSocialAuth','google') }}">Google</a>
+                                </ul>
+
+                            </div>
                             <div>                            
                                 {!! Form::submit(trans('form.login.submit'),['class' => 'btn btn-primary']) !!}
                                 <a href="{{ url('password/email') }}">{{ trans('passwords.forgot') }}</a>

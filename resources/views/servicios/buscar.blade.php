@@ -2,7 +2,7 @@
 
     <div class="row">
         <div class="col s12">
-            <h4 >Categorías de Servicios</h4>
+            <h4 >Servicios</h4>
             <form>
                 <div class="input-field">
 
@@ -13,6 +13,8 @@
                     </label>
                     <i class="material-icons">close</i>
                 </div>
+             
             </form>
         </div>
+
     </div>

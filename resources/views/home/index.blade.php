@@ -1,18 +1,71 @@
 @extends('home.app')
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2>{{ trans('app.prueba.title') }}</h2><hr></div>
-                    <div class="panel-body">
-                        <p></p>
+    @include('home.partials.header')
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <div class="menu-wrap">
+        @include('home.partials.menu')
+    </div><!-- content -->
+
+
+    <div class="l-content-wrap" id="standard-content">
+
+        <section>
+
+            @include('home.partials.home')
+
+        </section>
+
+
+        <!-- WHAT WE DO PARALAX SECTION -->
+        <section>
+
+            @include('home.partials.que_hacemos')
+
+        </section>
+
+        <!-- LATEST POSTS SECTION -->
+        <section>
+
+            @include('home.partials.noticias')
+
+        </section>
+
+        <!-- TESTIMONIALS PARALAX SECTION -->
+        <section>
+
+            @include('home.partials.testimonios')
+
+        </section>
+
+        <!-- TECHNICAL SKILLS SECTION -->
+        <section>
+
+            @include('home.partials.skills')
+
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section>
+
+            @include('home.partials.galeria')
+
+        </section>
+
+        <!-- LATEST POSTS SECTION -->
+        <section>
+
+            @include('home.partials.contact')
+
+        </section>
+
+        <!-- TECHNICAL SKILLS SECTION -->
+        <section>
+
+            @include('home.partials.contact2')
+
+        </section>
+
+
 @endsection
 
