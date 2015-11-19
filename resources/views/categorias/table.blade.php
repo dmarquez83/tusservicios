@@ -35,6 +35,7 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="row">
                     <div class="col-sm-6 border-right">
                         <div class="description-block">
@@ -44,6 +45,28 @@
                     <div class="col-sm-6 border-right">
                         <div class="description-block">
                             <a class="description-header" href="{!! route('categorias.delete', [$categoria->id]) !!}" role="button">Eliminar</a>
+=======
+                <div class="text-right">
+                    <a class="btn btn-primary btn-xs" href="{!! route('admin.categorias.edit', [$categoria->id]) !!}" role="button">Editar</a>
+                    <a class="btn btn-danger btn-xs" href="{!! route('admin.categorias.delete', [$categoria->id]) !!}" role="button">Eliminar</a>
+                </div>
+                <br>
+                <br>
+                <!-- Modal -->
+                <div id="{{$categoria->nombre}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">{{$categoria->nombre}}</h4>
+                            </div>
+                            <div class="modal-body">
+                                {{$categoria->descripcion}}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+>>>>>>> origin/back
                         </div>
                     </div>
                 </div>

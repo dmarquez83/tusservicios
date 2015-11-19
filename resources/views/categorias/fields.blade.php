@@ -22,6 +22,7 @@
                 </div>
             </div>
 
+<<<<<<< HEAD
             <div class="row">
                 <div class="col-sm-6 form-group">
                     {!! form::label('image','Imagen', ['class' => 'control-label'])!!}
@@ -35,6 +36,12 @@
                     {!! form::file('foto',null,['class' => 'form-control']) !!}
                 </div>
             </div>
+=======
+    <div class="input-field col s12 m12">
+        {!! Form::label('descripcion', 'Descripcion:') !!}
+        {!! Form::textarea('descripcion', null, ['class' => 'materialize-textarea']) !!}
+    </div>
+>>>>>>> origin/back
 
 <<<<<<< HEAD
 =======
