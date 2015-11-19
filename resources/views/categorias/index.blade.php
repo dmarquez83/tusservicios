@@ -2,9 +2,11 @@
 
 @section('content')
 
-    <div class="">
+    <div class="container">
 
         @include('flash::message')
+
+
 
         <div class="row">
             @if($categorias->isEmpty())
@@ -15,6 +17,7 @@
         </div>
 
         @include('common.paginate', ['records' => $categorias])
+
 
     </div>
 @endsection

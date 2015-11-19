@@ -4,7 +4,7 @@
         <section class="sidebar">
             <ul class="sidebar-menu">
                 <li class="header">Opciones de Usuario</li>
-                <li class="treeview active">
+                <li class="active">
                     <a href="#">
                         <i class="glyphicon glyphicon-home"></i> Principal
                     </a>
@@ -36,9 +36,9 @@
                         <i class="glyphicon glyphicon-triangle-bottom"></i>
                         {{ Auth::user()->name }}
                     </a>
-                    <ul class="treeview-menu menu-open" style="display: block;">
-                        <li class="">
-                            <a href="#">
+                    <ul class="treeview-menu" style="list-style: none">
+                        <li class="" title="Finalizar sesión">
+                            <a href="#" data-ajax="false">
                                 <i class="glyphicon glyphicon-triangle-right"></i>
                                 Finalizar sesión
                             </a>

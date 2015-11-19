@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-<div class="">
+<div class="container">
 
     @include('common.errors')
 

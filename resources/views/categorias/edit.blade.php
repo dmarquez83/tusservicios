@@ -1,17 +1,14 @@
 @extends('app')
 
 @section('content')
-<div class="">
-    <div class="row margin-top_small">
-        <div class="col s12 m6 ">
-            @include('common.errors')
+<div class="container">
 
-            {!! Form::model($categoria, ['route' => ['categorias.update', $categoria->id], 'method' => 'patch', 'files' => 'true']) !!}
+    @include('common.errors')
 
-            @include('categorias.fields')
+    {!! Form::model($categoria, ['route' => ['admin.categorias.update', $categoria->id], 'method' => 'patch', 'files' => 'true']) !!}
 
-            {!! Form::close() !!}
-        </div>
-    </div>
+        @include('categorias.fields_edit')
+
+    {!! Form::close() !!}
 </div>
 @endsection
