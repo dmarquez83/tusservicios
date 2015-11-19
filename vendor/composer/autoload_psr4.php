@@ -31,7 +31,6 @@ return array(
     'SocialNorm\\GitHub\\' => array($vendorDir . '/socialnorm/github/src'),
     'SocialNorm\\Facebook\\' => array($vendorDir . '/socialnorm/facebook/src'),
     'SocialNorm\\' => array($vendorDir . '/socialnorm/socialnorm/src'),
-    'Skydiver\\LaravelMaterializeCSS\\' => array($vendorDir . '/skydiver/laravel-materialize-css/src'),
     'React\\Promise\\' => array($vendorDir . '/react/promise/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src/Psy'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),

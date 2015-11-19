@@ -2552,52 +2552,6 @@
         ]
     },
     {
-        "name": "skydiver/laravel-materialize-css",
-        "version": "v0.97.0",
-        "version_normalized": "0.97.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/skydiver/laravel-materialize-css.git",
-            "reference": "35ef221b99e26d328aa6dc8a7ba28c79445cd79a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/skydiver/laravel-materialize-css/zipball/35ef221b99e26d328aa6dc8a7ba28c79445cd79a",
-            "reference": "35ef221b99e26d328aa6dc8a7ba28c79445cd79a",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "5.*",
-            "php": ">=5.4.0"
-        },
-        "time": "2015-08-13 01:31:57",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Skydiver\\LaravelMaterializeCSS\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Martin",
-                "email": "martin@flydev.com"
-            }
-        ],
-        "description": "Add Materialize CSS Framework to Laravel",
-        "keywords": [
-            "css",
-            "css framework",
-            "laravel",
-            "material design",
-            "materialize"
-        ]
-    },
-    {
         "name": "psr/http-message",
         "version": "1.0",
         "version_normalized": "1.0.0.0",
