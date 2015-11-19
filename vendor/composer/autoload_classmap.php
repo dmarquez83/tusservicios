@@ -51,6 +51,7 @@ return array(
     'App\\Http\\Controllers\\ServiciosController' => $baseDir . '/app/Http/Controllers/ServiciosController.php',
     'App\\Http\\Controllers\\ServiciosImgController' => $baseDir . '/app/Http/Controllers/ServiciosImgController.php',
     'App\\Http\\Controllers\\SolicitudServiciosController' => $baseDir . '/app/Http/Controllers/SolicitudServiciosController.php',
+    'App\\Http\\Controllers\\SolicitudesCategoriasController' => $baseDir . '/app/Http/Controllers/SolicitudesCategoriasController.php',
     'App\\Http\\Controllers\\StoreController' => $baseDir . '/app/Http/Controllers/StoreController.php',
     'App\\Http\\Controllers\\ThumbnailController' => $baseDir . '/app/Http/Controllers/ThumbnailController.php',
     'App\\Http\\Controllers\\TiposervicioController' => $baseDir . '/app/Http/Controllers/TiposervicioController.php',

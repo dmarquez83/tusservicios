@@ -1,14 +1,17 @@
 @extends('app')
 
 @section('content')
-<div class="container">
+    <div class="">
+        <div class="row margin-top_small">
+            <div class="col s12 m6 ">
+                @include('common.errors')
 
-    @include('common.errors')
+                {!! Form::open(['route' => 'admin.categorias.store', 'method' => 'POST', 'files' => 'true']) !!}
 
-    {!! Form::open(['route' => 'admin.categorias.store', 'method' => 'POST', 'files' => 'true']) !!}
+                @include('categorias.fields')
 
-        @include('categorias.fields')
-
-    {!! Form::close() !!}
-</div>
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
 @endsection

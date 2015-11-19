@@ -11,7 +11,7 @@ class Categoria extends Model
 
 	public $fillable = [
 	    "nombre",
-		"decripcion",
+		"descripcion",
 		"foto"
 	];
 
@@ -22,8 +22,8 @@ class Categoria extends Model
      */
     protected $casts = [
         "nombre" => "string",
-		"decripcion" => "string",
-		"foto"
+		"descripcion" => "string",
+		"foto"  => "string",
     ];
 
 	public static $rules = [
