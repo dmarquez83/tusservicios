@@ -41,6 +41,7 @@ class TiposervicioController extends AppBaseController
 	{
 
 		$categorias = $this->categoriaRepository->paginate(10);
+	    //dd($categorias);
 
 		return view('tiposervicios.index')->with('categorias', $categorias);
 
