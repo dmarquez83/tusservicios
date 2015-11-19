@@ -6,6 +6,7 @@
 
         @include('flash::message')
 
+
           @include('servicios.buscar')
 
         <div class="row">

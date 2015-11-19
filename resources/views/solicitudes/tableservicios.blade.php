@@ -9,7 +9,7 @@
                 </div>
                 <ul class="card-action-buttons">
                     <li>
-                        <a class="btn-floating orange darken-3" href="{!! route('solicitudes.create', [$servicio->id]) !!}"><i class="mdi-action-add-shopping-cart"></i></a>
+                        <a class="btn-floating orange darken-3" href="{!! route('solicitudes.create', [$servicio->id]) !!}"><i class="mdi-action-add-shopping-cart"></i>carrito</a>
                     </li>
                 </ul>
                 <div class="card-content">

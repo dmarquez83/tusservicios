@@ -36,6 +36,14 @@
                 </div>
             </div>
 
+<<<<<<< HEAD
+=======
+    <div class="form-group">
+        {!! form::label('image','Imagen')!!}
+        {!! form::file('foto',null,['class' => 'form-control']) !!}
+
+    </div>
+>>>>>>> desarrollo
 
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">

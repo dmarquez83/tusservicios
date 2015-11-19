@@ -1,5 +1,5 @@
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h1 class="pull-left">Servicios</h1>
+        <h1 class="pull-left">Seleccione la Categoria</h1>
 </div>
 
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -20,6 +20,7 @@
                     <h3 class="widget-user-username">
                         {{$categoria->nombre}}
                     </h3>
+
             </div>
             <div class="widget-user-image">
                 <img src="servicios-img/user1-128x128.jpg" alt="{{$categoria->nombre}}" class="img-circle">

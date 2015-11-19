@@ -8,7 +8,9 @@
 
             {!! Form::open(['route' => 'categorias.store', 'method' => 'POST', 'files' => 'true']) !!}
 
+
             @include('categorias.fields')
+
 
             {!! Form::close() !!}
         </div>

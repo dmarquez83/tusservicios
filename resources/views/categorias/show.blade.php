@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container">
-	 @include('categorias.show_fields')
+	 @include('admin/categorias.show_fields')
 </div>
 @endsection
