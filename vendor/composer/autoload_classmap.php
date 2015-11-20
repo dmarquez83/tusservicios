@@ -50,6 +50,7 @@ return array(
     'App\\Http\\Controllers\\ServiciosAdminController' => $baseDir . '/app/Http/Controllers/ServiciosAdminController.php',
     'App\\Http\\Controllers\\ServiciosController' => $baseDir . '/app/Http/Controllers/ServiciosController.php',
     'App\\Http\\Controllers\\SolicitudServiciosController' => $baseDir . '/app/Http/Controllers/SolicitudServiciosController.php',
+    'App\\Http\\Controllers\\SolicitudesCategoriasController' => $baseDir . '/app/Http/Controllers/SolicitudesCategoriasController.php',
     'App\\Http\\Controllers\\TiposervicioController' => $baseDir . '/app/Http/Controllers/TiposervicioController.php',
     'App\\Http\\Controllers\\TipousuariosController' => $baseDir . '/app/Http/Controllers/TipousuariosController.php',
     'App\\Http\\Controllers\\WelcomeController' => $baseDir . '/app/Http/Controllers/WelcomeController.php',
