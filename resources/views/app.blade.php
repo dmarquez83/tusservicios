@@ -1,60 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE Html>
+<Html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Servicios.com</title>
+    <title>{{ trans('home.title') }}</title>
 
-    {!! \Skydiver\LaravelMaterializeCSS\MaterializeCSSBuilder::include_css() !!}
-    <!-- Fonts -->
-     <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-     <!--[if lt IE 9]>
-    	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-     	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- Scripts -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    {!! \Skydiver\LaravelMaterializeCSS\MaterializeCSSBuilder::include_js() !!}
-    {!! Html::style('materialize-css/css/main.css') !!}
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css'>
+
+    {!! Html::style('assets/inc/bootstrap/css/bootstrap.min.css') !!}
+    {!! Html::style('assets/inc/bootstrap/css/AdminLTE.min.css') !!}
+    {!! Html::style('assets/inc/bootstrap/css/skins/skin-black-light.css') !!}
+    {!! Html::style('assets/css/main.css') !!}
+
 </head>
-<body>
+<body class="skin-blue-light">
 
-    @if(\Session::has('message'))
-        @include('partials.layout.message')
-    @endif
+@if(\Session::has('message'))
+    @include('home.partials.message')
+@endif
 
+<div class="page-loader"></div>
 
-	@include('partials.layout.navbar')
-
-    <div class="row">
-
-            <div class="col s12 m4 l2 hide-on-med-and-down">
-                @include('partials.layout.menu-user')
-            </div>
-
-
-        @include('partials.layout.errors')
-
-        <div class="col m12 l10"> <!-- Note that "m8 l9" was added -->
+<div class="wrapper">
+    @include('partials.layout.navbar')
+    @include('partials.layout.menu')
+    <div class="content-wrapper">
+        <section class="content">
+            @include('partials.layout.errors')
             @yield('content')
-        </div>
-
+        </section>
     </div>
-
     @include('partials.layout.footer')
+</div><!-- l-wrapper -->
 
-    <script>
-        $(function () {
-            $('select').material_select();
-            $('.button-collapse').sideNav({
-                        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                    }
-            );
-        });
-    </script>
+<!-- Footer -->
+
+<!-- LOAD SCRIPTS
+{!! Html::script('assets/inc/js/jquery-1.11.0.min.js') !!}
+-->
+{!! Html::script('assets/inc/jQuery/jQuery-2.1.4.min.js') !!}
+{!! Html::script('assets/inc/jQueryUI/jquery-ui-1.10.3.min.js') !!}
+
+<!-- Bootstrap 3.3.5 -->
+{!! Html::script('assets/inc/bootstrap/js/bootstrap.min.js') !!}
+
+<!-- AdminLTE App -->
+{!! Html::script('assets/inc/bootstrap/js/app.min.js') !!}
+
+<!-- flexslider -->
+{!! Html::script('assets/inc/flexslider/jquery.flexslider.js') !!}
+
+<!-- script calling -->
+{!! Html::script('assets/inc/js/common.js') !!}
+{!! Html::script('assets/inc/js/app.min.js') !!}
+
+
+
 </body>
-</html>
+</Html>

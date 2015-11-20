@@ -18,8 +18,7 @@
                             <div class="checkbox">
                                 <label><input name="remember" type="checkbox">{{ trans('form.label.remember') }}</label>
                             </div>
-                            <div>
-
+  			    <div>
                                 <ul >
                                     <a href="{{ route('auth.getSocialAuth','facebook') }}">Facebook</a>
 

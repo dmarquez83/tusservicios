@@ -1,29 +1,33 @@
 @foreach($servicios as $servicios)
-
-    <div class="col s12 m6 l4">
-        <div class="card small">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img src="servicios-img/{{$servicios->foto}}" alt="{{$servicios->nombre}}" class="responsive-img">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+        <div class="box box-widget widget-user">
+            <div class="widget-user-header bg-black" style="background: url('categorias-img/{{$servicios->foto}}') center center;">
+                <h3 class="widget-user-username">
+                    {{$servicios->nombre}}
+                </h3>
             </div>
-            <div class="card-content">
-                <div class="card-title activator grey-text text-darken-4">
-            <span>
-               {{$servicios->nombre}}
-                <i class="mdi-navigation-more-vert right"></i>
-            </span>
+            <div class="widget-user-image">
+                {!! Html::image('servicios-img/'.$servicios->foto, $servicios->nombre, array('class' => 'img-circle')) !!}
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>{{$servicios->descripcion}}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card-reveal">
-
-                <p> {{$servicios->descripcion}}</p>
-                <div class="card-action">
-                    <a class="right" href="{!! route('categorias.servicios.delete', [$servicios->id]) !!}"><i class="mdi-content-add-circle"></i>Eliminar</a>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="description-block">
+                            <a class="description-header" href="{!! route('categorias.servicios.delete', [$servicios->id]) !!}">Eliminar</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 border-right">
+                        <div class="description-block">
+                            <a class="description-header" href="{!! route('categorias.servicios.edit', [$servicios->id]) !!}">Editar</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="card-action">
-                <a class="right" href="{!! route('categorias.servicios.edit', [$servicios->id]) !!}"><i class="mdi-content-add-circle"></i>Editar</a>
             </div>
         </div>
     </div>
-
 @endforeach

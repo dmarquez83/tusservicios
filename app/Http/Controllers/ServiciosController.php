@@ -149,6 +149,12 @@ class ServiciosController extends AppBaseController
 
   public function store(CreateServiciosRequest $request)
   {
+
+	$this->validate($request, [
+	  'nombre' => 'required|unique:categorias|max:255',
+	  'descripcion' => 'required|max:500',
+	  'foto'  => 'required'
+	]);
 	/***************************/
 
 	$file = Input::file('foto');
