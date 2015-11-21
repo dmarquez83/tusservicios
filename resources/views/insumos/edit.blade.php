@@ -1,14 +1,17 @@
 @extends('app')
 
 @section('content')
-<div class="container">
+    <div class="">
+        <div class="row margin-top_small">
+            <div class="col s12 m6 ">
+                @include('common.errors')
 
-    @include('common.errors')
+                {!! Form::model($insumos, ['route' => ['insumos.update', $insumos->id], 'method' => 'patch', 'files' => 'true']) !!}
 
-    {!! Form::model($insumo, ['route' => ['insumos.update', $insumo->id], 'method' => 'patch']) !!}
+                @include('insumos.fields_edit')
 
-        @include('insumos.fields')
-
-    {!! Form::close() !!}
-</div>
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
 @endsection

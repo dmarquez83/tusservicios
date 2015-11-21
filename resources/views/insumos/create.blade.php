@@ -1,14 +1,17 @@
 @extends('app')
 
 @section('content')
-<div class="container">
+    <div class="">
+        <div class="row margin-top_small">
+            <div class="col s12 m6 ">
+                @include('common.errors')
 
-    @include('common.errors')
+                {!! Form::open(['route' => 'insumos.store', 'method' => 'POST', 'files' => 'true']) !!}
 
-    {!! Form::open(['route' => 'insumos.store']) !!}
+                @include('insumos.fields')
 
-        @include('insumos.fields')
-
-    {!! Form::close() !!}
-</div>
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
 @endsection

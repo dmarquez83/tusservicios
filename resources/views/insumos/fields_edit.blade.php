@@ -33,6 +33,7 @@
             <div class="row">
                 <div class="col-sm-6 form-group">
                     {!! form::file('foto',null,['class' => 'form-control']) !!}
+                    {!! Form::hidden('foto_name', $insumos->foto) !!}
                 </div>
             </div>
 

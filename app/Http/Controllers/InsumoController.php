@@ -8,6 +8,10 @@ use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
 
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\Image as Image;
+use Illuminate\Support\Facades\File;
+
 class InsumoController extends AppBaseController
 {
 
@@ -51,13 +55,46 @@ class InsumoController extends AppBaseController
 	 */
 	public function store(CreateInsumoRequest $request)
 	{
-		$input = $request->all();
 
-		$insumo = $this->insumoRepository->create($input);
+		$this->validate($request, [
+		  'descripcion' => 'required|max:500',
+		  'referencia' => 'required|max:100',
+		  'foto'  => 'required'
+		]);
 
-		Flash::success('Insumo saved successfully.');
+	  /***************************/
 
-		return redirect(route('insumos.index'));
+	  $file = Input::file('foto');
+	  //Creamos una instancia de la libreria instalada
+
+	  $image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
+
+	  //Ruta donde queremos guardar las imagenes
+	  $path = public_path().'/insumos-img/';
+
+	  // Guardar Original
+	  $image->save($path.$file->getClientOriginalName());
+	  // Cambiar de tamaño
+	  //$image->resize(240,200);
+	  // Guardar
+	  //$image->save($path.'thumb_'.$file->getClientOriginalName());
+
+	  /**************************/
+
+
+
+	  $data = [
+		'descripcion' => $request->get('descripcion'),
+		'referencia' => $request->get('referencia'),
+		'foto' => $file->getClientOriginalName()
+	  ];
+
+
+	  $this->insumoRepository->create($data);
+
+	  Flash::success('Insumos Guardada Correctamente.');
+
+	  return redirect(route('insumos.index'));
 	}
 
 	/**
@@ -73,7 +110,7 @@ class InsumoController extends AppBaseController
 
 		if(empty($insumo))
 		{
-			Flash::error('Insumo not found');
+			Flash::error('No hay Insumos');
 
 			return redirect(route('insumos.index'));
 		}
@@ -90,16 +127,16 @@ class InsumoController extends AppBaseController
 	 */
 	public function edit($id)
 	{
-		$insumo = $this->insumoRepository->find($id);
+	  $insumos = $this->insumoRepository->find($id);
 
-		if(empty($insumo))
+		if(empty($insumos))
 		{
 			Flash::error('Insumo not found');
 
 			return redirect(route('insumos.index'));
 		}
 
-		return view('insumos.edit')->with('insumo', $insumo);
+		return view('insumos.edit')->with('insumos', $insumos);
 	}
 
 	/**
@@ -112,18 +149,43 @@ class InsumoController extends AppBaseController
 	 */
 	public function update($id, UpdateInsumoRequest $request)
 	{
-		$insumo = $this->insumoRepository->find($id);
+	  $this->validate($request, [
+		'descripcion' => 'required|max:500',
+		'referencia' => 'required|max:100',
+		'foto'  => 'required'
+	  ]);
 
-		if(empty($insumo))
-		{
-			Flash::error('Insumo not found');
+	  /***************************/
 
-			return redirect(route('insumos.index'));
-		}
+	  $file = Input::file('foto');
+	  //Creamos una instancia de la libreria instalada
 
-		$insumo = $this->insumoRepository->updateRich($request->all(), $id);
+	  $image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
 
-		Flash::success('Insumo updated successfully.');
+	  //Ruta donde queremos guardar las imagenes
+	  $path = public_path().'/insumos-img/';
+
+	  // Guardar Original
+	  $image->save($path.$file->getClientOriginalName());
+	  // Cambiar de tamaño
+	  //$image->resize(240,200);
+	  // Guardar
+	  //$image->save($path.'thumb_'.$file->getClientOriginalName());
+
+	  /**************************/
+
+
+
+	  $data = [
+		'descripcion' => $request->get('descripcion'),
+		'referencia' => $request->get('referencia'),
+		'foto' => $file->getClientOriginalName()
+	  ];
+
+
+	  $insumo = $this->insumoRepository->updateRich($data, $id);
+
+		Flash::success('Insumo Guardado Correctamente.');
 
 		return redirect(route('insumos.index'));
 	}
@@ -141,14 +203,14 @@ class InsumoController extends AppBaseController
 
 		if(empty($insumo))
 		{
-			Flash::error('Insumo not found');
+			Flash::error('Insumo no funciona');
 
 			return redirect(route('insumos.index'));
 		}
 
 		$this->insumoRepository->delete($id);
 
-		Flash::success('Insumo deleted successfully.');
+		Flash::success('Insumo borrado correctamente.');
 
 		return redirect(route('insumos.index'));
 	}

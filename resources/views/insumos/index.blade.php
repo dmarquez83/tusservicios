@@ -2,18 +2,13 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="">
 
         @include('flash::message')
 
         <div class="row">
-            <h1 class="pull-left">Insumos</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('insumos.create') !!}">Add New</a>
-        </div>
-
-        <div class="row">
             @if($insumos->isEmpty())
-                <div class="well text-center">No Insumos found.</div>
+                <div class="well text-center">Insumos no encontrada.</div>
             @else
                 @include('insumos.table')
             @endif
@@ -21,6 +16,6 @@
 
         @include('common.paginate', ['records' => $insumos])
 
-
     </div>
 @endsection
+

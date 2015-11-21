@@ -1,12 +1,12 @@
-<!-- Descripcion Field -->
+<!-- Nombre Field -->
 <div class="form-group">
-    {!! Form::label('descripcion', 'Descripcion:') !!}
-    <p>{!! $insumo->descripcion !!}</p>
+    {!! Form::label('decripcion', 'Decripcion:') !!}
+    <p>{!! $insumos->decripcion !!}</p>
 </div>
 
-<!-- Referencia Field -->
+<!-- Decripcion Field -->
 <div class="form-group">
     {!! Form::label('referencia', 'Referencia:') !!}
-    <p>{!! $insumo->referencia !!}</p>
+    <p>{!! $insumos->referencia !!}</p>
 </div>
 

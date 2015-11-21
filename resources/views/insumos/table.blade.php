@@ -1,19 +1,55 @@
-<table class="table">
-    <thead>
-    <th>Descripcion</th>
-			<th>Referencia</th>
-    <th width="50px">Action</th>
-    </thead>
-    <tbody>
-    @foreach($insumos as $insumo)
-        <tr>
-            <td>{!! $insumo->descripcion !!}</td>
-			<td>{!! $insumo->referencia !!}</td>
-            <td>
-                <a href="{!! route('insumos.edit', [$insumo->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
-                <a href="{!! route('insumos.delete', [$insumo->id]) !!}" onclick="return confirm('Are you sure wants to delete this Insumo?')"><i class="glyphicon glyphicon-remove"></i></a>
-            </td>
-        </tr>
-    @endforeach
-    </tbody>
-</table>
+<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <h1 class="pull-left">Insumos</h1>
+    <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('insumos.create') !!}">Agregar</a>
+</div>
+
+<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="input-group">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+        </div>
+        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Encuentra los servicios que necesitas">
+    </div>
+</div>
+
+<br>
+<br>
+@foreach($insumos as $insumo)
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+        <div class="box box-widget widget-user">
+            <div class="widget-user-header bg-black" style="background: url('{{ asset('insumos-img/'.$insumo->foto)}}') center center;">
+                <h3  class="widget-user-username">
+                    {{$insumo->referencia}}
+                </h3>
+            </div>
+            <div class="widget-user-image">
+                {!! Html::image(asset('insumos-img/'.$insumo->foto), $insumo->descripcion, array('class' => 'img-responsive')) !!}
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="description-block">
+                            <p>
+                                {{$insumo->descripcion}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 border-right">
+                        <div class="description-block">
+                            <a class="description-header" href="{!! route('insumos.edit', [$insumo->id]) !!}" role="button">Editar</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 border-right">
+                        <div class="description-block">
+                            <a class="description-header" href="{!! route('insumos.delete', [$insumo->id]) !!}" role="button">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@endforeach
+
