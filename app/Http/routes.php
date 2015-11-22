@@ -10,27 +10,56 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-/*
-Route::get('/', function () {
-    return view('home.index');
-});
-*/
 
-//Route::get('home', 'HomeController@index');
 
-//Route::get('/', 'HomeController@index');
-
+/*-- Rutas de Acceso Publico --*/
 
 Route::get('/', [
   'as' => 'home',
   'uses' => 'HomeController@index',
 ]);
 
-
 Route::get('home', [
   'as' => 'home',
   'uses' => 'HomeController@index',
 ]);
+
+// Lista de Categorias
+Route::get('public/categorias', [
+    'as' => 'home',
+    'uses' => 'HomeController@index',
+]);
+
+// Lista de Servicios
+Route::get('public/servicios', [
+    'as' => 'home',
+    'uses' => 'HomeController@index',
+]);
+
+// Lista de Servicios por Categorias
+Route::get('public/categorias/{id}', [
+    'as' => 'home',
+    'uses' => 'HomeController@index',
+]);
+
+// Detalle de Servicio
+Route::get('public/servicios/{id}', [
+    'as' => 'home',
+    'uses' => 'HomeController@index',
+]);
+
+// Login
+Route::get('public/login', [
+    'as' => 'home',
+    'uses' => 'HomeController@index',
+]);
+
+// Registro
+Route::get('public/registro', [
+    'as' => 'home',
+    'uses' => 'HomeController@index',
+]);
+
 
 
 // Authentication routes...
