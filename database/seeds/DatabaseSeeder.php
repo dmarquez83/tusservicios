@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
          $this->call(EvaluacionesTableSeeder::class);
          $this->call(EstatusTableSeeder::class);
          $this->call(ServiciosTableSeeder::class);
-
+         $this->call(InsumosTableSeeder::class);
 
 
         Model::reguard();
