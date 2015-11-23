@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
 
 /*-- Rutas de Acceso Publico --*/
 
@@ -24,67 +13,110 @@ Route::get('home', [
   'uses' => 'HomeController@index',
 ]);
 
-// Lista de Categorias
-Route::get('public/categorias', [
-    'as' => 'home',
-    'uses' => 'HomeController@index',
-]);
 
-// Lista de Servicios
+
+// Lista de Servicios //esta vista no existe hay que crearla
 Route::get('public/servicios', [
     'as' => 'home',
     'uses' => 'HomeController@index',
 ]);
 
-// Lista de Servicios por Categorias
-Route::get('public/categorias/{id}', [
-    'as' => 'home',
-    'uses' => 'HomeController@index',
+// Detalle de Servicio //esta vista no existe hay que crearla
+Route::get('public/servicios/{id}', [
+  'as' => 'home',
+  'uses' => 'HomeController@index',
 ]);
 
-// Detalle de Servicio
-Route::get('public/servicios/{id}', [
-    'as' => 'home',
-    'uses' => 'HomeController@index',
+
+/**********************************solicitudes**********************************/
+
+// Lista de Categorias
+Route::resource('public/categorias', 'SolicitudesCategoriasController' , ['as' => 'categorias']);
+
+
+Route::resource('public/servicios', 'SolicitudServiciosController', ['as' => 'servicios']);
+
+Route::get('servicios/{id}/index', [
+'as' => 'servicios.index',
+'uses' => 'SolicitudServiciosController@index',
 ]);
+// Lista de Servicios por Categorias
+/*Route::get('public/categorias/{id}', [
+  'as' => 'servicios.index',
+  'uses' => 'SolicitudServiciosController@index',
+]);*/
+
+
+Route::get('solicitudes/{id}/create', [
+  'as' => 'solicitudes.create',
+  'uses' => 'SolicitudesCategoriasController@create',
+]);
+
+Route::get('solicitudes/{id}/store', [
+  'middleware' => 'auth',
+  'as' => 'solicitudes.store',
+  'uses' => 'SolicitudesCategoriasController@store',
+]);
+
+Route::get('solicitudes/{id}/delete', [
+  'as' => 'solicitudes.delete',
+  'uses' => 'SolicitudesCategoriasController@destroy',
+]);
+
+/*******************************LOGIN******************************************/
 
 // Login
 Route::get('public/login', [
-    'as' => 'home',
-    'uses' => 'HomeController@index',
+  'as' => 'auth/login',
+  'uses' => 'Auth\AuthController@getLogin',
+]);
+
+Route::post('public/login', [
+  'as' => 'auth/login',
+  'uses' => 'Auth\AuthController@postLogin',
+]);
+
+
+// Logout
+Route::get('public/logout', [
+  'as' => 'auth/logout',
+  'uses' => 'Auth\AuthController@getLogout',
 ]);
 
 // Registro
 Route::get('public/registro', [
-    'as' => 'home',
-    'uses' => 'HomeController@index',
+  'as' => 'auth/register',
+  'uses' => 'Auth\AuthController@getRegister',
+]);
+
+Route::post('public/registro', [
+  'as' => 'auth/register',
+  'uses' => 'Auth\AuthController@postRegister',
+]);
+
+// Password reset link request routes...
+Route::get('public/password', [
+  'as' => 'password/email',
+  'uses' => 'Auth\PasswordController@getEmail',
 ]);
 
 
-
-// Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', ['as' =>'auth/login', 'uses' => 'Auth\AuthController@postLogin']);
-Route::get('auth/logout', ['as' => 'auth/logout', 'uses' => 'Auth\AuthController@getLogout']);
-
-// Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', ['as' => 'auth/register', 'uses' => 'Auth\AuthController@postRegister']);
-
-
-// Password reset link request routes...
-Route::get('password/email', ['as' => 'password/email', 'uses' => 'Auth\PasswordController@getEmail']);
-Route::post('password/email', ['as' => 'password/postEmail', 'uses' => 'Auth\PasswordController@postEmail']);
+Route::post('public/password', [
+  'as' => 'password/postEmail',
+  'uses' => 'Auth\PasswordController@postEmail',
+]);
 
 // Password reset routes...
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', ['as' => 'password/postReset', 'uses' =>  'Auth\PasswordController@postReset']);
 
+
+//Socialite
 Route::get('login/{provider}',[
   'uses' => 'Auth\AuthController@login',
   'as'   => 'auth.getSocialAuth'
 ]);
-
+/*Route::get('public/login/{provider}',[*/
 /*
 |--------------------------------------------------------------------------
 | API routes
@@ -215,37 +247,6 @@ Route::group(['middleware' => ['auth']], function()
     ]);
 
 });
-
-
-/**********************************solicitudes**********************************/
-
-
-Route::resource('categorias', 'SolicitudesCategoriasController');
-
-Route::get('solicitudes/{id}/create', [
-  'as' => 'solicitudes.create',
-  'uses' => 'SolicitudesCategoriasController@create',
-]);
-
-Route::get('solicitudes/{id}/store', [
-  'middleware' => 'auth',
-  'as' => 'solicitudes.store',
-  'uses' => 'SolicitudesCategoriasController@store',
-]);
-
-Route::get('solicitudes/{id}/delete', [
-  'as' => 'solicitudes.delete',
-  'uses' => 'SolicitudesCategoriasController@destroy',
-]);
-
-
-Route::resource('servicios', 'SolicitudServiciosController');
-
-
-Route::get('servicios/{id}/index', [
-  'as' => 'servicios.index',
-  'uses' => 'SolicitudServiciosController@index',
-]);
 
 
 /**********************************Mapa**********************************/
