@@ -12,7 +12,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="glyphicon glyphicon-th"></i>
-                    Panel
+                    Categorias
                 </a>
             </li>
 
@@ -23,20 +23,6 @@
                     Solicitudes
                 </a>
             </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="glyphicon glyphicon-user"></i>
-                    {{ Auth::user()->name }}
-                    <i class="glyphicon glyphicon-chevron-down pull-right"></i>
-                </a>
-                <ul class="treeview-menu menu-open" style="display: block;">
-                    <li class="">
-                        <a href="#">
-                            Finalizar sesión
-                        </a>
-                    </li>
-                </ul>
-            </li>
         </ul>
     </section>
 </aside>
@@ -46,39 +32,24 @@
         <section class="sidebar">
             <ul class="sidebar-menu">
                 <li class="header">Opciones de Usuario</li>
-                <li class="active">
+                <li class="treeview active">
                     <a href="#">
                         <i class="glyphicon glyphicon-home"></i> Principal
                     </a>
                 </li>
                 <li class="treeview">
-                    <i class="glyphicon glyphicon-triangle-bottom"></i>
                     <a href="#">
-                        Panel
+                        <i class="glyphicon glyphicon-th"></i>
+                        Categorias
                     </a>
                 </li>
 
                 <li class="treeview">
-                    <i class="glyphicon glyphicon-triangle-bottom"></i>
+
                     <a href="#" >
+                        <i class="glyphicon glyphicon-pencil"></i>
                         Solicitudes
                     </a>
-                </li>
-                <li class="treeview">
-                    <i class="glyphicon glyphicon-triangle-bottom"></i>
-                    <a href="#">
-                        Panel
-                    </a>
-                </li>
-
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-user"></i> <span class="caret"></span>
-                    </a>
-                    <ul class="treeview-menu" style="list-style: none">
-                        <li><a href="{{ route('auth/login') }}">Iniciar sesión</a></li>
-                        <li><a href="{{ route('auth/register') }}">Registrarse</a></li>
-                    </ul>
                 </li>
             </ul>
         </section>
