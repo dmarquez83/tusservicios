@@ -1,15 +1,18 @@
 @extends('app')
 
 @section('content')
-<div class="container">
+<div class="">
+    <div class="row margin-top_small">
+        <div class="col s12 m6 ">
+            @include('common.errors')
 
-    @include('common.errors')
 
+                {!! Form::open(['route' => ['solicitudes.store', $servicios], 'method' => 'GET', 'files' => 'true']) !!}
 
-    {!! Form::open(['route' => ['solicitudes.store', $servicios], 'method' => 'GET', 'files' => 'true']) !!}
+            @include('solicitudes.fields')
 
-        @include('solicitudes.fields')
-
-    {!! Form::close() !!}
+                {!! Form::close() !!}
+        </div>
+    </div>
 </div>
 @endsection
