@@ -3,7 +3,6 @@
         <div class="box-header">
             <h5 class="box-title">{{$servicios->nombre}}</h5>
         </div>
-
         <div class="box-body">
             <div class="col-sm-6 form-group">
                 <div class="row">
@@ -27,7 +26,7 @@
             <div class="col-sm-6 form-group">
                 <div class="row">
                     <div class="col-sm-12 form-group">
-                        {!! Html::image('servicios-img/'.$servicios->foto, '', array('class' => 'responsive-img right','width' => '300', 'height' => '200')) !!}
+                        {!! Html::image('servicios-img/'.$servicios->foto, '', array('class' => 'responsive-img pull-right','width' => '300', 'height' => '200')) !!}
                     </div>
                 </div>
             </div>

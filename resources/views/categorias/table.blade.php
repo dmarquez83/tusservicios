@@ -5,7 +5,7 @@
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <div class="box">
     <div class="box-header">
-        <h3 class="box-title">Categorias</h3>
+        <h2 class="box-title">Categorias</h2>
         <div class="box-tools">
             <div class="input-group input-group-sm" style="width: 150px;">
                 <input class="form-control pull-right" type="text" placeholder="Buscar" name="table_search">

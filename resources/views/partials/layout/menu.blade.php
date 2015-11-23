@@ -20,7 +20,7 @@
 
                 <a href="#" >
                     <i class="glyphicon glyphicon-pencil"></i>
-                    Solicitudes
+                    Servicios
                 </a>
             </li>
         </ul>

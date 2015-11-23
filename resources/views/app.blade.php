@@ -42,12 +42,12 @@
 -->
 {!! Html::script('assets/inc/jQuery/jQuery-2.1.4.min.js') !!}
 {!! Html::script('assets/inc/jQueryUI/jquery-ui-1.10.3.min.js') !!}
-
+<!-- AdminLTE App -->
+{!! Html::script('assets/inc/js/app.min.js') !!}
 <!-- Bootstrap 3.3.5 -->
 {!! Html::script('assets/inc/bootstrap/js/bootstrap.min.js') !!}
 
-<!-- AdminLTE App -->
-{!! Html::script('assets/inc/bootstrap/js/app.min.js') !!}
+
 
 <!-- flexslider -->
 {!! Html::script('assets/inc/flexslider/jquery.flexslider.js') !!}
