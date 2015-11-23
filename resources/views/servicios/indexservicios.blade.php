@@ -6,8 +6,7 @@
 
         @include('flash::message')
 
-          @include('servicios.buscar')
-
+        {{-- @include('servicios.buscar')--}}
         <div class="row">
           @if($servicios->isEmpty())
               <div class="well text-center">No Hay Servicios Cargados.</div>
@@ -15,7 +14,8 @@
               @include('servicios.tableservicios')
           @endif
         </div>
-        {{--   @include('common.paginate', ['records' => $servicios]) --}}
+        {{-- @include('common.paginate', ['records' => $servicios]) --}}
+
     </div>
 
  @endsection

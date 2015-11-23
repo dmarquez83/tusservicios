@@ -1,55 +1,45 @@
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <h1 class="pull-left">Categorias</h1>
     <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('admin.categorias.create') !!}">Agregar</a>
 </div>
 
-<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="input-group">
-        <div class="input-group-addon">
-            <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="box">
+    <div class="box-header">
+        <h2 class="box-title">Categorias</h2>
+        <div class="box-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+                <input class="form-control pull-right" type="text" placeholder="Buscar" name="table_search">
+                <div class="input-group-btn">
+                </div>
+            </div>
         </div>
-        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Encuentra el Servicio que necesitas">
+    </div>
+
+    <div class="box-body table-responsive no-padding">
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <th>Categorias</th>
+                    <th style="width: 700px">Descripcion</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+                @foreach($categorias as $categoria)
+                <tr>
+                    <th >{{$categoria->nombre}}</th>
+                    <th>{{$categoria->descripcion}}</th>
+                    <th>
+                        <div class="col-sm-6 border-right">
+                            <a class="description-header" href="{!! route('admin.categorias.edit', [$categoria->id]) !!}" role="button"><i class="glyphicon glyphicon-pencil"></i>Editar</a>
+                        </div>
+                        <div class="col-sm-6 border-right">
+                            <a class="description-header" href="{!! route('admin.categorias.delete', [$categoria->id]) !!}" role="button"><i class="glyphicon glyphicon-remove"></i>Eliminar</a>
+                        </div>
+                    </th>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
-
-<br>
-<br>
-@foreach($categorias as $categoria)
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-        <div class="box box-widget widget-user">
-            <div class="widget-user-header bg-black" style="background: url('categorias-img/{{$categoria->foto}}') center center;">
-                <h3  class="widget-user-username">
-                    {{$categoria->nombre}}
-                </h3>
-            </div>
-            <div class="widget-user-image">
-                {!! Html::image('categorias-img/'.$categoria->foto, $categoria->nombre, array('class' => 'img-responsive')) !!}
-            </div>
-            <div class="box-footer">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="description-block">
-                            <p>
-                                {{$categoria->descripcion}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 border-right">
-                        <div class="description-block">
-                            <a class="description-header" href="{!! route('admin.categorias.edit', [$categoria->id]) !!}" role="button">Editar</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 border-right">
-                        <div class="description-block">
-                            <a class="description-header" href="{!! route('admin.categorias.delete', [$categoria->id]) !!}" role="button">Eliminar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-@endforeach
+</div>
 

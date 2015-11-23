@@ -15,13 +15,13 @@
 @foreach($servicios as $servicio)
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
         <div class="box box-widget widget-user">
-            <div class="widget-user-header bg-black" style="background: url('../servicios-img/{{$servicio->foto}}') center center;">
+            <div class="widget-user-header bg-black" style="background: url('/servicios-img/{{$servicio->foto}}') center center;">
                 <h3  class="widget-user-username">
                     {{$servicio->nombre}}
                 </h3>
             </div>
             <div class="widget-user-image">
-                {!! Html::image('categorias-img/user1-128x128.jpg', '', array('class' => 'img-circle')) !!}
+                {!! Html::image('categorias-img/thumb_tusservicios-logo.jpg', '', array('class' => 'img-circle')) !!}
             </div>
             <div class="box-footer">
                 <div class="row">
@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="description-block">
-                            <a class="description-header pull-right" href="{!! route('solicitudes.create', [$servicio->id]) !!}"><i class="mdi-action-add-shopping-cart"></i>carrito</a>
+                            <a class="description-header pull-right" href="{!! route('solicitudes.create', [$servicio->id]) !!}"><i class="glyphicon glyphicon-shopping-cart"></i>Contratar</a>
                         </div>
                     </div>
                 </div>

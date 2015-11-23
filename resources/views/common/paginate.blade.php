@@ -1,3 +1,3 @@
-<div class="row">
-    {!! $records->render() !!}
-</div>
+    <div class="row text-right">
+        {!! $records->render() !!}
+    </div>

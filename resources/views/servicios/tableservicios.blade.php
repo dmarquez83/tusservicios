@@ -1,33 +1,43 @@
-@foreach($servicios as $servicios)
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-        <div class="box box-widget widget-user">
-            <div class="widget-user-header bg-black" style="background: url('categorias-img/{{$servicios->foto}}') center center;">
-                <h3 class="widget-user-username">
-                    {{$servicios->nombre}}
-                </h3>
-            </div>
-            <div class="widget-user-image">
-                {!! Html::image('servicios-img/'.$servicios->foto, $servicios->nombre, array('class' => 'img-circle')) !!}
-            </div>
-            <div class="box-footer">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p>{{$servicios->descripcion}}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="description-block">
-                            <a class="description-header" href="{!! route('categorias.servicios.delete', [$servicios->id]) !!}">Eliminar</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 border-right">
-                        <div class="description-block">
-                            <a class="description-header" href="{!! route('categorias.servicios.edit', [$servicios->id]) !!}">Editar</a>
-                        </div>
+<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <a class="btn btn-primary pull-right" style="margin-top: 25px" href="#">Agregar</a>
+</div>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="box">
+        <div class="box-header">
+            <h2 class="box-title">Servicios</h2>
+            <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                    <input class="form-control pull-right" type="text" placeholder="Buscar" name="table_search">
+                    <div class="input-group-btn">
                     </div>
                 </div>
             </div>
         </div>
+        <div class="box-body table-responsive no-padding">
+            <table class="table table-hover">
+                <tbody>
+                <tr>
+                    <th>Servicios</th>
+                    <th style="width: 700px">Descripcion</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+                @foreach($servicios as $servicios)
+                    <tr>
+                    <th >{{$servicios->nombre}}</th>
+                    <th>{{$servicios->descripcion}}</th>
+                    <th>
+                        <div class="col-sm-6 border-right">
+                            <a class="description-header" href="{!! route('categorias.servicios.edit', [$servicios->id]) !!}">Editar</a>
+                        </div>
+                        <div class="col-sm-6 border-right">
+                            <a class="description-header" href="{!! route('categorias.servicios.delete', [$servicios->id]) !!}">Eliminar</a>
+                        </div>
+                    </th>
+                </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
-@endforeach
+</div>
