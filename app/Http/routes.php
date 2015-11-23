@@ -74,7 +74,7 @@ Route::get('public/login', [
 
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 
-Route::post('public/login', [
+Route::post('auth/login', [
   'as' => 'auth/login',
   'uses' => 'Auth\AuthController@postLogin',
 ]);
