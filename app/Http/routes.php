@@ -66,10 +66,13 @@ Route::get('solicitudes/{id}/delete', [
 /*******************************LOGIN******************************************/
 
 // Login
+/*
 Route::get('public/login', [
   'as' => 'auth/login',
   'uses' => 'Auth\AuthController@getLogin',
-]);
+]);*/
+
+Route::get('auth/login', 'Auth\AuthController@getLogin');
 
 Route::post('public/login', [
   'as' => 'auth/login',
