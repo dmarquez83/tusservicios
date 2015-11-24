@@ -41,11 +41,11 @@ class Authenticate
             }
         }
 
-        if(auth()->user()->id_tipo_usuario != '1'){
+      /*  if(auth()->user()->id_tipo_usuario != '1'){
             $message = 'Permiso denegado: Solo los administradores pueden entrar a esta sección';
             return redirect()->route('home')->with('message', $message);
         }
-
+*/
 
 
         return $next($request);

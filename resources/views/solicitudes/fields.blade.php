@@ -1,5 +1,4 @@
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="box box-warning">
+
         <div class="box-header">
             <h5 class="box-title">{{$servicios->nombre}}</h5>
         </div>
@@ -97,6 +96,15 @@
 
                 <div class="row">
                     <div class="col-sm-4 form-group">
+                        {!! Form::label('horas', 'Cantidad de Horas:',['class' => 'control-label']) !!}
+                    </div>
+                    <div class="col-sm-8">
+                        {!! Form::text('horas', null, ['class' => 'form-control']) !!}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4 form-group">
                         {!! Form::label('insumo', 'Insumo:',['class' => 'control-label']) !!}
                     </div>
                     <div class="col-sm-8">
@@ -120,10 +128,13 @@
             </div>
 
 
+
+
+            <div class="box-footer">
+              {{--  <a class="btn btn-warning" href="{!! route('solicitudes.store', [$servicios->id]) !!}"><i class="glyphicon glyphicon-shopping-cart left"></i>Solicitar Servicio</a>--}}
+                {!! Form::submit('Save', ['class' => 'btn btn-primary pull-right']) !!}
             </div>
-        </div>
-        <div class="box-footer">
-            <a class="btn btn-warning" href="{!! route('solicitudes.store', [$servicios->id]) !!}"><i class="glyphicon glyphicon-shopping-cart left"></i>Solicitar Servicio</a>
-            {!! Form::submit('Save', ['class' => 'btn btn-primary pull-right']) !!}
-        </div>
+
+
+
 </div>

@@ -33,6 +33,10 @@ Route::get('public/servicios/{id}', [
 // Lista de Categorias
 Route::resource('public/categorias', 'SolicitudesCategoriasController' , ['as' => 'categorias']);
 
+Route::get('public/categorias', [
+    'as' => 'categorias.index',
+    'uses' => 'SolicitudesCategoriasController@index',
+]);
 
 Route::resource('public/servicios', 'SolicitudServiciosController', ['as' => 'servicios']);
 
@@ -53,7 +57,7 @@ Route::get('solicitudes/{id}/create', [
 ]);
 
 Route::get('solicitudes/{id}/store', [
-  'middleware' => 'auth',
+  'middleware' => 'authusuario',
   'as' => 'solicitudes.store',
   'uses' => 'SolicitudesCategoriasController@store',
 ]);

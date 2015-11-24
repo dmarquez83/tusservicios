@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Requests\CreateSolicitudesRequest;
@@ -72,13 +73,7 @@ class SolicitudesCategoriasController extends AppBaseController
 
   }
 
-  /**
-   * Store a newly created Solicitudes in storage.
-   *
-   * @param CreateSolicitudesRequest $request
-   *
-   * @return Response
-   */
+
   public function store($id, CreateSolicitudesRequest $request)
   {
 	//$input = $request->all();
@@ -96,6 +91,8 @@ class SolicitudesCategoriasController extends AppBaseController
 	  'id_servicio'  => $id
 	];
 
+
+	//  dd($data);
 	$solicitudes = $this->solicitudesRepository->create($data);
 
 	Flash::success('Solicitud Guardada correctamente.');
