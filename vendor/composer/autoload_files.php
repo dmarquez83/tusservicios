@@ -20,4 +20,5 @@ return array(
     $vendorDir . '/barryvdh/laravel-debugbar/src/helpers.php',
     $vendorDir . '/laracasts/flash/src/Laracasts/Flash/functions.php',
     $vendorDir . '/laravelcollective/html/src/helpers.php',
+    $vendorDir . '/sofa/eloquence/src/helpers.php',
 );

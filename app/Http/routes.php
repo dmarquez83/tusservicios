@@ -13,8 +13,19 @@ Route::get('home', [
   'uses' => 'HomeController@index',
 ]);
 
+Route::get('search',
+    [
+        'uses' => 'SearchController@index',
+        'as' => 'search'
+    ]
+);
 
-
+Route::get('categorias/buscar',
+    [
+        'uses' => 'SearchController@index',
+        'as' => 'buscar'
+    ]
+);
 // Lista de Servicios //esta vista no existe hay que crearla
 Route::get('public/servicios/listar', [
     'as' => 'listar',
@@ -66,6 +77,7 @@ Route::get('solicitudes/{id}/delete', [
   'as' => 'solicitudes.delete',
   'uses' => 'SolicitudesCategoriasController@destroy',
 ]);
+
 
 /*******************************LOGIN******************************************/
 
