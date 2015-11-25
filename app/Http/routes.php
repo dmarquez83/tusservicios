@@ -18,13 +18,13 @@ Route::get('home', [
 // Lista de Servicios //esta vista no existe hay que crearla
 Route::get('public/servicios/listar', [
     'as' => 'listar',
-    'uses' => 'SolicitudesCategoriasController@listar',
+    'uses' => 'ServiciosController@listar',
 ]);
 
 // Detalle de Servicio //esta vista no existe hay que crearla
 Route::get('public/servicios/{id}', [
-  'as' => 'home',
-  'uses' => 'HomeController@index',
+  'as' => 'detalle',
+  'uses' => 'ServiciosController@detalle',
 ]);
 
 
