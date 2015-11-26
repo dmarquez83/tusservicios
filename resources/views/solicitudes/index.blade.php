@@ -7,16 +7,13 @@
         @include('flash::message')
         @include('solicitudes.buscar')
 
-
         <div class="row">
 
             @include('solicitudes.table')
 
         </div>
 
-        @include('common.paginate', ['records' => $categorias])
+    {{-- @include('common.paginate', ['records' => $categorias]) --}}
 
-
-
-    </div>
+</div>
 @endsection

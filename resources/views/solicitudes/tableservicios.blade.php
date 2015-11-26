@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="description-block">
-                            <a class="description-header pull-right" href="{!! route('solicitudes.create', [$servicio->id]) !!}"><i class="glyphicon glyphicon-shopping-cart"></i>Contratar</a>
+                            <a class="description-header pull-right" href="{!! route('solicitudes.create', [$servicio->id]) !!}"><i class="glyphicon glyphicon-shopping-cart"></i></a>
                         </div>
                     </div>
                 </div>

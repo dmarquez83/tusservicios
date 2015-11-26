@@ -34,14 +34,27 @@
                     <a href="{{ route('auth/logout') }}"><i class="glyphicon glyphicon-off"></i></a>
                 </li>
             @else
-                <li class="dropdown user user-menu">
-                    <a data-toggle="modal" data-target="#inici_sesion">Iniciar Sesion
+                <li class="dropdown messages-menu">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="glyphicon glyphicon-user"></i>
+                        <i class="glyphicon glyphicon-chevron-down"></i>
                     </a>
-                </li>
-                <li class="dropdown user user-menu">
-                    <a data-toggle="modal" data-target="#registro">Registro
-                    </a>
+                    <ul class="dropdown-menu" style="width: 100px">
+                        <li>
+                            <ul class="menu">
+                                <li><!-- start message -->
+                                    <a data-toggle="modal" data-target="#inici_sesion">
+                                        Inicio Sesion
+                                    </a>
+                                </li>
+                                <li><!-- start message -->
+                                    <a data-toggle="modal" data-target="#registro">
+                                        Registrarse
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </li>
             @endif
             </ul>
