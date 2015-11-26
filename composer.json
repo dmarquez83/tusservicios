@@ -24,7 +24,8 @@
         "alexpechkarev/google-geocoder": "dev-master",
         "asm89/stack-cors": "0.2.x",
         "intervention/image": "^2.3@dev",
-        "laravel/socialite": "^3.0@dev"
+        "laravel/socialite": "^3.0@dev",
+        "sofa/eloquence": "~5.1@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
