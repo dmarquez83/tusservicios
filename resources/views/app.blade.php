@@ -47,8 +47,6 @@
 <!-- Bootstrap 3.3.5 -->
 {!! Html::script('assets/inc/bootstrap/js/bootstrap.min.js') !!}
 
-
-
 <!-- flexslider -->
 {!! Html::script('assets/inc/flexslider/jquery.flexslider.js') !!}
 

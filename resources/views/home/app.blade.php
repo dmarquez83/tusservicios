@@ -11,6 +11,7 @@
     {!! Html::style('assets/inc/bootstrap/css/bootstrap.min.css') !!}
     {!! Html::style('assets/inc/bootstrap/css/bootstrap-theme.min.css') !!}
     {!! Html::style('assets/inc/bootstrap/css/bootstrap-reset.css') !!}
+    {!! Html::style('assets/inc/bootstrap/css/AdminLTE.min.css') !!}
     {!! Html::style('assets/inc/flexslider/flexslider.css') !!}
     {!! Html::style('assets/inc/easy-pie-chart/demo/style.css') !!}
     {!! Html::style('assets/inc/magnific/dist/magnific-popup.css') !!}
@@ -18,6 +19,7 @@
     {!! Html::style('assets/inc/font-awesome/css/font-awesome.min.css') !!}
     {!! Html::style('assets/css/style.css') !!}
     {!! Html::style('assets/css/colors.css') !!}
+
 
 </head>
 <body>
@@ -35,12 +37,19 @@
         </div><!-- l-wrapper -->
 
 
-    <!-- LOAD SCRIPTS -->
+    <!-- LOAD SCRIPTS
     {!! Html::script('assets/inc/js/jquery-1.11.0.min.js') !!}
+    -->
+    {!! Html::script('assets/inc/jQuery/jQuery-2.1.4.min.js') !!}
+    {!! Html::script('assets/inc/jQueryUI/jquery-ui-1.10.3.min.js') !!}
+    <!-- Bootstrap 3.3.5 -->
     {!! Html::script('assets/inc/bootstrap/js/bootstrap.min.js') !!}
-
     <!-- flexslider -->
     {!! Html::script('assets/inc/flexslider/jquery.flexslider.js') !!}
+
+    <!-- script calling -->
+    {!! Html::script('assets/inc/js/common.js') !!}
+    {!! Html::script('assets/inc/js/app.min.js') !!}
 
     <!-- skrollr -->
     {!! Html::script('assets/inc/skrollr/dist/skrollr.min.js') !!}
@@ -72,9 +81,6 @@
 
     <!-- contact form checker -->
     {!! Html::script('assets/inc/form-validator/dist/jquery.validate.js') !!}
-
-    <!-- script calling -->
-    {!! Html::script('assets/inc/js/common.js') !!}
 
 </body>
 </Html>

@@ -31,12 +31,16 @@
                     </a>
                 </li>
                 <li class="dropdown user user-menu">
-                    <a href="#"><i class="glyphicon glyphicon-off"></i></a>
+                    <a href="{{ route('auth/logout') }}"><i class="glyphicon glyphicon-off"></i></a>
                 </li>
             @else
                 <li class="dropdown user user-menu">
-                    <a href="#">Iniciar Sesion
+                    <a data-toggle="modal" data-target="#inici_sesion">Iniciar Sesion
                         <i class="glyphicon glyphicon-user"></i>
+                    </a>
+                </li>
+                <li class="dropdown user user-menu">
+                    <a data-toggle="modal" data-target="#registro">Registro
                     </a>
                 </li>
             @endif
@@ -44,3 +48,44 @@
         </div>
     </nav>
 </header>
+
+<!-- Modal inicio sesion -->
+{!! Form::open(['route' => 'auth/login', 'class' => 'form-horizontal']) !!}
+<div class="modal fade" id="inici_sesion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Inicio de Sesion</h4>
+            </div>
+            <div class="modal-body">
+                @include('partials.layout.login')
+            </div>
+            <div class="modal-footer">
+                {!! Form::submit(trans('form.login.submit'),['class' => 'btn btn-primary']) !!}
+                <a href="{{ url('password/email') }}" class="btn btn-primary">{{ trans('passwords.forgot') }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{!! Form::close() !!}
+
+<!-- Modal Registro -->
+{!! Form::open(['route' => 'auth/register', 'class' => 'form']) !!}
+<div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Re5gistro de Usuario</h4>
+            </div>
+            <div class="modal-body">
+                @include('partials.layout.registro')
+            </div>
+            <div class="modal-footer">
+                {!! Form::submit(trans('form.signup.submit'),['class' => 'btn btn-primary']) !!}
+            </div>
+        </div>
+    </div>
+</div>
+{!! Form::close() !!}
