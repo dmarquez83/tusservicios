@@ -12,18 +12,25 @@ Route::get('home', [
   'as' => 'home',
   'uses' => 'HomeController@index',
 ]);
-
+/*
 Route::get('search',
     [
         'uses' => 'SearchController@index',
         'as' => 'search'
     ]
+);*/
+
+Route::get('buscar/categorias',
+    [
+        'uses' => 'SearchController@categorias',
+        'as' => 'buscar-categorias'
+    ]
 );
 
-Route::get('categorias/buscar',
+Route::get('buscar/servicios/{id}',
     [
-        'uses' => 'SearchController@index',
-        'as' => 'buscar'
+        'uses' => 'SearchController@servicios',
+        'as' => 'buscar-servicios'
     ]
 );
 // Lista de Servicios //esta vista no existe hay que crearla
@@ -51,7 +58,7 @@ Route::get('public/categorias', [
 
 Route::resource('public/servicios', 'SolicitudServiciosController', ['as' => 'servicios']);
 
-Route::get('servicios/{id}/index', [
+Route::get('servicios/index/{id}', [
 'as' => 'servicios.index',
 'uses' => 'SolicitudServiciosController@index',
 ]);

@@ -4,12 +4,18 @@
 
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="input-group">
-        <div class="input-group-addon">
-            <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+
+        {!! Form::open(array('route' => ['buscar-servicios', $servicios[0]->id_categoria], 'method' => 'GET', 'class' => 'form-control', 'role' => 'search')) !!}
+
+        <div class="form-group">
+            {!! Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Buscar Servicios']) !!}
         </div>
-        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Encuentra el Servicio que necesitas">
+        {!! Form::submit('Buscar', ['class' => "btn btn-default"]) !!}
+        {!! Form::close() !!}
     </div>
 </div>
+
+
 <br>
 <br>
 @foreach($servicios as $servicio)
