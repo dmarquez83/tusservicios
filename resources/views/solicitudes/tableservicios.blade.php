@@ -32,9 +32,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6 border-right">
                         <div class="description-block">
-                            <a class="description-header pull-right" href="{!! route('solicitudes.create', [$servicio->id]) !!}"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+                            <a class="description-header" href="{!! route('detalle', [$servicio->id]) !!}">Detalle</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 border-right">
+                        <div class="description-block">
+                            <a class="description-header" href="{!! route('solicitudes.create', [$servicio->id]) !!}"><i class="glyphicon glyphicon-shopping-cart"></i></a>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,12 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="" class="logo">
-        {!! Html::image('assets/img/logo.png', 'logo', array('class' => '')) !!}
+    <a class="logo" href="#">
+        <span class="logo-mini">
+            {!! Html::image('assets/img/tusservicios-logo-min.jpg', 'logo', array('class' => '')) !!}
+        </span>
+        <span class="logo-lg">
+            {!! Html::image('assets/img/logo.png', 'logo', array('class' => '')) !!}
+        </span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">

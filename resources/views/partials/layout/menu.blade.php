@@ -4,15 +4,16 @@
     <section class="sidebar">
         <ul class="sidebar-menu">
             <li class="header">Opciones de Usuario</li>
-            <li class="treeview active">
+            <li class="treeview">
                 <a href="#">
-                    <i class="glyphicon glyphicon-home"></i> Principal
+                    <i class="fa fa-dashboard"></i>
+                    <span>Principal</span>
                 </a>
             </li>
             <li class="treeview">
                 <a href="{{ route('categorias.index') }}">
                     <i class="glyphicon glyphicon-th"></i>
-                    Categorias
+                    <span>Categorias</span>
                 </a>
             </li>
 
@@ -20,7 +21,7 @@
 
                 <a href="#" >
                     <i class="glyphicon glyphicon-pencil"></i>
-                    Servicios
+                    <span>Servicios</span>
                 </a>
             </li>
         </ul>
@@ -34,19 +35,20 @@
             <li class="header">Opciones de Usuario</li>
             <li class="treeview active">
                 <a href="#">
-                    <i class="glyphicon glyphicon-home"></i> Principal
+                    <i class="glyphicon glyphicon-home"></i>
+                    <span>Principal</span>
                 </a>
             </li>
             <li class="treeview">
                 <a href="{{ route('categorias.index') }}">
                     <i class="glyphicon glyphicon-th"></i>
-                    Categorias
+                    <span>Categorias</span>
                 </a>
             </li>
             <li class="treeview">
                 <a href="#" >
                     <i class="glyphicon glyphicon-pencil"></i>
-                    Solicitudes
+                    <span>Solicitudes</span>
                 </a>
             </li>
         </ul>
