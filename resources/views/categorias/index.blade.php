@@ -11,6 +11,7 @@
                     <div class="well text-center">Categoria no encontrada.</div>
                 @else
                     @include('categorias.table')
+
                 @endif
             </div>
             @include('common.paginate', ['records' => $categorias])

@@ -397,14 +397,22 @@ class ServiciosController extends AppBaseController
 	public function detalle($id)
 	{
 
-		$servicios = $this->serviciosRepository->find($id);
+		//$servicios = $this->serviciosRepository->find($id);
+
+        $servicios = DB::table('servicios')
+            ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
+            ->join('estatus','estatus.id' ,'=','servicios.id_estatus')
+            ->join('ponderaciones','ponderaciones.id' ,'=','servicios.ponderacion')
+            ->select('servicios.nombre','servicios.foto', 'servicios.id','servicios.descripcion','tiposervicios.nombre as nombre_tipo_servicio','estatus.nombre as nombre_estatus','ponderaciones.nombre as nombre_ponderacion')
+            ->where('servicios.id','=',$id)
+            ->get();
 
 
 		if(empty($servicios))
 		{
 			Flash::error('Servicios not found');
 
-			return redirect(route('servicios.index'));
+			return redirect(route('servicios.index',$id));
 		}
 
 		return view('servicios.show')->with('servicios', $servicios);
