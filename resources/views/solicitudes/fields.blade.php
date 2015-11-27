@@ -62,7 +62,7 @@
                         {!! Form::text('horas', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3">resources/views/solicitudes/buscar.blade.php:11
                 <div class="form-group">
                         {!! Form::label('insumo', 'Insumo:',['class' => 'control-label']) !!}
                         {!! Form::checkbox('insumo', 'insumo', ['class' => 'form-control']) !!}
@@ -76,7 +76,8 @@
                 </div>
             </div>
             <div class="box-footer">
-                <a class="btn btn-warning pull-right" href="{!! route('solicitudes.store', [$servicios->id]) !!}"><i class="glyphicon glyphicon-shopping-cart left"></i>Solicitar Servicio</a>
+                {{--  <a class="btn btn-warning pull-right" href="{!! route('solicitudes.store', [$servicios->id]) !!}"><i class="glyphicon glyphicon-shopping-cart left"></i>Solicitar Servicio</a>--}}
+                {!! Form::submit('Solicitar Servicio', ['class' => 'btn btn-warning pull-right']) !!}
             </div>
         </form>
     </div>
