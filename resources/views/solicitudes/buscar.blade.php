@@ -1,4 +1,4 @@
-{!! Form::open(array('route' => 'buscar', 'method' => 'GET', 'class' => '', 'role' => 'search')) !!}
+{!! Form::open(array('route' => 'buscar-categorias', 'method' => 'GET', 'class' => '', 'role' => 'search')) !!}
 <div class="input-group margin">
     {!! Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Buscar Categoria']) !!}
     <span class="input-group-btn">
