@@ -23,7 +23,7 @@
 
             </div>
             <div class="box-footer">
-                <a class="btn btn-warning pull-right" href="{!! route('solicitudes.store', [$servicios[0]->id]) !!}"><i class="glyphicon glyphicon-shopping-cart left"></i>Solicitar Servicio</a>
+                <a class="btn btn-warning pull-right" href="{!! route('solicitudes.create', [$servicios[0]->id]) !!}"><i class="glyphicon glyphicon-shopping-cart left"></i>Solicitar Servicio</a>
             </div>
         </form>
     </div>
