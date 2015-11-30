@@ -25,13 +25,15 @@
                             <div class="hover-wrap">
                                 <div class="image-hover">
                                     <div class="categories">
-                                        <a href="#post-popup1">Electricidad</a>
+                                        <a href="{!! route('detalle-categorias', [8]) !!}">Electricidad</a>
                                         <div class="m-heading-border"></div><!-- m-heading-border -->
                                     </div>
                                     <div class="post-meta">
                                         <div class="post-comments text-left">
+                                            .
                                         </div><!-- comments -->
                                         <div class="post-date text-right">
+                                            <a href="{!! route('detalle-categorias', [8]) !!}">Detalle</a>
                                         </div>
                                     </div><!-- post-meta -->
                                 </div>  <!-- image-hover -->
@@ -62,13 +64,15 @@
                             <div class="hover-wrap">
                                 <div class="image-hover">
                                     <div class="categories">
-                                        <a href="#post-popup2">Telefonia & Datos</a>
+                                        <a href="{!! route('detalle-categorias', [10]) !!}">Telefonia & Datos</a>
                                         <div class="m-heading-border"></div><!-- m-heading-border -->
                                     </div>
                                     <div class="post-meta">
                                         <div class="post-comments text-left">
+                                            .
                                         </div><!-- comments -->
                                         <div class="post-date text-right">
+                                            <a href="{!! route('detalle-categorias', [10]) !!}">Detalle</a>
                                         </div>
                                     </div><!-- post-meta -->
                                 </div>  <!-- image-hover -->
@@ -96,13 +100,15 @@
                             <div class="hover-wrap">
                                 <div class="image-hover">
                                     <div class="categories">
-                                        <a href="#post-popup3">Jardinería</a>
+                                        <a href="{!! route('detalle-categorias', [7]) !!}">Jardinería</a>
                                         <div class="m-heading-border"></div><!-- m-heading-border -->
                                     </div>
                                     <div class="post-meta">
                                         <div class="post-comments text-left">
+                                            .
                                         </div><!-- comments -->
                                         <div class="post-date text-right">
+                                            <a href="{!! route('detalle-categorias', [7]) !!}">Detalle</a>
                                         </div>
                                     </div><!-- post-meta -->
                                 </div>  <!-- image-hover -->
@@ -131,13 +137,15 @@
                             <div class="hover-wrap">
                                 <div class="image-hover">
                                     <div class="categories">
-                                        <a href="#post-popup4">Albañileria</a>
+                                        <a href="{!! route('detalle-categorias', [12]) !!}">Albañileria</a>
                                         <div class="m-heading-border"></div><!-- m-heading-border -->
                                     </div>
                                     <div class="post-meta">
                                         <div class="post-comments text-left">
+                                            .
                                         </div><!-- comments -->
                                         <div class="post-date text-right">
+                                            <a href="{!! route('detalle-categorias', [12]) !!}">Detalle</a>
                                         </div>
                                     </div><!-- post-meta -->
                                 </div>  <!-- image-hover -->
@@ -167,13 +175,15 @@
                             <div class="hover-wrap">
                                 <div class="image-hover">
                                     <div class="categories">
-                                        <a href="#post-popup5">Pintura</a>
+                                        <a href="{!! route('detalle-categorias', [10]) !!}">Pintura</a>
                                         <div class="m-heading-border"></div><!-- m-heading-border -->
                                     </div>
                                     <div class="post-meta">
                                         <div class="post-comments text-left">
+                                            .
                                         </div><!-- comments -->
                                         <div class="post-date text-right">
+                                            <a href="{!! route('detalle-categorias', [10]) !!}">Detalle</a>
                                         </div>
                                     </div><!-- post-meta -->
                                 </div>  <!-- image-hover -->
@@ -202,13 +212,15 @@
                             <div class="hover-wrap">
                                 <div class="image-hover">
                                     <div class="categories">
-                                        <a href="#post-popup6">Plomeria</a>
+                                        <a href="{!! route('detalle-categorias', [3]) !!}">Plomeria</a>
                                         <div class="m-heading-border"></div><!-- m-heading-border -->
                                     </div>
                                     <div class="post-meta">
                                         <div class="post-comments text-left">
+                                            .
                                         </div><!-- comments -->
                                         <div class="post-date text-right">
+                                            <a href="{!! route('detalle-categorias', [3]) !!}">Detalle</a>
                                         </div>
                                     </div><!-- post-meta -->
                                 </div>  <!-- image-hover -->

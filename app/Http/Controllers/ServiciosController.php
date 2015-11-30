@@ -442,7 +442,7 @@ class ServiciosController extends AppBaseController
 
         $detcategoria = Collection::make($servicios1);
 
-        return view('servicios.show_categorias')->with(array('categorias' => $categorias, 'detcategoria' => $detcategoria));
+        return view('categorias.show_categorias')->with(array('categorias' => $categorias, 'detcategoria' => $detcategoria));
 
         //var_dump($detcategoria);
 

@@ -50,6 +50,19 @@ Route::get('public/categorias/{id}', [
     'uses' => 'ServiciosController@detallecategorias',
 ]);
 
+/**********************************dashborad**********************************/
+
+
+Route::get('public/dashborad',
+    function ()    {
+        return view('dashborad.tableusuario');
+    });
+
+Route::get('admin/dashborad',
+    function ()    {
+        return view('dashborad.tableadmin');
+    });
+
 /**********************************solicitudes**********************************/
 
 // Lista de Categorias
