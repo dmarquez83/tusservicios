@@ -22,6 +22,9 @@
                                             </div><!-- splash-text -->
 
                                             <a href="#page-section" class="btn">Conocenos</a>
+                                            <a href="{{ route('categorias.index') }}" class="btn">Todas las Categorias</a>
+
+
                                         </div><!-- splash-centering -->
                                     </div><!-- span12 -->
 

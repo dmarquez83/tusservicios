@@ -1,27 +1,23 @@
 <?php
+
 namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
-class Authenticate
+class UsuarioMiddleware
 {
-    /**
-     * The Guard implementation.
-     *
-     * @var Guard
-     */
-    protected $auth;
-
+    protected $authusuario;
     /**
      * Create a new filter instance.
      *
-     * @param  Guard  $auth
+     * @param  Guard  $authusuario
      * @return void
      */
-    public function __construct(Guard $auth)
+
+    public function __construct(Guard $authusuario)
     {
-        $this->auth = $auth;
+        $this->authusuario = $authusuario;
     }
 
     /**
@@ -33,20 +29,13 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->guest()) {
+        if ($this->authusuario->guest()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
                 return redirect()->guest('auth/login');
             }
         }
-
-      /*  if(auth()->user()->id_tipo_usuario != '1'){
-            $message = 'Permiso denegado: Solo los administradores pueden entrar a esta sección';
-            return redirect()->route('home')->with('message', $message);
-        }
-*/
-
 
         return $next($request);
     }

@@ -20,4 +20,5 @@ return array(
     'd7a13813e1bbeae443ec8d2bb06aeadd' => $vendorDir . '/barryvdh/laravel-debugbar/src/helpers.php',
     '8ab8815013ff924942023cfe80d8a978' => $vendorDir . '/laracasts/flash/src/Laracasts/Flash/functions.php',
     '97c7fa8be6d2d9c76ba8322b8a227523' => $vendorDir . '/laravelcollective/html/src/helpers.php',
+    'bc31816364daa9174cd20c50246ef29b' => $vendorDir . '/sofa/eloquence/src/helpers.php',
 );

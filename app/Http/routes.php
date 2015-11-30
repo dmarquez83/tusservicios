@@ -12,19 +12,37 @@ Route::get('home', [
   'as' => 'home',
   'uses' => 'HomeController@index',
 ]);
+/*
+Route::get('search',
+    [
+        'uses' => 'SearchController@index',
+        'as' => 'search'
+    ]
+);*/
 
+Route::get('buscar/categorias',
+    [
+        'uses' => 'SearchController@categorias',
+        'as' => 'buscar-categorias'
+    ]
+);
 
-
+Route::get('buscar/servicios/{id}',
+    [
+        'uses' => 'SearchController@servicios',
+        'as' => 'buscar-servicios'
+    ]
+);
 // Lista de Servicios //esta vista no existe hay que crearla
-Route::get('public/servicios', [
-    'as' => 'home',
-    'uses' => 'HomeController@index',
+Route::get('public/servicios/listar', [
+    'as' => 'listar',
+    'uses' => 'ServiciosController@listar',
 ]);
 
 // Detalle de Servicio //esta vista no existe hay que crearla
 Route::get('public/servicios/{id}', [
-  'as' => 'home',
-  'uses' => 'HomeController@index',
+  'as' => 'detalle',
+  'uses' => 'ServiciosController@detalle',
 ]);
 
 
@@ -33,10 +51,14 @@ Route::get('public/servicios/{id}', [
 // Lista de Categorias
 Route::resource('public/categorias', 'SolicitudesCategoriasController' , ['as' => 'categorias']);
 
+Route::get('public/categorias', [
+    'as' => 'categorias.index',
+    'uses' => 'SolicitudesCategoriasController@index',
+]);
 
 Route::resource('public/servicios', 'SolicitudServiciosController', ['as' => 'servicios']);
 
-Route::get('servicios/{id}/index', [
+Route::get('servicios/index/{id}', [
 'as' => 'servicios.index',
 'uses' => 'SolicitudServiciosController@index',
 ]);
@@ -53,7 +75,7 @@ Route::get('solicitudes/{id}/create', [
 ]);
 
 Route::get('solicitudes/{id}/store', [
-  'middleware' => 'auth',
+  'middleware' => 'authusuario',
   'as' => 'solicitudes.store',
   'uses' => 'SolicitudesCategoriasController@store',
 ]);
@@ -62,6 +84,7 @@ Route::get('solicitudes/{id}/delete', [
   'as' => 'solicitudes.delete',
   'uses' => 'SolicitudesCategoriasController@destroy',
 ]);
+
 
 /*******************************LOGIN******************************************/
 

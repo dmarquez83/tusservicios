@@ -24,6 +24,8 @@ return array(
     'SuperClosure\\' => array($vendorDir . '/jeremeamia/SuperClosure/src'),
     'Styde\\BladePagination\\' => array($vendorDir . '/styde/blade-pagination/src'),
     'Stringy\\' => array($vendorDir . '/danielstjules/stringy/src'),
+    'Sofa\\Hookable\\' => array($vendorDir . '/sofa/hookable/src'),
+    'Sofa\\Eloquence\\' => array($vendorDir . '/sofa/eloquence/src'),
     'SocialNorm\\SoundCloud\\' => array($vendorDir . '/socialnorm/soundcloud/src'),
     'SocialNorm\\LinkedIn\\' => array($vendorDir . '/socialnorm/linkedin/src'),
     'SocialNorm\\Instagram\\' => array($vendorDir . '/socialnorm/instagram/src'),
