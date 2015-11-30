@@ -45,6 +45,10 @@ Route::get('public/servicios/{id}', [
   'uses' => 'ServiciosController@detalle',
 ]);
 
+Route::get('public/categorias/{id}', [
+    'as' => 'detalle-categorias',
+    'uses' => 'ServiciosController@detallecategorias',
+]);
 
 /**********************************solicitudes**********************************/
 
