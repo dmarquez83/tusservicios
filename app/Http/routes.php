@@ -396,3 +396,20 @@ Route::get('lugares/{id}/delete', [
     'as' => 'lugares.delete',
     'uses' => 'LugaresController@destroy',
 ]);
+
+
+Route::resource('insumosServicios', 'InsumosServiciosController');
+
+Route::get('insumosServicios/{id}/delete', [
+    'as' => 'insumosServicios.delete',
+    'uses' => 'InsumosServiciosController@destroy',
+]);
+
+
+
+Route::resource('insumosSolicitudes', 'InsumosSolicitudesController');
+
+Route::get('insumosSolicitudes/{id}/delete', [
+    'as' => 'insumosSolicitudes.delete',
+    'uses' => 'InsumosSolicitudesController@destroy',
+]);

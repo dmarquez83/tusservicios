@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddColumnEvaluacionesSolicitud' => $baseDir . '/database/migrations/2015_12_01_180450_add_column_evaluaciones_solicitud.php',
+    'AddColumnIdServicioInsumos' => $baseDir . '/database/migrations/2015_12_01_200300_add_column_id_servicio_insumos.php',
     'CategoriasTableSeeder' => $baseDir . '/database/seeds/CategoriasTableSeeder.php',
     'CreateCatalogosInsumosTable' => $baseDir . '/database/migrations/2015_12_01_164534_create_catalogosInsumos_table.php',
     'CreateCatalogosTable' => $baseDir . '/database/migrations/2015_12_01_161502_create_catalogos_table.php',
