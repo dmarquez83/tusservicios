@@ -10,22 +10,12 @@
     "validations": ""
   },
   {
-    "field":"hora_id:integer",
+    "field":"municipio_id:integer",
     "type":"select",
     "validations": ""
   },
   {
-    "field":"hora_id:foreign:references,id:on,horas:onDelete,cascade",
-    "type":"",
-    "validations": ""
-  },
-  {
-    "field":"dia_id:integer",
-    "type":"select",
-    "validations": ""
-  },
-  {
-    "field":"dia_id:foreign:references,id:on,dias:onDelete,cascade",
+    "field":"municipio_id:foreign:references,id:on,municipios:onDelete,cascade",
     "type":"",
     "validations": ""
   }

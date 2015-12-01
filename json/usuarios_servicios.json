@@ -18,27 +18,6 @@
     "field":"user_id:foreign:references,id:on,users:onDelete,cascade",
     "type":"",
     "validations": ""
-  },
-  {
-    "field":"horario_id:integer:unsigned",
-    "type":"select",
-    "validations": ""
-  },
-  {
-    "field":"horario_id:foreign:references,id:on,horarios:onDelete,cascade",
-    "type":"",
-    "validations": ""
-  },
-  {
-    "field":"lugar_id:integer:unsigned",
-    "type":"select",
-    "validations": ""
-  },
-  {
-    "field":"lugar_id:foreign:references,id:on,lugares:onDelete,cascade",
-    "type":"",
-    "validations": ""
   }
-
 ]
 

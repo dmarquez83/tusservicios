@@ -324,3 +324,75 @@ Route::get('catalogosInsumos/{id}/delete', [
     'as' => 'catalogosInsumos.delete',
     'uses' => 'CatalogosInsumosController@destroy',
 ]);
+
+
+Route::resource('horas', 'HorasController');
+
+Route::get('horas/{id}/delete', [
+    'as' => 'horas.delete',
+    'uses' => 'HorasController@destroy',
+]);
+
+
+Route::resource('dias', 'DiasController');
+
+Route::get('dias/{id}/delete', [
+    'as' => 'dias.delete',
+    'uses' => 'DiasController@destroy',
+]);
+
+
+
+Route::resource('usuariosServicios', 'UsuariosServiciosController');
+
+Route::get('usuariosServicios/{id}/delete', [
+    'as' => 'usuariosServicios.delete',
+    'uses' => 'UsuariosServiciosController@destroy',
+]);
+
+
+Route::resource('horarios', 'HorariosController');
+
+Route::get('horarios/{id}/delete', [
+    'as' => 'horarios.delete',
+    'uses' => 'HorariosController@destroy',
+]);
+
+
+Route::resource('horarios', 'HorariosController');
+
+Route::get('horarios/{id}/delete', [
+    'as' => 'horarios.delete',
+    'uses' => 'HorariosController@destroy',
+]);
+
+
+Route::resource('horarios', 'HorariosController');
+
+Route::get('horarios/{id}/delete', [
+    'as' => 'horarios.delete',
+    'uses' => 'HorariosController@destroy',
+]);
+
+
+Route::resource('estados', 'EstadosController');
+
+Route::get('estados/{id}/delete', [
+    'as' => 'estados.delete',
+    'uses' => 'EstadosController@destroy',
+]);
+
+Route::resource('municipios', 'MunicipiosController');
+
+Route::get('municipios/{id}/delete', [
+    'as' => 'municipios.delete',
+    'uses' => 'MunicipiosController@destroy',
+]);
+
+
+Route::resource('lugares', 'LugaresController');
+
+Route::get('lugares/{id}/delete', [
+    'as' => 'lugares.delete',
+    'uses' => 'LugaresController@destroy',
+]);
