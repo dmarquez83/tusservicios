@@ -184,7 +184,7 @@ Route::group(['middleware' => ['auth']], function()
     ]);
 
 
-    /**********************************tipo_servicios**********************************/
+    /**********************************tipo_servicios**************************/
 
 
     Route::resource('tiposervicios', 'TiposervicioController');
@@ -211,7 +211,7 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'TiposervicioController@destroy',
     ]);
 
-    /**********************************Ponderacions**********************************/
+    /**********************************Ponderacions****************************/
 
     Route::resource('ponderaciones', 'PonderacionController');
 
@@ -220,7 +220,7 @@ Route::group(['middleware' => ['auth']], function()
       'uses' => 'PonderacionController@destroy',
     ]);
 
-    /**********************************Estatus**********************************/
+    /**********************************Estatus*********************************/
 
     //Route::resource('estatus', 'API\EstatuAPIController');
 
@@ -254,7 +254,7 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'ServiciosAdminController@create',
     ]);
 
-    /**********************************Evaluaciones**********************************/
+    /****************************Evaluaciones**********************************/
 
     Route::resource('evaluaciones', 'EvaluacionesController');
 
@@ -263,13 +263,22 @@ Route::group(['middleware' => ['auth']], function()
       'uses' => 'EvaluacionesController@destroy',
     ]);
 
-    /**********************************Insumos faltan las vistas**********************************/
+    /**********************************Insumos*********************************/
 
     Route::resource('insumos', 'InsumoController');
 
     Route::get('insumos/{id}/delete', [
       'as' => 'insumos.delete',
       'uses' => 'InsumoController@destroy',
+    ]);
+
+  /**********************************Proveedores*******************************/
+
+    Route::resource('admin/proveedores', 'ProveedoresController');
+
+    Route::get('admin/proveedores/borrar/{id}', [
+      'as' => 'admin.proveedores.delete',
+      'uses' => 'ProveedoresController@destroy',
     ]);
 
 });
@@ -285,9 +294,4 @@ Route::get('geocoder', 'OtherGeocoderController@index');
 
 
 
-Route::resource('admin/proveedores', 'ProveedoresController');
 
-Route::get('admin/proveedores/borrar/{id}', [
-    'as' => 'admin.proveedores.delete',
-    'uses' => 'ProveedoresController@destroy',
-]);
