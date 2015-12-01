@@ -30,3 +30,27 @@ Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");
 Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");
 
 Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");
+
+Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");
+
+Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");
+
+Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");
+
+Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");
+
+Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");
+
+Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");
+
+Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");
+
+Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");
+
+Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");
+
+Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");
+
+Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");
+
+Route::resource("catalogosInsumos", "CatalogosInsumosAPIController");

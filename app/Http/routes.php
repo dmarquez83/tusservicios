@@ -318,4 +318,9 @@ Route::get('catalogos/{id}/delete', [
 ]);
 
 
+Route::resource('catalogosInsumos', 'CatalogosInsumosController');
 
+Route::get('catalogosInsumos/{id}/delete', [
+    'as' => 'catalogosInsumos.delete',
+    'uses' => 'CatalogosInsumosController@destroy',
+]);

@@ -18,7 +18,7 @@ class CreateCatalogosTable extends Migration
 			$table->increments('id');
 			$table->string('descripcion');
 			$table->integer('solicitud_id')->unsigned();
-			$table->foreign('solicitud_id')->references('id')->on('solicitud')->onDelete('cascade');
+			$table->foreign('solicitud_id')->references('id')->on('solicitudes')->onDelete('cascade');
 			$table->integer('estatus_id')->unsigned();
 			$table->foreign('estatus_id')->references('id')->on('estatus')->onDelete('cascade');
 			$table->timestamps();

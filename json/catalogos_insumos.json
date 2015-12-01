@@ -45,7 +45,7 @@
     "validations": ""
   },
   {
-    "field":"precio:numeric:unsigned",
+    "field":"precio:decimal:unsigned",
     "type":"number",
     "validations": ""
   }
