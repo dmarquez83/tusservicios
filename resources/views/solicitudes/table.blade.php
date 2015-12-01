@@ -1,6 +1,3 @@
-{!! Form::open(array('route' => 'buscar-categorias', 'method' => 'GET', 'class' => 'navbar-form navbar-right', 'role' => 'search')) !!}
-
-{!! Form::close() !!}
 @foreach($categorias as $categoria)
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
         <div class="box box-widget widget-user">

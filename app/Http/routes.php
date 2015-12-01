@@ -68,6 +68,11 @@ Route::get('public/dashborad/proveedor',
         return view('dashborad.tableproveedor');
     });
 
+Route::get('public/dashborad/consultor',
+    function ()    {
+        return view('dashborad.tableconsultor');
+    });
+
 
 /**********************************solicitudes**********************************/
 
