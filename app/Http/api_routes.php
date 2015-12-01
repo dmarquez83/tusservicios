@@ -11,3 +11,6 @@
 
 
 
+
+
+Route::resource("proveedores", "ProveedoresAPIController");

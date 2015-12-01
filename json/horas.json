@@ -1,0 +1,8 @@
+[
+   {
+    "field":"hora:string",
+    "type":"text",
+    "validations": "requerid"
+  }
+]
+

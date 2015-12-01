@@ -283,3 +283,11 @@ Route::get('geocoder', 'OtherGeocoderController@index');
 
 
 
+
+
+Route::resource('admin/proveedores', 'ProveedoresController');
+
+Route::get('admin/proveedores/borrar/{id}', [
+    'as' => 'admin.proveedores.delete',
+    'uses' => 'ProveedoresController@destroy',
+]);
