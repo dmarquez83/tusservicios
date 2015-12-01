@@ -12,10 +12,10 @@
                     <div class="inner">
                         <h3>2</h3>
 
-                        <p>Servicios por Pagar</p>
+                        <p>Servicios por Asignados</p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-shopping-cart"></i>
+                        <i class="fa fa-check-square-o"></i>
                     </div>
                     <a href="#" class="small-box-footer">
                         More info <i class="fa fa-arrow-circle-right"></i>
@@ -28,10 +28,10 @@
                     <div class="inner">
                         <h3>4</h3>
 
-                        <p>Servicios por Evaluar</p>
+                        <p>Servicios por Cobrar</p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-pencil-square-o"></i>
+                        <i class="fa fa-credit-card"></i>
                     </div>
                     <a href="#" class="small-box-footer">
                         More info <i class="fa fa-arrow-circle-right"></i>
@@ -44,10 +44,10 @@
                     <div class="inner">
                         <h3>5</h3>
 
-                        <p>Ofertas de Insumos</p>
+                        <p>Servicios Ejecutados</p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-star"></i>
+                        <i class="fa fa-thumbs-up"></i>
                     </div>
                     <a href="#" class="small-box-footer">
                         More info <i class="fa fa-arrow-circle-right"></i>

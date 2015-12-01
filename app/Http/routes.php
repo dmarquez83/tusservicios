@@ -63,6 +63,12 @@ Route::get('admin/dashborad',
         return view('dashborad.tableadmin');
     });
 
+Route::get('public/dashborad/proveedor',
+    function ()    {
+        return view('dashborad.tableproveedor');
+    });
+
+
 /**********************************solicitudes**********************************/
 
 // Lista de Categorias
