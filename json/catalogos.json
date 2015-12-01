@@ -10,7 +10,7 @@
     "validations": ""
   },
   {
-    "field":"solicitud_id:foreign:references,id:on,solicitud:onDelete,cascade",
+    "field":"solicitud_id:foreign:references,id:on,solicitudes:onDelete,cascade",
     "type":"",
     "validations": ""
   },

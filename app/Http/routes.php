@@ -288,6 +288,16 @@ Route::group(['middleware' => ['auth']], function()
       'uses' => 'ProveedoresController@destroy',
     ]);
 
+  /**********************************Proveedores Insumos **********************/
+
+    Route::resource('proveedoresInsumos', 'ProveedoresInsumosController');
+
+    Route::get('proveedoresInsumos/{id}/delete', [
+      'as' => 'proveedoresInsumos.delete',
+      'uses' => 'ProveedoresInsumosController@destroy',
+    ]);
+
+
 
 
 
@@ -298,5 +308,14 @@ Route::group(['middleware' => ['auth']], function()
 /**********************************Mapa**********************************/
 
 Route::get('geocoder', 'OtherGeocoderController@index');
+
+
+Route::resource('catalogos', 'CatalogosController');
+
+Route::get('catalogos/{id}/delete', [
+    'as' => 'catalogos.delete',
+    'uses' => 'CatalogosController@destroy',
+]);
+
 
 

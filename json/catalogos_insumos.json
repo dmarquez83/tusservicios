@@ -48,7 +48,6 @@
     "field":"precio:numeric:unsigned",
     "type":"number",
     "validations": ""
-  },
-
+  }
 ]
 
