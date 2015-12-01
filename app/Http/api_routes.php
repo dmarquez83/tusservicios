@@ -14,3 +14,7 @@
 
 
 Route::resource("proveedores", "ProveedoresAPIController");
+
+Route::resource("adminInsumosFotos", "adminInsumosFotoAPIController");
+
+Route::resource("insumosFotos", "InsumosFotoAPIController");

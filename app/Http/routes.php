@@ -272,6 +272,13 @@ Route::group(['middleware' => ['auth']], function()
       'uses' => 'InsumoController@destroy',
     ]);
 
+    Route::resource('insumosFotos', 'InsumosFotoController');
+
+    Route::get('insumosFotos/{id}/delete', [
+      'as' => 'insumosFotos.delete',
+      'uses' => 'InsumosFotoController@destroy',
+    ]);
+
   /**********************************Proveedores*******************************/
 
     Route::resource('admin/proveedores', 'ProveedoresController');
@@ -281,17 +288,15 @@ Route::group(['middleware' => ['auth']], function()
       'uses' => 'ProveedoresController@destroy',
     ]);
 
+
+
+
+
 });
 
 
 /**********************************Mapa**********************************/
 
 Route::get('geocoder', 'OtherGeocoderController@index');
-
-
-
-
-
-
 
 
