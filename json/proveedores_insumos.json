@@ -1,0 +1,23 @@
+[
+  {
+    "field":"proveedor_id:integer:unsigned",
+    "type":"select",
+    "validations": ""
+  },
+  {
+    "field":"proveedor_id:foreign:references,id:on,proveedores:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  },
+  {
+    "field":"insumo_id:integer:unsigned",
+    "type":"select",
+    "validations": ""
+  },
+  {
+    "field":"insumo_id:foreign:references,id:on,insumos:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  }
+]
+

@@ -207,7 +207,7 @@ Route::group(['middleware' => ['auth']], function()
     ]);
 
 
-    /**********************************tipo_servicios**********************************/
+    /**********************************tipo_servicios**************************/
 
 
     Route::resource('tiposervicios', 'TiposervicioController');
@@ -234,7 +234,7 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'TiposervicioController@destroy',
     ]);
 
-    /**********************************Ponderacions**********************************/
+    /**********************************Ponderacions****************************/
 
     Route::resource('ponderaciones', 'PonderacionController');
 
@@ -243,7 +243,7 @@ Route::group(['middleware' => ['auth']], function()
       'uses' => 'PonderacionController@destroy',
     ]);
 
-    /**********************************Estatus**********************************/
+    /**********************************Estatus*********************************/
 
     //Route::resource('estatus', 'API\EstatuAPIController');
 
@@ -277,7 +277,7 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'ServiciosAdminController@create',
     ]);
 
-    /**********************************Evaluaciones**********************************/
+    /****************************Evaluaciones**********************************/
 
     Route::resource('evaluaciones', 'EvaluacionesController');
 
@@ -286,7 +286,7 @@ Route::group(['middleware' => ['auth']], function()
       'uses' => 'EvaluacionesController@destroy',
     ]);
 
-    /**********************************Insumos faltan las vistas**********************************/
+    /**********************************Insumos*********************************/
 
     Route::resource('insumos', 'InsumoController');
 
@@ -294,6 +294,36 @@ Route::group(['middleware' => ['auth']], function()
       'as' => 'insumos.delete',
       'uses' => 'InsumoController@destroy',
     ]);
+
+    Route::resource('insumosFotos', 'InsumosFotoController');
+
+    Route::get('insumosFotos/{id}/delete', [
+      'as' => 'insumosFotos.delete',
+      'uses' => 'InsumosFotoController@destroy',
+    ]);
+
+  /**********************************Proveedores*******************************/
+
+    Route::resource('admin/proveedores', 'ProveedoresController');
+
+    Route::get('admin/proveedores/borrar/{id}', [
+      'as' => 'admin.proveedores.delete',
+      'uses' => 'ProveedoresController@destroy',
+    ]);
+
+  /**********************************Proveedores Insumos **********************/
+
+    Route::resource('proveedoresInsumos', 'ProveedoresInsumosController');
+
+    Route::get('proveedoresInsumos/{id}/delete', [
+      'as' => 'proveedoresInsumos.delete',
+      'uses' => 'ProveedoresInsumosController@destroy',
+    ]);
+
+
+
+
+
 
 });
 
@@ -303,6 +333,89 @@ Route::group(['middleware' => ['auth']], function()
 Route::get('geocoder', 'OtherGeocoderController@index');
 
 
+Route::resource('catalogos', 'CatalogosController');
+
+Route::get('catalogos/{id}/delete', [
+    'as' => 'catalogos.delete',
+    'uses' => 'CatalogosController@destroy',
+]);
+
+
+Route::resource('catalogosInsumos', 'CatalogosInsumosController');
+
+Route::get('catalogosInsumos/{id}/delete', [
+    'as' => 'catalogosInsumos.delete',
+    'uses' => 'CatalogosInsumosController@destroy',
+]);
+
+
+Route::resource('horas', 'HorasController');
+
+Route::get('horas/{id}/delete', [
+    'as' => 'horas.delete',
+    'uses' => 'HorasController@destroy',
+]);
+
+
+Route::resource('dias', 'DiasController');
+
+Route::get('dias/{id}/delete', [
+    'as' => 'dias.delete',
+    'uses' => 'DiasController@destroy',
+]);
 
 
 
+Route::resource('usuariosServicios', 'UsuariosServiciosController');
+
+Route::get('usuariosServicios/{id}/delete', [
+    'as' => 'usuariosServicios.delete',
+    'uses' => 'UsuariosServiciosController@destroy',
+]);
+
+
+Route::resource('horarios', 'HorariosController');
+
+Route::get('horarios/{id}/delete', [
+    'as' => 'horarios.delete',
+    'uses' => 'HorariosController@destroy',
+]);
+
+
+Route::resource('horarios', 'HorariosController');
+
+Route::get('horarios/{id}/delete', [
+    'as' => 'horarios.delete',
+    'uses' => 'HorariosController@destroy',
+]);
+
+
+Route::resource('horarios', 'HorariosController');
+
+Route::get('horarios/{id}/delete', [
+    'as' => 'horarios.delete',
+    'uses' => 'HorariosController@destroy',
+]);
+
+
+Route::resource('estados', 'EstadosController');
+
+Route::get('estados/{id}/delete', [
+    'as' => 'estados.delete',
+    'uses' => 'EstadosController@destroy',
+]);
+
+Route::resource('municipios', 'MunicipiosController');
+
+Route::get('municipios/{id}/delete', [
+    'as' => 'municipios.delete',
+    'uses' => 'MunicipiosController@destroy',
+]);
+
+
+Route::resource('lugares', 'LugaresController');
+
+Route::get('lugares/{id}/delete', [
+    'as' => 'lugares.delete',
+    'uses' => 'LugaresController@destroy',
+]);

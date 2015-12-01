@@ -1,0 +1,23 @@
+[
+  {
+    "field":"servicio_id:integer:unsigned",
+    "type":"select",
+    "validations": ""
+  },
+  {
+    "field":"servicio_id:foreign:references,id:on,servicios:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  },
+  {
+    "field":"user_id:integer:unsigned",
+    "type":"number",
+    "validations": ""
+  },
+  {
+    "field":"user_id:foreign:references,id:on,users:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  }
+]
+

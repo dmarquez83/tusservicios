@@ -1,0 +1,53 @@
+[
+  {
+    "field":"descripcion:string",
+    "type":"select",
+    "validations": "required"
+  },
+  {
+    "field":"proveedor_id:integer:unsigned",
+    "type":"select",
+    "validations": ""
+  },
+  {
+    "field":"proveedor_id:foreign:references,id:on,proveedores:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  },
+  {
+    "field":"insumo_id:integer:unsigned",
+    "type":"select",
+    "validations": ""
+  },
+  {
+    "field":"insumo_id:foreign:references,id:on,insumos:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  },
+  {
+    "field":"estatus_id:integer:unsigned",
+    "type":"select",
+    "validations": ""
+  },
+  {
+    "field":"estatus_id:foreign:references,id:on,estatus:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  },
+  {
+    "field":"catalogo_id:integer:unsigned",
+    "type":"select",
+    "validations": ""
+  },
+  {
+    "field":"catalogo_id:foreign:references,id:on,catalogos:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  },
+  {
+    "field":"precio:decimal:unsigned",
+    "type":"number",
+    "validations": ""
+  }
+]
+

@@ -1,0 +1,28 @@
+[
+  {
+    "field":"descripcion:string",
+    "type":"select",
+    "validations": "required"
+  },
+  {
+    "field":"solicitud_id:integer:unsigned",
+    "type":"select",
+    "validations": ""
+  },
+  {
+    "field":"solicitud_id:foreign:references,id:on,solicitudes:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  },
+  {
+    "field":"estatus_id:integer:unsigned",
+    "type":"select",
+    "validations": ""
+  },
+  {
+    "field":"estatus_id:foreign:references,id:on,estatus:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  }
+]
+

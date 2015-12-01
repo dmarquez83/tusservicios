@@ -1,0 +1,23 @@
+[
+  {
+    "field":"codmun:string",
+    "type":"text",
+    "validations": "required"
+  },
+  {
+    "field":"nommun:string",
+    "type":"text",
+    "validations": "required"
+  }, 
+  {
+    "field":"codest:integer:unsigned",
+    "type":"select",
+    "validations": ""
+  },
+  {
+    "field":"codest:foreign:references,id:on,estados:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  }
+]
+

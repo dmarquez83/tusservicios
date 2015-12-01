@@ -1,0 +1,34 @@
+[
+   {
+    "field":"usuario_servicio_id:integer:unsigned",
+    "type":"number",
+    "validations": ""
+  },
+  {
+    "field":"usuario_servicio_id:foreign:references,id:on,usuarios_servicios:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  },
+  {
+    "field":"hora_id:integer",
+    "type":"select",
+    "validations": ""
+  },
+  {
+    "field":"hora_id:foreign:references,id:on,horas:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  },
+  {
+    "field":"dia_id:integer",
+    "type":"select",
+    "validations": ""
+  },
+  {
+    "field":"dia_id:foreign:references,id:on,dias:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  }
+
+]
+
