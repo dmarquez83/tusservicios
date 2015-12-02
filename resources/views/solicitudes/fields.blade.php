@@ -78,7 +78,7 @@
                             data-target="#myModal"
                             data-token="{{ csrf_token() }}"
                             >
-                        <i class="fa fa-external-link"></i>
+                        <i class="fa fa-external-link">Solicitar Insumos</i>
                     </a>
                 </div>
                 </div>

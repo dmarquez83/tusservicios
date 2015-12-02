@@ -3,7 +3,7 @@ $(document).ready(function(){
     $(".btn-listado-insumos").on('click', function(e){
         e.preventDefault();
 
-        //btn-detalle-insumos no ejecutes la funcionalidad que tienes predeterminada ese enlace
+        //btn-listado-insumos no ejecutes la funcionalidad que tienes predeterminada ese enlace
 
         //obtemos todos los datos de la variable data que viene del index
 
@@ -35,6 +35,7 @@ $(document).ready(function(){
 
                     var fila = "<tr>";
                     fila += "<td><img src="+ path_img + "/" + data[i].foto  + " width='30'></td>";
+                    fila += "<td><input type='checkbox' name='" + "insumo[" + i + "]" + "' value='" + data[i].id + "'></td>";
                     fila += "<td>" + data[i].referencia + "</td>";
                     fila += "<td>" + data[i].descripcion + "</td>";
                     fila += "</tr>";
