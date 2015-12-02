@@ -29,4 +29,13 @@ class InsumosServicios extends Model
 	    
 	];
 
+  public function serviciosinsumos() {
+	return $this->belongsToMany('App\Models\Insumo');
+  }
+
+  public function insumosservicios() {
+	return $this->belongsToMany('App\Models\Servicios');
+  }
+
+
 }

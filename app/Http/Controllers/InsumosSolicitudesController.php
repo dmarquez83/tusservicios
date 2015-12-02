@@ -1,16 +1,16 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Http\Requests\CreateInsumosSolicitudesRequest;
-use App\Http\Requests\UpdateInsumosSolicitudesRequest;
 use App\Libraries\Repositories\InsumosSolicitudesRepository;
-use App\Libraries\Repositories\InsumoRepository;
 use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
-use App\Models\Insumo;
-
+use App\Models\InsumosServicios;
 use Illuminate\Http\Request;
+use App\Models\Insumo;
+use App\Models\Servicios;
+
+
 
 
 
@@ -19,11 +19,11 @@ class InsumosSolicitudesController extends AppBaseController
 
 	/** @var  InsumosSolicitudesRepository */
 	private $insumosSolicitudesRepository;
-    private $insumoRepository;
 
-	function __construct(InsumosSolicitudesRepository $insumosSolicitudes, InsumoRepository $insumoRepo)
+
+	function __construct(InsumosSolicitudesRepository $insumosSolicitudes)
 	{
-		$this->insumoRepository = $insumoRepo;
+
 		$this->insumosSolicitudesRepository = $insumosSolicitudes;
 	}
 
@@ -32,21 +32,27 @@ class InsumosSolicitudesController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function detalle()
+	public function detalle(Request $request)
 	{
 
-	  $insumos = $this->insumoRepository->paginate(10);
-      //dd($insumos);
-	  return json_encode($insumos);
+	  $insumos = Insumo::join('insumos_servicios','insumos_servicios.insumo_id','=','insumos.id')
+		                ->where('insumos_servicios.servicio_id','=','1')
+		                ->orderBy('insumos.id', 'DESC')->paginate(10);
 
-	 /* return view('insumosSolicitudes.index')
-			->with('insumosSolicitudes', $insumos);*/
+	 /* $insumos = InsumosServicios::with('insumos')->where('servicio_id', '1')->get();*/
+
+	 // dd($insumos);
+
+	 // return response()->json($insumos);
+
+	  return $insumos->toJson();
+
+	 // return json_encode($insumos);
+
+
+
+
 	}
 
-	/**
-	 * Show the form for creating a new InsumosSolicitudes.
-	 *
-	 * @return Response
-	 */
 
 }

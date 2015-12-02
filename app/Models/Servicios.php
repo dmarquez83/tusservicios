@@ -41,4 +41,7 @@ class Servicios extends Model
 	    
 	];
 
+    public function servicios_insumos() {
+	 return $this->hasMany('App\Models\InsumosServicios');
+    }
 }

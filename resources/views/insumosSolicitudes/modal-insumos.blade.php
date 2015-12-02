@@ -12,7 +12,7 @@
                     <table class="table table-stripped table-bordered table-hover" id="table-listado-insumos">
                         <thead>
                         <tr>
-                            <th>nombre</th>
+                            <th>Referencia</th>
                             <th>descripcion</th>
                         </tr>
                         </thead>
