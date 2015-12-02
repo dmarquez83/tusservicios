@@ -18,6 +18,8 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         {!! Html::image('servicios-img/'.$servicios->foto, '', array('class' => 'responsive-img','width' => '300', 'height' => '200')) !!}
+
+
                     </div>
                 </div>
 
@@ -69,6 +71,8 @@
                             href="#"
                             class="btn btn-primary btn-listado-insumos"
                             data-id="{{ $servicios->id }}"
+                            data-name="{{ $servicios->nombre }}"
+                            data-img="{{ asset('insumos-img/') }}"
                             data-path="{{ route('insumosSolicitudes.detalle') }}"
                             data-toggle="modal"
                             data-target="#myModal"
