@@ -2,13 +2,12 @@
 
 @section('content')
 
-    <div class="container">
+    <div>
 
         @include('flash::message')
 
-        <div class="row">
-            <h1 class="pull-left">Horas</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('horas.create') !!}">Add New</a>
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('horas.create') !!}">Crear Hora</a>
         </div>
 
         <div class="row">

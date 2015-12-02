@@ -13,6 +13,8 @@
     {!! Html::style('assets/inc/bootstrap/css/dataTables.bootstrap.css') !!}
     {!! Html::style('assets/inc/bootstrap/css/AdminLTE.min.css') !!}
 
+    <!-- Bootstrap time Picker -->
+    {!! Html::style('assets/inc/bootstrap/css/bootstrap-timepicker.min.css') !!}
 
     {!! Html::style('assets/inc/bootstrap/css/skins/skin-black-light.css') !!}
     {!! Html::style('assets/css/main.css') !!}
@@ -40,6 +42,10 @@
 
 <!-- Footer -->
 <script type="text/javascript">
+    //Timepicker
+    $(".timepicker").timepicker({
+        showInputs: false
+    });
     $(function () {
         $("#example1").DataTable();
         $('#example2').DataTable({
@@ -68,6 +74,8 @@
 {!! Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js') !!}
 <!-- AdminLTE App -->
 {!! Html::script('assets/inc/js/app.min.js') !!}
+<!-- bootstrap time picker -->
+{!! Html::script('assets/inc/bootstrap/js/bootstrap-timepicker.min.js') !!}
 
 <!-- flexslider -->
 {!! Html::script('assets/inc/flexslider/jquery.flexslider.js') !!}
@@ -75,5 +83,6 @@
 <!-- script calling -->
 {!! Html::script('assets/inc/js/common.js') !!}
 {!! Html::script('assets/inc/js/app.min.js') !!}
+
 </body>
 </Html>
