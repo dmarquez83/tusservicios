@@ -13,6 +13,11 @@ use App\Models\Servicios;
 class InsumosSolicitudesController  extends Controller
 {
 
+  public function __construct()
+  {
+	if(!\Session::has('solinsumos')) \Session::put('solinsumos', array());
+  }
+
 
 	public function detalle(Request $request)
 	{
@@ -30,10 +35,17 @@ class InsumosSolicitudesController  extends Controller
 
 	  return json_encode($insumos);
 
-
-
-
 	}
 
+	public function getGuardar(Request $request)
+	{
+	     // dd($request);
+	    \Session::put('solinsumos', $request->insumo);
+	    $solinsumos = \Session::get('solinsumos');
+	  //   return  $solinsumos; //return \Session::get('solinsumos');
+
+	  return json_encode($solinsumos);
+
+	}
 
 }

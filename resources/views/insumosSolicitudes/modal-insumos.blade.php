@@ -1,4 +1,5 @@
 <!-- Modal -->
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -26,8 +27,19 @@
 
             </div>
             <div class="modal-footer">
+
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
+                <a
+                        href="#"
+                        class="btn btn-primary btn-guardar-insumos"
+                        data-path="{{ route('insumoSolicitudes.getGuardar') }}"
+                        data-token="{{ csrf_token() }}"
+                        >
+                    <i class="fa fa-external-link">Agregar</i>
+                </a>
             </div>
+
         </div>
     </div>
 </div>

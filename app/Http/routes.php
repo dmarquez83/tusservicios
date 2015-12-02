@@ -292,6 +292,13 @@ Route::group(['middleware' => ['auth']], function()
      'uses' => 'InsumosSolicitudesController@detalle',
     ]);
 
+  Route::post('insumoSolicitudes/guardar', [
+    'as' => 'insumoSolicitudes.getGuardar',
+    'uses' => 'InsumosSolicitudesController@getGuardar',
+  ]);
+
+
+
 
   /**********************************Proveedores*******************************/
 

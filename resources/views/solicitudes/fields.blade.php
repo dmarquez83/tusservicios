@@ -82,6 +82,10 @@
                     </a>
                 </div>
                 </div>
+
+
+
+
                 <div class="col-md-12">
                     <div class="form-group">
                         {!! Form::label('descripcion', 'Descripcion de Asistencia Tecnica:', ['class' => 'control-label']) !!}

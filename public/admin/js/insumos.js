@@ -49,5 +49,23 @@ $(document).ready(function(){
 
     });
 
+    $(".btn-guardar-insumos").on('click', function(e){
+        e.preventDefault();
+
+        var path = $(this).data('path');
+
+        var token = $(this).data('token');
+
+        var table = $("#table-listado-insumos tbody");
+
+        var data = {'_token' : token  };
+
+        $.post(
+            path,
+            data,
+            'json'
+        );
+
+    });
 
 });
