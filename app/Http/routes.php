@@ -279,6 +279,20 @@ Route::group(['middleware' => ['auth']], function()
       'uses' => 'InsumosFotoController@destroy',
     ]);
 
+    Route::resource('insumosServicios', 'InsumosServiciosController');
+
+    Route::get('insumosServicios/{id}/delete', [
+      'as' => 'insumosServicios.delete',
+      'uses' => 'InsumosServiciosController@destroy',
+    ]);
+
+
+    Route::post('solicitud/insumos', [
+     'as' => 'insumosSolicitudes.detalle',
+     'uses' => 'InsumosSolicitudesController@detalle',
+    ]);
+
+
   /**********************************Proveedores*******************************/
 
     Route::resource('admin/proveedores', 'ProveedoresController');
@@ -397,19 +411,3 @@ Route::get('lugares/{id}/delete', [
     'uses' => 'LugaresController@destroy',
 ]);
 
-
-Route::resource('insumosServicios', 'InsumosServiciosController');
-
-Route::get('insumosServicios/{id}/delete', [
-    'as' => 'insumosServicios.delete',
-    'uses' => 'InsumosServiciosController@destroy',
-]);
-
-
-
-Route::resource('insumosSolicitudes', 'InsumosSolicitudesController');
-
-Route::get('insumosSolicitudes/{id}/delete', [
-    'as' => 'insumosSolicitudes.delete',
-    'uses' => 'InsumosSolicitudesController@destroy',
-]);

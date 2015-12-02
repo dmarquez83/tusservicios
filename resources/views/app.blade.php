@@ -75,5 +75,8 @@
 <!-- script calling -->
 {!! Html::script('assets/inc/js/common.js') !!}
 {!! Html::script('assets/inc/js/app.min.js') !!}
+{!! Html::script('assets/inc/js/app.min.js') !!}
+{!! Html::script('admin/js/insumos.js') !!}
+
 </body>
 </Html>

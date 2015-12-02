@@ -62,11 +62,21 @@
                         {!! Form::text('horas', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
-                <div class="col-md-3">resources/views/solicitudes/buscar.blade.php:11
+                <div class="col-md-3">
                 <div class="form-group">
-                        {!! Form::label('insumo', 'Insumo:',['class' => 'control-label']) !!}
-                        {!! Form::checkbox('insumo', 'insumo', ['class' => 'form-control']) !!}
-                    </div>
+                    {{-- no va a estar relacionada a nada el href por que  lo vamos a implementar con ajax --}}
+                    <a
+                            href="#"
+                            class="btn btn-primary btn-listado-insumos"
+                            data-id="{{ $servicios->id }}"
+                            data-path="{{ route('insumosSolicitudes.detalle') }}"
+                            data-toggle="modal"
+                            data-target="#myModal"
+                            data-token="{{ csrf_token() }}"
+                            >
+                        <i class="fa fa-external-link"></i>
+                    </a>
+                </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
@@ -81,6 +91,7 @@
             </div>
         </form>
     </div>
+    @include('insumosSolicitudes.modal-insumos')
 </div>
 <div class="col-sm-2">
 </div>

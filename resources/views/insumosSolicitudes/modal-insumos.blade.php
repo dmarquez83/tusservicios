@@ -4,19 +4,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Detalle del Pedido: </h4>
+                <h4 class="modal-title" id="myModalLabel">Listado de insumos: </h4>
             </div>
             <div class="modal-body">
 
                 <div class="table-responsive">
-                    <table class="table table-stripped table-bordered table-hover" id="table-detalle-pedido">
+                    <table class="table table-stripped table-bordered table-hover" id="table-listado-insumos">
                         <thead>
                         <tr>
-                            <th>Imagen</th>
-                            <th>Producto</th>
-                            <th>Precio</th>
-                            <th>Cantidad</th>
-                            <th>Subtotal</th>
+                            <th>nombre</th>
+                            <th>descripcion</th>
                         </tr>
                         </thead>
                         <tbody>

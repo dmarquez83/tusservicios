@@ -82,5 +82,7 @@
     <!-- contact form checker -->
     {!! Html::script('assets/inc/form-validator/dist/jquery.validate.js') !!}
 
+    {!! Html::script('admin/js/insumos.js') !!}
+
 </body>
 </Html>

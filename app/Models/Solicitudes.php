@@ -41,4 +41,8 @@ class Solicitudes extends Model
 	    
 	];
 
+  	public function solicitudes_insumo() {
+		return $this->hasMany('App\Models\Insumo');
+  	}
+
 }
