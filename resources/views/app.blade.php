@@ -76,6 +76,7 @@
 {!! Html::script('assets/inc/js/common.js') !!}
 {!! Html::script('assets/inc/js/app.min.js') !!}
 {!! Html::script('assets/inc/js/app.min.js') !!}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 {!! Html::script('admin/js/insumos.js') !!}
 
 </body>
