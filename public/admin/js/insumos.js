@@ -35,7 +35,7 @@ $(document).ready(function(){
 
                     var fila = "<tr>";
                     fila += "<td><img src="+ path_img + "/" + data[i].foto  + " width='30'></td>";
-                    fila += "<td><input type='checkbox' name='" + "insumo[" + i + "]" + "' value='" + data[i].id + "'></td>";
+                    fila += "<td><input class='boton_check' type='checkbox' name='" + "insumo[" + i + "]" + "' value='" + data[i].id + "'></td>";
                     fila += "<td>" + data[i].referencia + "</td>";
                     fila += "<td>" + data[i].descripcion + "</td>";
                     fila += "</tr>";
@@ -49,23 +49,19 @@ $(document).ready(function(){
 
     });
 
-    $(".btn-guardar-insumos").on('click', function(e){
-        e.preventDefault();
 
-        var path = $(this).data('path');
-
-        var token = $(this).data('token');
-
-        var table = $("#table-listado-insumos tbody");
-
-        var data = {'_token' : token  };
-
-        $.post(
-            path,
-            data,
-            'json'
-        );
-
+    var listaInsumos = new Array();
+    $(document).on('change','.boton_check',function(){
+        if($(this).prop('checked')){
+            listaInsumos.push( $(this).val());
+        }
+        else{
+            alert('test');
+        }
+        console.log(listaInsumos);
     });
+
+
+
 
 });

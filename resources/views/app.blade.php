@@ -43,23 +43,7 @@
 </div><!-- l-wrapper -->
 
 <!-- Footer -->
-<script type="text/javascript">
-    $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false
-        });
-    });
 
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>
 <!-- LOAD SCRIPTS
 {!! Html::script('assets/inc/js/jquery-1.11.0.min.js') !!}
 -->
@@ -70,8 +54,7 @@
 {!! Html::script('assets/inc/jQueryUI/jquery-ui-1.10.3.min.js') !!}
 {!! Html::script('assets/inc/bootstrap/js/jquery.dataTables.min.js') !!}
 {!! Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js') !!}
-<!-- AdminLTE App -->
-{!! Html::script('assets/inc/js/app.min.js') !!}
+
 
 <!-- flexslider -->
 {!! Html::script('assets/inc/flexslider/jquery.flexslider.js') !!}
@@ -79,10 +62,7 @@
 
 
 
-<!-- script calling -->
-{!! Html::script('assets/inc/js/common.js') !!}
-{!! Html::script('assets/inc/js/app.min.js') !!}
-{!! Html::script('assets/inc/js/app.min.js') !!}
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
