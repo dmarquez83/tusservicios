@@ -20,3 +20,41 @@
     </div>
 @endsection
 
+@section('scripts')
+
+    {!! Html::script('assets/inc/bootstrap/js/jquery.dataTables.min.js') !!}
+    {!! Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js') !!}
+        <!-- bootstrap time picker -->
+    {!! Html::script('assets/inc/bootstrap/js/bootstrap-timepicker.min.js') !!}
+
+            <!-- flexslider -->
+    {!! Html::script('assets/inc/flexslider/jquery.flexslider.js') !!}
+
+
+    <script type="text/javascript">
+        //Timepicker
+        $(".timepicker").timepicker({
+            showInputs: false
+        });
+        $(function () {
+            $("#example1").DataTable();
+
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+        });
+
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+
+
+@endsection
+
