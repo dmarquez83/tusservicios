@@ -93,6 +93,28 @@
                     </div>
                 </div>
             </div>
+
+            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#listaInsumos" aria-expanded="false" aria-controls="collapseExample">
+               Ver Insumos
+            </a>
+
+            <div class="collapse" id="listaInsumos">
+                <div class="well">
+                    <table class="table table-stripped table-bordered table-hover" id="tabla-listado-insumos">
+                        <thead>
+                        <tr>
+                            <th>Referencia</th>
+                            <th>descripcion</th>
+                            <th>Borrar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             <div class="box-footer">
                 {{--  <a class="btn btn-warning pull-right" href="{!! route('solicitudes.store', [$servicios->id]) !!}"><i class="glyphicon glyphicon-shopping-cart left"></i>Solicitar Servicio</a>--}}
                 {!! Form::submit('Solicitar Servicio', ['class' => 'btn btn-warning pull-right']) !!}

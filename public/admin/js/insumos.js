@@ -50,14 +50,27 @@ $(document).ready(function(){
     });
 
 
-    var listaInsumos = new Array();
+
     $(document).on('change','.boton_check',function(){
+
+        var listaInsumos = new Array();
+        var tabla = $("#tabla-listado-insumos tbody");
+
+
         if($(this).prop('checked')){
-            listaInsumos.push( $(this).val());
+        //listaInsumos.push(parseInt($(this).val()));
+        listaInsumos.push();
+        var prueba =    listaInsumos.push(parseInt($(this).val())) ;
+                var  fila = "<tr>";
+                     fila += "<td>" + listaInsumos + "</td>";
+                     fila += "</tr>";
+                tabla.append(fila);
         }
         else{
             alert('test');
         }
+
+
         console.log(listaInsumos);
     });
 
