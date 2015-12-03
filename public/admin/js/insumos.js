@@ -55,19 +55,24 @@ $(document).ready(function(){
 
         var listaInsumos = new Array();
         var tabla = $("#tabla-listado-insumos tbody");
+        var i = $('#tabla-listado-insumos tbody tr').size() + 1;
 
 
         if($(this).prop('checked')){
         //listaInsumos.push(parseInt($(this).val()));
-        listaInsumos.push();
-        var prueba =    listaInsumos.push(parseInt($(this).val())) ;
-                var  fila = "<tr>";
+        //listaInsumos.push();
+        listaInsumos.push(parseInt($(this).val())) ;
+                var  fila = "<tr " + "id=fila" + listaInsumos + ">";
                      fila += "<td>" + listaInsumos + "</td>";
                      fila += "</tr>";
                 tabla.append(fila);
         }
         else{
-            alert('test');
+            //$(this).parents('tr').remove(); este borra en la tabla donde estoy seleccionando
+
+            var filaid = "fila" + $(this).val();
+            var row = document.getElementById(filaid);
+                row.removeChild(row.firstChild);
         }
 
 
