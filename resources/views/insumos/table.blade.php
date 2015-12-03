@@ -1,9 +1,4 @@
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <h1 class="pull-left">Insumos</h1>
-    <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('insumos.create') !!}">Agregar</a>
-</div>
-
-<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="input-group">
         <div class="input-group-addon">
             <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
@@ -19,11 +14,8 @@
         <div class="box box-widget widget-user">
             <div class="widget-user-header bg-black" style="background: url('{{ asset('insumos-img/'.$insumo->foto)}}') center center;">
                 <h3  class="widget-user-username">
-                    {{$insumo->referencia}}
+
                 </h3>
-            </div>
-            <div class="widget-user-image">
-                {!! Html::image(asset('insumos-img/'.$insumo->foto), $insumo->descripcion, array('class' => 'img-responsive')) !!}
             </div>
             <div class="box-footer">
                 <div class="row">
@@ -31,6 +23,11 @@
                         <div class="description-block">
                             <p>
                                 {{$insumo->descripcion}}
+                            </p>
+                        </div>
+                        <div class="description-block">
+                            <p>
+                                {{$insumo->referencia}}
                             </p>
                         </div>
                     </div>

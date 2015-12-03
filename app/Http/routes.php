@@ -45,6 +45,34 @@ Route::get('public/servicios/{id}', [
   'uses' => 'ServiciosController@detalle',
 ]);
 
+Route::get('public/categorias/{id}', [
+    'as' => 'detalle-categorias',
+    'uses' => 'ServiciosController@detallecategorias',
+]);
+
+/**********************************dashborad**********************************/
+
+
+Route::get('public/dashborad',
+    function ()    {
+        return view('dashborad.tableusuario');
+    });
+
+Route::get('admin/dashborad',
+    function ()    {
+        return view('dashborad.tableadmin');
+    });
+
+Route::get('public/dashborad/proveedor',
+    function ()    {
+        return view('dashborad.tableproveedor');
+    });
+
+Route::get('public/dashborad/consultor',
+    function ()    {
+        return view('dashborad.tableconsultor');
+    });
+
 
 /**********************************solicitudes**********************************/
 

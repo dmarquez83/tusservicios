@@ -1,9 +1,3 @@
-{!! Form::open(array('route' => 'buscar-categorias', 'method' => 'GET', 'class' => 'navbar-form navbar-right', 'role' => 'search')) !!}
-<div class="form-group">
-    {!! Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Buscar Categoria']) !!}
-</div>
-{!! Form::submit('Buscar', ['class' => "btn btn-default"]) !!}
-{!! Form::close() !!}
 @foreach($categorias as $categoria)
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
         <div class="box box-widget widget-user">
@@ -25,7 +19,12 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6 border-right">
+                        <div class="description-block">
+                            <a class="description-header" href="{!! route('detalle-categorias', [$categoria->id]) !!}">Detalle Categoria</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
                         <div class="description-block">
                             <a class="description-header pull-right" href="{!! route('servicios.index', [$categoria->id]) !!}" role="button">Ver Servicios</a>
                         </div>

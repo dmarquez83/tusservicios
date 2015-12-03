@@ -389,7 +389,7 @@ class ServiciosController extends AppBaseController
 
 		//return response()->json($servicios);
 
-
+        //var_dump($servicios);
 		return view('servicios.listar')->with('servicios', $servicios);
 
 	}
@@ -417,4 +417,35 @@ class ServiciosController extends AppBaseController
 
 		return view('servicios.show')->with('servicios', $servicios);
 	}
+
+    public function detallecategorias($id)
+    {
+
+        $categorias = DB::table('categorias')
+            ->select('categorias.id', 'categorias.nombre', 'categorias.descripcion', 'categorias.foto')
+            ->where('categorias.id','=',$id)
+            ->get();
+
+        $servicios1 = DB::table('servicios')
+            ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
+            ->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
+            ->where('categorias.id','=',$id)
+            ->select('servicios.id', 'servicios.nombre', 'servicios.descripcion')
+            ->get();
+
+        if(empty($categorias))
+        {
+            Flash::error('Servicios not found');
+
+            return redirect(route('servicios.index',$id));
+        }
+
+        $detcategoria = Collection::make($servicios1);
+
+        return view('categorias.show_categorias')->with(array('categorias' => $categorias, 'detcategoria' => $detcategoria));
+
+        //var_dump($detcategoria);
+
+        //return view('servicios.listar')->with('servicios', $servicios);
+    }
 }
