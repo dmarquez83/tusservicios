@@ -21,6 +21,8 @@ class CreateInsumosSolicitudesTable extends Migration
 			$table->integer('solicitud_id')->unsigned();
 			$table->foreign('solicitud_id')->references('id')->on('solicitudes')->onDelete('cascade');
 			$table->timestamps();
+		  //composer dump-autoload -o
+		  //php artisan migrate
 		});
 	}
 

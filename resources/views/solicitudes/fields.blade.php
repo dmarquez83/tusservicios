@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group">
                         {!! Form::label('contacto', 'Persona Contacto', ['class' => 'control-label']) !!}
-                        {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('contacto', null, ['class' => 'form-control']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('telefono', 'Telefono:',['class' => 'control-label']) !!}
@@ -59,10 +59,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                <div class="form-group">
-                        {!! Form::label('horas', 'Cantidad de Horas:',['class' => 'control-label']) !!}
-                        {!! Form::text('horas', null, ['class' => 'form-control']) !!}
-                    </div>
+
                 </div>
                 <div class="col-md-3">
                 <div class="form-group">

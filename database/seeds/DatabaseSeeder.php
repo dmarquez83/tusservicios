@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
          $this->call(EstatusTableSeeder::class);
          $this->call(ServiciosTableSeeder::class);
          $this->call(InsumosTableSeeder::class);
+         $this->call(InsumosServiciosSeeder::class);-
 
 
         Model::reguard();

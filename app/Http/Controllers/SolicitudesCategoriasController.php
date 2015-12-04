@@ -87,22 +87,28 @@ class SolicitudesCategoriasController extends AppBaseController
 		  'hora'  => $request->get('hora'),
 		  'direccion'  => $request->get('direccion'),
 		  'telefono'  => $request->get('telefono'),
-		  'horas'  => $request->get('horas'),
+		  'horas'  => $request->get('contacto'),
 		  'costo'  => 0,
 		  'id_usuario'  => \Auth::user()->id,
 		  'id_estatus'  => '3',
 		  'id_servicio'  => $id,
+		  'created_at' => new \DateTime,
+		  'updated_at' =>  new \Datetime,
 		));
 
-		foreach ($request->get('insumo') as $insumos)
-		{
-		  $data= [
-			'solicitud_id'  => $solicitudesId,
-			'insumo_id'  => $insumos,
-			'created_at' => new \DateTime,
-			'updated_at' =>  new \Datetime,
-		  ];
-		  InsumosSolicitudes::create($data);
+		if($request->get('insumo')){
+
+		  foreach ($request->get('insumo') as $insumos)
+		  {
+			$data= [
+			  'solicitud_id'  => $solicitudesId,
+			  'insumo_id'  => $insumos,
+			  'created_at' => new \DateTime,
+			  'updated_at' =>  new \Datetime,
+			];
+			InsumosSolicitudes::create($data);
+		  }
+
 		}
 
 		Flash::success('Solicitud Guardada correctamente.');
