@@ -103,6 +103,7 @@
                     <table class="table table-stripped table-bordered table-hover" id="tabla-listado-insumos">
                         <thead>
                         <tr>
+                            <th>Imagen</th>
                             <th>Referencia</th>
                             <th>descripcion</th>
                             <th>Borrar</th>

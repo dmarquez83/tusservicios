@@ -30,14 +30,6 @@
 
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 
-                <a
-                        href="#"
-                        class="btn btn-primary btn-guardar-insumos"
-                        data-path="{{ route('insumoSolicitudes.getGuardar') }}"
-                        data-token="{{ csrf_token() }}"
-                        >
-                    <i class="fa fa-external-link">Agregar</i>
-                </a>
             </div>
 
         </div>
