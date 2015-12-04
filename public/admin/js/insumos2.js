@@ -59,48 +59,44 @@ $(document).ready(function(){
 
         //var i = $('#tabla-listado-insumos tbody tr').size() + 1;
 
-        var repetido = 1;
-
-        var x;
-
         if($(this).prop('checked')){
 
             listaInsumos.push(parseInt($(this).val())) ;
 
+            var x = $('input[name^="insumoh"]').val();
 
+            //if (x) alert('tiene'); else alert('no tiene');
 
-           $('input[name^="insumoh"]').each(function() {
+            if(x && listaInsumos){
 
-                //alert($(this).val());
+               $('input[name^="insumoh"]').each(function() {
 
-                if(listaInsumos != $(this).val()){
+                    //alert($(this).val());
 
-                   repetido = 1;
+                    if(listaInsumos != $(this).val()){
 
-                }else{
+                       repetido = true;
 
-                   alert('Este insumo ya se encuentra en la Lista');
+                    }else{
 
-                   x = 2;
+                       repetido = false;
 
-                    $("input:checkbox").prop('checked', false);
+                      alert('Este insumo ya se encuentra en la Lista');
 
+                    }
+               });
 
+            }else{
 
-                }
-           });
+               var repetido = true;
+            }
 
-
-
-
-            if(repetido == 1 && x != 2){
+            if(repetido){
 
                 var  fila = "<tr " + "id=fila" + listaInsumos + ">";
                 fila += "<td>" +  "<input type='text' class='insumos' name='insumoh["+  listaInsumos +  "]' value='" + listaInsumos + "'></input></td>";
                 fila += "</tr>";
                 tabla.append(fila);
-
-                repetido = 0;
             }
 
         }
