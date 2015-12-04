@@ -10,9 +10,10 @@ class InsumosSolicitudes extends Model
 
 	public $fillable = [
 	    "insumo_id",
-		"insumo_id",
 		"solicitud_id",
-		"solicitud_id"
+	    "created_at",
+	    "updated_at",
+
 	];
 
     /**
@@ -22,7 +23,9 @@ class InsumosSolicitudes extends Model
      */
     protected $casts = [
         "insumo_id" => "integer",
-		"solicitud_id" => "integer"
+		"solicitud_id" => "integer",
+	    "created_at",
+	    "updated_at",
     ];
 
 	public static $rules = [
