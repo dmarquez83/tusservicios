@@ -75,7 +75,7 @@
                         @include('partials.layout.login')
                         <div class="box-footer">
                             {!! Form::submit(trans('form.login.submit'),['class' => 'btn btn-primary']) !!}
-                            <a href="{{ url('password/email') }}" class="btn btn-primary">{{ trans('passwords.forgot') }}</a>
+                            <a href="{{ route('password/email') }}" class="btn btn-primary">{{ trans('passwords.forgot') }}</a>
                         </div>
                     {!! Form::close() !!}
                 </div>
