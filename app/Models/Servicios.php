@@ -41,4 +41,8 @@ class Servicios extends Model
 	    
 	];
 
+    public function insumoservicios() {
+	 return $this->hasOne('App\Models\InsumosServicios');
+    }
+
 }

@@ -14,6 +14,7 @@ class InsumosTableSeeder extends Seeder
      */
     public function run()
     {
+
         $faker = Faker::create('es_VE');
         for ($i = 0; $i < 30; $i ++) {
             $date = $faker->dateTimeThisYear();

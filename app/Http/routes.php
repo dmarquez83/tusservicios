@@ -307,6 +307,27 @@ Route::group(['middleware' => ['auth']], function()
       'uses' => 'InsumosFotoController@destroy',
     ]);
 
+    Route::resource('insumosServicios', 'InsumosServiciosController');
+
+    Route::get('insumosServicios/{id}/delete', [
+      'as' => 'insumosServicios.delete',
+      'uses' => 'InsumosServiciosController@destroy',
+    ]);
+
+
+    Route::post('solicitud/insumos', [
+     'as' => 'insumosSolicitudes.detalle',
+     'uses' => 'InsumosSolicitudesController@detalle',
+    ]);
+
+  Route::post('insumoSolicitudes/guardar', [
+    'as' => 'insumoSolicitudes.getGuardar',
+    'uses' => 'InsumosSolicitudesController@getGuardar',
+  ]);
+
+
+
+
   /**********************************Proveedores*******************************/
 
     Route::resource('admin/proveedores', 'ProveedoresController');
@@ -424,3 +445,4 @@ Route::get('lugares/{id}/delete', [
     'as' => 'lugares.delete',
     'uses' => 'LugaresController@destroy',
 ]);
+

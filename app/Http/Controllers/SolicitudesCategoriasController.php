@@ -12,6 +12,7 @@ use App\Libraries\Repositories\CategoriaRepository;
 
 use App\Models\Categoria;
 use App\Models\Servicios;
+use App\Models\InsumosSolicitudes;
 use App\User;
 
 use Flash;
@@ -77,38 +78,68 @@ class SolicitudesCategoriasController extends AppBaseController
 
 	  public function store($id, CreateSolicitudesRequest $request)
 	  {
-		//$input = $request->all();
 
-		$data = [
+		//dd($request);
+
+		$solicitudesId = \DB::table('solicitudes')->insertGetId(array(
 		  'descripcion'  => $request->get('descripcion'),
 		  'fecha'  => $request->get('fecha'),
 		  'hora'  => $request->get('hora'),
 		  'direccion'  => $request->get('direccion'),
 		  'telefono'  => $request->get('telefono'),
-		  'horas'  => $request->get('horas'),
+		  'horas'  => $request->get('contacto'),
 		  'costo'  => 0,
 		  'id_usuario'  => \Auth::user()->id,
 		  'id_estatus'  => '3',
-		  'id_servicio'  => $id
-		];
+		  'id_servicio'  => $id,
+		  'created_at' => new \DateTime,
+		  'updated_at' =>  new \Datetime,
+		));
 
+		if($request->get('insumo')){
 
-		//  dd($data);
-		$solicitudes = $this->solicitudesRepository->create($data);
+		  foreach ($request->get('insumo') as $insumos)
+		  {
+			$data= [
+			  'solicitud_id'  => $solicitudesId,
+			  'insumo_id'  => $insumos,
+			  'created_at' => new \DateTime,
+			  'updated_at' =>  new \Datetime,
+			];
+			InsumosSolicitudes::create($data);
+		  }
+
+		}
 
 		Flash::success('Solicitud Guardada correctamente.');
 
-		/*	$id=7;
+		$user = User::findOrFail(\Auth::user()->id);
 
-			$user = User::findOrFail($id);
-
-			Mail::send('emails.solicitud', ['user' => $user], function ($m) use ($user) {
-				$m->to($user->email, $user->name)->subject('Tu Solicitud a sido registrada');
-			});*/
+		Mail::send('emails.solicitud', ['user' => $user], function ($m) use ($user) {
+			$m->to($user->email, $user->name)->subject('Tu Solicitud a sido registrada');
+		});
 
 
 
 		return redirect(route('categorias.index'));
+
+
+		/*foreach ($request->get('insumo') as $insumos)
+		{
+		  $data[]= [
+			'solicitud_id'  => $solicitudesId,
+			'insumo_id'  => $insumos,
+			'created_at' => new \DateTime,
+			'updated_at' =>  new \Datetime,
+		  ];
+		}*/
+
+        // dd($data);
+		//InsumosSolicitudes::create($data);
+
+
+		//$this->solicitudesRepository->create($data);
+
 	  }
 
 	  /**

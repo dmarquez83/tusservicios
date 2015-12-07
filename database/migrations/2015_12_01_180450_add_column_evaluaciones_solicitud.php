@@ -14,7 +14,7 @@ class AddColumnEvaluacionesSolicitud extends Migration
     {
         Schema::table('solicitudes', function(Blueprint $table)
         {
-            $table->integer('id_evaluaciones');
+            $table->integer('id_evaluaciones')->nullable();
             $table->foreign('id_evaluaciones')->references('id')->on('evaluaciones')->onDelete('cascade');
 
         });

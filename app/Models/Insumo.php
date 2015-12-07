@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 
+
 class Insumo extends Model
 {
     
@@ -28,5 +29,13 @@ class Insumo extends Model
 	public static $rules = [
 
 	];
+
+  public function insumo_solicitudes(){
+	return $this->belongsTo('App\Models\Solicitudes');
+  }
+
+  public function insumos_servicios() {
+	return $this->hasMany('App\Models\InsumosServicios');
+  }
 
 }
