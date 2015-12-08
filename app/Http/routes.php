@@ -80,6 +80,15 @@ Route::get('admin/catalogos',
         return view('catalogos.tablecatalogo');
     });
 
+/**********************************registro servicios**********************************/
+
+Route::get('public/regservicios',
+    function ()    {
+        return view('servicios.tableregservicios');
+    });
+
+
+
 /**********************************solicitudes**********************************/
 
 // Lista de Categorias

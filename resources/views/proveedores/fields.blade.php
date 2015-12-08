@@ -152,47 +152,40 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="box box-solid ">
-                <div class="box-body">
-                    <div class="box-group" id="accordion">
-                        <div class="panel box box-warning">
-                            <div class="box-header with-border">
-                                <h4 class="box-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                        Insumos Agregados
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseOne" class="panel-collapse collapse">
-                                <div class="">
-                                    <div class="box-header">
-                                    </div>
-                                    <div class="box-body">
-                                        <table id="example2" class="table table-bordered table-striped">
-                                            <thead>
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>descripcion</th>
-                                                <th>Accion</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>LLave</td>
-                                                <td>llave cromada</td>
-                                                <td style="width: 10%">
-                                                    <div class="col-sm-6 border-right">
-                                                        <a class="btn btn-primary" href="#" role="button" data-toggle="Eliminar"><i class="glyphicon glyphicon-remove"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="panel box box-warning">
+                <div class="box-header with-border">
+                    <h4 class="box-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            Insumos Agregados
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="">
+                        <div class="box-header">
                         </div>
-
+                        <div class="box-body">
+                            <table id="example2" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>descripcion</th>
+                                    <th>Accion</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>LLave</td>
+                                    <td>llave cromada</td>
+                                    <td style="width: 10%">
+                                        <div class="col-sm-6 border-right">
+                                            <a class="btn btn-primary" href="#" role="button" data-toggle="Eliminar"><i class="glyphicon glyphicon-remove"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
