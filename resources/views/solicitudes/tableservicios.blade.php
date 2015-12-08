@@ -3,19 +3,15 @@
 </div>
 
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="input-group">
-
-        {!! Form::open(array('route' => ['buscar-servicios', $servicios[0]->id_categoria], 'method' => 'GET', 'class' => 'form-control', 'role' => 'search')) !!}
-
-        <div class="form-group">
-            {!! Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Buscar Servicios']) !!}
-        </div>
-        {!! Form::submit('Buscar', ['class' => "btn btn-default"]) !!}
-        {!! Form::close() !!}
+    {!! Form::open(array('route' => ['buscar-servicios', $servicios[0]->id_categoria], 'method' => 'GET', 'class' => 'form-control', 'role' => 'search')) !!}
+    <div class="input-group margin">
+        {!! Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Buscar Servicios']) !!}
+        <span class="input-group-btn">
+        {!! Form::submit('Buscar', ['class' => "btn btn-primary btn-flat"]) !!}
+    </span>
     </div>
+    {!! Form::close() !!}
 </div>
-
-
 <br>
 <br>
 @foreach($servicios as $servicio)

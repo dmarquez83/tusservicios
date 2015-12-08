@@ -46,22 +46,19 @@
                         {!! Form::text('celular', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="form-group">
                         {!! Form::label('fecha', 'Fecha:',['class' => 'control-label']) !!}
                         {!! Form::date('fecha', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                 <div class="form-group">
                         {!! Form::label('hora', 'Hora:',['class' => 'control-label']) !!}
                         {!! Form::text('hora', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
-                <div class="col-md-3">
-
-                </div>
-                <div class="col-md-3">
+                <div class="col-sm-4s">
                 <div class="form-group">
                     {{-- no va a estar relacionada a nada el href por que  lo vamos a implementar con ajax --}}
                     <a
@@ -80,9 +77,6 @@
                 </div>
                 </div>
 
-
-
-
                 <div class="col-md-12">
                     <div class="form-group">
                         {!! Form::label('descripcion', 'Descripcion de Asistencia Tecnica:', ['class' => 'control-label']) !!}
@@ -91,27 +85,48 @@
                 </div>
             </div>
 
-            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#listaInsumos" aria-expanded="false" aria-controls="collapseExample">
-               Ver Insumos
-            </a>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-solid" id="listaInsumos">
+                        <div class="box-body">
+                            <div class="box-group" id="accordion">
+                                <div class="panel box box-warning">
+                                    <div class="box-header with-border">
+                                        <h4 class="box-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                Ver Insumos
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse">
+                                        <div class="">
+                                            <div class="box-header">
+                                            </div>
+                                            <div class="box-body">
+                                                <table id="tabla-listado-insumos" class="table table-bordered table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Foto</th>
+                                                        <th>Nombre</th>
+                                                        <th>descripcion</th>
+                                                        <th style="width: 10%">Accion</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
 
-            <div class="collapse" id="listaInsumos">
-                <div class="well">
-                    <table class="table table-stripped table-bordered table-hover" id="tabla-listado-insumos">
-                        <thead>
-                        <tr>
-                            <th>Imagen</th>
-                            <th>Referencia</th>
-                            <th>descripcion</th>
-                            <th>Borrar</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        </tbody>
-                    </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
 
             <div class="box-footer">
                 {{--  <a class="btn btn-warning pull-right" href="{!! route('solicitudes.store', [$servicios->id]) !!}"><i class="glyphicon glyphicon-shopping-cart left"></i>Solicitar Servicio</a>--}}

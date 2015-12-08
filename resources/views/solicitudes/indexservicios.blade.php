@@ -13,8 +13,5 @@
         </div>
 
     {{-- @include('common.paginate', ['records' => $servicios])--}}
-
-
-
  </div>
 @endsection
