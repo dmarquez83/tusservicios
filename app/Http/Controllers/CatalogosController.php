@@ -7,6 +7,9 @@ use App\Libraries\Repositories\CatalogosRepository;
 use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
+use App\Models\Solicitudes;
+use App\Models\InsumosSolicitudes;
+use Illuminate\Support\Collection as Collection;
 
 class CatalogosController extends AppBaseController
 {
@@ -37,9 +40,26 @@ class CatalogosController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function createnew($id)
 	{
-		return view('catalogos.create');
+
+	  $solicitudes = Solicitudes::join('servicios','servicios.id','=','solicitudes.id_servicio')
+		->where('solicitudes.id','=',$id)
+		->select('solicitudes.descripcion','solicitudes.fecha','solicitudes.hora','solicitudes.direccion','solicitudes.telefono','solicitudes.horas as contacto','servicios.nombre','servicios.descripcion as descripcion_servicio')
+		->orderBy('solicitudes.id', 'DESC')->get();
+
+	  //$insumos = InsumosSolicitudes::where('solicitud_id',$id)->orderBy('id', 'DESC')->get();
+
+	  $insumos = InsumosSolicitudes::join('insumos','insumos.id','=','insumos_solicitudes.insumo_id')
+	    ->where('solicitud_id',$id)
+		->select('insumos.descripcion','insumos.referencia','insumos.foto', 'insumos.id')
+		->orderBy('id', 'DESC')->get();
+
+	  $insumos = Collection::make($insumos);
+
+	 // dd($insumos);
+
+		return view('catalogos.tablecatalogo', compact('solicitudes',$solicitudes, 'insumos', $insumos));
 	}
 
 	/**

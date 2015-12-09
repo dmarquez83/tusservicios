@@ -8,7 +8,7 @@
 
         <div class="row">
             <h1 class="pull-left">Catalogos</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('catalogos.create') !!}">Add New</a>
+
         </div>
 
         <div class="row">

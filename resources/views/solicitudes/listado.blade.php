@@ -10,7 +10,7 @@
             <td>{!! $solicitud->descripcion !!}</td>
 			<td>{!! $solicitud->direccion !!}</td>
             <td>
-                <a href="{!! route('evaluaciones.edit', [$solicitud->id]) !!}"><i class="glyphicon glyphicon-log-in"></i></a>
+                <a href="{!! route('catalogos.createnew', [$solicitud->id]) !!}"><i class="glyphicon glyphicon-log-in"></i></a>
 
             </td>
         </tr>

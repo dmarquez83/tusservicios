@@ -45,4 +45,9 @@ class Servicios extends Model
 	 return $this->hasOne('App\Models\InsumosServicios');
     }
 
+	public function solicitud()
+	{
+	  return $this->hasOne('App\Models\Solicitudes');
+	}
+
 }

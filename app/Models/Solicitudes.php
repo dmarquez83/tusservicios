@@ -45,4 +45,13 @@ class Solicitudes extends Model
 		return $this->hasMany('App\Models\Insumo');
   	}
 
+	public function solicitudesinsumo() {
+	  return $this->hasMany('App\Models\InsumosSolicitudes');
+	}
+
+	public function servicios()
+	{
+	  return $this->hasOne('App\Models\Servicios');
+	}
+
 }

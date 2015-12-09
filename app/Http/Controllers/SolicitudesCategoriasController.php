@@ -211,34 +211,10 @@ class SolicitudesCategoriasController extends AppBaseController
 		return redirect(route('solicitudes.index'));
 	  }
 
-	  /**
-	   * Remove the specified Solicitudes from storage.
-	   *
-	   * @param  int $id
-	   *
-	   * @return Response
-	   */
-	  public function destroy($id)
-	  {
-		$solicitudes = $this->solicitudesRepository->find($id);
-
-		if(empty($solicitudes))
-		{
-		  Flash::error('Solicitudes not found');
-
-		  return redirect(route('solicitudes.index'));
-		}
-
-		$this->solicitudesRepository->delete($id);
-
-		Flash::success('Solicitudes deleted successfully.');
-
-		return redirect(route('solicitudes.index'));
-	  }
 
 	  public function listado()
 	  {
-		$solicitudes = Solicitudes::orderBy('id', 'DESC')->get();;
+		$solicitudes = Solicitudes::orderBy('id', 'DESC')->get();
 
 		//dd($solicitudes);
 

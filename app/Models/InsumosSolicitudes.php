@@ -32,4 +32,8 @@ class InsumosSolicitudes extends Model
 	    
 	];
 
+	public function insumosolicitudes(){
+	  return $this->belongsTo('App\Models\Solicitudes');
+	}
+
 }

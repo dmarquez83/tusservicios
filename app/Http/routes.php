@@ -50,7 +50,7 @@ Route::get('public/categorias/{id}', [
     'uses' => 'ServiciosController@detallecategorias',
 ]);
 
-/**********************************dashborad**********************************/
+/**********************************dashborad carolina**********************************/
 
 
 Route::get('public/dashborad',
@@ -73,14 +73,14 @@ Route::get('public/dashborad/consultor',
         return view('dashborad.tableconsultor');
     });
 
-/**********************************registro catalogo insumo**********************************/
-
+/**********************************registro catalogo insumo carolina**********************************/
+/*
 Route::get('admin/catalogos',
     function ()    {
         return view('catalogos.tablecatalogo');
     });
-
-/**********************************registro servicios**********************************/
+*/
+/**********************************registro servicios carolina**********************************/
 
 Route::get('public/regservicios',
     function ()    {
@@ -123,16 +123,20 @@ Route::get('solicitudes/{id}/store', [
   'uses' => 'SolicitudesCategoriasController@store',
 ]);
 
-Route::get('solicitudes/{id}/delete', [
-  'as' => 'solicitudes.delete',
-  'uses' => 'SolicitudesCategoriasController@destroy',
-]);
 
-Route::get('solicitudes/admin/listado', [
+Route::get('admin/solicitudes/listado', [
   'as' => 'solicitudes.listado',
   'uses' => 'SolicitudesCategoriasController@listado',
 ]);
 
+/**********************************Catalogo Solicitud**********************************/
+
+Route::resource('admin/catalogos', 'CatalogosController');
+
+Route::get('admin/catalogos/crear/{id}', [
+  'as' => 'catalogos.createnew',
+  'uses' => 'CatalogosController@createnew',
+]);
 
 /*******************************LOGIN******************************************/
 
