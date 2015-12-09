@@ -138,6 +138,11 @@ Route::get('admin/catalogos/crear/{id}', [
   'uses' => 'CatalogosController@createnew',
 ]);
 
+Route::post('catalogo/proveedores', [
+  'as' => 'catalogoproveedores.detalle',
+  'uses' => 'CatalogosController@detalle',
+]);
+
 /*******************************LOGIN******************************************/
 
 // Login

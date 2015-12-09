@@ -1,6 +1,9 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 use App\Http\Requests;
+
 use App\Http\Requests\CreateCatalogosRequest;
 use App\Http\Requests\UpdateCatalogosRequest;
 use App\Libraries\Repositories\CatalogosRepository;
@@ -10,6 +13,7 @@ use Response;
 use App\Models\Solicitudes;
 use App\Models\InsumosSolicitudes;
 use Illuminate\Support\Collection as Collection;
+use App\Models\ProveedoresInsumos;
 
 class CatalogosController extends AppBaseController
 {
@@ -171,5 +175,23 @@ class CatalogosController extends AppBaseController
 		Flash::success('Catalogos deleted successfully.');
 
 		return redirect(route('catalogos.index'));
+	}
+
+	public function detalle(Request $request)
+	{
+
+
+	  $proveedores = ProveedoresInsumos::join('proveedores','proveedores.id','=','proveedores_insumos.proveedor_id')
+		->where('proveedores_insumos.insumo_id','=',$request->get('id_insumo'))
+		->orderBy('proveedores.id', 'DESC')->get();
+
+	  // dd($proveedores);
+
+	 //  return response()->json($proveedores);
+
+	  // return $proveedores->toJson();
+
+	  return json_encode($proveedores);
+
 	}
 }

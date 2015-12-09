@@ -124,6 +124,19 @@
                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                                                 {!! $insumo->descripcion !!}
                                             </a>
+                                            {{-- no va a estar relacionada a nada el href por que  lo vamos a implementar con ajax --}}
+                                            <a
+                                                    href="#"
+                                                    class="btn btn-primary btn-listado-proveedores"
+                                                    data-id="{{ $insumo->id }}"
+                                                    data-name="{{ $insumo->descripcion }}"
+                                                    data-path="{{ route('catalogoproveedores.detalle') }}"
+                                                    data-toggle="modal"
+                                                    data-target="#myModal"
+                                                    data-token="{{ csrf_token() }}"
+                                                    >
+                                                <i class="fa fa-external-link">Solicitar Insumos</i>
+                                            </a>
                                         </h4>
                                     </div>
                                     <div id="collapseOne" class="panel-collapse collapse in">
@@ -156,10 +169,16 @@
                         </div>
                     </div>
                 </div>
+                @include('catalogosInsumos.modal-proveedores')
                 <div class="box-footer">
                     {!! Form::submit('Guardar', ['class' => 'btn btn-warning pull-right']) !!}
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts-modulo')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    {!! Html::script('admin/js/proveedores.js') !!}
 @endsection
