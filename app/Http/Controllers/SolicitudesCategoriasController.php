@@ -14,6 +14,7 @@ use App\Models\Categoria;
 use App\Models\Servicios;
 use App\Models\InsumosSolicitudes;
 use App\User;
+use App\Models\Solicitudes;
 
 use Flash;
 use Response;
@@ -233,6 +234,15 @@ class SolicitudesCategoriasController extends AppBaseController
 		Flash::success('Solicitudes deleted successfully.');
 
 		return redirect(route('solicitudes.index'));
+	  }
+
+	  public function listado()
+	  {
+		$solicitudes = Solicitudes::orderBy('id', 'DESC')->get();;
+
+		//dd($solicitudes);
+
+		return view('solicitudes.indexsolicitudes')->with('solicitudes', $solicitudes);
 	  }
 
 }

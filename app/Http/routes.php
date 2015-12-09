@@ -113,6 +113,11 @@ Route::get('solicitudes/{id}/delete', [
   'uses' => 'SolicitudesCategoriasController@destroy',
 ]);
 
+Route::get('solicitudes/admin/listado', [
+  'as' => 'solicitudes.listado',
+  'uses' => 'SolicitudesCategoriasController@listado',
+]);
+
 
 /*******************************LOGIN******************************************/
 
