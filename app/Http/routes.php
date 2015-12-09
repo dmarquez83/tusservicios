@@ -73,6 +73,21 @@ Route::get('public/dashborad/consultor',
         return view('dashborad.tableconsultor');
     });
 
+/**********************************registro catalogo insumo**********************************/
+
+Route::get('admin/catalogos',
+    function ()    {
+        return view('catalogos.tablecatalogo');
+    });
+
+/**********************************registro servicios**********************************/
+
+Route::get('public/regservicios',
+    function ()    {
+        return view('servicios.tableregservicios');
+    });
+
+
 
 /**********************************solicitudes**********************************/
 

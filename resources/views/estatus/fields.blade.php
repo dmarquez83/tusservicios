@@ -1,4 +1,4 @@
-<!--- Nombre Field --->
+<   <!--- Nombre Field --->
 <div class="row">
     <div class="input-field">
         {!! Form::label('nombre', 'Nombre:') !!}

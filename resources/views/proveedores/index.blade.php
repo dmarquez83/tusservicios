@@ -22,3 +22,26 @@
 
     </div>
 @endsection
+
+@section('scripts')
+
+    {!! Html::script('assets/inc/bootstrap/js/jquery.dataTables.min.js') !!}
+    {!! Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js') !!}
+    <!-- flexslider -->
+    {!! Html::script('assets/inc/flexslider/jquery.flexslider.js') !!}
+
+    <script type="text/javascript">
+        $(function () {
+            $("#example1").DataTable();
+
+            $('#example2').DataTable();
+        });
+
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+
+
+@endsection

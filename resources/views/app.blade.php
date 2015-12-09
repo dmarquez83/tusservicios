@@ -12,10 +12,8 @@
     {!! Html::style('assets/inc/bootstrap/css/bootstrap.min.css') !!}
     {!! Html::style('assets/inc/bootstrap/css/dataTables.bootstrap.css') !!}
     {!! Html::style('assets/inc/bootstrap/css/AdminLTE.min.css') !!}
-
     <!-- Bootstrap time Picker -->
     {!! Html::style('assets/inc/bootstrap/css/bootstrap-timepicker.min.css') !!}
-
     {!! Html::style('assets/inc/bootstrap/css/skins/skin-black-light.css') !!}
     {!! Html::style('assets/css/main.css') !!}
 
