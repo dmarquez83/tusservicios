@@ -7,6 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddColumnEvaluacionesSolicitud' => $baseDir . '/database/migrations/2015_12_01_180450_add_column_evaluaciones_solicitud.php',
+    'AddColumnFotoCatalogosInsumos' => $baseDir . '/database/migrations/2015_12_10_193939_add_column_foto_catalogos_insumos.php',
+    'AddColumnNombreinsumos' => $baseDir . '/database/migrations/2015_12_10_193656_add_column_nombreinsumos.php',
+    'AddColumnPrecioServicios' => $baseDir . '/database/migrations/2015_12_10_194019_add_column_precio_servicios.php',
     'CategoriasTableSeeder' => $baseDir . '/database/seeds/CategoriasTableSeeder.php',
     'CreateCatalogosInsumosTable' => $baseDir . '/database/migrations/2015_12_01_164534_create_catalogosInsumos_table.php',
     'CreateCatalogosTable' => $baseDir . '/database/migrations/2015_12_01_161502_create_catalogos_table.php',
@@ -34,6 +37,7 @@ return array(
     'CreateUsersTable' => $baseDir . '/database/migrations/2015_11_02_000000_create_users_table.php',
     'CreateUsuariosServiciosTable' => $baseDir . '/database/migrations/2015_12_01_170013_create_usuariosServicios_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
+    'DeleteColumnDescripcionCatalogosInsumos' => $baseDir . '/database/migrations/2015_12_10_193912_delete_column_descripcion_catalogos_insumos.php',
     'EstatusTableSeeder' => $baseDir . '/database/seeds/EstatusTableSeeder.php',
     'EvaluacionesTableSeeder' => $baseDir . '/database/seeds/EvaluacionesTableSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
@@ -112,7 +116,6 @@ return array(
     'InsumoSolicitudSeeder' => $baseDir . '/database/seeds/InsumoSolicitudSeeder.php',
     'InsumosProveedoresSeeder' => $baseDir . '/database/seeds/InsumosProveedoresSeeder.php',
     'InsumosServiciosSeeder' => $baseDir . '/database/seeds/InsumosServiciosSeeder.php',
-    'InsumosSolicitudSeeder' => $baseDir . '/database/seeds/InsumosSolicitudSeeder.php',
     'InsumosTableSeeder' => $baseDir . '/database/seeds/InsumosTableSeeder.php',
     'PHPUnit_Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
     'PHPUnit_Extensions_GroupTestSuite' => $vendorDir . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',

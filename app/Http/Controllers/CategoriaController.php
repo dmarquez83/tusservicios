@@ -31,7 +31,7 @@ class CategoriaController extends AppBaseController
    */
   public function index()
   {
-	$categorias = $this->categoriaRepository->paginate(10);
+	$categorias = $this->categoriaRepository->all();
 
 	return view('categorias.index')
 	  ->with('categorias', $categorias);

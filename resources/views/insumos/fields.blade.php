@@ -4,6 +4,15 @@
             <h3 class="box-title">Insumos</h3>
         </div>
         <div class="box-body">
+
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    {!! Form::label('nombre', 'Nombre:', ['class' => 'control-label']) !!}
+                </div>
+                <div class="col-sm-6 form-group">
+                    {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+                </div>
+            </div>
             <div class="row">
                 <div class="col-sm-6 form-group">
                     {!! Form::label('descripcion', 'Descripcion:', ['class' => 'control-label']) !!}
@@ -18,7 +27,7 @@
                     {!! Form::text('descripcion', null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="col-sm-6">
-                    {!! Form::textarea('referencia', null, ['class' => 'form-control','rows' =>'3']) !!}
+                    {!! Form::text('referencia', null, ['class' => 'form-control','rows' =>'3']) !!}
                 </div>
             </div>
 

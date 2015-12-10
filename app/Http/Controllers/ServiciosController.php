@@ -98,10 +98,9 @@ class ServiciosController extends AppBaseController
    */
   public function create()
   {
-	/*ojo aqui debe venir la categoria para seleccionar el tipo de servicio*/
-	/*ojo debe salir la opcion para que selecciona la categoria y de hay se desplegue los tipos de servicios segun la categoria*/
+    $categorias = Categoria::orderBy('id', 'asc')->lists('nombre', 'id');
 
-	$tiposervicios = Tiposervicio::where('id_categoria','6')->orderBy('id', 'asc')->lists('nombre', 'id');
+	$tiposervicios = Tiposervicio::orderBy('id', 'asc')->lists('nombre', 'id');
 
 	$estatu = Estatu::where('tabla','servicios')->orderBy('id', 'asc')->lists('nombre', 'id');
 
@@ -109,7 +108,7 @@ class ServiciosController extends AppBaseController
 
 	//$email = DB::table('users')->where('name', 'John')->value('email');
 
-	return view('servicios.create', compact('tiposervicios','estatu','ponderacion'));
+	return view('servicios.create', compact('tiposervicios','estatu','ponderacion','categorias'));
   }
 
 
@@ -153,7 +152,9 @@ class ServiciosController extends AppBaseController
 	$this->validate($request, [
 	  'nombre' => 'required|unique:categorias|max:255',
 	  'descripcion' => 'required|max:500',
-	  'foto'  => 'required'
+	  'foto'  => 'required',
+	  'tiposervicio_id' => 'required',
+	  'precio'  => 'required'
 	]);
 	/***************************/
 
@@ -189,10 +190,11 @@ class ServiciosController extends AppBaseController
 	$data = [
 	  'nombre' => $request->get('nombre'),
 	  'descripcion' => str_slug($request->get('descripcion')),
-	  'id_tipo_servicio' => $request->get('id_tipo_servicio'),
-	  'id_estatus' => $request->get('id_estatus'),
+	  'id_tipo_servicio' => $request->get('tiposervicio_id'),
+	  'id_estatus' => '1',
 	  'ponderacion' => $request->get('ponderacion'),
-	  'foto' => $file->getClientOriginalName()
+	  'foto' => $file->getClientOriginalName(),
+	  'precio' => $request->get('precio')
 	];
 
 

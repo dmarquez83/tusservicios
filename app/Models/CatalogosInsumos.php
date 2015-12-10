@@ -9,7 +9,6 @@ class CatalogosInsumos extends Model
     
 
 	public $fillable = [
-	    "descripcion",
 		"proveedor_id",
 		"proveedor_id",
 		"insumo_id",
@@ -18,7 +17,8 @@ class CatalogosInsumos extends Model
 		"estatus_id",
 		"catalogo_id",
 		"catalogo_id",
-		"precio"
+		"precio",
+	    "foto"
 	];
 
     /**
@@ -27,15 +27,15 @@ class CatalogosInsumos extends Model
      * @var array
      */
     protected $casts = [
-        "descripcion" => "string",
 		"proveedor_id" => "integer",
 		"insumo_id" => "integer",
 		"estatus_id" => "integer",
-		"catalogo_id" => "integer"
+		"catalogo_id" => "integer",
+	    "foto" => "string"
     ];
 
 	public static $rules = [
-	    "descripcion" => "required"
+
 	];
 
 }

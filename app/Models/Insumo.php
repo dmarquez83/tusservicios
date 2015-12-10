@@ -12,7 +12,8 @@ class Insumo extends Model
 	public $fillable = [
 	    "descripcion",
 		"referencia",
-	    "foto"
+	    "foto",
+	  	"nombre"
 	];
 
     /**
@@ -23,7 +24,8 @@ class Insumo extends Model
     protected $casts = [
         "descripcion" => "string",
 		"referencia" => "string",
-	    "foto" => "string"
+	    "foto" => "string",
+	  	"nombre" => "string",
     ];
 
 	public static $rules = [

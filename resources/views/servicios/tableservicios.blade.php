@@ -1,5 +1,5 @@
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <a class="btn btn-primary pull-right btn-sm" style="margin-top: 25px" href="#">Agregar Servicio</a>
+    <a class="btn btn-primary pull-right btn-sm" style="margin-top: 25px" href="{!! route('categorias.servicios.create') !!}">Agregar Servicio</a>
 </div>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="box">
@@ -12,6 +12,7 @@
                     <tr>
                         <th>Servicios</th>
                         <th style="width: 700px">Descripcion</th>
+                        <th style="width: 700px">Categoria</th>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -20,6 +21,7 @@
                     <tr>
                         <td>{{$servicios->nombre}}</td>
                         <td>{{$servicios->descripcion}}</td>
+                        <td>{{$servicios->nombre_categoria}}</td>
                         <td>
                             <div class="col-sm-6 border-right">
                                 <a class="btn btn-primary" href="{!! route('categorias.servicios.edit', [$servicios->id]) !!}"><i class="glyphicon glyphicon-pencil"></i></a>

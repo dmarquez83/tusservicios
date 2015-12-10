@@ -124,24 +124,7 @@ Route::get('solicitudes/{id}/store', [
 ]);
 
 
-Route::get('admin/solicitudes/listado', [
-  'as' => 'solicitudes.listado',
-  'uses' => 'SolicitudesCategoriasController@listado',
-]);
 
-/**********************************Catalogo Solicitud**********************************/
-
-Route::resource('admin/catalogos', 'CatalogosController');
-
-Route::get('admin/catalogos/crear/{id}', [
-  'as' => 'catalogos.createnew',
-  'uses' => 'CatalogosController@createnew',
-]);
-
-Route::post('catalogo/proveedores', [
-  'as' => 'catalogoproveedores.detalle',
-  'uses' => 'CatalogosController@detalle',
-]);
 
 /*******************************LOGIN******************************************/
 
@@ -293,7 +276,7 @@ Route::group(['middleware' => ['auth']], function()
     });
 
 
-  /**********************************Servicios**********************************/
+  /**********************************Servicios con categorias**********************************/
 
 
     Route::resource('categorias/servicios', 'ServiciosController');
@@ -303,6 +286,8 @@ Route::group(['middleware' => ['auth']], function()
         'as' => 'categorias.servicios.delete',
         'uses' => 'ServiciosController@destroy',
     ]);
+
+  /**********************************Servicios**********************************/
 
     Route::resource('admin/servicios', 'ServiciosAdminController');
 
@@ -375,8 +360,27 @@ Route::group(['middleware' => ['auth']], function()
       'uses' => 'ProveedoresInsumosController@destroy',
     ]);
 
+  /**********************************Lista de Solicitudes **********************/
+
+    Route::get('admin/solicitudes/listado', [
+      'as' => 'solicitudes.listado',
+      'uses' => 'SolicitudesCategoriasController@listado',
+    ]);
 
 
+  /**********************************Catalogo Solicitud**********************************/
+
+    Route::resource('admin/catalogos', 'CatalogosController');
+
+    Route::get('admin/catalogos/crear/{id}', [
+      'as' => 'catalogos.createnew',
+      'uses' => 'CatalogosController@createnew',
+    ]);
+
+    Route::post('catalogo/proveedores', [
+      'as' => 'catalogoproveedores.detalle',
+      'uses' => 'CatalogosController@detalle',
+    ]);
 
 
 
@@ -475,3 +479,10 @@ Route::get('lugares/{id}/delete', [
     'uses' => 'LugaresController@destroy',
 ]);
 
+
+Route::get('dropdown', function(){
+  $id = Input::get('option');
+  $tiposervicios = \App\Models\Categoria::find($id)->tiposervicio;
+ // dd ($tiposervicios);
+  return $tiposervicios->lists('tiposervicios', 'id');
+});

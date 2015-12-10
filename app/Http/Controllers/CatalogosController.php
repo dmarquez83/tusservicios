@@ -14,9 +14,17 @@ use Response;
 use App\Models\Solicitudes;
 use App\Models\InsumosSolicitudes;
 use Illuminate\Support\Collection as Collection;
+
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\Image as Image;
+use Illuminate\Support\Facades\File;
+
+
 use App\Models\ProveedoresInsumos;
 use App\User;
 use Mail;
+
+
 
 class CatalogosController extends AppBaseController
 {
@@ -99,6 +107,34 @@ class CatalogosController extends AppBaseController
 
 		foreach ($request->get($proveedores) as $proveedor){
 
+		  /******************Proceso de la imagen***************/
+			//$file = Input::file('foto');
+		   $file = Input::file('foto'.$insumo->insumo_id.$proveedor);
+
+			  if($file){
+
+				  try {
+
+					$image = \Intervention\Image\Facades\Image::make($file);
+
+				  } catch (Exception $e) {
+
+					return redirect()->back()->withErrors('Error: ' . $e->getMessage());
+
+				  }
+
+				  //Ruta donde queremos guardar las imagenes
+				  $path = public_path().'/catalogos-img/';
+
+				  // Guardar Original
+				  $image->save($path.$catalogoId.$file->getClientOriginalName());
+
+				  $nombrefoto = $catalogoId.$file->getClientOriginalName();
+
+			  }else $nombrefoto=NULL;
+
+		  /*****************fin proceso de la imagen************/
+
 		  $precio = 'precio'.$insumo->insumo_id.$proveedor;
 
 		  $data= [
@@ -109,6 +145,7 @@ class CatalogosController extends AppBaseController
 			'estatus_id'  => 6,
 			'created_at' => new \DateTime,
 			'updated_at' =>  new \Datetime,
+			'foto' => $nombrefoto
 		  ];
 
 		  //dd($data);
@@ -131,7 +168,7 @@ class CatalogosController extends AppBaseController
 
 
 
-	  return redirect(route('categorias.index'));
+	  return redirect(route('solicitudes.listado'));
 
 
 	  /*foreach ($request->get('insumo') as $insumos)

@@ -20,7 +20,8 @@ class Servicios extends Model
 		"id_tipo_servicio",
 		"id_estatus",
 		"ponderacion",
-	    "foto"
+	    "foto",
+	    "precio"
 	];
 
     /**
@@ -34,7 +35,8 @@ class Servicios extends Model
 		"id_tipo_servicio" => "integer",
 		"id_estatus" => "integer",
 		"ponderacion" => "integer",
-	    "foto" => "string"
+	    "foto" => "string",
+	    "precio" => "float",
     ];
 
 	public static $rules = [

@@ -35,6 +35,11 @@ class Categoria extends Model
 
 	];
 
+	  public function tiposervicio() {
+		return $this->hasMany('App\Models\Tiposervicio', 'id_categoria');
+	  }
+
+
 	/**
 	 * Set the foto
 	 *

@@ -16,7 +16,7 @@
 
                 @endif
             </div>
-            @include('common.paginate', ['records' => $categorias])
+
     </div>
 @endsection
 
