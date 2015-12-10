@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Models\CatalogosInsumos;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -14,6 +15,8 @@ use App\Models\Solicitudes;
 use App\Models\InsumosSolicitudes;
 use Illuminate\Support\Collection as Collection;
 use App\Models\ProveedoresInsumos;
+use App\User;
+use Mail;
 
 class CatalogosController extends AppBaseController
 {
@@ -49,7 +52,7 @@ class CatalogosController extends AppBaseController
 
 	  $solicitudes = Solicitudes::join('servicios','servicios.id','=','solicitudes.id_servicio')
 		->where('solicitudes.id','=',$id)
-		->select('solicitudes.descripcion','solicitudes.fecha','solicitudes.hora','solicitudes.direccion','solicitudes.telefono','solicitudes.horas as contacto','servicios.nombre','servicios.descripcion as descripcion_servicio')
+		->select('solicitudes.id','solicitudes.descripcion','solicitudes.fecha','solicitudes.hora','solicitudes.direccion','solicitudes.telefono','solicitudes.horas as contacto','servicios.nombre','servicios.descripcion as descripcion_servicio')
 		->orderBy('solicitudes.id', 'DESC')->get();
 
 	  //$insumos = InsumosSolicitudes::where('solicitud_id',$id)->orderBy('id', 'DESC')->get();
@@ -75,13 +78,78 @@ class CatalogosController extends AppBaseController
 	 */
 	public function store(CreateCatalogosRequest $request)
 	{
-		$input = $request->all();
 
-		$catalogos = $this->catalogosRepository->create($input);
+	  //dd($request);
 
-		Flash::success('Catalogos saved successfully.');
+	  $insumos = InsumosSolicitudes::where('solicitud_id',$request->get('solicitud_id'))->orderBy('id', 'DESC')->get();
 
-		return redirect(route('catalogos.index'));
+	  //dd($insumos);
+
+	  $catalogoId = \DB::table('catalogos')->insertGetId(array(
+		'descripcion'  => $request->get('descripcion'),
+		'solicitud_id'  => $request->get('solicitud_id'),
+		'estatus_id' => 5,
+		'created_at' => new \DateTime,
+		'updated_at' =>  new \Datetime,
+	  ));
+
+	  foreach ($insumos  as $insumo){
+
+		$proveedores = 'proveedor_id'.$insumo->insumo_id;
+
+		foreach ($request->get($proveedores) as $proveedor){
+
+		  $precio = 'precio'.$insumo->insumo_id.$proveedor;
+
+		  $data= [
+			'catalogo_id'  => $catalogoId,
+			'proveedor_id'  => $proveedor,
+			'precio'  => $request->get($precio),
+			'insumo_id'  => $insumo->insumo_id,
+			'estatus_id'  => 6,
+			'created_at' => new \DateTime,
+			'updated_at' =>  new \Datetime,
+		  ];
+
+		  //dd($data);
+
+		  CatalogosInsumos::create($data);
+
+		}
+
+	  }
+
+
+
+	  Flash::success('Solicitud Guardada correctamente.');
+
+	  $user = User::findOrFail(\Auth::user()->id);
+
+	  Mail::send('emails.solicitud', ['user' => $user], function ($m) use ($user) {
+		$m->to($user->email, $user->name)->subject('Tu Solicitud a sido registrada');
+	  });
+
+
+
+	  return redirect(route('categorias.index'));
+
+
+	  /*foreach ($request->get('insumo') as $insumos)
+      {
+        $data[]= [
+          'solicitud_id'  => $solicitudesId,
+          'insumo_id'  => $insumos,
+          'created_at' => new \DateTime,
+          'updated_at' =>  new \Datetime,
+        ];
+      }*/
+
+	  // dd($data);
+	  //InsumosSolicitudes::create($data);
+
+
+	  //$this->solicitudesRepository->create($data);
+
 	}
 
 	/**

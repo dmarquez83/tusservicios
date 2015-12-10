@@ -1,21 +1,10 @@
 @extends('app')
 
 @section('content')
+    {!! Form::open(['route' => 'admin.catalogos.store', 'files' => 'true']) !!}
+
     <div>
-       {{--  "id" => 1
-        "descripcion" => "sdvsdv"
-        "fecha" => "2015-12-18"
-        "hora" => "8:30"
-        "direccion" => "ferfew"
-        "telefono" => "0426-9728121"
-        "horas" => "fwef"
-        "costo" => "0"
-        "id_usuario" => 4
-        "id_estatus" => 3
-        "id_servicio" => 5
-        "created_at" => "2015-12-04 21:03:19"
-        "updated_at" => "2015-12-04 21:03:19"
-        "id_evaluaciones" => null--}}
+
         @include('flash::message')
 
         <div class="row">
@@ -105,6 +94,16 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    {!! Form::label('Observaciones del Catalogo', 'Observaciones del Catalogo:', ['class' => 'control-label col-sm-4']) !!}
+                                    <div class="col-sm-8">
+                                        {!! Form::textarea('descripcion', null, ['class' => '']) !!}
+                                        {!! Form::hidden('solicitud_id', $solicitudes[0]->id) !!}
+
+                                    </div>
+                                </div>
+                            </div>
 
 
                         </div>
@@ -143,22 +142,17 @@
                                         <div class="box-body">
                                             <div class="">
                                                 <div class="box-body no-padding">
-                                                    <table class="table table-condensed">
+                                                    <table class="table table-condensed" id="tabla-listado-proveedores{{ $insumo->id }}">
+                                                        <thead>
                                                         <tr>
                                                             <th>Proveedor</th>
                                                             <th>Precio</th>
                                                             <th>Foto</th>
                                                         </tr>
-                                                        <tr>
-                                                            <td>Prueba</td>
-                                                            <td>Prueba</td>
-                                                            <td>Prueba</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Prueba</td>
-                                                            <td>Prueba</td>
-                                                            <td>Prueba</td>
-                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                             </div>
@@ -176,9 +170,11 @@
             </div>
         </div>
     </div>
+    {!! Form::close() !!}
 @endsection
 
 @section('scripts-modulo')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    {!! Html::script('assets/inc/bootstrap/js/bootstrap-filestyle.min.js') !!}
     {!! Html::script('admin/js/proveedores.js') !!}
 @endsection

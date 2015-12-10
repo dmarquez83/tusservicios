@@ -27,7 +27,7 @@ $(document).ready(function(){
                 for(var i=0; i<data.length; i++){
 
                     var fila = "<tr class='fil" +  data[i].id + "' >";
-                    fila += "<td><input class='boton_check' type='checkbox' name='" + "proveedor[" + i + "]" + "' value='" + data[i].id + "'></td>";
+                    fila += "<td><input id = " + id_insumo + " class='boton_check' type='checkbox' name='" + "proveedor[" + i + "]" + "' value='" + data[i].id + "'></td>";
                     fila += "<td class='nombre" + data[i].id + "'>" + data[i].nombre + "</td>";
                     fila += "<td class='telefono" + data[i].id + "'>" + data[i].telefono + "</td>";
                     fila += "<td class='correo" + data[i].id + "'>" + data[i].correo + "</td>";
@@ -45,9 +45,9 @@ $(document).ready(function(){
 
     $(document).on('change','.boton_check',function(){
 
-        var listaInsumos = new Array();
+        var listaProveedores = new Array();
 
-        var tabla = $("#tabla-listado-insumos tbody");
+        var idlistaProveedores = new Array();
 
         var row;
 
@@ -60,20 +60,24 @@ $(document).ready(function(){
 
         if($(this).prop('checked')){
 
-            listaInsumos.push(parseInt($(this).val())) ;
+            listaProveedores.push(parseInt($(this).val())) ;
+
+            idlistaProveedores.push(parseInt($(this).attr("id"))) ; //con esto tomo el id del insumo que se lo di al input del check para crear un tabla por cada insumo
+           // console.log(idlistaProveedores);
 
 
-           $('input[name^="insumoh"]').each(function() {
+
+          /* $('input[name^="proveedor_id"]').each(function() {         //esto es para validar que no se repita el mismo proveedor el problema es con las tablas
 
                 //alert($(this).val());
 
-                if(listaInsumos != $(this).val()){
+                if(listaProveedores != $(this).val()){
 
                    repetido = 1;
 
                 }else{
 
-                   alert('Este insumo ya se encuentra en la Lista');
+                   alert('Este Proveedor ya se encuentra en la Lista');
 
                    x = 2;
 
@@ -82,18 +86,22 @@ $(document).ready(function(){
 
 
                 }
-           });
+           });*/
 
 
 
             if(repetido == 1 && x != 2){
 
-                var  fila = "<tr " + "id=fila" + listaInsumos + ">";
+                var tabla = $("#tabla-listado-proveedores" + idlistaProveedores + " tbody");
 
-                fila += "<td>" +  $(".fil" + listaInsumos + " td")[0].innerHTML + "</td>";
-                fila += "<td>" +  $(".fil" + listaInsumos + " td")[2].innerHTML +
-                     "<input type='hidden' class='insumos' name='insumoh["+  listaInsumos +  "]' value='" + listaInsumos + "'></input></td>";
-                fila += "<td>" +  $(".fil" + listaInsumos + " td")[3].innerHTML + "</td>";
+
+                var  fila = "<tr " + "id=fila" + listaProveedores + ">";
+
+                fila += "<td>" +  $(".fil" + listaProveedores + " td")[1].innerHTML + "</td>";
+                fila += "<td>" +
+                     "<input type='text'  name='precio" + idlistaProveedores +  listaProveedores +  "' value=''></input></td>" +
+                     "<input type='hidden'  name='proveedor_id" + idlistaProveedores + "["+  listaProveedores +  "]' value='" + listaProveedores + "'></input></td>";
+                fila += "<td>" +  "<input type=file  name='foto" + idlistaProveedores + "["+  listaProveedores +  "]'>" + "</td>";
                 fila += "<td>" +  "<button class='delete'>Borrar</button>" +  "</td>";
                 fila += "</tr>";
                 tabla.append(fila);

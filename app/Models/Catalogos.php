@@ -28,7 +28,7 @@ class Catalogos extends Model
     ];
 
 	public static $rules = [
-	    "descripcion" => "required"
+
 	];
 
 }
