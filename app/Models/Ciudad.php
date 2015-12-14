@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model as Model;
 class Ciudad extends Model
 {
     
-	public $table = "ciudads";
+	public $table = "ciudades";
     
 
 	public $fillable = [

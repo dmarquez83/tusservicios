@@ -197,7 +197,7 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function ()
 	});
 });
 
-// ADMIN -------------
+// ADMIN ------------------------------------------------------------------------------------
 
 Route::group(['middleware' => ['auth']], function()
 {
@@ -391,8 +391,26 @@ Route::group(['middleware' => ['auth']], function()
     ]);
 
 
+    /**********************************Ciudades**********************************/
 
-});
+    Route::resource('admin/ciudades', 'CiudadController');
+
+    Route::get('admin/ciudades/delete/{id}', [
+        'as' => 'admin.ciudades.delete',
+        'uses' => 'CiudadController@destroy',
+    ]);
+
+    /**********************************Sectores**********************************/
+
+    Route::resource('admin/sectores', 'SectorController');
+
+    Route::get('admin/sectores/delete/{id}', [
+        'as' => 'admin.sectores.delete',
+        'uses' => 'SectorController@destroy',
+    ]);
+
+
+}); /****************************fin de admin *******************------------------------***/
 
 
 /**********************************Mapa**********************************/
@@ -496,17 +514,3 @@ Route::get('dropdown', function(){
 });
 
 
-Route::resource('admin/ciudades', 'CiudadController');
-
-Route::get('admin/ciudades/delete/{id}', [
-    'as' => 'admin.ciudades.delete',
-    'uses' => 'CiudadController@destroy',
-]);
-
-
-Route::resource('admin/sectores', 'SectorController');
-
-Route::get('admin/sectores/delete/{id}', [
-    'as' => 'admin.sectores.delete',
-    'uses' => 'SectorController@destroy',
-]);

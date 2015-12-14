@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
          $this->call(InsumosProveedoresSeeder::class);
          $this->call(SolicitudTableSeeder::class);
          $this->call(InsumoSolicitudSeeder::class);
+         $this->call(CiudadesTableSeeder::class);
+         $this->call(SectoresTableSeeder::class);
 
 
 

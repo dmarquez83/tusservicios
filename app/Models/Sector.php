@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model as Model;
 class Sector extends Model
 {
     
-	public $table = "sectors";
+	public $table = "sectores";
     
 
 	public $fillable = [
