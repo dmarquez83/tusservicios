@@ -5,7 +5,7 @@
     <div class="row margin-top_small">
         <div class="col s12 m6 ">
             @include('common.errors')
-            {!! Form::open(['route' => 'admin.proveedores.store']) !!}
+            {!! Form::open(['route' => 'admin.proveedores.store', 'method' => 'POST', 'files' => 'true']) !!}
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h2 class="page-header">Crear Proveedor</h2>
             </div>
