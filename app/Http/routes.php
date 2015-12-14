@@ -351,6 +351,14 @@ Route::group(['middleware' => ['auth']], function()
       'uses' => 'ProveedoresController@destroy',
     ]);
 
+
+    Route::get('admin/insumos/listado', [
+        'as' => 'admin.insumos.getListadoInsumos',
+        'uses' => 'InsumoController@getListadoInsumos',
+    ]);
+
+
+
   /**********************************Proveedores Insumos **********************/
 
     Route::resource('proveedoresInsumos', 'ProveedoresInsumosController');
