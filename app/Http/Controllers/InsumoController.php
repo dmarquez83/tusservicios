@@ -99,6 +99,8 @@ class InsumoController extends AppBaseController
 
 	  Flash::success('Insumos Guardada Correctamente.');
 
+
+
 	  return redirect(route('insumos.index'));
 	}
 
@@ -219,5 +221,19 @@ class InsumoController extends AppBaseController
 		Flash::success('Insumo borrado correctamente.');
 
 		return redirect(route('insumos.index'));
+	}
+
+	public function getListadoInsumos()
+	{
+
+
+		$insumos = Insumo::orderBy('insumos.id', 'DESC')->get();
+
+		// dd($insumos);
+
+		return json_encode($insumos);
+
+		//return ($insumos);
+
 	}
 }
