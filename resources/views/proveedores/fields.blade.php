@@ -103,6 +103,14 @@
                     <div class="tab-pane" id="tab_2">
                         <div class="row">
                             <div class="col-sm-6 form-group">
+                                {!! Form::label('nombre', 'Nombre:', ['class' => 'control-label']) !!}
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
                                 {!! Form::label('descripcion', 'Descripcion:', ['class' => 'control-label']) !!}
                             </div>
                             <div class="col-sm-6">
@@ -136,7 +144,7 @@
 
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
-                                {!! Form::submit('Guardar', ['class' => 'btn btn-primary procesarForm btn-opc']) !!}
+                                {!! Form::submit('Guardar', ['class' => 'btn btn-primary procesarForm btn-opc pull-right']) !!}
                             </div>
                         </div>
                     </div>
