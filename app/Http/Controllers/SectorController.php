@@ -9,6 +9,7 @@ use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
 use App\Models\Sector;
 use App\Models\Ciudad;
+use Illuminate\Support\Facades\DB;
 
 class SectorController extends AppBaseController
 {
@@ -155,5 +156,18 @@ class SectorController extends AppBaseController
 		Flash::success('Sector deleted successfully.');
 
 		return redirect(route('admin.sectores.index'));
+	}
+
+	public function listado($id)
+	{
+
+		$sectores = DB::table('sectores')->join('ciudades', 'ciudades.id', '=', 'sectores.ciudad_id')
+			->where('sectores.ciudad_id', '=', $id)
+			->select('sectores.id', 'sectores.nombre', 'sectores.ciudad_id','ciudades.nombre')
+			->get();
+
+		//	dd($ciudad);
+
+		return ($sectores);
 	}
 }

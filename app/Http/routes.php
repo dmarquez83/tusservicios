@@ -400,6 +400,12 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'CiudadController@destroy',
     ]);
 
+    Route::get('admi/ciudades/listado', [
+        'as' => 'admin.ciudades.listado',
+        'uses' => 'CiudadController@listado',
+    ]);
+
+
     /**********************************Sectores**********************************/
 
     Route::resource('admin/sectores', 'SectorController');
@@ -407,6 +413,11 @@ Route::group(['middleware' => ['auth']], function()
     Route::get('admin/sectores/delete/{id}', [
         'as' => 'admin.sectores.delete',
         'uses' => 'SectorController@destroy',
+    ]);
+
+    Route::get('admi/sectores/listado/{id}', [
+        'as' => 'admin.sectores.listado',
+        'uses' => 'SectorController@listado',
     ]);
 
 

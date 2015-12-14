@@ -7,6 +7,7 @@ use App\Libraries\Repositories\CiudadRepository;
 use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
+use App\Models\Ciudad;
 
 class CiudadController extends AppBaseController
 {
@@ -153,5 +154,14 @@ class CiudadController extends AppBaseController
 		Flash::success('Ciudad deleted successfully.');
 
 		return redirect(route('admin.ciudades.index'));
+	}
+
+	public function listado()
+	{
+		$ciudad = Ciudad::all();
+
+	//	dd($ciudad);
+
+		return ($ciudad);
 	}
 }
