@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+
+use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Requests\CreateProveedoresRequest;
 use App\Http\Requests\UpdateProveedoresRequest;
@@ -7,6 +10,11 @@ use App\Libraries\Repositories\ProveedoresRepository;
 use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
+
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\Image as Image;
+use Illuminate\Support\Facades\File;
+use App\Models\Insumo;
 
 class ProveedoresController extends AppBaseController
 {
@@ -49,15 +57,53 @@ class ProveedoresController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function store(CreateProveedoresRequest $request)
+	public function store(Request $request)
 	{
-		$input = $request->all();
+		if($request->get('descripcion')){
 
-		$proveedores = $this->proveedoresRepository->create($input);
+			$this->validate($request, [
+				'descripcion' => 'required|max:500',
+				'referencia' => 'required|max:100',
+				'foto'  => 'required'
+			]);
 
-		Flash::success('Proveedores guardado correctamente.');
 
-		return redirect(route('admin.proveedores.index'));
+			$file = Input::file('foto');
+			//Creamos una instancia de la libreria instalada
+
+			$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
+
+			//Ruta donde queremos guardar las imagenes
+			$path = public_path().'/insumos-img/';
+
+			// Guardar Original
+			$image->save($path.$file->getClientOriginalName());
+
+			$data = [
+				'descripcion' => $request->get('descripcion'),
+				'referencia' => $request->get('referencia'),
+				'foto' => $file->getClientOriginalName(),
+				'nombre' => $request->get('nombre')
+			];
+
+
+			Insumo::create($data);
+
+			Flash::success('Insumos Guardada Correctamente.');
+
+		}else{
+
+			$input = $request->all();
+
+			$proveedores = $this->proveedoresRepository->create($input);
+
+			Flash::success('Proveedores guardado correctamente.');
+
+			return redirect(route('admin.proveedores.index'));
+
+		}
+
+
 	}
 
 	/**
@@ -151,5 +197,11 @@ class ProveedoresController extends AppBaseController
 		Flash::success('Proveedores borrados correctamente.');
 
 		return redirect(route('admin.proveedores.index'));
+	}
+
+	public function storeInsumos($data)
+	{
+
+
 	}
 }
