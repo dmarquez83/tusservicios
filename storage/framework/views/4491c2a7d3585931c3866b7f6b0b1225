@@ -1,0 +1,21 @@
+<!-- Nombre Field -->
+<div class="form-group">
+    <?php echo Form::label('nombre', 'Nombre:'); ?>
+
+    <p><?php echo $tiposervicio->nombre; ?></p>
+</div>
+
+<!-- Descripcion Field -->
+<div class="form-group">
+    <?php echo Form::label('descripcion', 'Descripcion:'); ?>
+
+    <p><?php echo $tiposervicio->descripcion; ?></p>
+</div>
+
+<!-- Id Categoria Field -->
+<div class="form-group">
+    <?php echo Form::label('id_categoria', 'Id Categoria:'); ?>
+
+    <p><?php echo $tiposervicio->id_categoria; ?></p>
+</div>
+

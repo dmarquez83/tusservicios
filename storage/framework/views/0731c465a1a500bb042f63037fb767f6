@@ -1,0 +1,49 @@
+<?php $__env->startSection('content'); ?>
+
+    <div>
+
+        <?php echo $__env->make('flash::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <a class="btn btn-primary pull-right btn-sm" style="margin-top: 25px" href="<?php echo route('admin.proveedores.create'); ?>">Agregar Proveedor</a>
+        </div>
+
+        <div class="row">
+            <?php if($proveedores->isEmpty()): ?>
+                <div class="well text-center">No Proveedores found.</div>
+            <?php else: ?>
+                <?php echo $__env->make('proveedores.table', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php endif; ?>
+        </div>
+
+        <?php echo $__env->make('common.paginate', ['records' => $proveedores], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
+
+    <?php echo Html::script('assets/inc/bootstrap/js/jquery.dataTables.min.js'); ?>
+
+    <?php echo Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js'); ?>
+
+    <!-- flexslider -->
+    <?php echo Html::script('assets/inc/flexslider/jquery.flexslider.js'); ?>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $("#example1").DataTable();
+
+            $('#example2').DataTable();
+        });
+
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

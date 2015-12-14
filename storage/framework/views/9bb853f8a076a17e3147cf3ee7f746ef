@@ -1,0 +1,29 @@
+<?php echo Form::open(['route' => 'auth/register', 'class' => 'form']); ?>
+
+
+<div class="form-group">
+    <label><?php echo e(trans('form.label.name')); ?></label>
+    <?php echo Form::input('text', 'name', '', ['class'=> 'form-control']); ?>
+
+</div>
+<div class="form-group">
+    <label><?php echo e(trans('form.label.email')); ?></label>
+    <?php echo Form::email('email', '', ['class'=> 'form-control']); ?>
+
+</div>
+<div class="form-group">
+    <label><?php echo e(trans('form.label.password')); ?></label>
+    <?php echo Form::password('password', ['class'=> 'form-control']); ?>
+
+</div>
+
+<div class="form-group">
+    <label><?php echo e(trans('form.label.password_confirmation')); ?></label>
+    <?php echo Form::password('password_confirmation', ['class'=> 'form-control']); ?>
+
+</div>
+
+<div>
+
+</div>
+<?php echo Form::close(); ?>

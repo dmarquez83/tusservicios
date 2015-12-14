@@ -1,0 +1,158 @@
+<div class="col-md-10">
+    <div class="box box-warning">
+        <div class="box-header with-border">
+            <h3 class="box-title"><?php echo e($servicios->nombre); ?></h3>
+        </div>
+        <form role="form">
+            <div class="box-body">
+                <div class="col-md-7">
+                    <div class="form-group">
+                        <?php echo Form::label('servicio', 'Servicio:', ['class' => 'control-label']); ?>
+
+                        <h5><?php echo e($servicios->nombre); ?></h5>
+                    </div>
+                    <div class="form-group">
+                        <?php echo Form::label('Descripcion', 'Descripcion:', ['class' => 'control-label']); ?>
+
+                        <h5><?php echo e($servicios->descripcion); ?></h5>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <?php echo Html::image('servicios-img/'.$servicios->foto, '', array('class' => 'responsive-img','width' => '300', 'height' => '200')); ?>
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                     <?php /* <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31383.5441410657!2d-66.94185019999999!3d10.50515445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sve!4v1448581560441" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>*/ ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <?php echo Form::label('direccion', 'Direccion:', ['class' => 'control-label']); ?>
+
+                        <?php echo Form::textarea('direccion', null,['class' => 'form-control','rows' =>'3']); ?>
+
+                    </div>
+                    <div class="form-group">
+                        <?php echo Form::label('contacto', 'Persona Contacto', ['class' => 'control-label']); ?>
+
+                        <?php echo Form::text('contacto', null, ['class' => 'form-control']); ?>
+
+                    </div>
+                    <div class="form-group">
+                        <?php echo Form::label('telefono', 'Telefono:',['class' => 'control-label']); ?>
+
+                        <?php echo Form::text('telefono', null, ['class' => 'form-control']); ?>
+
+                    </div>
+                    <div class="form-group">
+                        <?php echo Form::label('celular', 'Celular:',['class' => 'control-label']); ?>
+
+                        <?php echo Form::text('celular', null, ['class' => 'form-control']); ?>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <?php echo Form::label('fecha', 'Fecha:',['class' => 'control-label']); ?>
+
+                        <?php echo Form::date('fecha', null, ['class' => 'form-control']); ?>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                <div class="form-group">
+                        <?php echo Form::label('hora', 'Hora:',['class' => 'control-label']); ?>
+
+                        <?php echo Form::text('hora', null, ['class' => 'form-control']); ?>
+
+                    </div>
+                </div>
+                <div class="col-sm-4s">
+                <div class="form-group">
+                    <?php /* no va a estar relacionada a nada el href por que  lo vamos a implementar con ajax */ ?>
+                    <a
+                            href="#"
+                            class="btn btn-primary btn-listado-insumos"
+                            data-id="<?php echo e($servicios->id); ?>"
+                            data-name="<?php echo e($servicios->nombre); ?>"
+                            data-img="<?php echo e(asset('insumos-img/')); ?>"
+                            data-path="<?php echo e(route('insumosSolicitudes.detalle')); ?>"
+                            data-toggle="modal"
+                            data-target="#myModal"
+                            data-token="<?php echo e(csrf_token()); ?>"
+                            >
+                        <i class="fa fa-external-link">Solicitar Insumos</i>
+                    </a>
+                </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <?php echo Form::label('descripcion', 'Descripcion de Asistencia Tecnica:', ['class' => 'control-label']); ?>
+
+                        <?php echo Form::textarea('descripcion', null,['class' => 'form-control','rows' =>'3']); ?>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-solid" id="listaInsumos">
+                        <div class="box-body">
+                            <div class="box-group" id="accordion">
+                                <div class="panel box box-warning">
+                                    <div class="box-header with-border">
+                                        <h4 class="box-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                Ver Insumos
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse">
+                                        <div class="">
+                                            <div class="box-header">
+                                            </div>
+                                            <div class="box-body">
+                                                <table id="tabla-listado-insumos" class="table table-bordered table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Foto</th>
+                                                        <th>Nombre</th>
+                                                        <th>descripcion</th>
+                                                        <th style="width: 10%">Accion</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="box-footer">
+                <?php /*  <a class="btn btn-warning pull-right" href="<?php echo route('solicitudes.store', [$servicios->id]); ?>"><i class="glyphicon glyphicon-shopping-cart left"></i>Solicitar Servicio</a>*/ ?>
+                <?php echo Form::submit('Solicitar Servicio', ['class' => 'btn btn-warning pull-right']); ?>
+
+            </div>
+        </form>
+    </div>
+    <?php echo $__env->make('insumosSolicitudes.modal-insumos', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</div>
+<div class="col-sm-2">
+</div>

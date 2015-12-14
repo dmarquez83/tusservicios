@@ -1,0 +1,23 @@
+<nav>
+    <ul class="pagination">
+    <?php if($previous): ?>
+        <li><a href="<?php echo e($previous); ?>"><?php echo e(trans('blade-pagination::pagination.prev')); ?></a></li>
+    <?php else: ?>
+        <li class="disabled"><span><?php echo e(trans('blade-pagination::pagination.prev')); ?></span></li>
+    <?php endif; ?>
+    <?php foreach($links as $page => $url): ?>
+        <?php if($page == $current): ?>
+            <li class="active"><span><?php echo e($page); ?></span></li>
+        <?php elseif($url): ?>
+            <li><a href="<?php echo e($url); ?>"><?php echo e($page); ?></a></li>
+        <?php else: ?>
+            <li class="disabled"><span><?php echo e(trans('blade-pagination::pagination.div')); ?></span></li>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    <?php if($next): ?>
+        <li><a href="<?php echo e($next); ?>"><?php echo e(trans('blade-pagination::pagination.next')); ?></a></li>
+    <?php else: ?>
+        <li class="disabled"><span><?php echo e(trans('blade-pagination::pagination.next')); ?></span></li>
+    <?php endif; ?>
+    </ul>
+</nav>

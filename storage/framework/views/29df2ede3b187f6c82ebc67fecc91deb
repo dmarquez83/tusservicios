@@ -1,0 +1,60 @@
+<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <h1 class="pull-left">Servicios</h1>
+</div>
+
+<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <?php echo Form::open(array('route' => ['buscar-servicios', $servicios[0]->id_categoria], 'method' => 'GET', 'class' => 'form-control', 'role' => 'search')); ?>
+
+    <div class="input-group margin">
+        <?php echo Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Buscar Servicios']); ?>
+
+        <span class="input-group-btn">
+        <?php echo Form::submit('Buscar', ['class' => "btn btn-primary btn-flat"]); ?>
+
+    </span>
+    </div>
+    <?php echo Form::close(); ?>
+
+</div>
+<br>
+<br>
+<?php foreach($servicios as $servicio): ?>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+        <div class="box box-widget widget-user">
+            <div class="widget-user-header bg-black" style="background: url('/servicios-img/<?php echo e($servicio->foto); ?>') center center;">
+                <h3  class="widget-user-username">
+                    <?php echo e($servicio->nombre); ?>
+
+                </h3>
+            </div>
+            <div class="widget-user-image">
+                <?php echo Html::image('categorias-img/thumb_tusservicios-logo.jpg', '', array('class' => 'img-circle')); ?>
+
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="description-block">
+                            <p><?php echo e($servicio->descripcion); ?></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 border-right">
+                        <div class="description-block">
+                            <a class="description-header" href="<?php echo route('detalle', [$servicio->id]); ?>">Detalle</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 border-right">
+                        <div class="description-block">
+                            <a class="description-header" href="<?php echo route('solicitudes.create', [$servicio->id]); ?>"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+
+

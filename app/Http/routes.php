@@ -494,3 +494,19 @@ Route::get('dropdown', function(){
  // dd ($tiposervicios);
   return $tiposervicios->lists('tiposervicios', 'id');
 });
+
+
+Route::resource('admin/ciudades', 'CiudadController');
+
+Route::get('admin/ciudades/delete/{id}', [
+    'as' => 'admin.ciudades.delete',
+    'uses' => 'CiudadController@destroy',
+]);
+
+
+Route::resource('admin/sectores', 'SectorController');
+
+Route::get('admin/sectores/delete/{id}', [
+    'as' => 'admin.sectores.delete',
+    'uses' => 'SectorController@destroy',
+]);

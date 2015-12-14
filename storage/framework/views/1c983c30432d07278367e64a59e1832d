@@ -1,0 +1,66 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="box box-warning">
+        <div class="box-header">
+            <h3 class="box-title">Insumos</h3>
+        </div>
+        <div class="box-body">
+
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <?php echo Form::label('nombre', 'Nombre:', ['class' => 'control-label']); ?>
+
+                </div>
+                <div class="col-sm-6 form-group">
+                    <?php echo Form::text('nombre', null, ['class' => 'form-control']); ?>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <?php echo Form::label('descripcion', 'Descripcion:', ['class' => 'control-label']); ?>
+
+                </div>
+                <div class="col-sm-6">
+                    <?php echo Form::label('referencia', 'Referencia:', ['class' => 'control-label']); ?>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <?php echo Form::text('descripcion', null, ['class' => 'form-control']); ?>
+
+                </div>
+                <div class="col-sm-6">
+                    <?php echo Form::text('referencia', null, ['class' => 'form-control','rows' =>'3']); ?>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <?php echo form::label('image','Imagen', ['class' => 'control-label']); ?>
+
+                </div>
+                <div class="col-sm-6">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <?php echo form::file('foto',null,['class' => 'form-control']); ?>
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+                    <?php echo Form::submit('Guardar', ['class' => 'btn btn-primary procesarForm btn-opc']); ?>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

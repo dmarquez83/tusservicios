@@ -1,0 +1,118 @@
+<!DOCTYPE Html>
+<Html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?php echo e(trans('home.header.title')); ?></title>
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css'>
+    <?php echo Html::style('assets/inc/bootstrap/css/bootstrap.min.css'); ?>
+
+    <?php echo Html::style('assets/inc/bootstrap/css/bootstrap-theme.min.css'); ?>
+
+    <?php echo Html::style('assets/inc/bootstrap/css/bootstrap-reset.css'); ?>
+
+    <?php echo Html::style('assets/inc/bootstrap/css/AdminLTE.min.css'); ?>
+
+    <?php echo Html::style('assets/inc/flexslider/flexslider.css'); ?>
+
+    <?php echo Html::style('assets/inc/easy-pie-chart/demo/style.css'); ?>
+
+    <?php echo Html::style('assets/inc/magnific/dist/magnific-popup.css'); ?>
+
+    <?php echo Html::style('assets/inc/YTPlayer/css/YTPlayer.css'); ?>
+
+    <?php echo Html::style('assets/inc/font-awesome/css/font-awesome.min.css'); ?>
+
+    <?php echo Html::style('assets/css/style.css'); ?>
+
+    <?php echo Html::style('assets/css/colors.css'); ?>
+
+
+
+</head>
+<body>
+
+    <?php if(\Session::has('message')): ?>
+        <?php echo $__env->make('home.partials.message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php endif; ?>
+
+
+
+        <div class="page-loader"></div>
+
+        <div class="l-wrapper">
+            <?php echo $__env->yieldContent('content'); ?>
+        </div><!-- l-wrapper -->
+
+
+    <!-- LOAD SCRIPTS
+    <?php echo Html::script('assets/inc/js/jquery-1.11.0.min.js'); ?>
+
+    -->
+    <?php echo Html::script('assets/inc/jQuery/jQuery-2.1.4.min.js'); ?>
+
+    <?php echo Html::script('assets/inc/jQueryUI/jquery-ui-1.10.3.min.js'); ?>
+
+    <!-- Bootstrap 3.3.5 -->
+    <?php echo Html::script('assets/inc/bootstrap/js/bootstrap.min.js'); ?>
+
+    <!-- flexslider -->
+    <?php echo Html::script('assets/inc/flexslider/jquery.flexslider.js'); ?>
+
+
+    <!-- script calling -->
+    <?php echo Html::script('assets/inc/js/common.js'); ?>
+
+    <?php echo Html::script('assets/inc/js/app.min.js'); ?>
+
+
+    <!-- skrollr -->
+    <?php echo Html::script('assets/inc/skrollr/dist/skrollr.min.js'); ?>
+
+
+    <!-- easy pie chart -->
+    <?php echo Html::script('assets/inc/easy-pie-chart/dist/jquery.easypiechart.min.js'); ?>
+
+
+    <!-- isotope -->
+    <?php echo Html::script('assets/inc/isotope/jquery.isotope.min.js'); ?>
+
+    <?php echo Html::script('assets/inc/isotope/jquery.isotope.sloppy-masonry.js'); ?>
+
+
+    <!-- nice scroll -->
+    <?php echo Html::script('assets/inc/nice-scroll/jquery.nicescroll.min.js'); ?>
+
+
+    <!-- google maps -->
+    <?php echo Html::script('https://maps.googleapis.com/maps/api/js?sensor=false'); ?>
+
+
+    <!-- Magnific Popup core JS file -->
+    <?php echo Html::script('assets/inc/magnific/dist/jquery.magnific-popup.js'); ?>
+
+
+    <!-- Waypoints -->
+    <?php echo Html::script('assets/inc/waypoints/waypoints.min.js'); ?>
+
+
+    <!-- YTP -->
+    <?php echo Html::script('assets/inc/YTPlayer/inc/jquery.mb.YTPlayer.js'); ?>
+
+
+    <!-- TWITTER SCRIPT -->
+    <?php echo Html::script('assets/inc/tweet/twitter/jquery.tweet.js'); ?>
+
+
+    <!-- contact form checker -->
+    <?php echo Html::script('assets/inc/form-validator/dist/jquery.validate.js'); ?>
+
+
+    <?php echo Html::script('admin/js/insumos.js'); ?>
+
+
+</body>
+</Html>

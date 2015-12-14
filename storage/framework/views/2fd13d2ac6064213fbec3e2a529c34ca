@@ -1,0 +1,23 @@
+<?php $__env->startSection('content'); ?>
+
+    <div class="container">
+
+        <?php echo $__env->make('flash::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        <div class="row">
+            <h1 class="pull-left">Tipo de Servicios</h1>
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="">Nuevo</a>
+        </div>
+
+        <div class="row">
+
+                <?php echo $__env->make('tiposervicios.tabletiposervicios', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        </div>
+
+
+
+
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

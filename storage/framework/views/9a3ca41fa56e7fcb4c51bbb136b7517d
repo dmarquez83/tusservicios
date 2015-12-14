@@ -1,0 +1,25 @@
+<?php $__env->startSection('content'); ?>
+
+    <div class="container">
+
+        <?php echo $__env->make('flash::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        <div class="row">
+            <h1 class="pull-left">Tipousuarios</h1>
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="<?php echo route('tipousuarios.create'); ?>">Add New</a>
+        </div>
+
+        <div class="row">
+            <?php if($tipousuarios->isEmpty()): ?>
+                <div class="well text-center">No Tipousuarios found.</div>
+            <?php else: ?>
+                <?php echo $__env->make('tipousuarios.table', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php endif; ?>
+        </div>
+
+        <?php echo $__env->make('common.paginate', ['records' => $tipousuarios], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,16 @@
+<?php $__env->startSection('content'); ?>
+<div class="container">
+
+    <?php echo $__env->make('common.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+    <?php echo Form::open(['route' => 'admin.sectores.store']); ?>
+
+
+        <?php echo $__env->make('sectores.fields', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+    <?php echo Form::close(); ?>
+
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
