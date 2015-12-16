@@ -7,6 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddColumnEvaluacionesSolicitud' => $baseDir . '/database/migrations/2015_12_01_180450_add_column_evaluaciones_solicitud.php',
+    'AddColumnFotoCatalogosInsumos' => $baseDir . '/database/migrations/2015_12_10_193939_add_column_foto_catalogos_insumos.php',
+    'AddColumnNombreinsumos' => $baseDir . '/database/migrations/2015_12_10_193656_add_column_nombreinsumos.php',
+    'AddColumnPrecioServicios' => $baseDir . '/database/migrations/2015_12_10_194019_add_column_precio_servicios.php',
     'CategoriasTableSeeder' => $baseDir . '/database/seeds/CategoriasTableSeeder.php',
     'CiudadesTableSeeder' => $baseDir . '/database/seeds/CiudadesTableSeeder.php',
     'CreateCatalogosInsumosTable' => $baseDir . '/database/migrations/2015_12_01_164534_create_catalogosInsumos_table.php',
@@ -37,6 +40,9 @@ return array(
     'CreateUsersTable' => $baseDir . '/database/migrations/2015_11_02_000000_create_users_table.php',
     'CreateUsuariosServiciosTable' => $baseDir . '/database/migrations/2015_12_01_170013_create_usuariosServicios_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
+    'DeleteColumnDescripcionCatalogosInsumos' => $baseDir . '/database/migrations/2015_12_10_193912_delete_column_descripcion_catalogos_insumos.php',
+    'DiaTableSeeder' => $baseDir . '/database/seeds/DiaTableSeeder.php',
+    'DiasTableSeeder' => $baseDir . '/database/seeds/DiasTableSeeder.php',
     'EstatusTableSeeder' => $baseDir . '/database/seeds/EstatusTableSeeder.php',
     'EvaluacionesTableSeeder' => $baseDir . '/database/seeds/EvaluacionesTableSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
@@ -111,6 +117,7 @@ return array(
     'Hamcrest\\Type\\IsString' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
     'Hamcrest\\Util' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+    'HoraTableSeeder' => $baseDir . '/database/seeds/HoraTableSeeder.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
     'InsumoSolicitudSeeder' => $baseDir . '/database/seeds/InsumoSolicitudSeeder.php',
     'InsumosProveedoresSeeder' => $baseDir . '/database/seeds/InsumosProveedoresSeeder.php',
@@ -558,4 +565,5 @@ return array(
     'TipoServiciosTableSeeder' => $baseDir . '/database/seeds/TipoServiciosTableSeeder.php',
     'TipoUsuarioTableSeeder' => $baseDir . '/database/seeds/TipoUsuarioTableSeeder.php',
     'UsersTableSeeder' => $baseDir . '/database/seeds/UsersTableSeeder.php',
+    'horasTableSeeder' => $baseDir . '/database/seeds/HorasTableSeeder.php',
 );

@@ -30,8 +30,8 @@ class DatabaseSeeder extends Seeder
          $this->call(InsumoSolicitudSeeder::class);
          $this->call(CiudadesTableSeeder::class);
          $this->call(SectoresTableSeeder::class);
-
-
+         $this->call(DiaTableSeeder::class);
+         $this->call(HoraTableSeeder::class);
 
         Model::reguard();
     }
