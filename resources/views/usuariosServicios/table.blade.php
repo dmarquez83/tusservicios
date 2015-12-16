@@ -14,8 +14,8 @@
 			<td>{!! $usuariosServicios->user_id !!}</td>
 			<td>{!! $usuariosServicios->user_id !!}</td>
             <td>
-                <a href="{!! route('usuariosServicios.edit', [$usuariosServicios->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
-                <a href="{!! route('usuariosServicios.delete', [$usuariosServicios->id]) !!}" onclick="return confirm('Are you sure wants to delete this UsuariosServicios?')"><i class="glyphicon glyphicon-remove"></i></a>
+                <a href="{!! route('usuario.servicios.edit', [$usuariosServicios->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
+                <a href="{!! route('usuario.servicios.delete', [$usuariosServicios->id]) !!}" onclick="return confirm('Are you sure wants to delete this UsuariosServicios?')"><i class="glyphicon glyphicon-remove"></i></a>
             </td>
         </tr>
     @endforeach

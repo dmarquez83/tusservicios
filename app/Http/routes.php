@@ -462,7 +462,9 @@ Route::get('dias/{id}/delete', [
 
 
 
-Route::resource('usuariosServicios', 'UsuariosServiciosController');
+//Route::resource('usuariosServicios', 'UsuariosServiciosController');
+
+Route::resource('usuario/servicios', 'UsuariosServiciosController');
 
 Route::get('usuariosServicios/{id}/delete', [
     'as' => 'usuariosServicios.delete',

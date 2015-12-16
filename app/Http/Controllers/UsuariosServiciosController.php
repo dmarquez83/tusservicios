@@ -7,6 +7,10 @@ use App\Libraries\Repositories\UsuariosServiciosRepository;
 use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
+use App\Models\Categoria;
+use App\Models\Ciudad;
+use App\Models\Horas;
+use App\Models\Dias;
 
 class UsuariosServiciosController extends AppBaseController
 {
@@ -39,7 +43,19 @@ class UsuariosServiciosController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('usuariosServicios.create');
+		$categorias = Categoria::orderBy('id', 'asc')->lists('nombre', 'id');
+
+		$ciudades = Ciudad::get();
+
+		$horas = Horas::orderBy('id', 'asc')->lists('hora', 'id');
+
+		$dias = Dias::orderBy('id', 'asc')->lists('dia', 'id');
+
+		//dd($ciudades);
+
+		return view('usuariosServicios.create', compact('ciudades','categorias','horas','dias'));
+
+
 	}
 
 	/**
@@ -57,7 +73,7 @@ class UsuariosServiciosController extends AppBaseController
 
 		Flash::success('UsuariosServicios saved successfully.');
 
-		return redirect(route('usuariosServicios.index'));
+		return redirect(route('usuario.servicios.index'));
 	}
 
 	/**
@@ -75,7 +91,7 @@ class UsuariosServiciosController extends AppBaseController
 		{
 			Flash::error('UsuariosServicios not found');
 
-			return redirect(route('usuariosServicios.index'));
+			return redirect(route('usuario.servicios.index'));
 		}
 
 		return view('usuariosServicios.show')->with('usuariosServicios', $usuariosServicios);
@@ -96,7 +112,7 @@ class UsuariosServiciosController extends AppBaseController
 		{
 			Flash::error('UsuariosServicios not found');
 
-			return redirect(route('usuariosServicios.index'));
+			return redirect(route('usuario.servicios.index'));
 		}
 
 		return view('usuariosServicios.edit')->with('usuariosServicios', $usuariosServicios);
@@ -118,14 +134,14 @@ class UsuariosServiciosController extends AppBaseController
 		{
 			Flash::error('UsuariosServicios not found');
 
-			return redirect(route('usuariosServicios.index'));
+			return redirect(route('usuario.servicios.index'));
 		}
 
 		$this->usuariosServiciosRepository->updateRich($request->all(), $id);
 
 		Flash::success('UsuariosServicios updated successfully.');
 
-		return redirect(route('usuariosServicios.index'));
+		return redirect(route('usuario.servicios.index'));
 	}
 
 	/**
@@ -143,13 +159,13 @@ class UsuariosServiciosController extends AppBaseController
 		{
 			Flash::error('UsuariosServicios not found');
 
-			return redirect(route('usuariosServicios.index'));
+			return redirect(route('usuario.servicios.index'));
 		}
 
 		$this->usuariosServiciosRepository->delete($id);
 
 		Flash::success('UsuariosServicios deleted successfully.');
 
-		return redirect(route('usuariosServicios.index'));
+		return redirect(route('usuario.servicios.index'));
 	}
 }
