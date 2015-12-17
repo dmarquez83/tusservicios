@@ -84,17 +84,20 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td style="width: 10%">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td>LLave</td>
-                                        <td>llave cromada</td>
-                                    </tr>
+                                    @foreach($insumos as $insumo)
+                                        <tr>
+                                            <td style="width: 10%">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        {!! Form::checkbox('insumo', $insumo->id, false) !!}
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>{{$insumo->nombre}}</td>
+                                            <td>{{$insumo->descripcion}}</td>
+                                        </tr>
+                                    @endforeach
+
                                     </tbody>
                                 </table>
                             </div>

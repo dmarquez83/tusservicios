@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 
+use App\Models\Proveedores;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -47,7 +48,10 @@ class ProveedoresController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('proveedores.create');
+
+		$insumos = Insumo::orderby('id','desc')->get();
+
+		return view('proveedores.create', compact('insumos'));
 	}
 
 	/**
@@ -62,6 +66,7 @@ class ProveedoresController extends AppBaseController
 		if($request->get('descripcion')){
 
 			$this->validate($request, [
+				'nombre' => 'required|max:255',
 				'descripcion' => 'required|max:500',
 				'referencia' => 'required|max:100',
 				'foto'  => 'required'
@@ -90,6 +95,8 @@ class ProveedoresController extends AppBaseController
 			Insumo::create($data);
 
 			Flash::success('Insumos Guardada Correctamente.');
+
+			return redirect(route('admin.proveedores.create'));
 
 		}else{
 

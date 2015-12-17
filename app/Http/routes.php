@@ -368,7 +368,7 @@ Route::group(['middleware' => ['auth']], function()
       'uses' => 'ProveedoresInsumosController@destroy',
     ]);
 
-  /**********************************Lista de Solicitudes **********************/
+  /**********************************Lista de Solicitudes  + Registro de Catalogo**********************/
 
     Route::get('admin/solicitudes/listado', [
       'as' => 'solicitudes.listado',
