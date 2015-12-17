@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateInsumoRequest;
 use App\Http\Requests\UpdateInsumoRequest;
 use App\Libraries\Repositories\InsumoRepository;
+use App\Models\Insumo;
 use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
@@ -11,6 +12,7 @@ use Response;
 use Illuminate\Support\Facades\Input;
 use Intervention\Image\Image as Image;
 use Illuminate\Support\Facades\File;
+use App\Models\Insumos;
 
 class InsumoController extends AppBaseController
 {
@@ -30,7 +32,9 @@ class InsumoController extends AppBaseController
 	 */
 	public function index()
 	{
-		$insumos = $this->insumoRepository->paginate(10);
+		$insumos = $this->insumoRepository->all();
+
+	  //$insumos = Insumo::orderby('id','desc')->all();
 
 		return view('insumos.index')
 			->with('insumos', $insumos);
@@ -86,13 +90,16 @@ class InsumoController extends AppBaseController
 	  $data = [
 		'descripcion' => $request->get('descripcion'),
 		'referencia' => $request->get('referencia'),
-		'foto' => $file->getClientOriginalName()
+		'foto' => $file->getClientOriginalName(),
+		'nombre' => $request->get('nombre')
 	  ];
 
 
 	  $this->insumoRepository->create($data);
 
 	  Flash::success('Insumos Guardada Correctamente.');
+
+
 
 	  return redirect(route('insumos.index'));
 	}
@@ -128,6 +135,7 @@ class InsumoController extends AppBaseController
 	public function edit($id)
 	{
 	  $insumos = $this->insumoRepository->find($id);
+	  //dd($insumos);
 
 		if(empty($insumos))
 		{
@@ -213,5 +221,19 @@ class InsumoController extends AppBaseController
 		Flash::success('Insumo borrado correctamente.');
 
 		return redirect(route('insumos.index'));
+	}
+
+	public function getListadoInsumos()
+	{
+
+
+		$insumos = Insumo::orderBy('insumos.id', 'DESC')->get();
+
+		// dd($insumos);
+
+		return json_encode($insumos);
+
+		//return ($insumos);
+
 	}
 }

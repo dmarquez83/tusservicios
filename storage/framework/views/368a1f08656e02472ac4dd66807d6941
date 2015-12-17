@@ -1,0 +1,17 @@
+<table class="table">
+    <thead>
+    <th>Nombre</th>
+    <th width="50px">Action</th>
+    </thead>
+    <tbody>
+    <?php foreach($ciudades as $ciudad): ?>
+        <tr>
+            <td><?php echo $ciudad->nombre; ?></td>
+            <td>
+                <a href="<?php echo route('admin.ciudades.edit', [$ciudad->id]); ?>"><i class="glyphicon glyphicon-edit"></i></a>
+                <a href="<?php echo route('admin.ciudades.delete', [$ciudad->id]); ?>" onclick="return confirm('Are you sure wants to delete this Ciudad?')"><i class="glyphicon glyphicon-remove"></i></a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

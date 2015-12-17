@@ -98,10 +98,9 @@ class ServiciosController extends AppBaseController
    */
   public function create()
   {
-	/*ojo aqui debe venir la categoria para seleccionar el tipo de servicio*/
-	/*ojo debe salir la opcion para que selecciona la categoria y de hay se desplegue los tipos de servicios segun la categoria*/
+    $categorias = Categoria::orderBy('id', 'asc')->lists('nombre', 'id');
 
-	$tiposervicios = Tiposervicio::where('id_categoria','6')->orderBy('id', 'asc')->lists('nombre', 'id');
+	$tiposervicios = Tiposervicio::orderBy('id', 'asc')->lists('nombre', 'id');
 
 	$estatu = Estatu::where('tabla','servicios')->orderBy('id', 'asc')->lists('nombre', 'id');
 
@@ -109,7 +108,7 @@ class ServiciosController extends AppBaseController
 
 	//$email = DB::table('users')->where('name', 'John')->value('email');
 
-	return view('servicios.create', compact('tiposervicios','estatu','ponderacion'));
+	return view('servicios.create', compact('tiposervicios','estatu','ponderacion','categorias'));
   }
 
 
@@ -153,7 +152,9 @@ class ServiciosController extends AppBaseController
 	$this->validate($request, [
 	  'nombre' => 'required|unique:categorias|max:255',
 	  'descripcion' => 'required|max:500',
-	  'foto'  => 'required'
+	  'foto'  => 'required',
+	  'tiposervicio_id' => 'required',
+	  'precio'  => 'required'
 	]);
 	/***************************/
 
@@ -189,10 +190,11 @@ class ServiciosController extends AppBaseController
 	$data = [
 	  'nombre' => $request->get('nombre'),
 	  'descripcion' => str_slug($request->get('descripcion')),
-	  'id_tipo_servicio' => $request->get('id_tipo_servicio'),
-	  'id_estatus' => $request->get('id_estatus'),
+	  'id_tipo_servicio' => $request->get('tiposervicio_id'),
+	  'id_estatus' => '1',
 	  'ponderacion' => $request->get('ponderacion'),
-	  'foto' => $file->getClientOriginalName()
+	  'foto' => $file->getClientOriginalName(),
+	  'precio' => $request->get('precio')
 	];
 
 
@@ -370,4 +372,82 @@ class ServiciosController extends AppBaseController
 
 	return redirect(route('categorias.servicios.index'));
   }
+
+	public function listar()
+	{
+
+		$servicios1 = DB::table('servicios')
+			->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
+			->join('estatus','estatus.id' ,'=','servicios.id_estatus')
+			->join('ponderaciones','ponderaciones.id' ,'=','servicios.ponderacion')
+			->select('servicios.nombre','servicios.foto', 'servicios.id','servicios.descripcion','tiposervicios.nombre as nombre_tipo_servicio','estatus.nombre as nombre_estatus','ponderaciones.nombre as nombre_ponderacion')
+			->get();
+
+		//este query de devuelve un arreglo lo convierto en una collection para enviarselo a la vista
+
+		$servicios = Collection::make($servicios1);
+
+		//dd($servicios);
+
+		//return response()->json($servicios);
+
+        //var_dump($servicios);
+		return view('servicios.listar')->with('servicios', $servicios);
+
+	}
+
+	public function detalle($id)
+	{
+
+		//$servicios = $this->serviciosRepository->find($id);
+
+        $servicios = DB::table('servicios')
+            ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
+            ->join('estatus','estatus.id' ,'=','servicios.id_estatus')
+            ->join('ponderaciones','ponderaciones.id' ,'=','servicios.ponderacion')
+            ->select('servicios.nombre','servicios.foto', 'servicios.id','servicios.descripcion','tiposervicios.nombre as nombre_tipo_servicio','estatus.nombre as nombre_estatus','ponderaciones.nombre as nombre_ponderacion')
+            ->where('servicios.id','=',$id)
+            ->get();
+
+
+		if(empty($servicios))
+		{
+			Flash::error('Servicios not found');
+
+			return redirect(route('servicios.index',$id));
+		}
+
+		return view('servicios.show')->with('servicios', $servicios);
+	}
+
+    public function detallecategorias($id)
+    {
+
+        $categorias = DB::table('categorias')
+            ->select('categorias.id', 'categorias.nombre', 'categorias.descripcion', 'categorias.foto')
+            ->where('categorias.id','=',$id)
+            ->get();
+
+        $servicios1 = DB::table('servicios')
+            ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
+            ->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
+            ->where('categorias.id','=',$id)
+            ->select('servicios.id', 'servicios.nombre', 'servicios.descripcion')
+            ->get();
+
+        if(empty($categorias))
+        {
+            Flash::error('Servicios not found');
+
+            return redirect(route('servicios.index',$id));
+        }
+
+        $detcategoria = Collection::make($servicios1);
+
+        return view('categorias.show_categorias')->with(array('categorias' => $categorias, 'detcategoria' => $detcategoria));
+
+        //var_dump($detcategoria);
+
+        //return view('servicios.listar')->with('servicios', $servicios);
+    }
 }

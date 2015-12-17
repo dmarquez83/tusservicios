@@ -11,3 +11,6 @@
 
 
 
+Route::resource("ciudades", "CiudadAPIController");
+
+Route::resource("sectors", "SectorAPIController");

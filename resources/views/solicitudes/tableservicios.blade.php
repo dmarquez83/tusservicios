@@ -3,12 +3,14 @@
 </div>
 
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="input-group">
-        <div class="input-group-addon">
-            <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
-        </div>
-        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Encuentra el Servicio que necesitas">
+    {!! Form::open(array('route' => ['buscar-servicios', $servicios[0]->id_categoria], 'method' => 'GET', 'class' => 'form-control', 'role' => 'search')) !!}
+    <div class="input-group margin">
+        {!! Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Buscar Servicios']) !!}
+        <span class="input-group-btn">
+        {!! Form::submit('Buscar', ['class' => "btn btn-primary btn-flat"]) !!}
+    </span>
     </div>
+    {!! Form::close() !!}
 </div>
 <br>
 <br>
@@ -32,9 +34,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6 border-right">
                         <div class="description-block">
-                            <a class="description-header pull-right" href="{!! route('solicitudes.create', [$servicio->id]) !!}"><i class="glyphicon glyphicon-shopping-cart"></i>Contratar</a>
+                            <a class="description-header" href="{!! route('detalle', [$servicio->id]) !!}">Detalle</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 border-right">
+                        <div class="description-block">
+                            <a class="description-header" href="{!! route('solicitudes.create', [$servicio->id]) !!}"><i class="glyphicon glyphicon-shopping-cart"></i></a>
                         </div>
                     </div>
                 </div>

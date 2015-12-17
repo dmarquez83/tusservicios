@@ -1,0 +1,16 @@
+<?php $__env->startSection('content'); ?>
+
+    <div class="">
+
+        <?php echo $__env->make('flash::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        <div class="row">
+
+            <?php echo $__env->make('solicitudes.tableservicios', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        </div>
+
+    <?php /* <?php echo $__env->make('common.paginate', ['records' => $servicios], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>*/ ?>
+ </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

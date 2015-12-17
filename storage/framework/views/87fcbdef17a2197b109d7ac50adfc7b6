@@ -1,0 +1,24 @@
+<?php $__env->startSection('content'); ?>
+
+    <div class="">
+
+        <?php echo $__env->make('flash::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 class="pull-left">Insumos</h1>
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="<?php echo route('insumos.create'); ?>">Agregar Insumo</a>
+        </div>
+        <div class="row">
+            <?php if($insumos->isEmpty()): ?>
+                <div class="well text-center">Insumos no encontrada.</div>
+            <?php else: ?>
+                <?php echo $__env->make('insumos.table', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php endif; ?>
+        </div>
+
+
+
+    </div>
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -170,6 +170,12 @@ return [
 
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+        /*
+         * Para las Busquedas
+         */
+
+        Sofa\Eloquence\ServiceProvider::class,
+
     ],
 
     /*

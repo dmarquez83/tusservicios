@@ -1,0 +1,4 @@
+<div class="row">
+<?php echo e(\Session::get('message')); ?>
+
+</div>

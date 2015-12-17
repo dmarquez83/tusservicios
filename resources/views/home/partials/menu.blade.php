@@ -50,8 +50,9 @@
                                                     <i class="fa fa-user"></i> <span class="caret"></span>
                                                 </a>
                                                 <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="{{ route('auth/login') }}">Iniciar sesión</a></li>
-                                                    <li><a href="{{ route('auth/register') }}">Registrarse</a></li>
+                                                    <li><a  href="#inicio_sesion" class="open-popup-link">Iniciar sesión</a></li>
+
+                                                    <li><a href="#registro" class="open-popup-link">Registrarse</a></li>
                                                 </ul>
                                             </li>
                                         @endif
@@ -66,3 +67,24 @@
                           </nav>
                     </div><!-- m-navbar -->
                 </div><!-- l-navigation -->
+
+                <!-- Modal Registro -->
+
+                <div id="inicio_sesion" class="white-popup mfp-hide">
+                    {!! Form::open(['route' => 'auth/login', 'class' => 'form-horizontal']) !!}
+                        @include('partials.layout.login')
+                        <div class="box-footer">
+                            {!! Form::submit(trans('form.login.submit'),['class' => 'btn btn-primary']) !!}
+                            <a href="{{ route('password/email') }}" class="btn btn-primary">{{ trans('passwords.forgot') }}</a>
+                        </div>
+                    {!! Form::close() !!}
+                </div>
+
+                <div id="registro" class="white-popup mfp-hide">
+                    {!! Form::open(['route' => 'auth/register', 'class' => 'form']) !!}
+                    @include('partials.layout.registro')
+                    <div class="box-footer">
+                        {!! Form::submit(trans('form.signup.submit'),['class' => 'btn btn-primary']) !!}
+                    </div>
+                    {!! Form::close() !!}
+                </div>

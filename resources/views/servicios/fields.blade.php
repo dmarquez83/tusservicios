@@ -30,20 +30,21 @@
             <div class="row">
             <!--- Id Tipo Servicio Field --->
                 <div class="col-sm-6 form-group">
-                    {!! Form::label('id_tipo_servicio', 'Tipo Servicio:', ['class' => 'control-label']) !!}
+                    {!! Form::label('categoria', 'Categoria:', ['class' => 'control-label']) !!}
                 </div>
                 <div class="col-sm-6">
-                    {!! Form::label('id_estatus', 'Id Estatus:', ['class' => 'control-label']) !!}
+                    {!! Form::label('id_tipo_servicio', 'Tipo Servicio:', ['class' => 'control-label']) !!}
 
                 </div>
             </div>
             <!--- Id Estatus Field --->
             <div class="row">
                 <div class="col-sm-6 form-group">
-                    {!! Form::select('id_tipo_servicio', $tiposervicios, null, ['class' => 'form-control']) !!}
+                    {!! Form::select('id_categoria', $categorias, null, ['class' => 'form-control', 'id'=> 'id_categoria']) !!}
                 </div>
                 <div class="col-sm-6">
-                    {!! Form::select('id_estatus', $estatu, null, ['class' => 'form-control']) !!}
+                    {!! Form::select('tiposervicio_id', $tiposervicios, null, ['class' => 'form-control', 'id'=> 'tiposervicio_id']) !!}
+
                 </div>
             </div>
 
@@ -53,7 +54,7 @@
                     {!! Form::label('ponderacion', 'Ponderacion:', ['class' => 'control-label']) !!}
                 </div>
                 <div class="col-sm-6">
-                    {!! form::label('foto','Imagen:', ['class' => 'control-label'])!!}
+                    {!! form::label('precio','Precio:', ['class' => 'control-label'])!!}
                 </div>
             </div>
             <div class="row">
@@ -61,9 +62,20 @@
                     {!! Form::select('ponderacion', $ponderacion, null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="col-sm-6">
+                    {!! form::number('precio',null,['class' => 'form-control']) !!}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    {!! form::label('foto','Imagen:', ['class' => 'control-label'])!!}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
                     {!! form::file('foto',null,['class' => 'form-control']) !!}
                 </div>
             </div>
+
 
 
 

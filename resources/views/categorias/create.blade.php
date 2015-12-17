@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    <div class="">
+    <div>
         <div class="row margin-top_small">
             <div class="col s12 m6 ">
                 @include('common.errors')
@@ -15,3 +15,9 @@
         </div>
     </div>
 @endsection
+
+@section('scripts-modulo')
+
+
+@endsection
+

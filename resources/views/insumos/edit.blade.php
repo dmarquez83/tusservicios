@@ -8,7 +8,7 @@
 
                 {!! Form::model($insumos, ['route' => ['insumos.update', $insumos->id], 'method' => 'patch', 'files' => 'true']) !!}
 
-                @include('insumos.fields_edit')
+                @include('insumos.fields')
 
                 {!! Form::close() !!}
             </div>

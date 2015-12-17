@@ -1,0 +1,24 @@
+[
+   {
+    "field":"usuario_servicio_id:integer:unsigned",
+    "type":"number",
+    "validations": ""
+  },
+  {
+    "field":"usuario_servicio_id:foreign:references,id:on,usuarios_servicios:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  },
+  {
+    "field":"municipio_id:integer",
+    "type":"select",
+    "validations": ""
+  },
+  {
+    "field":"municipio_id:foreign:references,id:on,municipios:onDelete,cascade",
+    "type":"",
+    "validations": ""
+  }
+
+]
+

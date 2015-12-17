@@ -1,0 +1,19 @@
+<table class="table">
+    <thead>
+    <th>Valor</th>
+			<th>Nombre</th>
+    <th width="50px">Action</th>
+    </thead>
+    <tbody>
+    <?php foreach($solicitudes as $solicitud): ?>
+        <tr>
+            <td><?php echo $solicitud->descripcion; ?></td>
+			<td><?php echo $solicitud->direccion; ?></td>
+            <td>
+                <a href="<?php echo route('catalogos.createnew', [$solicitud->id]); ?>"><i class="glyphicon glyphicon-log-in"></i></a>
+
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

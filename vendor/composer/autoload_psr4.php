@@ -7,6 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'XdgBaseDir\\' => array($vendorDir . '/dnoegel/php-xdg-base-dir/src'),
+    'Symfony\\Polyfill\\Util\\' => array($vendorDir . '/symfony/polyfill-util'),
+    'Symfony\\Polyfill\\Php56\\' => array($vendorDir . '/symfony/polyfill-php56'),
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
     'Symfony\\Component\\VarDumper\\' => array($vendorDir . '/symfony/var-dumper'),
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
@@ -24,6 +26,8 @@ return array(
     'SuperClosure\\' => array($vendorDir . '/jeremeamia/SuperClosure/src'),
     'Styde\\BladePagination\\' => array($vendorDir . '/styde/blade-pagination/src'),
     'Stringy\\' => array($vendorDir . '/danielstjules/stringy/src'),
+    'Sofa\\Hookable\\' => array($vendorDir . '/sofa/hookable/src'),
+    'Sofa\\Eloquence\\' => array($vendorDir . '/sofa/eloquence/src'),
     'SocialNorm\\SoundCloud\\' => array($vendorDir . '/socialnorm/soundcloud/src'),
     'SocialNorm\\LinkedIn\\' => array($vendorDir . '/socialnorm/linkedin/src'),
     'SocialNorm\\Instagram\\' => array($vendorDir . '/socialnorm/instagram/src'),
@@ -34,6 +38,7 @@ return array(
     'React\\Promise\\' => array($vendorDir . '/react/promise/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src/Psy'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
+    'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Mitul\\' => array($vendorDir . '/mitulgolakiya/laravel-api-generator/src/Mitul'),
     'League\\OAuth1\\' => array($vendorDir . '/league/oauth1-client/src'),

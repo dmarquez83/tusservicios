@@ -1,0 +1,72 @@
+<!DOCTYPE Html>
+<Html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?php echo e(trans('home.header.title')); ?></title>
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css'>
+
+    <?php echo Html::style('assets/inc/bootstrap/css/bootstrap.min.css'); ?>
+
+    <?php echo Html::style('assets/inc/bootstrap/css/dataTables.bootstrap.css'); ?>
+
+    <?php echo Html::style('assets/inc/bootstrap/css/AdminLTE.min.css'); ?>
+
+    <!-- Bootstrap time Picker -->
+    <?php echo Html::style('assets/inc/bootstrap/css/bootstrap-timepicker.min.css'); ?>
+
+    <?php echo Html::style('assets/inc/bootstrap/css/skins/skin-black-light.css'); ?>
+
+    <?php echo Html::style('assets/css/main.css'); ?>
+
+
+</head>
+<body class="skin-blue-light sidebar-mini">
+
+<?php if(\Session::has('message')): ?>
+    <?php echo $__env->make('home.partials.message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php endif; ?>
+
+<div class="page-loader"></div>
+
+<div class="wrapper">
+    <?php echo $__env->make('partials.layout.navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('partials.layout.menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <div class="content-wrapper">
+        <section class="content">
+            <?php echo $__env->make('partials.layout.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->yieldContent('content'); ?>
+        </section>
+    </div>
+    <?php echo $__env->make('partials.layout.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</div><!-- l-wrapper -->
+
+<!-- Footer -->
+<!-- LOAD SCRIPTS
+<?php echo Html::script('assets/inc/js/jquery-1.11.0.min.js'); ?>
+
+-->
+<?php echo Html::script('assets/inc/jQuery/jQuery-2.1.4.min.js'); ?>
+
+<!-- Bootstrap 3.3.5 -->
+<?php echo Html::script('assets/inc/bootstrap/js/bootstrap.min.js'); ?>
+
+
+<?php echo Html::script('assets/inc/jQueryUI/jquery-ui-1.10.3.min.js'); ?>
+
+
+<?php echo $__env->yieldContent('scripts'); ?>
+
+<?php echo $__env->yieldContent('scripts-modulo'); ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<?php echo Html::script('admin/js/categorias.js'); ?>
+
+
+
+
+</body>
+</Html>

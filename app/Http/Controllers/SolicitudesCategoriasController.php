@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Requests\CreateSolicitudesRequest;
@@ -11,7 +12,9 @@ use App\Libraries\Repositories\CategoriaRepository;
 
 use App\Models\Categoria;
 use App\Models\Servicios;
+use App\Models\InsumosSolicitudes;
 use App\User;
+use App\Models\Solicitudes;
 
 use Flash;
 use Response;
@@ -20,6 +23,7 @@ use Mail;
 use Mitul\Controller\AppBaseController as AppBaseController;
 
 use Illuminate\Support\Collection as Collection;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -27,182 +31,194 @@ class SolicitudesCategoriasController extends AppBaseController
 {
 
   /** @var  SolicitudesRepository */
-  private $solicitudesRepository;
+	  private $solicitudesRepository;
 
-  function __construct(SolicitudesRepository $solicitudesRepo,  CategoriaRepository $categoriaRepo,ServiciosRepository $serviciosRepo)
-  {
-	$this->solicitudesRepository = $solicitudesRepo;
+	  function __construct(SolicitudesRepository $solicitudesRepo,  CategoriaRepository $categoriaRepo,ServiciosRepository $serviciosRepo)
+	  {
+		$this->solicitudesRepository = $solicitudesRepo;
 
-	$this->categoriaRepository = $categoriaRepo;
+		$this->categoriaRepository = $categoriaRepo;
 
-	$this->serviciosRepository = $serviciosRepo;
-  }
+		$this->serviciosRepository = $serviciosRepo;
+	  }
 
-  /**
-   * Display a listing of the Solicitudes.
-   *
-   * @return Response
-   */
-  public function index()
-  {
-	$categorias = $this->categoriaRepository->paginate(10);
+	  /**
+	   * Display a listing of the Solicitudes.
+	   *
+	   * @return Response
+	   */
+	  public function index()
+	  {
+		$categorias = $this->categoriaRepository->paginate(10);
 
-	return view('solicitudes.index')->with('categorias', $categorias);
-  }
+		return view('solicitudes.index')->with('categorias', $categorias);
+	  }
 
-  /**
-   * Show the form for creating a new Solicitudes.
-   *
-   * @return Response
-   */
-  public function create($id)
-  {
-	/*ojo aqui debe venir ya el id del usuario que lo esta registrando preguntar si alguien sin registrarse puedde hacer una solicitud*/
+	  /**
+	   * Show the form for creating a new Solicitudes.
+	   *
+	   * @return Response
+	   */
+	  public function create($id)
+	  {
+		/*ojo aqui debe venir ya el id del usuario que lo esta registrando preguntar si alguien sin registrarse puedde hacer una solicitud*/
 
-	/*ojo aqui debe venir la categoria para seleccionar el tipo de servicio*/
+		/*ojo aqui debe venir la categoria para seleccionar el tipo de servicio*/
 
-	//	$servicios = Servicios::where('id', $id)->lists('nombre', 'id','descripcion');
+		//	$servicios = Servicios::where('id', $id)->lists('nombre', 'id','descripcion');
 
-	$servicios = $this->serviciosRepository->find($id);
+		$servicios = $this->serviciosRepository->find($id);
 
-	// dd($servicios);
+		// dd($servicios);
 
 
-	return view('solicitudes.create')->with('servicios', $servicios);
+		return view('solicitudes.create')->with('servicios', $servicios);
 
-  }
+	  }
 
-  /**
-   * Store a newly created Solicitudes in storage.
-   *
-   * @param CreateSolicitudesRequest $request
-   *
-   * @return Response
-   */
-  public function store($id, CreateSolicitudesRequest $request)
-  {
-	//$input = $request->all();
 
-	$data = [
-	  'descripcion'  => $request->get('descripcion'),
-	  'fecha'  => $request->get('fecha'),
-	  'hora'  => $request->get('hora'),
-	  'direccion'  => $request->get('direccion'),
-	  'telefono'  => $request->get('telefono'),
-	  'horas'  => $request->get('horas'),
-	  'costo'  => 0,
-	  'id_usuario'  => \Auth::user()->id,
-	  'id_estatus'  => '3',
-	  'id_servicio'  => $id
-	];
+	  public function store($id, CreateSolicitudesRequest $request)
+	  {
 
-	$solicitudes = $this->solicitudesRepository->create($data);
+		//dd($request);
 
-	Flash::success('Solicitud Guardada correctamente.');
+		$solicitudesId = \DB::table('solicitudes')->insertGetId(array(
+		  'descripcion'  => $request->get('descripcion'),
+		  'fecha'  => $request->get('fecha'),
+		  'hora'  => $request->get('hora'),
+		  'direccion'  => $request->get('direccion'),
+		  'telefono'  => $request->get('telefono'),
+		  'horas'  => $request->get('contacto'),
+		  'costo'  => 0,
+		  'id_usuario'  => \Auth::user()->id,
+		  'id_estatus'  => '3',
+		  'id_servicio'  => $id,
+		  'created_at' => new \DateTime,
+		  'updated_at' =>  new \Datetime,
+		));
 
-	/*	$id=7;
+		if($request->get('insumo')){
 
-		$user = User::findOrFail($id);
+		  foreach ($request->get('insumo') as $insumos)
+		  {
+			$data= [
+			  'solicitud_id'  => $solicitudesId,
+			  'insumo_id'  => $insumos,
+			  'created_at' => new \DateTime,
+			  'updated_at' =>  new \Datetime,
+			];
+			InsumosSolicitudes::create($data);
+		  }
+
+		}
+
+		Flash::success('Solicitud Guardada correctamente.');
+
+		$user = User::findOrFail(\Auth::user()->id);
 
 		Mail::send('emails.solicitud', ['user' => $user], function ($m) use ($user) {
 			$m->to($user->email, $user->name)->subject('Tu Solicitud a sido registrada');
-		});*/
+		});
 
 
 
-	return redirect(route('categorias.index'));
-  }
+		return redirect(route('categorias.index'));
 
-  /**
-   * Display the specified Solicitudes.
-   *
-   * @param  int $id
-   *
-   * @return Response
-   */
-  public function show($id)
-  {
-	$solicitudes = $this->solicitudesRepository->find($id);
 
-	if(empty($solicitudes))
-	{
-	  Flash::error('Solicitudes not found');
+		/*foreach ($request->get('insumo') as $insumos)
+		{
+		  $data[]= [
+			'solicitud_id'  => $solicitudesId,
+			'insumo_id'  => $insumos,
+			'created_at' => new \DateTime,
+			'updated_at' =>  new \Datetime,
+		  ];
+		}*/
 
-	  return redirect(route('solicitudes.index'));
-	}
+        // dd($data);
+		//InsumosSolicitudes::create($data);
 
-	return view('solicitudes.show')->with('solicitudes', $solicitudes);
-  }
 
-  /**
-   * Show the form for editing the specified Solicitudes.
-   *
-   * @param  int $id
-   *
-   * @return Response
-   */
-  public function edit($id)
-  {
-	$solicitudes = $this->solicitudesRepository->find($id);
+		//$this->solicitudesRepository->create($data);
 
-	if(empty($solicitudes))
-	{
-	  Flash::error('Solicitudes not found');
+	  }
 
-	  return redirect(route('solicitudes.index'));
-	}
+	  /**
+	   * Display the specified Solicitudes.
+	   *
+	   * @param  int $id
+	   *
+	   * @return Response
+	   */
+	  public function show($id)
+	  {
+		$solicitudes = $this->solicitudesRepository->find($id);
 
-	return view('solicitudes.edit')->with('solicitudes', $solicitudes);
-  }
+		if(empty($solicitudes))
+		{
+		  Flash::error('Solicitudes not found');
 
-  /**
-   * Update the specified Solicitudes in storage.
-   *
-   * @param  int              $id
-   * @param UpdateSolicitudesRequest $request
-   *
-   * @return Response
-   */
-  public function update($id, UpdateSolicitudesRequest $request)
-  {
-	$solicitudes = $this->solicitudesRepository->find($id);
+		  return redirect(route('solicitudes.index'));
+		}
 
-	if(empty($solicitudes))
-	{
-	  Flash::error('Solicitudes not found');
+		return view('solicitudes.show')->with('solicitudes', $solicitudes);
+	  }
 
-	  return redirect(route('solicitudes.index'));
-	}
+	  /**
+	   * Show the form for editing the specified Solicitudes.
+	   *
+	   * @param  int $id
+	   *
+	   * @return Response
+	   */
+	  public function edit($id)
+	  {
+		$solicitudes = $this->solicitudesRepository->find($id);
 
-	$solicitudes = $this->solicitudesRepository->updateRich($request->all(), $id);
+		if(empty($solicitudes))
+		{
+		  Flash::error('Solicitudes not found');
 
-	Flash::success('Solicitudes updated successfully.');
+		  return redirect(route('solicitudes.index'));
+		}
 
-	return redirect(route('solicitudes.index'));
-  }
+		return view('solicitudes.edit')->with('solicitudes', $solicitudes);
+	  }
 
-  /**
-   * Remove the specified Solicitudes from storage.
-   *
-   * @param  int $id
-   *
-   * @return Response
-   */
-  public function destroy($id)
-  {
-	$solicitudes = $this->solicitudesRepository->find($id);
+	  /**
+	   * Update the specified Solicitudes in storage.
+	   *
+	   * @param  int              $id
+	   * @param UpdateSolicitudesRequest $request
+	   *
+	   * @return Response
+	   */
+	  public function update($id, UpdateSolicitudesRequest $request)
+	  {
+		$solicitudes = $this->solicitudesRepository->find($id);
 
-	if(empty($solicitudes))
-	{
-	  Flash::error('Solicitudes not found');
+		if(empty($solicitudes))
+		{
+		  Flash::error('Solicitudes not found');
 
-	  return redirect(route('solicitudes.index'));
-	}
+		  return redirect(route('solicitudes.index'));
+		}
 
-	$this->solicitudesRepository->delete($id);
+		$solicitudes = $this->solicitudesRepository->updateRich($request->all(), $id);
 
-	Flash::success('Solicitudes deleted successfully.');
+		Flash::success('Solicitudes updated successfully.');
 
-	return redirect(route('solicitudes.index'));
-  }
+		return redirect(route('solicitudes.index'));
+	  }
+
+
+	  public function listado()
+	  {
+		$solicitudes = Solicitudes::orderBy('id', 'DESC')->get();
+
+		//dd($solicitudes);
+
+		return view('solicitudes.indexsolicitudes')->with('solicitudes', $solicitudes);
+	  }
+
 }

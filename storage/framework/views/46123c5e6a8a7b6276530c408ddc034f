@@ -1,0 +1,19 @@
+<?php $__env->startSection('content'); ?>
+    <div class="">
+        <div class="row margin-top_small">
+            <div class="col s12 m6 ">
+                <?php echo $__env->make('common.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+                <?php echo Form::open(['route' => 'insumos.store', 'method' => 'POST', 'files' => 'true']); ?>
+
+
+                <?php echo $__env->make('insumos.fields', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+                <?php echo Form::close(); ?>
+
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

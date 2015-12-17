@@ -1,0 +1,24 @@
+
+<div class="form-group">
+    <?php echo Form::label('nombre', 'Nombre:'); ?>
+
+    <?php echo Form::input('text', 'nombre', '', ['class'=> 'form-control']); ?>
+
+</div>
+
+
+<div class="form-group">
+    <?php echo Form::label('descripción', 'Descripción:'); ?>
+
+    <?php echo Form::input('text', 'descripcion', '', ['class'=> 'form-control']); ?>
+
+</div>
+
+
+
+<!--- Submit Field --->
+<div class="form-group col-sm-12">
+    <?php echo Form::submit('Guardar', ['class' => 'btn btn-primary']); ?>
+
+</div>
+

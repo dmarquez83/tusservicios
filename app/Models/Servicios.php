@@ -1,9 +1,15 @@
 <?php namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model as Model;
+use Sofa\Eloquence\Eloquence;
 
 class Servicios extends Model
 {
+
+	use Eloquence;
+
+	// no need for this, but you can define default searchable columns:
+	protected $searchableColumns = ['nombre', 'descripcion'];
     
 	public $table = "servicios";
     
@@ -14,7 +20,8 @@ class Servicios extends Model
 		"id_tipo_servicio",
 		"id_estatus",
 		"ponderacion",
-	    "foto"
+	    "foto",
+	    "precio"
 	];
 
     /**
@@ -28,11 +35,21 @@ class Servicios extends Model
 		"id_tipo_servicio" => "integer",
 		"id_estatus" => "integer",
 		"ponderacion" => "integer",
-	    "foto" => "string"
+	    "foto" => "string",
+	    "precio" => "float",
     ];
 
 	public static $rules = [
 	    
 	];
+
+    public function insumoservicios() {
+	 return $this->hasOne('App\Models\InsumosServicios');
+    }
+
+	public function solicitud()
+	{
+	  return $this->hasOne('App\Models\Solicitudes');
+	}
 
 }

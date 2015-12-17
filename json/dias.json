@@ -1,0 +1,8 @@
+[
+   {
+    "field":"dia:string",
+    "type":"text",
+    "validations": "requerid"
+  }
+]
+

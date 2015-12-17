@@ -1,0 +1,27 @@
+<?php $__env->startSection('content'); ?>
+    <div class="">
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+                <div class="box box-warning">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><?php echo e(trans('form.login.title')); ?></h3>
+                    </div>
+                    <?php echo Form::open(['route' => 'auth/login', 'class' => 'form-horizontal']); ?>
+
+                        <?php echo $__env->make('partials.layout.login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                        <div class="box-footer">
+                            <?php echo Form::submit(trans('form.login.submit'),['class' => 'btn btn-primary']); ?>
+
+                            <a href="<?php echo e(url('password/email')); ?>" class="btn btn-primary"><?php echo e(trans('passwords.forgot')); ?></a>
+                        </div>
+                    <?php echo Form::close(); ?>
+
+        </div>
+    </div>
+            <div class="col-md-2">
+            </div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

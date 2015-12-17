@@ -1,0 +1,34 @@
+[
+  {
+    "field":"rif:string",
+    "type":"text",
+    "validations": "required"
+  },
+  {
+    "field":"nombre:string",
+    "type":"text",
+    "validations": "required"
+  },
+  {
+    "field":"telefono:string:nullable",
+    "type":"text",
+    "validations": ""
+  },
+  {
+    "field":"direccion:string:nullable",
+    "type":"textarea",
+    "validations": ""
+  },
+  {
+    "field":"rnc:string:nullable",
+    "type":"text",
+    "validations": ""
+  },
+  {
+    "field":"correo:string",
+    "type":"email",
+    "validations": "required|email"
+  }
+
+]
+
