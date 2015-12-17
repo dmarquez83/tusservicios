@@ -42,90 +42,51 @@
                                         <table class="table table-condensed">
                                             <tr>
                                                 <th>Hora</th>
-                                                <th>Lunes</th>
-                                                <th>Martes</th>
-                                                <th>Miercoles</th>
-                                                <th>Jueves</th>
-                                                <th>Viernes</th>
-                                                <th>Sabado</th>
-                                                <th>Domingo</th>
+                                                @foreach($dias as $dia)
+                                                    <th>{{$dia->dia}}</th>
+                                                @endforeach
                                             </tr>
-                                            <tr>
-                                                <td>10:30</td>
-                                                <td>
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>11:30</td>
-                                                <td>
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span class="input-group-addon">
-                                                        <input type="checkbox">
-                                                    </span>
-                                                </td>
-                                            </tr>
+                                            @foreach($horas as $hora)
+                                                <tr>
+                                                    <td>{{$hora->hora}}</td>
+                                                    <td>
+                                                        <span class="input-group-addon">
+                                                              {!! Form::checkbox('horario', $dias[0]->id.'-'.$hora->id, false) !!}
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="input-group-addon">
+                                                             {!! Form::checkbox('horario', $dias[1]->id.'-'.$hora->id, false) !!}
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="input-group-addon">
+                                                              {!! Form::checkbox('horario', $dias[2]->id.'-'.$hora->id, false) !!}
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="input-group-addon">
+                                                             {!! Form::checkbox('horario', $dias[3]->id.'-'.$hora->id, false) !!}
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="input-group-addon">
+                                                              {!! Form::checkbox('horario', $dias[4]->id.'-'.$hora->id, false) !!}
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="input-group-addon">
+                                                              {!! Form::checkbox('horario', $dias[5]->id.'-'.$hora->id, false) !!}
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="input-group-addon">
+                                                             {!! Form::checkbox('horario', $dias[6]->id.'-'.$hora->id, false) !!}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+
                                         </table>
                                     </div>
                                 </div>
@@ -144,7 +105,6 @@
                                     </h4>
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse">
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -152,18 +112,16 @@
                                                     <div class="checkbox">
                                                         <label>
                                                             {!! Form::checkbox('ciudad', $ciudad->id, false) !!} {{$ciudad->nombre}}
-                                                    </label>
-                                                </div>
-                                            @endforeach
+                                                        </label>
+                                                    </div>
+                                                @endforeach
+                                            </div>
                                         </div>
-                                    </div>
+                                     </div>
                                 </div>
-
-                            </div>
+                             </div>
                         </div>
-
                     </div>
-                </div>
 
                 <div class="row">
                     <div class="col-md-12">
