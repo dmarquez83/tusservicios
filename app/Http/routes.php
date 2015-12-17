@@ -420,6 +420,16 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'SectorController@listado',
     ]);
 
+    /**********************************Registro de Servicios y horario**********************************/
+
+
+    Route::resource('usuario/servicios', 'UsuariosServiciosController');
+
+    Route::get('usuariosServicios/{id}/delete', [
+        'as' => 'usuariosServicios.delete',
+        'uses' => 'UsuariosServiciosController@destroy',
+    ]);
+
 
 }); /****************************fin de admin *******************------------------------***/
 
@@ -462,14 +472,7 @@ Route::get('dias/{id}/delete', [
 
 
 
-//Route::resource('usuariosServicios', 'UsuariosServiciosController');
 
-Route::resource('usuario/servicios', 'UsuariosServiciosController');
-
-Route::get('usuariosServicios/{id}/delete', [
-    'as' => 'usuariosServicios.delete',
-    'uses' => 'UsuariosServiciosController@destroy',
-]);
 
 
 Route::resource('horarios', 'HorariosController');
