@@ -3992,80 +3992,6 @@
         "homepage": "https://symfony.com"
     },
     {
-        "name": "phpunit/phpunit",
-        "version": "4.8.19",
-        "version_normalized": "4.8.19.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/sebastianbergmann/phpunit.git",
-            "reference": "b2caaf8947aba5e002d42126723e9d69795f32b4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b2caaf8947aba5e002d42126723e9d69795f32b4",
-            "reference": "b2caaf8947aba5e002d42126723e9d69795f32b4",
-            "shasum": ""
-        },
-        "require": {
-            "ext-dom": "*",
-            "ext-json": "*",
-            "ext-pcre": "*",
-            "ext-reflection": "*",
-            "ext-spl": "*",
-            "php": ">=5.3.3",
-            "phpspec/prophecy": "^1.3.1",
-            "phpunit/php-code-coverage": "~2.1",
-            "phpunit/php-file-iterator": "~1.4",
-            "phpunit/php-text-template": "~1.2",
-            "phpunit/php-timer": ">=1.0.6",
-            "phpunit/phpunit-mock-objects": "~2.3",
-            "sebastian/comparator": "~1.1",
-            "sebastian/diff": "~1.2",
-            "sebastian/environment": "~1.3",
-            "sebastian/exporter": "~1.2",
-            "sebastian/global-state": "~1.0",
-            "sebastian/version": "~1.0",
-            "symfony/yaml": "~2.1|~3.0"
-        },
-        "suggest": {
-            "phpunit/php-invoker": "~1.1"
-        },
-        "time": "2015-11-30 08:18:59",
-        "bin": [
-            "phpunit"
-        ],
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "4.8.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "src/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Sebastian Bergmann",
-                "email": "sebastian@phpunit.de",
-                "role": "lead"
-            }
-        ],
-        "description": "The PHP Unit Testing framework.",
-        "homepage": "https://phpunit.de/",
-        "keywords": [
-            "phpunit",
-            "testing",
-            "xunit"
-        ]
-    },
-    {
         "name": "phpspec/phpspec",
         "version": "2.4.0",
         "version_normalized": "2.4.0.0",
@@ -4198,56 +4124,6 @@
         ],
         "description": "Symfony ClassLoader Component",
         "homepage": "https://symfony.com"
-    },
-    {
-        "name": "paragonie/random_compat",
-        "version": "1.1.1",
-        "version_normalized": "1.1.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/paragonie/random_compat.git",
-            "reference": "a208865a5aeffc2dbbef2a5b3409887272d93f32"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a208865a5aeffc2dbbef2a5b3409887272d93f32",
-            "reference": "a208865a5aeffc2dbbef2a5b3409887272d93f32",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.2.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "4.*|5.*"
-        },
-        "suggest": {
-            "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
-        },
-        "time": "2015-12-01 02:52:15",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "lib/random.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Paragon Initiative Enterprises",
-                "email": "security@paragonie.com",
-                "homepage": "https://paragonie.com"
-            }
-        ],
-        "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
-        "keywords": [
-            "csprng",
-            "pseudorandom",
-            "random"
-        ]
     },
     {
         "name": "sebastian/environment",
@@ -4601,112 +4477,6 @@
         "homepage": "http://www.github.com/sebastianbergmann/recursion-context"
     },
     {
-        "name": "sofa/hookable",
-        "version": "v1.0.2",
-        "version_normalized": "1.0.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/jarektkaczyk/hookable.git",
-            "reference": "e1ce599587c1f65b96e852b3702d5dc00f8a8b7a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/jarektkaczyk/hookable/zipball/e1ce599587c1f65b96e852b3702d5dc00f8a8b7a",
-            "reference": "e1ce599587c1f65b96e852b3702d5dc00f8a8b7a",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.9"
-        },
-        "require-dev": {
-            "crysalead/kahlan": "~1.1"
-        },
-        "time": "2015-11-17 15:31:14",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Sofa\\Hookable\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jarek Tkaczyk",
-                "email": "jarek@softonsofa.com",
-                "homepage": "http://softonsofa.com/",
-                "role": "Developer"
-            }
-        ],
-        "description": "Laravel Eloquent hooks system.",
-        "keywords": [
-            "eloquent",
-            "laravel"
-        ]
-    },
-    {
-        "name": "sofa/eloquence",
-        "version": "v5.1.5",
-        "version_normalized": "5.1.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/jarektkaczyk/eloquence.git",
-            "reference": "bb4e336532bdc8793ccf338cbf9c7ec5f5cc05ee"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/jarektkaczyk/eloquence/zipball/bb4e336532bdc8793ccf338cbf9c7ec5f5cc05ee",
-            "reference": "bb4e336532bdc8793ccf338cbf9c7ec5f5cc05ee",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/contracts": "~5.1",
-            "illuminate/database": "~5.1",
-            "php": ">=5.5.9",
-            "sofa/hookable": "~1.0"
-        },
-        "require-dev": {
-            "mockery/mockery": "0.9.4",
-            "phpunit/phpunit": "4.5.0",
-            "squizlabs/php_codesniffer": "2.3.3"
-        },
-        "time": "2015-11-21 12:09:56",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Sofa\\Eloquence\\": "src"
-            },
-            "files": [
-                "src/helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jarek Tkaczyk",
-                "email": "jarek@softonsofa.com",
-                "homepage": "http://softonsofa.com/",
-                "role": "Developer"
-            }
-        ],
-        "description": "Flexible Searchable, Mappable, Metable, Validation and more extensions for Laravel Eloquent ORM.",
-        "keywords": [
-            "eloquent",
-            "laravel",
-            "mappable",
-            "metable",
-            "mutable",
-            "searchable"
-        ]
-    },
-    {
         "name": "sebastian/diff",
         "version": "1.4.1",
         "version_normalized": "1.4.1.0",
@@ -4758,6 +4528,130 @@
         "homepage": "https://github.com/sebastianbergmann/diff",
         "keywords": [
             "diff"
+        ]
+    },
+    {
+        "name": "phpunit/phpunit",
+        "version": "4.8.21",
+        "version_normalized": "4.8.21.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sebastianbergmann/phpunit.git",
+            "reference": "ea76b17bced0500a28098626b84eda12dbcf119c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ea76b17bced0500a28098626b84eda12dbcf119c",
+            "reference": "ea76b17bced0500a28098626b84eda12dbcf119c",
+            "shasum": ""
+        },
+        "require": {
+            "ext-dom": "*",
+            "ext-json": "*",
+            "ext-pcre": "*",
+            "ext-reflection": "*",
+            "ext-spl": "*",
+            "php": ">=5.3.3",
+            "phpspec/prophecy": "^1.3.1",
+            "phpunit/php-code-coverage": "~2.1",
+            "phpunit/php-file-iterator": "~1.4",
+            "phpunit/php-text-template": "~1.2",
+            "phpunit/php-timer": ">=1.0.6",
+            "phpunit/phpunit-mock-objects": "~2.3",
+            "sebastian/comparator": "~1.1",
+            "sebastian/diff": "~1.2",
+            "sebastian/environment": "~1.3",
+            "sebastian/exporter": "~1.2",
+            "sebastian/global-state": "~1.0",
+            "sebastian/version": "~1.0",
+            "symfony/yaml": "~2.1|~3.0"
+        },
+        "suggest": {
+            "phpunit/php-invoker": "~1.1"
+        },
+        "time": "2015-12-12 07:45:58",
+        "bin": [
+            "phpunit"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.8.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Sebastian Bergmann",
+                "email": "sebastian@phpunit.de",
+                "role": "lead"
+            }
+        ],
+        "description": "The PHP Unit Testing framework.",
+        "homepage": "https://phpunit.de/",
+        "keywords": [
+            "phpunit",
+            "testing",
+            "xunit"
+        ]
+    },
+    {
+        "name": "paragonie/random_compat",
+        "version": "1.1.4",
+        "version_normalized": "1.1.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/paragonie/random_compat.git",
+            "reference": "d762ee5b099a29044603cd4649851e81aa66cb47"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/d762ee5b099a29044603cd4649851e81aa66cb47",
+            "reference": "d762ee5b099a29044603cd4649851e81aa66cb47",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*|5.*"
+        },
+        "suggest": {
+            "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+        },
+        "time": "2015-12-10 14:48:13",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "lib/random.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Paragon Initiative Enterprises",
+                "email": "security@paragonie.com",
+                "homepage": "https://paragonie.com"
+            }
+        ],
+        "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+        "keywords": [
+            "csprng",
+            "pseudorandom",
+            "random"
         ]
     },
     {
@@ -4870,6 +4764,112 @@
             "polyfill",
             "portable",
             "shim"
+        ]
+    },
+    {
+        "name": "sofa/hookable",
+        "version": "v1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jarektkaczyk/hookable.git",
+            "reference": "e1ce599587c1f65b96e852b3702d5dc00f8a8b7a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jarektkaczyk/hookable/zipball/e1ce599587c1f65b96e852b3702d5dc00f8a8b7a",
+            "reference": "e1ce599587c1f65b96e852b3702d5dc00f8a8b7a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9"
+        },
+        "require-dev": {
+            "crysalead/kahlan": "~1.1"
+        },
+        "time": "2015-11-17 15:31:14",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Sofa\\Hookable\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jarek Tkaczyk",
+                "email": "jarek@softonsofa.com",
+                "homepage": "http://softonsofa.com/",
+                "role": "Developer"
+            }
+        ],
+        "description": "Laravel Eloquent hooks system.",
+        "keywords": [
+            "eloquent",
+            "laravel"
+        ]
+    },
+    {
+        "name": "sofa/eloquence",
+        "version": "v5.1.5",
+        "version_normalized": "5.1.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jarektkaczyk/eloquence.git",
+            "reference": "bb4e336532bdc8793ccf338cbf9c7ec5f5cc05ee"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jarektkaczyk/eloquence/zipball/bb4e336532bdc8793ccf338cbf9c7ec5f5cc05ee",
+            "reference": "bb4e336532bdc8793ccf338cbf9c7ec5f5cc05ee",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/contracts": "~5.1",
+            "illuminate/database": "~5.1",
+            "php": ">=5.5.9",
+            "sofa/hookable": "~1.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "0.9.4",
+            "phpunit/phpunit": "4.5.0",
+            "squizlabs/php_codesniffer": "2.3.3"
+        },
+        "time": "2015-11-21 12:09:56",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Sofa\\Eloquence\\": "src"
+            },
+            "files": [
+                "src/helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jarek Tkaczyk",
+                "email": "jarek@softonsofa.com",
+                "homepage": "http://softonsofa.com/",
+                "role": "Developer"
+            }
+        ],
+        "description": "Flexible Searchable, Mappable, Metable, Validation and more extensions for Laravel Eloquent ORM.",
+        "keywords": [
+            "eloquent",
+            "laravel",
+            "mappable",
+            "metable",
+            "mutable",
+            "searchable"
         ]
     }
 ]
