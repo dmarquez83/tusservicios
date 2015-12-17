@@ -47,9 +47,9 @@ class UsuariosServiciosController extends AppBaseController
 
 		$ciudades = Ciudad::get();
 
-		$horas = Horas::orderBy('id', 'asc')->lists('hora', 'id');
+		$horas = Horas::get();
 
-		$dias = Dias::orderBy('id', 'asc')->lists('dia', 'id');
+		$dias = Dias::get();
 
 		//dd($ciudades);
 
