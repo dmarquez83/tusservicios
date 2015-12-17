@@ -57,7 +57,7 @@ class HorasController extends AppBaseController
 
 		Flash::success('Horas saved successfully.');
 
-		return redirect(route('horas.index'));
+		return redirect(route('admin.horas.index'));
 	}
 
 	/**
@@ -75,7 +75,7 @@ class HorasController extends AppBaseController
 		{
 			Flash::error('Horas not found');
 
-			return redirect(route('horas.index'));
+			return redirect(route('admin.horas.index'));
 		}
 
 		return view('horas.show')->with('horas', $horas);
@@ -96,7 +96,7 @@ class HorasController extends AppBaseController
 		{
 			Flash::error('Horas not found');
 
-			return redirect(route('horas.index'));
+			return redirect(route('admin.horas.index'));
 		}
 
 		return view('horas.edit')->with('horas', $horas);
@@ -118,14 +118,14 @@ class HorasController extends AppBaseController
 		{
 			Flash::error('Horas not found');
 
-			return redirect(route('horas.index'));
+			return redirect(route('admin.horas.index'));
 		}
 
 		$this->horasRepository->updateRich($request->all(), $id);
 
 		Flash::success('Horas updated successfully.');
 
-		return redirect(route('horas.index'));
+		return redirect(route('admin.horas.index'));
 	}
 
 	/**
@@ -143,13 +143,13 @@ class HorasController extends AppBaseController
 		{
 			Flash::error('Horas not found');
 
-			return redirect(route('horas.index'));
+			return redirect(route('admin.horas.index'));
 		}
 
 		$this->horasRepository->delete($id);
 
 		Flash::success('Horas deleted successfully.');
 
-		return redirect(route('horas.index'));
+		return redirect(route('admin.horas.index'));
 	}
 }

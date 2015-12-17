@@ -7,7 +7,7 @@
         @include('flash::message')
 
         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('dias.create') !!}">Crear Dia</a>
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('admin.dias.create') !!}">Crear Dia</a>
         </div>
 
         <div class="row">

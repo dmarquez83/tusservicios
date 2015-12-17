@@ -420,6 +420,24 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'SectorController@listado',
     ]);
 
+    /**********************************Horas**********************************/
+
+    Route::resource('admin/horas', 'HorasController');
+
+    Route::get('admin/horas/delete/{id}', [
+        'as' => 'admin.horas.delete',
+        'uses' => 'HorasController@destroy',
+    ]);
+
+    /**********************************Dias**********************************/
+
+    Route::resource('admin/dias', 'DiasController');
+
+    Route::get('admin/dias/delete/{id}', [
+        'as' => 'admin.dias.delete',
+        'uses' => 'DiasController@destroy',
+    ]);
+
     /**********************************Registro de Servicios y horario**********************************/
 
 
@@ -446,30 +464,14 @@ Route::get('catalogos/{id}/delete', [
     'uses' => 'CatalogosController@destroy',
 ]);
 
-
+/*
 Route::resource('catalogosInsumos', 'CatalogosInsumosController');
 
 Route::get('catalogosInsumos/{id}/delete', [
     'as' => 'catalogosInsumos.delete',
     'uses' => 'CatalogosInsumosController@destroy',
 ]);
-
-
-Route::resource('horas', 'HorasController');
-
-Route::get('horas/{id}/delete', [
-    'as' => 'horas.delete',
-    'uses' => 'HorasController@destroy',
-]);
-
-
-Route::resource('dias', 'DiasController');
-
-Route::get('dias/{id}/delete', [
-    'as' => 'dias.delete',
-    'uses' => 'DiasController@destroy',
-]);
-
+*/
 
 
 
@@ -482,23 +484,7 @@ Route::get('horarios/{id}/delete', [
     'uses' => 'HorariosController@destroy',
 ]);
 
-
-Route::resource('horarios', 'HorariosController');
-
-Route::get('horarios/{id}/delete', [
-    'as' => 'horarios.delete',
-    'uses' => 'HorariosController@destroy',
-]);
-
-
-Route::resource('horarios', 'HorariosController');
-
-Route::get('horarios/{id}/delete', [
-    'as' => 'horarios.delete',
-    'uses' => 'HorariosController@destroy',
-]);
-
-
+/*
 Route::resource('estados', 'EstadosController');
 
 Route::get('estados/{id}/delete', [
@@ -512,7 +498,7 @@ Route::get('municipios/{id}/delete', [
     'as' => 'municipios.delete',
     'uses' => 'MunicipiosController@destroy',
 ]);
-
+*/
 
 Route::resource('lugares', 'LugaresController');
 
