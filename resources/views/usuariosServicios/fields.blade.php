@@ -11,7 +11,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label>Categorias</label>
-                                {!! Form::select('categorias', $categorias, null, ['class' => 'form-control', 'id'=> 'tiposervicio_id']) !!}
+                                {!! Form::select('id_categoria', $categorias, null, ['class' => 'form-control', 'id'=> 'id_categoria', 'data-path' => route('usuario.servicios.desplegable')]) !!}
                             </div>
                         </div>
                     </div>
@@ -19,13 +19,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label>Servicios</label>
-                                <select class="form-control">
-                                    <option>option 1</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
-                                </select>
+                                {!! Form::select('servicio_id',$servicios, null, ['class' => 'form-control', 'id'=> 'servicio_id']) !!}
                             </div>
                         </div>
                     </div>

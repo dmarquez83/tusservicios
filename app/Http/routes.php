@@ -463,6 +463,11 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'UsuariosServiciosController@destroy',
     ]);
 
+    Route::get('servicios/desplegable', [
+        'as' => 'usuario.servicios.desplegable',
+        'uses' => 'UsuariosServiciosController@desplegable',
+    ]);
+
 
 }); /****************************fin de admin *******************------------------------***/
 

@@ -11,6 +11,10 @@ use App\Models\Categoria;
 use App\Models\Ciudad;
 use App\Models\Horas;
 use App\Models\Dias;
+use App\Models\Servicios;
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\Image as Image;
+use Illuminate\Support\Facades\DB;
 
 class UsuariosServiciosController extends AppBaseController
 {
@@ -45,6 +49,8 @@ class UsuariosServiciosController extends AppBaseController
 	{
 		$categorias = Categoria::orderBy('id', 'asc')->lists('nombre', 'id');
 
+		$servicios = Servicios::orderBy('id', 'asc')->lists('nombre', 'id');
+
 		$ciudades = Ciudad::get();
 
 		$horas = Horas::get();
@@ -53,7 +59,7 @@ class UsuariosServiciosController extends AppBaseController
 
 		//dd($ciudades);
 
-		return view('usuariosServicios.create', compact('ciudades','categorias','horas','dias'));
+		return view('usuariosServicios.create', compact('ciudades','categorias','horas','dias','servicios'));
 
 
 	}
@@ -167,5 +173,19 @@ class UsuariosServiciosController extends AppBaseController
 		Flash::success('UsuariosServicios deleted successfully.');
 
 		return redirect(route('usuario.servicios.index'));
+	}
+
+	public function desplegable()
+	{
+		$id = Input::get('option');
+
+		$servicios = DB::table('servicios')
+			->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
+			->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
+			->where('categorias.id','=',$id)
+			->select('servicios.id', 'servicios.nombre')
+			->get();
+		//dd ($tiposervicios);
+		return $servicios;
 	}
 }
