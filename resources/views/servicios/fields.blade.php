@@ -39,7 +39,7 @@
             <!--- Id Estatus Field --->
             <div class="row">
                 <div class="col-sm-6 form-group">
-                    {!! Form::select('id_categoria', $categorias, null, ['class' => 'form-control', 'id'=> 'id_categoria']) !!}
+                    {!! Form::select('id_categoria', $categorias, null, ['class' => 'form-control', 'id'=> 'id_categoria', 'data-path' => route('categorias.servicios.desplegable')]) !!}
                 </div>
                 <div class="col-sm-6">
                     {!! Form::select('tiposervicio_id', $tiposervicios, null, ['class' => 'form-control', 'id'=> 'tiposervicio_id']) !!}

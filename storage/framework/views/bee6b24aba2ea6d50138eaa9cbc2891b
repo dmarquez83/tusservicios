@@ -45,7 +45,7 @@
             <!--- Id Estatus Field --->
             <div class="row">
                 <div class="col-sm-6 form-group">
-                    <?php echo Form::select('id_categoria', $categorias, null, ['class' => 'form-control', 'id'=> 'id_categoria']); ?>
+                    <?php echo Form::select('id_categoria', $categorias, null, ['class' => 'form-control', 'id'=> 'id_categoria', 'data-path' => route('categorias.servicios.desplegable')]); ?>
 
                 </div>
                 <div class="col-sm-6">
