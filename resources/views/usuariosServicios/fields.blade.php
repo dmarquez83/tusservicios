@@ -105,7 +105,7 @@
                                                 @foreach($ciudades as $ciudad)
                                                     <div class="checkbox">
                                                         <label>
-                                                            {!! Form::checkbox('ciudad', $ciudad->id, false) !!} {{$ciudad->nombre}}
+                                                            {!! Form::checkbox('ciudad', $ciudad->id, false,['class' => 'ciudad', 'data-path' => route('admin.sectores.listado',$ciudad->id)]) !!} {{$ciudad->nombre}}
                                                         </label>
                                                     </div>
                                                 @endforeach
@@ -130,57 +130,18 @@
                             <div id="collapsedos" class="panel-collapse collapse">
 
                                 <div class="row">
+
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                    Caracas
-                                                </label>
-                                            </div>
 
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                    Guarenas
-                                                </label>
-                                            </div>
+                                        <div class="form-group sectores">
 
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" disabled="">
-                                                    San Antonio
-                                                </label>
-                                            </div>
+
+
                                         </div>
+
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                    Los Teques
-                                                </label>
-                                            </div>
 
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                    La Guaira
-                                                </label>
-                                            </div>
-
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" disabled="">
-                                                    Los Valles
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                               </div>
                         </div>
 
                     </div>
