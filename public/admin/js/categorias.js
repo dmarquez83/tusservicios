@@ -1,11 +1,12 @@
 $(document).ready(function(){
     $('#id_categoria').change(function(){
-        $.get("{{ url('dropdown')}}",
+        $.get("http://localhost:8000/categorias/desplegable",
             { option: $(this).val() },
             function(data) {
                 $('#tiposervicio_id').empty();
                 $.each(data, function(key, element) {
-                    $('#tiposervicio_id').append("<option value='" + key + "'>" + element + "</option>");
+                    //console.log(element.nombre);
+                    $('#tiposervicio_id').append("<option value='" + key + "'>" + element.nombre + "</option>");
                 });
             });
     });

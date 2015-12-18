@@ -96,17 +96,21 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td style="width: 10%">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td>LLave</td>
-                                        <td>llave cromada</td>
-                                    </tr>
+                                    <?php foreach($insumos as $insumo): ?>
+                                        <tr>
+                                            <td style="width: 10%">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <?php echo Form::checkbox('insumo', $insumo->id, false); ?>
+
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td><?php echo e($insumo->nombre); ?></td>
+                                            <td><?php echo e($insumo->descripcion); ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+
                                     </tbody>
                                 </table>
                             </div>

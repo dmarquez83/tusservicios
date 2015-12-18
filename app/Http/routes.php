@@ -287,6 +287,18 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'ServiciosController@destroy',
     ]);
 
+    Route::get('categorias/desplegable', [
+        'as' => 'categorias.servicios.desplegable',
+        'uses' => 'ServiciosController@desplegable',
+    ]);
+/*
+    Route::get('dropdown', function(){
+        $id = Input::get('option');
+        $tiposervicios = \App\Models\Categoria::find('1')->tiposervicio;
+        dd ($tiposervicios);
+        return $tiposervicios->lists('tiposervicios', 'id');
+    });*/
+
   /**********************************Servicios**********************************/
 
     Route::resource('admin/servicios', 'ServiciosAdminController');
@@ -295,6 +307,9 @@ Route::group(['middleware' => ['auth']], function()
         'as' => 'admin.servicios.create',
         'uses' => 'ServiciosAdminController@create',
     ]);
+
+
+
 
     /****************************Evaluaciones**********************************/
 
@@ -508,11 +523,5 @@ Route::get('lugares/{id}/delete', [
 ]);
 
 
-Route::get('dropdown', function(){
-  $id = Input::get('option');
-  $tiposervicios = \App\Models\Categoria::find($id)->tiposervicio;
- // dd ($tiposervicios);
-  return $tiposervicios->lists('tiposervicios', 'id');
-});
 
 

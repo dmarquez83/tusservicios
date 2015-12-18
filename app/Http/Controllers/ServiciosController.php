@@ -450,4 +450,17 @@ class ServiciosController extends AppBaseController
 
         //return view('servicios.listar')->with('servicios', $servicios);
     }
+
+	public function desplegable()
+	{
+		$id = Input::get('option');
+		//$tiposervicios = Categoria::find('1')->tiposervicio->lists('tiposervicio', 'id');
+		//dd ($tiposervicios);
+		//return $tiposervicios->lists('tiposervicios', 'id');
+		$tiposervicios = Categoria::with('tiposervicio')->join('tiposervicios','tiposervicios.id_categoria','=','categorias.id')
+			->where('tiposervicios.id_categoria','=',$id)
+			->orderBy('categorias.id', 'DESC')->get();
+		//dd ($tiposervicios);
+		return $tiposervicios;
+	}
 }

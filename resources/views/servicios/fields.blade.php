@@ -3,7 +3,6 @@
         <div class="box-header">
             <h3 class="box-title">Registrar Servicios</h3>
         </div>
-            <form method="POST" action="http://localhost:8000/servicios/create" accept-charset="UTF-8" enctype="multipart/form-data">
         <div class="box-body">
             <div class="row">
             <!--- Nombre Field --->
@@ -76,16 +75,13 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+                    {!! Form::submit(' Solicitar Servicio', ['class' => 'btn btn-primary procesarForm btn-opc']) !!}
+                </div>
+            </div>
 
+        </div>
 
-
-
-<div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
-        {!! Form::submit(' Solicitar Servicio', ['class' => 'btn btn-primary procesarForm btn-opc']) !!}
     </div>
-</div>
-        </div>
-</form>
-        </div>
 </div>
