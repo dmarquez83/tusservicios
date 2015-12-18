@@ -263,11 +263,15 @@ class ServiciosController extends AppBaseController
 	$value= $servicios[0]->id_categoria;
 	//$value = $servicios1->lists('id_categoria');
 
-	$tiposervicios = Tiposervicio::where('id_categoria',$value)->orderBy('id', 'asc')->lists('nombre', 'id');
+	//$tiposervicios = Tiposervicio::where('id_categoria',$value)->orderBy('id', 'asc')->lists('nombre', 'id');
+
+	  $tiposervicios = Tiposervicio::orderBy('id', 'asc')->lists('nombre', 'id');
 
 	$estatu = Estatu::where('tabla','servicios')->orderBy('id', 'asc')->lists('nombre', 'id');
 
 	$ponderacion = Ponderacion::orderBy('id', 'asc')->lists('nombre','valor', 'id');
+
+	  $categorias = Categoria::orderBy('id', 'asc')->lists('nombre', 'id');
 
 	if(empty($servicios))
 	{
@@ -276,7 +280,7 @@ class ServiciosController extends AppBaseController
 	  return redirect(route('categorias.servicios.index'));
 	}
 
-	return view('servicios.edit')->with(array('servicios'=>$servicios,'tiposervicios'=>$tiposervicios,'estatu'=>$estatu,'ponderacion'=>$ponderacion));
+	return view('servicios.edit')->with(array('servicios'=>$servicios,'tiposervicios'=>$tiposervicios,'estatu'=>$estatu,'ponderacion'=>$ponderacion,'categorias'=>$categorias));
   }
 
   /**
@@ -327,7 +331,7 @@ class ServiciosController extends AppBaseController
 	$data = [
 	  'nombre' => $request->get('nombre'),
 	  'descripcion' => str_slug($request->get('descripcion')),
-	  'id_tipo_servicio' => $request->get('id_tipo_servicio'),
+	  'id_tipo_servicio' => $request->get('tiposervicio_id'),
 	  'id_estatus' => $request->get('id_estatus'),
 	  'ponderacion' => $request->get('ponderacion'),
 	  'foto' => $foto,
