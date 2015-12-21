@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     $("#example1").DataTable();
 
-    $('#tabla-listado-insumos').DataTable();
+
 
     $(document).on('change','.insumo',function(){
 
@@ -30,9 +30,11 @@ $(document).ready(function(){
          fila += "<td style='width: 10%'><div class='col-sm-6 border-right'><a class='btn btn-primary' href='#' role='button' data-toggle='Eliminar'><i class='glyphicon glyphicon-remove'></i></a></div></td>";
          fila += "</tr>";
 
-         console.log(tabla);
+       //  console.log(tabla);
 
          tabla.append(fila);
+
+         $('#tabla-listado-insumos').DataTable();
 
 
 

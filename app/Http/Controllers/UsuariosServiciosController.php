@@ -12,6 +12,10 @@ use App\Models\Ciudad;
 use App\Models\Horas;
 use App\Models\Dias;
 use App\Models\Servicios;
+use App\Models\Horarios;
+use App\Models\Lugares;
+use App\Models\UsuariosServicios;
+use App\User;
 use Illuminate\Support\Facades\Input;
 use Intervention\Image\Image as Image;
 use Illuminate\Support\Facades\DB;
@@ -34,7 +38,11 @@ class UsuariosServiciosController extends AppBaseController
 	 */
 	public function index()
 	{
-		$usuariosServicios = $this->usuariosServiciosRepository->paginate(10);
+		//$usuariosServicios = $this->usuariosServiciosRepository->paginate(10);
+
+		$usuariosServicios = UsuariosServicios::where('user_id',\Auth::user()->id)->get();
+
+		//,
 
 		return view('usuariosServicios.index')
 			->with('usuariosServicios', $usuariosServicios);
@@ -73,11 +81,57 @@ class UsuariosServiciosController extends AppBaseController
 	 */
 	public function store(CreateUsuariosServiciosRequest $request)
 	{
-		$input = $request->all();
 
-		$usuariosServicios = $this->usuariosServiciosRepository->create($input);
+		$usuarioServiciosId = \DB::table('usuarios_servicios')->insertGetId(array(
+		'servicio_id'  => $request->get('servicio_id'),
+		'user_id'  => \Auth::user()->id,
+		'created_at' => new \DateTime,
+		'updated_at' =>  new \Datetime,
+		));
 
-		Flash::success('UsuariosServicios saved successfully.');
+
+
+		if($request->get('horario')){
+
+			foreach ($request->get('horario') as $horario)
+			{
+				$id = explode('-',$horario);
+				$data= [
+					'usuario_servicio_id'  => $usuarioServiciosId,
+					'hora_id'  => $id[0],
+					'dia_id'  =>  $id[1],
+					'created_at' => new \DateTime,
+					'updated_at' =>  new \Datetime,
+				];
+				Horarios::create($data);
+			}
+
+		}
+
+		if($request->get('sectores')){
+
+			//dd($request);
+
+			foreach ($request->get('sectores') as $sectores)
+			{
+
+				$data2= [
+					'usuario_servicio_id'  => $usuarioServiciosId,
+					'sector_id'  => $sectores,
+					'created_at' => new \DateTime,
+					'updated_at' =>  new \Datetime,
+				];
+
+				$lugares = Lugares::create($data2);
+
+				//dd($lugares);
+
+			}
+
+		}
+
+
+		Flash::success('Tus Horario y Lugar de Trabajo a sido Guardado.');
 
 		return redirect(route('usuario.servicios.index'));
 	}
@@ -121,7 +175,22 @@ class UsuariosServiciosController extends AppBaseController
 			return redirect(route('usuario.servicios.index'));
 		}
 
-		return view('usuariosServicios.edit')->with('usuariosServicios', $usuariosServicios);
+		//return view('usuariosServicios.edit')->with('usuariosServicios', $usuariosServicios);
+
+		$categorias = Categoria::orderBy('id', 'asc')->lists('nombre', 'id');
+
+		$servicios = Servicios::orderBy('id', 'asc')->lists('nombre', 'id');
+
+		$ciudades = Ciudad::get();
+
+		$horas = Horas::get();
+
+		$dias = Dias::get();
+
+		//dd($ciudades);
+
+		return view('usuariosServicios.edit', compact('usuariosServicios','ciudades','categorias','horas','dias','servicios'));
+
 	}
 
 	/**

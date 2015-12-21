@@ -19,7 +19,7 @@
             @endif
         </div>
 
-        @include('common.paginate', ['records' => $usuariosServicios])
+
 
 
     </div>

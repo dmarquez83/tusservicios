@@ -45,37 +45,37 @@
                                                     <td>{{$hora->hora}}</td>
                                                     <td>
                                                         <span class="input-group-addon">
-                                                              {!! Form::checkbox('horario', $dias[0]->id.'-'.$hora->id, false) !!}
+                                                              {!! Form::checkbox('horario['.$hora->id.$dias[0]->id.']', $dias[0]->id.'-'.$hora->id, false) !!}
                                                         </span>
                                                     </td>
                                                     <td>
                                                         <span class="input-group-addon">
-                                                             {!! Form::checkbox('horario', $dias[1]->id.'-'.$hora->id, false) !!}
+                                                             {!! Form::checkbox('horario['.$hora->id.$dias[1]->id.']', $dias[1]->id.'-'.$hora->id, false) !!}
                                                         </span>
                                                     </td>
                                                     <td>
                                                         <span class="input-group-addon">
-                                                              {!! Form::checkbox('horario', $dias[2]->id.'-'.$hora->id, false) !!}
+                                                              {!! Form::checkbox('horario['.$hora->id.$dias[2]->id.']', $dias[2]->id.'-'.$hora->id, false) !!}
                                                         </span>
                                                     </td>
                                                     <td>
                                                         <span class="input-group-addon">
-                                                             {!! Form::checkbox('horario', $dias[3]->id.'-'.$hora->id, false) !!}
+                                                             {!! Form::checkbox('horario['.$hora->id.$dias[3]->id.']', $dias[3]->id.'-'.$hora->id, false) !!}
                                                         </span>
                                                     </td>
                                                     <td>
                                                         <span class="input-group-addon">
-                                                              {!! Form::checkbox('horario', $dias[4]->id.'-'.$hora->id, false) !!}
+                                                              {!! Form::checkbox('horario['.$hora->id.$dias[4]->id.']', $dias[4]->id.'-'.$hora->id, false) !!}
                                                         </span>
                                                     </td>
                                                     <td>
                                                         <span class="input-group-addon">
-                                                              {!! Form::checkbox('horario', $dias[5]->id.'-'.$hora->id, false) !!}
+                                                              {!! Form::checkbox('horario['.$hora->id.$dias[5]->id.']', $dias[5]->id.'-'.$hora->id, false) !!}
                                                         </span>
                                                     </td>
                                                     <td>
                                                         <span class="input-group-addon">
-                                                             {!! Form::checkbox('horario', $dias[6]->id.'-'.$hora->id, false) !!}
+                                                             {!! Form::checkbox('horario['.$hora->id.$dias[6]->id.']', $dias[6]->id.'-'.$hora->id, false) !!}
                                                         </span>
                                                     </td>
                                                 </tr>

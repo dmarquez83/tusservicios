@@ -26,7 +26,7 @@ $(document).ready(function(){
                 console.log(data);
                 $.each(data, function(key, element) {
                     //console.log(element.nombre);
-                    $('.sectores').append("<div class='checkbox'><label><input name='sectores' type='checkbox' value='" + element.id +  "'>" + element.nombre + "</label></div>");
+                    $('.sectores').append("<div class='checkbox'><label><input name='sectores[" + element.id +  "]' type='checkbox' value='" + element.id +  "'>" + element.nombre + "</label></div>");
                 });
             });
 

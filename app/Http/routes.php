@@ -459,7 +459,7 @@ Route::group(['middleware' => ['auth']], function()
     Route::resource('usuario/servicios', 'UsuariosServiciosController');
 
     Route::get('usuariosServicios/{id}/delete', [
-        'as' => 'usuariosServicios.delete',
+        'as' => 'usuario.servicios.delete',
         'uses' => 'UsuariosServiciosController@destroy',
     ]);
 
