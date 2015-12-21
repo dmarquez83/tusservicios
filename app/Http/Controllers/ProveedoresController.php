@@ -36,7 +36,7 @@ class ProveedoresController extends AppBaseController
 	 */
 	public function index()
 	{
-		$proveedores = $this->proveedoresRepository->paginate(10);
+		$proveedores = $this->proveedoresRepository->all();
 
 		return view('proveedores.index')
 			->with('proveedores', $proveedores);
@@ -172,6 +172,8 @@ class ProveedoresController extends AppBaseController
 	{
 		$proveedores = $this->proveedoresRepository->find($id);
 
+		$insumos = Insumo::orderby('id','desc')->get();
+
 		if(empty($proveedores))
 		{
 			Flash::error('Proveedores  no funciona');
@@ -179,7 +181,7 @@ class ProveedoresController extends AppBaseController
 			return redirect(route('admin.proveedores.index'));
 		}
 
-		return view('proveedores.edit')->with('proveedores', $proveedores);
+		return view('proveedores.edit')->with(array('proveedores'=>$proveedores,'insumos'=>$insumos));
 	}
 
 	/**
