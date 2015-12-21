@@ -85,11 +85,11 @@
                                     </thead>
                                     <tbody>
                                     @foreach($insumos as $insumo)
-                                        <tr>
+                                        <tr id={{ 'fil'.$insumo->id}} >
                                             <td style="width: 10%">
-                                                <div class="checkbox">
+                                                <div id="checkbox">
                                                     <label>
-                                                        {!! Form::checkbox('insumo', $insumo->id, false) !!}
+                                                        {!! Form::checkbox('insumo', $insumo->id, false,['class' => 'insumo']) !!}
                                                     </label>
                                                 </div>
                                             </td>
@@ -171,7 +171,7 @@
                         <div class="box-header">
                         </div>
                         <div class="box-body">
-                            <table id="example2" class="table table-bordered table-striped">
+                            <table  class="table table-bordered table-striped" id="tabla-listado-insumos">
                                 <thead>
                                 <tr>
                                     <th>Nombre</th>
@@ -180,15 +180,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>LLave</td>
-                                    <td>llave cromada</td>
-                                    <td style="width: 10%">
-                                        <div class="col-sm-6 border-right">
-                                            <a class="btn btn-primary" href="#" role="button" data-toggle="Eliminar"><i class="glyphicon glyphicon-remove"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
+
                                 </tbody>
                             </table>
                         </div>
