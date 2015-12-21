@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Input;
 use Intervention\Image\Image as Image;
 use Illuminate\Support\Facades\File;
 use App\Models\Insumo;
+use App\Models\ProveedoresInsumos;
 
 class ProveedoresController extends AppBaseController
 {
@@ -63,6 +64,7 @@ class ProveedoresController extends AppBaseController
 	 */
 	public function store(Request $request)
 	{
+		/*esta condicion guarda solo el insumo*/
 		if($request->get('descripcion')){
 
 			$this->validate($request, [
@@ -100,9 +102,34 @@ class ProveedoresController extends AppBaseController
 
 		}else{
 
-			$input = $request->all();
+			$proveedorId = \DB::table('proveedores')->insertGetId(array(
+				'rif'  => $request->get('rif'),
+				'nombre'  => $request->get('nombrepro'),
+				'telefono'  => $request->get('telefono'),
+				'direccion'  => $request->get('direccion'),
+				'rnc'  => $request->get('rnc'),
+				'correo'  => $request->get('correo'),
+				'created_at' => new \DateTime,
+				'updated_at' =>  new \Datetime,
+			));
 
-			$proveedores = $this->proveedoresRepository->create($input);
+
+			if($request->get('insumo')){
+
+				foreach ($request->get('insumo') as $insumo)
+				{
+
+					$data= [
+						'proveedor_id'  => $proveedorId,
+						'insumo_id'  => $insumo,
+						'created_at' => new \DateTime,
+						'updated_at' =>  new \Datetime,
+					];
+					ProveedoresInsumos::create($data);
+				}
+
+			}
+
 
 			Flash::success('Proveedores guardado correctamente.');
 

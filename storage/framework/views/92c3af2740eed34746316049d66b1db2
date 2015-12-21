@@ -19,7 +19,7 @@
 
                 </div>
                 <div class="col-sm-6">
-                    <?php echo Form::text('nombre', null, ['class' => 'form-control']); ?>
+                    <?php echo Form::text('nombrepro', null, ['class' => 'form-control']); ?>
 
                 </div>
             </div>

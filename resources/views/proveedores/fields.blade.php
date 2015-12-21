@@ -16,7 +16,7 @@
                     {!! Form::text('rif', null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="col-sm-6">
-                    {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+                    {!! Form::text('nombrepro', null, ['class' => 'form-control']) !!}
                 </div>
             </div>
 
