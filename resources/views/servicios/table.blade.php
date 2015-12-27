@@ -13,7 +13,6 @@
 <br>
 <br>
 @foreach($categorias as $categoria)
-
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
         <div class="box box-widget widget-user">
             <div class="widget-user-header bg-black" style="background: url('categorias-img/{{$categoria->foto}}') center center;">
@@ -22,10 +21,8 @@
                     </h3>
             </div>
             <div class="widget-user-image">
-
                 {!! Html::image('categorias-img/'.$categoria->foto, $categoria->nombre, array('class' => 'img-responsive')) !!}
             </div>
-
             <div class="box-footer">
                 <div class="row">
                     <div class="col-sm-12">
@@ -43,5 +40,4 @@
             </div>
         </div>
     </div>
-
 @endforeach

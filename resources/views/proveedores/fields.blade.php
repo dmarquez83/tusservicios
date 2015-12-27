@@ -86,7 +86,7 @@
                                     <tbody>
                                     @foreach($insumos as $insumo)
                                         <tr id={{ 'fil'.$insumo->id}} >
-                                            <td style="width: 10%">
+                                            <td style="width: 10%; align-content: center">
                                                 <div id="checkbox">
                                                     <label>
                                                         {!! Form::checkbox('insumo', $insumo->id, false,['class' => 'insumo']) !!}
@@ -109,40 +109,38 @@
                                 {!! Form::label('nombre', 'Nombre:', ['class' => 'control-label']) !!}
                             </div>
                             <div class="col-sm-6 form-group">
-                                {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+                                {!! Form::label('descripcion', 'Descripcion:', ['class' => 'control-label']) !!}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 form-group">
-                                {!! Form::label('descripcion', 'Descripcion:', ['class' => 'control-label']) !!}
+                                {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
                             </div>
-                            <div class="col-sm-6">
-                                {!! Form::label('referencia', 'Referencia:', ['class' => 'control-label']) !!}
-                            </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-sm-6 form-group">
                                 {!! Form::text('descripcion', null, ['class' => 'form-control']) !!}
                             </div>
-                            <div class="col-sm-6">
-                                {!! Form::textarea('referencia', null, ['class' => 'form-control','rows' =>'3']) !!}
-                            </div>
+
                         </div>
 
                         <div class="row">
+                            <div class="col-sm-6">
+                                {!! Form::label('referencia', 'Referencia:', ['class' => 'control-label']) !!}
+                            </div>
                             <div class="col-sm-6 form-group">
                                 {!! form::label('image','Imagen', ['class' => 'control-label'])!!}
                             </div>
-                            <div class="col-sm-6">
-                            </div>
                         </div>
 
                         <div class="row">
+                            <div class="col-sm-6">
+                                {!! Form::textarea('referencia', null, ['class' => 'form-control','rows' =>'3']) !!}
+                            </div>
                             <div class="col-sm-6 form-group">
                                 {!! form::file('foto',null,['class' => 'form-control']) !!}
                             </div>
+
                         </div>
+
 
 
                         <div class="row">

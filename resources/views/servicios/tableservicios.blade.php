@@ -11,9 +11,9 @@
                 <thead>
                     <tr>
                         <th>Servicios</th>
-                        <th style="width: 700px">Descripcion</th>
-                        <th style="width: 700px">Categoria</th>
-                        <th class="text-center">Acciones</th>
+                        <th>Descripcion</th>
+                        <th>Categoria</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
