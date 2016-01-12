@@ -93,15 +93,7 @@ Route::group(['middleware' => ['auth']], function()
     /**********************************Insumos*********************************/
     Route::resource('insumos', 'InsumoController');
     Route::get('insumos/borrar/{id}', ['as' => 'insumos.delete','uses' => 'InsumoController@destroy']);
-
-    Route::resource('insumosFotos', 'InsumosFotoController');
-    Route::get('insumosFotos/{id}/delete', ['as' => 'insumosFotos.delete','uses' => 'InsumosFotoController@destroy']);
-
-    Route::resource('insumosServicios', 'InsumosServiciosController');
-    Route::get('insumosServicios/{id}/delete', ['as' => 'insumosServicios.delete','uses' => 'InsumosServiciosController@destroy']);
-
     Route::post('solicitud/insumos', ['as' => 'insumosSolicitudes.detalle','uses' => 'InsumosSolicitudesController@detalle']);
-
     Route::post('insumoSolicitudes/guardar', ['as' => 'insumoSolicitudes.getGuardar','uses' => 'InsumosSolicitudesController@getGuardar']);
 
     /**********************************Proveedores*******************************/
@@ -110,8 +102,8 @@ Route::group(['middleware' => ['auth']], function()
     Route::get('admin/insumos/listado', ['as' => 'admin.insumos.getListadoInsumos','uses' => 'InsumoController@getListadoInsumos']);
 
     /**********************************Proveedores Insumos **********************/
-    Route::resource('proveedoresInsumos', 'ProveedoresInsumosController');
-    Route::get('proveedoresInsumos/borrar/{id}', ['as' => 'proveedoresInsumos.delete','uses' => 'ProveedoresInsumosController@destroy']);
+   /* Route::resource('proveedoresInsumos', 'ProveedoresInsumosController');
+    Route::get('proveedoresInsumos/borrar/{id}', ['as' => 'proveedoresInsumos.delete','uses' => 'ProveedoresInsumosController@destroy']);*/
 
     /**********************************Lista de Solicitudes  + Registro de Catalogo**********************/
     Route::get('admin/solicitudes/listado', ['as' => 'solicitudes.listado','uses' => 'SolicitudesCategoriasController@listado']);
@@ -141,7 +133,7 @@ Route::group(['middleware' => ['auth']], function()
 
     /**********************************Registro de Servicios y horario**********************************/
     Route::resource('usuario/servicios', 'UsuariosServiciosController');
-    Route::get('usuariosServicios/{id}/delete', ['as' => 'usuario.servicios.delete','uses' => 'UsuariosServiciosController@destroy']);
+    Route::get('usuariosServicios/borrar/{id}', ['as' => 'usuario.servicios.delete','uses' => 'UsuariosServiciosController@destroy']);
     Route::get('servicios/desplegable', ['as' => 'usuario.servicios.desplegable','uses' => 'UsuariosServiciosController@desplegable']);
 
 }); /****************************fin de admin *******************------------------------***/
