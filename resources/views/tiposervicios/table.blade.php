@@ -1,4 +1,3 @@
-
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="input-group">
         <div class="input-group-addon">
@@ -7,40 +6,37 @@
         <input type="text" class="form-control" id="exampleInputAmount" placeholder="Encuentra la categotia que necesitas para tu tipo Servicio">
     </div>
 </div>
+<br>
+<br>
 
-<br>
-<br>
-@foreach($categorias as $categoria)
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-        <div class="box box-widget widget-user">
-            <div class="widget-user-header bg-black" style="">
-                <h3  class="widget-user-username">
-                    {{$categoria->nombre}}
-                </h3>
-            </div>
-            <div class="widget-user-image">
-                {!! Html::image('categorias-img/'.$categoria->foto, $categoria->nombre, array('class' => 'img-responsive')) !!}
-            </div>
-            <div class="box-footer">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="description-block">
-                            <p>
-                                {{$categoria->descripcion}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 border-right">
-                        <div class="description-block">
-                            <a class="description-header" href="{!!route('tiposervicios.createnew', [$categoria->id]) !!}" role="button">Agregar Tipos de servicios</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Categorias - Tipo de Servicios</h3>
+        </div>
+        <div class="box-body">
+            <table class="table table-bordered table-striped" id="tiposervicio">
+                <thead>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th width="50px">Action</th>
+                </thead>
+                <tbody>
+                @foreach($categorias as $categoria)
+                    <tr>
+                        <td>{{$categoria->nombre}}</td>
+                        <td>{{$categoria->descripcion}}</td>
+                        <td>
+                            <div class="col-sm-6 border-right">
+                                <a class="btn btn-primary" href="{!!route('tiposervicios.createnew', [$categoria->id]) !!}" role="button" data-toggle="Agregar Tipos de servicios"><i class="glyphicon glyphicon-plus"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
 
-@endforeach
 

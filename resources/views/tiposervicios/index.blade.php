@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="">
 
         @include('flash::message')
 
@@ -10,11 +10,23 @@
 
                 @include('tiposervicios.table')
 
-        </div>
+          </div>
 
         @include('common.paginate', ['records' => $categorias])
 
 
 
     </div>
+@endsection
+
+@section('scripts')
+
+    {!! Html::script('assets/inc/bootstrap/js/jquery.dataTables.min.js') !!}
+    {!! Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js') !!}
+
+    <script type="text/javascript">
+        $(function () {
+            $('#tiposervicio').DataTable({});
+        });
+    </script>
 @endsection

@@ -26,7 +26,7 @@ return array(
     'CreateInsumosServiciosTable' => $baseDir . '/database/migrations/2015_12_01_202352_create_insumosServicios_table.php',
     'CreateInsumosSolicitudesTable' => $baseDir . '/database/migrations/2015_12_01_203424_create_insumosSolicitudes_table.php',
     'CreateInsumosTable' => $baseDir . '/database/migrations/2015_11_09_230502_create_insumos_table.php',
-    'CreateLugaresTable' => $baseDir . '/database/migrations/2015_12_15_173933_create_lugares_table.php',
+    'CreateLugaresTable' => $baseDir . '/database/migrations/2015_12_21_220314_create_lugares_table.php',
     'CreateMunicipiosTable' => $baseDir . '/database/migrations/2015_12_01_173859_create_municipios_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2015_11_08_100000_create_password_resets_table.php',
     'CreatePonderacionesTable' => $baseDir . '/database/migrations/2015_11_06_201308_create_ponderaciones_table.php',

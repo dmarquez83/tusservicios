@@ -2,12 +2,10 @@
 
 @section('content')
 
-    <div class="">
-
-        @include('flash::message')
+    <div>
         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h1 class="pull-left">Insumos</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('insumos.create') !!}">Agregar Insumo</a>
+            @include('flash::message')
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('insumos.create') !!}">Nuevo</a>
         </div>
         <div class="row">
             @if($insumos->isEmpty())
@@ -20,5 +18,17 @@
 
 
     </div>
+@endsection
+
+@section('scripts')
+
+    {!! Html::script('assets/inc/bootstrap/js/jquery.dataTables.min.js') !!}
+    {!! Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js') !!}
+
+    <script type="text/javascript">
+        $(function () {
+            $('#insumos').DataTable({});
+        });
+    </script>
 @endsection
 

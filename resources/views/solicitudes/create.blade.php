@@ -20,18 +20,24 @@
 @section('scripts-modulo')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     {!! Html::script('admin/js/insumos.js') !!}
-
     {!! Html::script('assets/inc/bootstrap/js/jquery.dataTables.min.js') !!}
     {!! Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js') !!}
+    {!! Html::script('assets/inc/bootstrap/js/bootstrap-timepicker.min.js') !!}
+    {!! Html::script('assets/inc/bootstrap/js/bootstrap-datepicker.js') !!}
+
+    {!! Html::script('assets/inc/bootstrap/js/jquery.inputmask.js') !!}
+    {!! Html::script('assets/inc/bootstrap/js/jquery.inputmask.date.extensions.js') !!}
+    {!! Html::script('assets/inc/bootstrap/js/jquery.inputmask.extensions.js.js') !!}
+
     <!-- flexslider -->
     {!! Html::script('assets/inc/flexslider/jquery.flexslider.js') !!}
 
     <script type="text/javascript">
         $(function () {
-            $("#tabla-listado-insumos").DataTable();
-        });
-
-        $(document).ready(function(){
+            $("#table-listado-insumos").DataTable();
+            $("[data-mask]").inputmask();
+            $("#hora").timepicker();
+            $("#fecha").datepicker();
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>

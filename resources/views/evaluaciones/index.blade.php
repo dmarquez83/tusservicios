@@ -2,13 +2,11 @@
 
 @section('content')
 
-    <div class="container">
+    <div>
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            @include('flash::message')
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('evaluaciones.create') !!}">Nuevo</a>
 
-        @include('flash::message')
-
-        <div class="row">
-            <h1 class="pull-left">Evaluaciones</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('evaluaciones.create') !!}">Add New</a>
         </div>
 
         <div class="row">
@@ -23,4 +21,17 @@
 
 
     </div>
+@endsection
+
+
+@section('scripts')
+
+    {!! Html::script('assets/inc/bootstrap/js/jquery.dataTables.min.js') !!}
+    {!! Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js') !!}
+
+    <script type="text/javascript">
+        $(function () {
+            $('#evaluaciones').DataTable({});
+        });
+    </script>
 @endsection

@@ -1,14 +1,18 @@
 @extends('app')
 
 @section('content')
-<div class="container">
+<div>
+    <div class="row margin-top_small">
+        <div class="col s12 m6 ">
 
-    @include('common.errors')
+           {{-- @include('common.errors') --}}
 
-    {!! Form::open(['route' => 'tipousuarios.store']) !!}
+            {!! Form::open(['route' => 'tipousuarios.store']) !!}
 
-        @include('tipousuarios.fields')
+                @include('tipousuarios.fields')
 
-    {!! Form::close() !!}
+            {!! Form::close() !!}
+        </div>
+    </div>
 </div>
 @endsection

@@ -10,7 +10,6 @@
                 <h2 class="page-header">Crear Proveedor</h2>
             </div>
                 @include('proveedores.fields')
-
             {!! Form::close() !!}
         </div>
     </div>
