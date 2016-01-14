@@ -1,23 +1,36 @@
-<table class="table">
-    <thead>
-    <th>Nombre</th>
-    <th>Descripcion</th>
-    <th>Tabla</th>
-    <th width="50px">Action</th>
-    </thead>
-    <tbody>
-    @foreach($estatus as $estatu)
-        <tr>
-            <td>{!! $estatu->nombre !!}</td>
-            <td>{!! $estatu->descripcion !!}</td>
-            <td>{!! $estatu->tabla !!}</td>
-            <td>
-                <a href="{!! route('estatus.edit', [$estatu->id]) !!}"><i class="mdi-content-send"></i></a>
-                <a href="{!! route('estatus.delete', [$estatu->id]) !!}" onclick="return confirm('Are you sure wants to delete this Ponderacion?')"><i class="mdi-action-delete"></i></a>
-            </td>
-        </tr>
-    @endforeach
-    </tbody>
-</table>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Estatus</h3>
+        </div>
+        <div class="box-body">
+            <table class="table table-bordered table-striped" id="estatus">
+                <thead>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Tabla</th>
+                    <th width="150px">Action</th>
+                </thead>
+                <tbody>
+                @foreach($estatus as $estatus)
+                    <tr>
+                        <td>{!! $estatus->nombre !!}</td>
+                        <td>{!! $estatus->descripcion !!}</td>
+                        <td>{!! $estatus->tabla !!}</td>
+                        <td>
+                            <div class="col-sm-6 border-right">
+                                <a class="btn btn-primary" href="{!! route('estatus.edit', [$estatus->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
+                            </div>
+                            <div class="col-sm-6 border-right">
+                                <a class="btn btn-primary" href="{!! route('estatus.delete', [$estatus->id]) !!}" onclick="return confirm('Esta seguro que desea eliminar el Estatus?')" role="button" data-toggle="Eliminar"><i class="glyphicon glyphicon-remove"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 

@@ -14,6 +14,7 @@
     {!! Html::style('assets/inc/bootstrap/css/AdminLTE.min.css') !!}
     <!-- Bootstrap time Picker -->
     {!! Html::style('assets/inc/bootstrap/css/bootstrap-timepicker.min.css') !!}
+    {!! Html::style('assets/inc/bootstrap/css/datepicker3.css') !!}
     {!! Html::style('assets/inc/bootstrap/css/skins/skin-black-light.css') !!}
     {!! Html::style('assets/css/main.css') !!}
 

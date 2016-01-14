@@ -18,8 +18,6 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         {!! Html::image('servicios-img/'.$servicios->foto, '', array('class' => 'responsive-img','width' => '300', 'height' => '200')) !!}
-
-
                     </div>
                 </div>
 
@@ -39,11 +37,11 @@
                     </div>
                     <div class="form-group">
                         {!! Form::label('telefono', 'Telefono:',['class' => 'control-label']) !!}
-                        {!! Form::text('telefono', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('telefono', null, ['class' => 'form-control','data-inputmask' => '"mask": "(9999) 999-9999"','data-mask']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('celular', 'Celular:',['class' => 'control-label']) !!}
-                        {!! Form::text('celular', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('celular', null, ['class' => 'form-control','data-inputmask' => '"mask": "(9999) 999-9999"','data-mask']) !!}
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -55,26 +53,27 @@
                 <div class="col-md-4">
                 <div class="form-group">
                         {!! Form::label('hora', 'Hora:',['class' => 'control-label']) !!}
-                        {!! Form::text('hora', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('hora', null, ['class' => 'form-control timepicker']) !!}
+
                     </div>
                 </div>
-                <div class="col-sm-4s">
-                <div class="form-group">
-                    {{-- no va a estar relacionada a nada el href por que  lo vamos a implementar con ajax --}}
-                    <a
-                            href="#"
-                            class="btn btn-primary btn-listado-insumos"
-                            data-id="{{ $servicios->id }}"
-                            data-name="{{ $servicios->nombre }}"
-                            data-img="{{ asset('insumos-img/') }}"
-                            data-path="{{ route('insumosSolicitudes.detalle') }}"
-                            data-toggle="modal"
-                            data-target="#myModal"
-                            data-token="{{ csrf_token() }}"
-                            >
-                        <i class="fa fa-external-link">Solicitar Insumos</i>
-                    </a>
-                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{-- no va a estar relacionada a nada el href por que  lo vamos a implementar con ajax --}}
+                        <a
+                                href="#"
+                                class="btn btn-primary btn-listado-insumos"
+                                data-id="{{ $servicios->id }}"
+                                data-name="{{ $servicios->nombre }}"
+                                data-img="{{ asset('insumos-img/') }}"
+                                data-path="{{ route('insumosSolicitudes.detalle') }}"
+                                data-toggle="modal"
+                                data-target="#myModal"
+                                data-token="{{ csrf_token() }}"
+                                >
+                            <i class="fa fa-external-link">Solicitar Insumos</i>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="col-md-12">
@@ -99,9 +98,7 @@
                                         </h4>
                                     </div>
                                     <div id="collapseOne" class="panel-collapse collapse">
-                                        <div class="">
-                                            <div class="box-header">
-                                            </div>
+                                        <div class="box">
                                             <div class="box-body">
                                                 <table id="tabla-listado-insumos" class="table table-bordered table-striped">
                                                     <thead>

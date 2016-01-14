@@ -26,7 +26,7 @@
             </li>
 
             <li class="treeview">
-                <a href="" >
+                <a href="{{ route ('servicios.index') }}" >
                     <i class="glyphicon glyphicon-pencil"></i>
                     <span>Servicios</span>
                 </a>
