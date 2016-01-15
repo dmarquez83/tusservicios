@@ -28,8 +28,8 @@ $(document).ready(function(){
                 for(var i=0; i<data.length; i++){
 
                     var fila = "<tr class='fil" +  data[i].id + "' >";
-                    fila += "<td><img src="+ path_img + "/" + data[i].foto  + " width='30'></td>";
                     fila += "<td><input class='boton_check' type='checkbox' name='" + "insumo[" + i + "]" + "' value='" + data[i].id + "'></td>";
+                    fila += "<td><img src="+ path_img + "/" + data[i].foto  + " width='30'></td>";
                     fila += "<td class='ref" + data[i].id + "'>" + data[i].referencia + "</td>";
                     fila += "<td class='des" + data[i].id + "'>" + data[i].descripcion + "</td>";
                     fila += "</tr>";
