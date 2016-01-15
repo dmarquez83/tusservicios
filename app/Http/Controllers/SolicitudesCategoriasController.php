@@ -227,4 +227,21 @@ class SolicitudesCategoriasController extends AppBaseController
 		return view('solicitudes.indexsolicitudes')->with('solicitudes', $solicitudes);
 	  }
 
+
+	public function getListado()
+	{
+		//$solicitudes = Solicitudes::orderBy('id', 'DESC')->get();
+		$solicitudes = DB::table('solicitudes')
+			->join('estatus','estatus.id' ,'=','solicitudes.id_estatus')
+			->join('servicios','servicios.id' ,'=','solicitudes.id_servicio')
+			->join('users','users.id' ,'=','solicitudes.id_usuario')
+			->where('users.id','=',\Auth::user()->id)
+			->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario')
+			->get();
+
+		//dd($solicitudes);
+
+		return view('solicitudes.indexsolicitudesusers')->with('solicitudes', $solicitudes);
+	}
+
 }

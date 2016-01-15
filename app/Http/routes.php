@@ -47,6 +47,11 @@ Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', ['as' => 'password/postReset', 'uses' =>  'Auth\PasswordController@postReset']);
 //Socialite
 Route::get('login/{provider}',['uses' => 'Auth\AuthController@login','as'   => 'auth.getSocialAuth']);
+// CLIENTE
+
+/**********************************Lista de Solicitudes  + Registro de Catalogo**********************/
+Route::get('usuario/solicitudes/listado', ['as' => 'solicitudes.listado','uses' => 'SolicitudesCategoriasController@getListado']);
+
 
 // ADMIN ------------------------------------------------------------------------------------
 
