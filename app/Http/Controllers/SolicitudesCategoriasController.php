@@ -79,17 +79,18 @@ class SolicitudesCategoriasController extends AppBaseController
 
 	  public function store($id, CreateSolicitudesRequest $request)
 	  {
-
-		//dd($request);
+		$originalDate = $request->get('fecha');
+		$newDate = date("Y-m-d", strtotime($originalDate));
+		$servicios = Servicios::find($id);
 
 		$solicitudesId = \DB::table('solicitudes')->insertGetId(array(
 		  'descripcion'  => $request->get('descripcion'),
-		  'fecha'  => $request->get('fecha'),
+		  'fecha'  => $newDate,
 		  'hora'  => $request->get('hora'),
 		  'direccion'  => $request->get('direccion'),
 		  'telefono'  => $request->get('telefono'),
 		  'horas'  => $request->get('contacto'),
-		  'costo'  => 0,
+		  'costo'  => $servicios->precio,
 		  'id_usuario'  => \Auth::user()->id,
 		  'id_estatus'  => '3',
 		  'id_servicio'  => $id,
@@ -120,9 +121,7 @@ class SolicitudesCategoriasController extends AppBaseController
 			$m->to($user->email, $user->name)->subject('Tu Solicitud a sido registrada');
 		});
 
-
-
-		return redirect(route('categorias.index'));
+		return redirect(route('solicitudes.getlistado'));
 
 
 		/*foreach ($request->get('insumo') as $insumos)

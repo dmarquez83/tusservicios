@@ -50,7 +50,7 @@ Route::get('login/{provider}',['uses' => 'Auth\AuthController@login','as'   => '
 // CLIENTE
 
 /**********************************Lista de Solicitudes  + Registro de Catalogo**********************/
-Route::get('usuario/solicitudes/listado', ['as' => 'solicitudes.listado','uses' => 'SolicitudesCategoriasController@getListado']);
+Route::get('usuario/solicitudes/listado', ['as' => 'solicitudes.getlistado','uses' => 'SolicitudesCategoriasController@getListado']);
 
 
 // ADMIN ------------------------------------------------------------------------------------

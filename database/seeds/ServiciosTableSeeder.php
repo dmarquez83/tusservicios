@@ -28,7 +28,8 @@ class ServiciosTableSeeder extends Seeder
               'foto' => 'servicios.jpg',
               'id_tipo_servicio' => $serv->id,
               'id_estatus' => '1',
-              'ponderacion' => '1'
+              'ponderacion' => '1',
+              'precio' => 1523
 
             ));
 

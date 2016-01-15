@@ -22,6 +22,7 @@ class InsumosTableSeeder extends Seeder
               'descripcion' => $faker->text($maxNbChars = 200),
               'referencia' => $faker->word(),
               'foto' => 'images.jpeg',
+              'nombre' => $faker->text($maxNbChars= 12),
               'created_at' => $date,
               'updated_at' => $date,
             ));
