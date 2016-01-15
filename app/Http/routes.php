@@ -77,14 +77,13 @@ Route::group(['middleware' => ['auth']], function()
     Route::resource('estatus', 'EstatuController');
     Route::get('estatus/borrar/{id}', ['as' => 'estatus.delete','uses' => 'EstatuController@destroy']);
 
-    /**********************************Servicios con categorias**********************************/
-    Route::resource('categorias/servicios', 'ServiciosController');
-    Route::get('categorias/servicios/{id}/delete', ['as' => 'categorias.servicios.delete','uses' => 'ServiciosController@destroy']);
-    Route::get('categorias/desplegable', ['as' => 'categorias.servicios.desplegable','uses' => 'ServiciosController@desplegable']);
-
     /**********************************Servicios**********************************/
     Route::resource('admin/servicios', 'ServiciosAdminController');
     Route::get('admin/servicios/nuevo/{id}', ['as' => 'admin.servicios.create','uses' => 'ServiciosAdminController@create']);
+    /**********************************Servicios con categorias**********************************/
+    Route::resource('categorias/servicios', 'ServiciosController'); /*ojo con este se usa para grabar*/
+    Route::get('categorias/servicios/{id}/delete', ['as' => 'categorias.servicios.delete','uses' => 'ServiciosController@destroy']);
+    Route::get('categorias/desplegable', ['as' => 'categorias.servicios.desplegable','uses' => 'ServiciosController@desplegable']);
 
     /****************************Evaluaciones**********************************/
     Route::resource('evaluaciones', 'EvaluacionesController');

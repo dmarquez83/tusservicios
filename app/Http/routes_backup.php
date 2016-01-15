@@ -3,11 +3,36 @@
 
 /*-- Rutas de Acceso Publico --*/
 
-Route::get('/', ['as' => 'home','uses' => 'HomeController@index',]);
-Route::get('home', ['as' => 'home', 'uses' => 'HomeController@index',]);
-Route::get('buscar/categorias',  ['uses' => 'SearchController@categorias','as' => 'buscar-categorias']);
-Route::get('buscar/servicios/{id}', ['uses' => 'SearchController@servicios', 'as' => 'buscar-servicios']);
+Route::get('/', [
+    'as' => 'home',
+    'uses' => 'HomeController@index',
+]);
 
+Route::get('home', [
+    'as' => 'home',
+    'uses' => 'HomeController@index',
+]);
+/*
+Route::get('search',
+    [
+        'uses' => 'SearchController@index',
+        'as' => 'search'
+    ]
+);*/
+
+Route::get('buscar/categorias',
+    [
+        'uses' => 'SearchController@categorias',
+        'as' => 'buscar-categorias'
+    ]
+);
+
+Route::get('buscar/servicios/{id}',
+    [
+        'uses' => 'SearchController@servicios',
+        'as' => 'buscar-servicios'
+    ]
+);
 // Lista de Servicios //esta vista no existe hay que crearla
 Route::get('public/servicios/listar', [
     'as' => 'listar',
@@ -20,6 +45,10 @@ Route::get('public/servicios/{id}', [
     'uses' => 'ServiciosController@detalle',
 ]);
 
+Route::get('public/categorias/{id}', [
+    'as' => 'detalle-categorias',
+    'uses' => 'ServiciosController@detallecategorias',
+]);
 
 /**********************************dashborad carolina**********************************/
 
@@ -51,31 +80,91 @@ Route::get('admin/catalogos',
         return view('catalogos.tablecatalogo');
     });
 */
+/**********************************registro servicios carolina**********************************/
+
+Route::get('public/regservicios',
+    function ()    {
+        return view('servicios.tableregservicios');
+    });
+
 
 
 /**********************************solicitudes**********************************/
 
-// Categorias
+// Lista de Categorias
 Route::resource('public/categorias', 'SolicitudesCategoriasController' , ['as' => 'categorias']);
-Route::get('public/categorias', ['as' => 'categorias.index','uses' => 'SolicitudesCategoriasController@index',]);
-Route::get('public/categorias/{id}', ['as' => 'detalle-categorias','uses' => 'ServiciosController@detallecategorias',]);
 
-// Servicios
+Route::get('public/categorias', [
+    'as' => 'categorias.index',
+    'uses' => 'SolicitudesCategoriasController@index',
+]);
+
 Route::resource('public/servicios', 'SolicitudServiciosController', ['as' => 'servicios']);
-Route::get('servicios/index/{id}', ['as' => 'servicios.index','uses' => 'SolicitudServiciosController@index',]);
 
-//solicitudes
-Route::get('solicitudes/nuevo/{id}', ['as' => 'solicitudes.create', 'uses' => 'SolicitudesCategoriasController@create',]);
-Route::get('solicitudes/guardar/{id}', ['middleware' => 'authusuario','as' => 'solicitudes.store','uses' => 'SolicitudesCategoriasController@store',]);
+Route::get('servicios/index/{id}', [
+    'as' => 'servicios.index',
+    'uses' => 'SolicitudServiciosController@index',
+]);
+// Lista de Servicios por Categorias
+/*Route::get('public/categorias/{id}', [
+  'as' => 'servicios.index',
+  'uses' => 'SolicitudServiciosController@index',
+]);*/
+
+
+Route::get('solicitudes/{id}/create', [
+    'as' => 'solicitudes.create',
+    'uses' => 'SolicitudesCategoriasController@create',
+]);
+
+Route::get('solicitudes/{id}/store', [
+    'middleware' => 'authusuario',
+    'as' => 'solicitudes.store',
+    'uses' => 'SolicitudesCategoriasController@store',
+]);
+
+
+
 
 /*******************************LOGIN******************************************/
 
+// Login
+/*
+Route::get('public/login', [
+  'as' => 'auth/login',
+  'uses' => 'Auth\AuthController@getLogin',
+]);*/
+
 Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', [ 'as' => 'auth/login','uses' => 'Auth\AuthController@postLogin',]);
-Route::get('public/logout', ['as' => 'auth/logout','uses' => 'Auth\AuthController@getLogout',]);
-Route::get('public/registro', ['as' => 'auth/register','uses' => 'Auth\AuthController@getRegister',]);
-Route::post('public/registro', ['as' => 'auth/register','uses' => 'Auth\AuthController@postRegister',]);
-Route::get('public/password', [ 'as' => 'password/email', 'uses' => 'Auth\PasswordController@getEmail',]);
+
+Route::post('auth/login', [
+    'as' => 'auth/login',
+    'uses' => 'Auth\AuthController@postLogin',
+]);
+
+
+// Logout
+Route::get('public/logout', [
+    'as' => 'auth/logout',
+    'uses' => 'Auth\AuthController@getLogout',
+]);
+
+// Registro
+Route::get('public/registro', [
+    'as' => 'auth/register',
+    'uses' => 'Auth\AuthController@getRegister',
+]);
+
+Route::post('public/registro', [
+    'as' => 'auth/register',
+    'uses' => 'Auth\AuthController@postRegister',
+]);
+
+// Password reset link request routes...
+Route::get('public/password', [
+    'as' => 'password/email',
+    'uses' => 'Auth\PasswordController@getEmail',
+]);
 
 
 Route::post('public/password', [
@@ -198,18 +287,6 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'ServiciosController@destroy',
     ]);
 
-    Route::get('categorias/desplegable', [
-        'as' => 'categorias.servicios.desplegable',
-        'uses' => 'ServiciosController@desplegable',
-    ]);
-    /*
-        Route::get('dropdown', function(){
-            $id = Input::get('option');
-            $tiposervicios = \App\Models\Categoria::find('1')->tiposervicio;
-            dd ($tiposervicios);
-            return $tiposervicios->lists('tiposervicios', 'id');
-        });*/
-
     /**********************************Servicios**********************************/
 
     Route::resource('admin/servicios', 'ServiciosAdminController');
@@ -218,9 +295,6 @@ Route::group(['middleware' => ['auth']], function()
         'as' => 'admin.servicios.create',
         'uses' => 'ServiciosAdminController@create',
     ]);
-
-
-
 
     /****************************Evaluaciones**********************************/
 
@@ -294,7 +368,7 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'ProveedoresInsumosController@destroy',
     ]);
 
-    /**********************************Lista de Solicitudes  + Registro de Catalogo**********************/
+    /**********************************Lista de Solicitudes **********************/
 
     Route::get('admin/solicitudes/listado', [
         'as' => 'solicitudes.listado',
@@ -303,32 +377,49 @@ Route::group(['middleware' => ['auth']], function()
 
 
     /**********************************Catalogo Solicitud**********************************/
+
     Route::resource('admin/catalogos', 'CatalogosController');
-    Route::get('admin/catalogos/crear/{id}', ['as' => 'catalogos.createnew','uses' => 'CatalogosController@createnew']);
-    Route::post('catalogo/proveedores', ['as' => 'catalogoproveedores.detalle','uses' => 'CatalogosController@detalle']);
+
+    Route::get('admin/catalogos/crear/{id}', [
+        'as' => 'catalogos.createnew',
+        'uses' => 'CatalogosController@createnew',
+    ]);
+
+    Route::post('catalogo/proveedores', [
+        'as' => 'catalogoproveedores.detalle',
+        'uses' => 'CatalogosController@detalle',
+    ]);
+
 
     /**********************************Ciudades**********************************/
+
     Route::resource('admin/ciudades', 'CiudadController');
-    Route::get('admin/ciudades/delete/{id}', ['as' => 'admin.ciudades.delete','uses' => 'CiudadController@destroy']);
-    Route::get('admi/ciudades/listado', ['as' => 'admin.ciudades.listado','uses' => 'CiudadController@listado']);
+
+    Route::get('admin/ciudades/delete/{id}', [
+        'as' => 'admin.ciudades.delete',
+        'uses' => 'CiudadController@destroy',
+    ]);
+
+    Route::get('admi/ciudades/listado', [
+        'as' => 'admin.ciudades.listado',
+        'uses' => 'CiudadController@listado',
+    ]);
+
 
     /**********************************Sectores**********************************/
+
     Route::resource('admin/sectores', 'SectorController');
-    Route::get('admin/sectores/delete/{id}', ['as' => 'admin.sectores.delete','uses' => 'SectorController@destroy']);
-    Route::get('admi/sectores/listado/{id}', ['as' => 'admin.sectores.listado','uses' => 'SectorController@listado']);
 
-    /**********************************Horas**********************************/
-    Route::resource('admin/horas', 'HorasController');
-    Route::get('admin/horas/delete/{id}', ['as' => 'admin.horas.delete','uses' => 'HorasController@destroy']);
+    Route::get('admin/sectores/delete/{id}', [
+        'as' => 'admin.sectores.delete',
+        'uses' => 'SectorController@destroy',
+    ]);
 
-    /**********************************Dias**********************************/
-    Route::resource('admin/dias', 'DiasController');
-    Route::get('admin/dias/delete/{id}', ['as' => 'admin.dias.delete','uses' => 'DiasController@destroy']);
+    Route::get('admi/sectores/listado/{id}', [
+        'as' => 'admin.sectores.listado',
+        'uses' => 'SectorController@listado',
+    ]);
 
-    /**********************************Registro de Servicios y horario**********************************/
-    Route::resource('usuario/servicios', 'UsuariosServiciosController');
-    Route::get('usuariosServicios/{id}/delete', ['as' => 'usuario.servicios.delete','uses' => 'UsuariosServiciosController@destroy']);
-    Route::get('servicios/desplegable', ['as' => 'usuario.servicios.desplegable','uses' => 'UsuariosServiciosController@desplegable']);
 
 }); /****************************fin de admin *******************------------------------***/
 
@@ -345,24 +436,64 @@ Route::get('catalogos/{id}/delete', [
     'uses' => 'CatalogosController@destroy',
 ]);
 
-/*
+
 Route::resource('catalogosInsumos', 'CatalogosInsumosController');
 
 Route::get('catalogosInsumos/{id}/delete', [
     'as' => 'catalogosInsumos.delete',
     'uses' => 'CatalogosInsumosController@destroy',
 ]);
-*/
 
-/*
+
+Route::resource('horas', 'HorasController');
+
+Route::get('horas/{id}/delete', [
+    'as' => 'horas.delete',
+    'uses' => 'HorasController@destroy',
+]);
+
+
+Route::resource('dias', 'DiasController');
+
+Route::get('dias/{id}/delete', [
+    'as' => 'dias.delete',
+    'uses' => 'DiasController@destroy',
+]);
+
+
+
+Route::resource('usuariosServicios', 'UsuariosServiciosController');
+
+Route::get('usuariosServicios/{id}/delete', [
+    'as' => 'usuariosServicios.delete',
+    'uses' => 'UsuariosServiciosController@destroy',
+]);
+
+
 Route::resource('horarios', 'HorariosController');
 
 Route::get('horarios/{id}/delete', [
     'as' => 'horarios.delete',
     'uses' => 'HorariosController@destroy',
-]);*/
+]);
 
-/*
+
+Route::resource('horarios', 'HorariosController');
+
+Route::get('horarios/{id}/delete', [
+    'as' => 'horarios.delete',
+    'uses' => 'HorariosController@destroy',
+]);
+
+
+Route::resource('horarios', 'HorariosController');
+
+Route::get('horarios/{id}/delete', [
+    'as' => 'horarios.delete',
+    'uses' => 'HorariosController@destroy',
+]);
+
+
 Route::resource('estados', 'EstadosController');
 
 Route::get('estados/{id}/delete', [
@@ -376,15 +507,19 @@ Route::get('municipios/{id}/delete', [
     'as' => 'municipios.delete',
     'uses' => 'MunicipiosController@destroy',
 ]);
-*/
-/*
+
+
 Route::resource('lugares', 'LugaresController');
 
 Route::get('lugares/{id}/delete', [
     'as' => 'lugares.delete',
     'uses' => 'LugaresController@destroy',
 ]);
-*/
 
 
-
+Route::get('dropdown', function(){
+    $id = Input::get('option');
+    $tiposervicios = \App\Models\Categoria::find($id)->tiposervicio;
+    // dd ($tiposervicios);
+    return $tiposervicios->lists('tiposervicios', 'id');
+});
