@@ -6,15 +6,15 @@
         <div class="box-body">
             <table class="table table-bordered table-striped" id="lissolicitud">
                 <thead>
-                <th>Valor</th>
-                <th>Nombre</th>
+                <th>Usuarios</th>
+                <th>Servicios</th>
                 <th width="50px">Action</th>
                 </thead>
                 <tbody>
                 @foreach($solicitudes as $solicitud)
                     <tr>
-                        <td>{!! $solicitud->descripcion !!}</td>
-                        <td>{!! $solicitud->direccion !!}</td>
+                        <td>{!! $solicitud->usuario !!}</td>
+                        <td>{!! $solicitud->servicios !!}</td>
                         <td>
                             <div class="col-sm-6 border-right">
                                 <a class="btn btn-primary" href="{!! route('catalogos.createnew', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-search"></i></a>
