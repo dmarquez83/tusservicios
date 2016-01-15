@@ -38,11 +38,14 @@ class UsuariosServiciosController extends AppBaseController
 	 */
 	public function index()
 	{
-		//$usuariosServicios = $this->usuariosServiciosRepository->paginate(10);
 
-		$usuariosServicios = UsuariosServicios::where('user_id',\Auth::user()->id)->get();
+		$usuariosServicios = DB::table('usuarios_servicios')
+			->join('servicios', 'servicios.id', '=', 'usuarios_servicios.servicio_id')
+			->join('users', 'users.id', '=', 'usuarios_servicios.user_id')
+			->where('user_id',\Auth::user()->id)
+			->select('usuarios_servicios.id','usuarios_servicios.servicio_id', 'usuarios_servicios.user_id','servicios.nombre','servicios.descripcion','servicios.foto','users.name')
+			->get();
 
-		//,
 
 		return view('usuariosServicios.index')
 			->with('usuariosServicios', $usuariosServicios);

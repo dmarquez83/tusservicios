@@ -12,11 +12,7 @@
         </div>
 
         <div class="row">
-            @if($usuariosServicios->isEmpty())
-                <div class="well text-center">No UsuariosServicios found.</div>
-            @else
-                @include('usuariosServicios.table')
-            @endif
+            @include('usuariosServicios.table')
         </div>
 
 
