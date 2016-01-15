@@ -4,7 +4,8 @@
 
     <div class="">
 
-            @include('flash::message')
+        @include('flash::message')
+
         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <a class="btn btn-primary pull-right btn-sm" style="margin-top: 25px" href="{!! route('admin.categorias.create') !!}">Agregar Categorias</a>
         </div>

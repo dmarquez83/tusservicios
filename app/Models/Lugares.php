@@ -10,9 +10,7 @@ class Lugares extends Model
 
 	public $fillable = [
 	    "usuario_servicio_id",
-		"usuario_servicio_id",
-		"municipio_id",
-		"municipio_id"
+		"sector_id"
 	];
 
     /**
@@ -22,7 +20,7 @@ class Lugares extends Model
      */
     protected $casts = [
         "usuario_servicio_id" => "integer",
-		"municipio_id" => "integer"
+		"sector_id" => "integer"
     ];
 
 	public static $rules = [

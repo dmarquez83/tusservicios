@@ -1,14 +1,17 @@
 @extends('app')
 
 @section('content')
-<div class="container">
+    <div class="">
+        <div class="row margin-top_small">
+            <div class="col s12 m6 ">
+                @include('common.errors')
 
-    @include('common.errors')
+                {!! Form::model($tipousuarios, ['route' => ['tipousuarios.update', $tipousuarios->id], 'method' => 'patch']) !!}
 
-    {!! Form::model($tipousuarios, ['route' => ['tipousuarios.update', $tipousuarios->id], 'method' => 'patch']) !!}
+                    @include('tipousuarios.fields')
 
-        @include('tipousuarios.fields')
-
-    {!! Form::close() !!}
-</div>
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
 @endsection

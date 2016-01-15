@@ -3,7 +3,7 @@
 </div>
 
 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    {!! Form::open(array('route' => ['buscar-servicios', $servicios[0]->id_categoria], 'method' => 'GET', 'class' => 'form-control', 'role' => 'search')) !!}
+    {!! Form::open(array('route' => ['buscar-servicios', $servicios[0]->id_categoria], 'method' => 'GET', 'class' => '', 'role' => 'search')) !!}
     <div class="input-group margin">
         {!! Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Buscar Servicios']) !!}
         <span class="input-group-btn">

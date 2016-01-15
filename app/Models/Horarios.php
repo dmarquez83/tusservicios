@@ -10,10 +10,7 @@ class Horarios extends Model
 
 	public $fillable = [
 	    "usuario_servicio_id",
-		"usuario_servicio_id",
 		"hora_id",
-		"hora_id",
-		"dia_id",
 		"dia_id"
 	];
 

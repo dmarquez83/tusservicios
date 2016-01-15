@@ -15,7 +15,7 @@
             <?php endif; ?>
         </div>
 
-        <?php echo $__env->make('common.paginate', ['records' => $proveedores], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
 
 
     </div>

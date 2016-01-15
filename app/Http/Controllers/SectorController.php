@@ -163,7 +163,7 @@ class SectorController extends AppBaseController
 
 		$sectores = DB::table('sectores')->join('ciudades', 'ciudades.id', '=', 'sectores.ciudad_id')
 			->where('sectores.ciudad_id', '=', $id)
-			->select('sectores.id', 'sectores.nombre', 'sectores.ciudad_id','ciudades.nombre')
+			->select('sectores.id', 'sectores.nombre')
 			->get();
 
 		//	dd($ciudad);

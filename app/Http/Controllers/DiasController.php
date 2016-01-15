@@ -57,7 +57,7 @@ class DiasController extends AppBaseController
 
 		Flash::success('Dias saved successfully.');
 
-		return redirect(route('dias.index'));
+		return redirect(route('admin.dias.index'));
 	}
 
 	/**
@@ -75,7 +75,7 @@ class DiasController extends AppBaseController
 		{
 			Flash::error('Dias not found');
 
-			return redirect(route('dias.index'));
+			return redirect(route('admin.dias.index'));
 		}
 
 		return view('dias.show')->with('dias', $dias);
@@ -96,7 +96,7 @@ class DiasController extends AppBaseController
 		{
 			Flash::error('Dias not found');
 
-			return redirect(route('dias.index'));
+			return redirect(route('admin.dias.index'));
 		}
 
 		return view('dias.edit')->with('dias', $dias);
@@ -118,14 +118,14 @@ class DiasController extends AppBaseController
 		{
 			Flash::error('Dias not found');
 
-			return redirect(route('dias.index'));
+			return redirect(route('admin.dias.index'));
 		}
 
 		$this->diasRepository->updateRich($request->all(), $id);
 
 		Flash::success('Dias updated successfully.');
 
-		return redirect(route('dias.index'));
+		return redirect(route('admin.dias.index'));
 	}
 
 	/**
@@ -143,13 +143,13 @@ class DiasController extends AppBaseController
 		{
 			Flash::error('Dias not found');
 
-			return redirect(route('dias.index'));
+			return redirect(route('admin.dias.index'));
 		}
 
 		$this->diasRepository->delete($id);
 
 		Flash::success('Dias deleted successfully.');
 
-		return redirect(route('dias.index'));
+		return redirect(route('admin.dias.index'));
 	}
 }

@@ -1,11 +1,12 @@
 $(document).ready(function(){
     $('#id_categoria').change(function(){
-        $.get("{{ url('dropdown')}}",
+        $.get($(this).data('path'),
             { option: $(this).val() },
             function(data) {
                 $('#tiposervicio_id').empty();
                 $.each(data, function(key, element) {
-                    $('#tiposervicio_id').append("<option value='" + key + "'>" + element + "</option>");
+                    //console.log(element.nombre);
+                    $('#tiposervicio_id').append("<option value='" + element.id + "'>" + element.nombre + "</option>");
                 });
             });
     });

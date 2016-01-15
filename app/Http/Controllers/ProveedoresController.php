@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 
+use App\Models\Proveedores;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Input;
 use Intervention\Image\Image as Image;
 use Illuminate\Support\Facades\File;
 use App\Models\Insumo;
+use App\Models\ProveedoresInsumos;
 
 class ProveedoresController extends AppBaseController
 {
@@ -34,7 +36,7 @@ class ProveedoresController extends AppBaseController
 	 */
 	public function index()
 	{
-		$proveedores = $this->proveedoresRepository->paginate(10);
+		$proveedores = $this->proveedoresRepository->all();
 
 		return view('proveedores.index')
 			->with('proveedores', $proveedores);
@@ -47,7 +49,10 @@ class ProveedoresController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('proveedores.create');
+
+		$insumos = Insumo::orderby('id','desc')->get();
+
+		return view('proveedores.create', compact('insumos'));
 	}
 
 	/**
@@ -59,9 +64,11 @@ class ProveedoresController extends AppBaseController
 	 */
 	public function store(Request $request)
 	{
+		/*esta condicion guarda solo el insumo*/
 		if($request->get('descripcion')){
 
 			$this->validate($request, [
+				'nombre' => 'required|max:255',
 				'descripcion' => 'required|max:500',
 				'referencia' => 'required|max:100',
 				'foto'  => 'required'
@@ -91,11 +98,38 @@ class ProveedoresController extends AppBaseController
 
 			Flash::success('Insumos Guardada Correctamente.');
 
+			return redirect(route('admin.proveedores.create'));
+
 		}else{
 
-			$input = $request->all();
+			$proveedorId = \DB::table('proveedores')->insertGetId(array(
+				'rif'  => $request->get('rif'),
+				'nombre'  => $request->get('nombrepro'),
+				'telefono'  => $request->get('telefono'),
+				'direccion'  => $request->get('direccion'),
+				'rnc'  => $request->get('rnc'),
+				'correo'  => $request->get('correo'),
+				'created_at' => new \DateTime,
+				'updated_at' =>  new \Datetime,
+			));
 
-			$proveedores = $this->proveedoresRepository->create($input);
+
+			if($request->get('insumo')){
+
+				foreach ($request->get('insumo') as $insumo)
+				{
+
+					$data= [
+						'proveedor_id'  => $proveedorId,
+						'insumo_id'  => $insumo,
+						'created_at' => new \DateTime,
+						'updated_at' =>  new \Datetime,
+					];
+					ProveedoresInsumos::create($data);
+				}
+
+			}
+
 
 			Flash::success('Proveedores guardado correctamente.');
 
@@ -138,6 +172,8 @@ class ProveedoresController extends AppBaseController
 	{
 		$proveedores = $this->proveedoresRepository->find($id);
 
+		$insumos = Insumo::orderby('id','desc')->get();
+
 		if(empty($proveedores))
 		{
 			Flash::error('Proveedores  no funciona');
@@ -145,7 +181,7 @@ class ProveedoresController extends AppBaseController
 			return redirect(route('admin.proveedores.index'));
 		}
 
-		return view('proveedores.edit')->with('proveedores', $proveedores);
+		return view('proveedores.edit')->with(array('proveedores'=>$proveedores,'insumos'=>$insumos));
 	}
 
 	/**

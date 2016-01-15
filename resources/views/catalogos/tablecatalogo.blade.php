@@ -2,21 +2,14 @@
 
 @section('content')
     {!! Form::open(['route' => 'admin.catalogos.store', 'files' => 'true']) !!}
-
-    <div>
-
         @include('flash::message')
-
-        <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
                 <div class="box box-warning">
-                    <div class="box-header with-border">
+                    <div class="box-header">
                         <h3 class="box-title">Solicitud</h3>
                     </div>
                     <form role="form-horizontal">
                         <div class="box-body">
-
                             <div class="col-sm-6">
                                 <div class="row">
                                     <div class="form-group">
@@ -98,14 +91,12 @@
                                 <div class="form-group">
                                     {!! Form::label('Observaciones del Catalogo', 'Observaciones del Catalogo:', ['class' => 'control-label col-sm-4']) !!}
                                     <div class="col-sm-8">
-                                        {!! Form::textarea('descripcion', null, ['class' => '']) !!}
+                                        {!! Form::textarea('descripcion', null, ['class' => '','rows'=>'3']) !!}
                                         {!! Form::hidden('solicitud_id', $solicitudes[0]->id) !!}
 
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </form>
                 </div>
@@ -168,8 +159,6 @@
                     {!! Form::submit('Guardar', ['class' => 'btn btn-warning pull-right']) !!}
                 </div>
             </div>
-        </div>
-    </div>
     {!! Form::close() !!}
 @endsection
 

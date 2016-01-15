@@ -10,32 +10,23 @@
                 <h2 class="page-header">Crear Proveedor</h2>
             </div>
                 @include('proveedores.fields')
-
             {!! Form::close() !!}
         </div>
     </div>
 </div>
 @endsection
-@section('scripts')
 
-    {!! Html::script('assets/inc/bootstrap/js/jquery.dataTables.min.js') !!}
-    {!! Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js') !!}
-    <!-- flexslider -->
-    {!! Html::script('assets/inc/flexslider/jquery.flexslider.js') !!}
+@section('scripts-modulo')
 
 
-    <script type="text/javascript">
-        $(function () {
-            $("#example1").DataTable();
+{!! Html::script('assets/inc/bootstrap/js/jquery.dataTables.min.js') !!}
+{!! Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js') !!}
+        <!-- flexslider -->
+{!! Html::script('assets/inc/flexslider/jquery.flexslider.js') !!}
 
-            $('#example2').DataTable();
-        });
-
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
-
-
+{!! Html::script('admin/js/usuarios-insumos.js') !!}
 
 @endsection
+
+
+

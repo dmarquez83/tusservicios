@@ -16,7 +16,7 @@
                     {!! Form::text('rif', null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="col-sm-6">
-                    {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+                    {!! Form::text('nombrepro', null, ['class' => 'form-control']) !!}
                 </div>
             </div>
 
@@ -84,17 +84,20 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td style="width: 10%">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td>LLave</td>
-                                        <td>llave cromada</td>
-                                    </tr>
+                                    @foreach($insumos as $insumo)
+                                        <tr id={{ 'fil'.$insumo->id}} >
+                                            <td style="width: 10%; align-content: center">
+                                                <div id="checkbox">
+                                                    <label>
+                                                        {!! Form::checkbox('insumo', $insumo->id, false,['class' => 'insumo']) !!}
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>{{$insumo->nombre}}</td>
+                                            <td>{{$insumo->descripcion}}</td>
+                                        </tr>
+                                    @endforeach
+
                                     </tbody>
                                 </table>
                             </div>
@@ -106,40 +109,38 @@
                                 {!! Form::label('nombre', 'Nombre:', ['class' => 'control-label']) !!}
                             </div>
                             <div class="col-sm-6 form-group">
-                                {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+                                {!! Form::label('descripcion', 'Descripcion:', ['class' => 'control-label']) !!}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 form-group">
-                                {!! Form::label('descripcion', 'Descripcion:', ['class' => 'control-label']) !!}
+                                {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
                             </div>
-                            <div class="col-sm-6">
-                                {!! Form::label('referencia', 'Referencia:', ['class' => 'control-label']) !!}
-                            </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-sm-6 form-group">
                                 {!! Form::text('descripcion', null, ['class' => 'form-control']) !!}
                             </div>
-                            <div class="col-sm-6">
-                                {!! Form::textarea('referencia', null, ['class' => 'form-control','rows' =>'3']) !!}
-                            </div>
+
                         </div>
 
                         <div class="row">
+                            <div class="col-sm-6">
+                                {!! Form::label('referencia', 'Referencia:', ['class' => 'control-label']) !!}
+                            </div>
                             <div class="col-sm-6 form-group">
                                 {!! form::label('image','Imagen', ['class' => 'control-label'])!!}
                             </div>
-                            <div class="col-sm-6">
-                            </div>
                         </div>
 
                         <div class="row">
+                            <div class="col-sm-6">
+                                {!! Form::textarea('referencia', null, ['class' => 'form-control','rows' =>'3']) !!}
+                            </div>
                             <div class="col-sm-6 form-group">
                                 {!! form::file('foto',null,['class' => 'form-control']) !!}
                             </div>
+
                         </div>
+
 
 
                         <div class="row">
@@ -168,7 +169,7 @@
                         <div class="box-header">
                         </div>
                         <div class="box-body">
-                            <table id="example2" class="table table-bordered table-striped">
+                            <table  class="table table-bordered table-striped" id="tabla-listado-insumos">
                                 <thead>
                                 <tr>
                                     <th>Nombre</th>
@@ -177,15 +178,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>LLave</td>
-                                    <td>llave cromada</td>
-                                    <td style="width: 10%">
-                                        <div class="col-sm-6 border-right">
-                                            <a class="btn btn-primary" href="#" role="button" data-toggle="Eliminar"><i class="glyphicon glyphicon-remove"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
+
                                 </tbody>
                             </table>
                         </div>

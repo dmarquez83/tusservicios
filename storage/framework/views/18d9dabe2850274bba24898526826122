@@ -6,7 +6,7 @@
 
         <div class="row">
             <h1 class="pull-left">UsuariosServicios</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="<?php echo route('usuariosServicios.create'); ?>">Add New</a>
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="<?php echo route('usuario.servicios.create'); ?>">Add New</a>
         </div>
 
         <div class="row">
@@ -17,7 +17,7 @@
             <?php endif; ?>
         </div>
 
-        <?php echo $__env->make('common.paginate', ['records' => $usuariosServicios], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
 
 
     </div>

@@ -17,10 +17,10 @@
                         <td>{!! $dias->dia !!}</td>
                         <td>
                             <div class="col-sm-6 border-right">
-                                <a class="btn btn-primary" href="{!! route('dias.edit', [$dias->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
+                                <a class="btn btn-primary" href="{!! route('admin.dias.edit', [$dias->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
                             </div>
                             <div class="col-sm-6 border-right">
-                                <a class="btn btn-primary" href="{!! route('dias.delete', [$dias->id]) !!}" onclick="return confirm('Esta seguro que desea eliminar esta Hora?')" role="button" data-toggle="Eliminar"><i class="glyphicon glyphicon-remove"></i></a>
+                                <a class="btn btn-primary" href="{!! route('admin.dias.delete', [$dias->id]) !!}" onclick="return confirm('Esta seguro que desea eliminar esta Hora?')" role="button" data-toggle="Eliminar"><i class="glyphicon glyphicon-remove"></i></a>
                             </div>
                         </td>
                     </tr>

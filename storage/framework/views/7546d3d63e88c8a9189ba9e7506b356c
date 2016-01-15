@@ -16,31 +16,24 @@
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-<?php $__env->startSection('scripts'); ?>
 
-    <?php echo Html::script('assets/inc/bootstrap/js/jquery.dataTables.min.js'); ?>
-
-    <?php echo Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js'); ?>
-
-    <!-- flexslider -->
-    <?php echo Html::script('assets/inc/flexslider/jquery.flexslider.js'); ?>
+<?php $__env->startSection('scripts-modulo'); ?>
 
 
+<?php echo Html::script('assets/inc/bootstrap/js/jquery.dataTables.min.js'); ?>
 
-    <script type="text/javascript">
-        $(function () {
-            $("#example1").DataTable();
+<?php echo Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js'); ?>
 
-            $('#example2').DataTable();
-        });
+        <!-- flexslider -->
+<?php echo Html::script('assets/inc/flexslider/jquery.flexslider.js'); ?>
 
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
 
+<?php echo Html::script('admin/js/usuarios-insumos.js'); ?>
 
 
 <?php $__env->stopSection(); ?>
+
+
+
 
 <?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
