@@ -122,24 +122,6 @@ class SolicitudesCategoriasController extends AppBaseController
 		});
 
 		return redirect(route('solicitudes.getlistado'));
-
-
-		/*foreach ($request->get('insumo') as $insumos)
-		{
-		  $data[]= [
-			'solicitud_id'  => $solicitudesId,
-			'insumo_id'  => $insumos,
-			'created_at' => new \DateTime,
-			'updated_at' =>  new \Datetime,
-		  ];
-		}*/
-
-        // dd($data);
-		//InsumosSolicitudes::create($data);
-
-
-		//$this->solicitudesRepository->create($data);
-
 	  }
 
 	  /**
@@ -213,7 +195,6 @@ class SolicitudesCategoriasController extends AppBaseController
 
 	  public function listado()
 	  {
-		//$solicitudes = Solicitudes::orderBy('id', 'DESC')->get();
 		  $solicitudes = DB::table('solicitudes')
 			  ->join('estatus','estatus.id' ,'=','solicitudes.id_estatus')
 			  ->join('servicios','servicios.id' ,'=','solicitudes.id_servicio')
@@ -221,15 +202,12 @@ class SolicitudesCategoriasController extends AppBaseController
 			  ->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario')
 			  ->get();
 
-		//dd($solicitudes);
-
 		return view('solicitudes.indexsolicitudes')->with('solicitudes', $solicitudes);
 	  }
 
 
 	public function getListado()
 	{
-		//$solicitudes = Solicitudes::orderBy('id', 'DESC')->get();
 		$solicitudes = DB::table('solicitudes')
 			->join('estatus','estatus.id' ,'=','solicitudes.id_estatus')
 			->join('servicios','servicios.id' ,'=','solicitudes.id_servicio')
@@ -241,6 +219,49 @@ class SolicitudesCategoriasController extends AppBaseController
 		//dd($solicitudes);
 
 		return view('solicitudes.indexsolicitudesusers')->with('solicitudes', $solicitudes);
+	}
+
+
+	public function getDetSolicitud($id)
+	{
+		$solicitudes = DB::table('solicitudes')
+			->join('estatus', 'estatus.id', '=', 'solicitudes.id_estatus')
+			->join('servicios', 'servicios.id', '=', 'solicitudes.id_servicio')
+			->join('users', 'users.id', '=', 'solicitudes.id_usuario')
+			->where('users.id', '=', \Auth::user()->id)
+			->where('solicitudes.id','=',$id )
+			->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario')
+			->first();
+		//dd($solicitudes);
+
+		$insumos= DB::table('insumos_solicitudes')
+			->join('solicitudes','solicitudes.id' ,'=','insumos_solicitudes.solicitud_id')
+			->join('insumos','insumos.id' ,'=','insumos_solicitudes.insumo_id')
+			->join('users','users.id' ,'=','solicitudes.id_usuario')
+			->where('users.id','=',\Auth::user()->id )
+			->where('insumos_solicitudes.solicitud_id','=',$id )
+			->select('insumos_solicitudes.id','insumos_solicitudes.insumo_id', 'insumos.nombre','insumos.descripcion','insumos.referencia','insumos.foto')
+			->get();
+		//dd($insumos);
+
+		$catalogos = DB::table('catalogos')
+			->join('solicitudes','solicitudes.id' ,'=','catalogos.solicitud_id')
+			->join('catalogos_insumos','catalogos_insumos.catalogo_id' ,'=','catalogos.id')
+			->join('proveedores','proveedores.id' ,'=','catalogos_insumos.proveedor_id')
+			->join('insumos','insumos.id' ,'=','catalogos_insumos.insumo_id')
+			->join('estatus','estatus.id' ,'=','catalogos_insumos.estatus_id')
+			->join('users','users.id' ,'=','solicitudes.id_usuario')
+			->where('users.id','=',\Auth::user()->id )
+			->where('catalogos.solicitud_id','=',$id )
+			->select('catalogos.id','catalogos.descripcion','estatus.nombre as estatus', 'insumos.nombre','insumos.descripcion','insumos.referencia','insumos.foto',
+				     'catalogos_insumos.precio','catalogos_insumos.foto as foto_proveedor','proveedores.rif','proveedores.nombre')
+			->get();
+		//dd($catalogo);
+
+
+
+		return view('solicitudes.indexDetSolicitud')->with(array('solicitudes'=>$solicitudes,'insumos'=>$insumos,'catalogos'=>$catalogos));
+		//return view('solicitudes.indexDetSolicitud')->with('solicitudes', $solicitudes);
 	}
 
 }

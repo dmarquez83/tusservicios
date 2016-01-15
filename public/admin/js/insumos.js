@@ -91,7 +91,7 @@ $(document).ready(function(){
 
                 var  fila = "<tr " + "id=fila" + listaInsumos + ">";
 
-                fila += "<td>" +  $(".fil" + listaInsumos + " td")[0].innerHTML + "</td>";
+                fila += "<td>" +  $(".fil" + listaInsumos + " td")[1].innerHTML + "</td>";
                 fila += "<td>" +  $(".fil" + listaInsumos + " td")[2].innerHTML +
                      "<input type='hidden' class='insumos' name='insumoh["+  listaInsumos +  "]' value='" + listaInsumos + "'></input></td>";
                 fila += "<td>" +  $(".fil" + listaInsumos + " td")[3].innerHTML + "</td>";
