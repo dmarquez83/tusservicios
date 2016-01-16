@@ -101,8 +101,8 @@ class UsuariosServiciosController extends AppBaseController
 				$id = explode('-',$horario);
 				$data= [
 					'usuario_servicio_id'  => $usuarioServiciosId,
-					'hora_id'  => $id[0],
-					'dia_id'  =>  $id[1],
+					'dia_id'  => $id[0],
+					'hora_id'  =>  $id[1],
 					'created_at' => new \DateTime,
 					'updated_at' =>  new \Datetime,
 				];
