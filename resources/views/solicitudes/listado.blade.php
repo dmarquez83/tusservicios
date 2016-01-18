@@ -8,7 +8,8 @@
                 <thead>
                 <th>Usuarios</th>
                 <th>Servicios</th>
-                <th width="50px">Action</th>
+                <th width="50px">Catalago</th>
+                <th width="50px">Asignar Servicio</th>
                 </thead>
                 <tbody>
                 @foreach($solicitudes as $solicitud)
@@ -18,6 +19,11 @@
                         <td>
                             <div class="col-sm-6 border-right">
                                 <a class="btn btn-primary" href="{!! route('catalogos.createnew', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-search"></i></a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-sm-6 border-right">
+                                <a class="btn btn-primary" href="{!! route('solicitudes.asignar', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-search"></i></a>
                             </div>
                         </td>
                     </tr>

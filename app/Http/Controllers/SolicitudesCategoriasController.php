@@ -137,7 +137,7 @@ class SolicitudesCategoriasController extends AppBaseController
 
 		if(empty($solicitudes))
 		{
-		  Flash::error('Solicitudes not found');
+		  Flash::error('No hay Solicitudes');
 
 		  return redirect(route('solicitudes.index'));
 		}
@@ -158,7 +158,7 @@ class SolicitudesCategoriasController extends AppBaseController
 
 		if(empty($solicitudes))
 		{
-		  Flash::error('Solicitudes not found');
+		  Flash::error('No hay Solicitudes');
 
 		  return redirect(route('solicitudes.index'));
 		}
@@ -180,7 +180,7 @@ class SolicitudesCategoriasController extends AppBaseController
 
 		if(empty($solicitudes))
 		{
-		  Flash::error('Solicitudes not found');
+		  Flash::error('No hay Solicitudes');
 
 		  return redirect(route('solicitudes.index'));
 		}
@@ -219,6 +219,41 @@ class SolicitudesCategoriasController extends AppBaseController
 		//dd($solicitudes);
 
 		return view('solicitudes.indexsolicitudesusers')->with('solicitudes', $solicitudes);
+	}
+
+    public function asignar($id){
+
+	  $solicitudes = DB::table('solicitudes')
+		->join('estatus', 'estatus.id', '=', 'solicitudes.id_estatus')
+		->join('servicios', 'servicios.id', '=', 'solicitudes.id_servicio')
+		->join('users', 'users.id', '=', 'solicitudes.id_usuario')
+		->where('solicitudes.id','=',$id )
+		->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario','solicitudes.id_servicio')
+		->first();
+
+	  //dd($solicitudes);
+
+	  if(empty($solicitudes))
+	  {
+		Flash::error('No hay Solicitudes');
+
+		return redirect(route('solicitudes.index'));
+	  }
+
+	  $usuariosServicios = DB::table('usuarios_servicios')
+		->join('servicios', 'servicios.id', '=', 'usuarios_servicios.servicio_id')
+		->join('users', 'users.id', '=', 'usuarios_servicios.user_id')
+		->where('servicio_id', '=',$solicitudes->id_servicio)
+		->select('usuarios_servicios.id','usuarios_servicios.servicio_id', 'usuarios_servicios.user_id','servicios.nombre','servicios.descripcion','servicios.foto','users.name','users.email')
+		->orderBy('servicios.id','desc')
+		->get();
+
+	  //dd($usuariosServicios);
+
+	  return view('solicitudes.indexasignar')->with(array('solicitudes'=>$solicitudes,'usuariosServicios'=>$usuariosServicios));
+
+	  //ojo mandar los datos del horario y lugar de trabajo
+
 	}
 
 

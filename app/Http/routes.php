@@ -117,6 +117,10 @@ Route::group(['middleware' => ['auth']], function()
     Route::get('admin/catalogos/crear/{id}', ['as' => 'catalogos.createnew','uses' => 'CatalogosController@createnew']);
     Route::post('catalogo/proveedores', ['as' => 'catalogoproveedores.detalle','uses' => 'CatalogosController@detalle']);
 
+
+    /**********************************Asignar usuarios a una solicitud de servicios **********************************/
+    Route::get('admin/solicitudes/asignar/{id}', ['as' => 'solicitudes.asignar','uses' => 'SolicitudesCategoriasController@asignar']);
+
     /**********************************Ciudades**********************************/
     Route::resource('admin/ciudades', 'CiudadController');
     Route::get('admin/ciudades/borrar/{id}', ['as' => 'admin.ciudades.delete','uses' => 'CiudadController@destroy']);
