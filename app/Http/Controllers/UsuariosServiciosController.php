@@ -46,7 +46,6 @@ class UsuariosServiciosController extends AppBaseController
 			->select('usuarios_servicios.id','usuarios_servicios.servicio_id', 'usuarios_servicios.user_id','servicios.nombre','servicios.descripcion','servicios.foto','users.name')
 			->get();
 
-
 		return view('usuariosServicios.index')
 			->with('usuariosServicios', $usuariosServicios);
 	}
@@ -68,10 +67,7 @@ class UsuariosServiciosController extends AppBaseController
 
 		$dias = Dias::get();
 
-		//dd($ciudades);
-
 		return view('usuariosServicios.create', compact('ciudades','categorias','horas','dias','servicios'));
-
 
 	}
 
@@ -91,8 +87,6 @@ class UsuariosServiciosController extends AppBaseController
 		'created_at' => new \DateTime,
 		'updated_at' =>  new \Datetime,
 		));
-
-
 
 		if($request->get('horario')){
 
@@ -126,9 +120,6 @@ class UsuariosServiciosController extends AppBaseController
 				];
 
 				$lugares = Lugares::create($data2);
-
-				//dd($lugares);
-
 			}
 
 		}
@@ -173,16 +164,33 @@ class UsuariosServiciosController extends AppBaseController
 
 		if(empty($usuariosServicios))
 		{
-			Flash::error('UsuariosServicios not found');
+			Flash::error('No hay registros');
 
 			return redirect(route('usuario.servicios.index'));
 		}
 
-		//return view('usuariosServicios.edit')->with('usuariosServicios', $usuariosServicios);
+	    //$horarios = Horarios::where('usuario_servicio_id','=',$id)->get();
 
-		$categorias = Categoria::orderBy('id', 'asc')->lists('nombre', 'id');
+	    $lugares = DB::table('lugares')
+		  ->join('sectores','sectores.id','=','lugares.sector_id')
+		  ->select('lugares.id','sectores.nombre','sectores.id as sector_id')
+		  ->where('lugares.usuario_servicio_id','=',$id)
+		  ->get();
 
-		$servicios = Servicios::orderBy('id', 'asc')->lists('nombre', 'id');
+
+        $categorias = Categoria::orderBy('id', 'asc')->lists('nombre', 'id');
+
+	    $defaultSelection = [''=>'Seleccione una Opcion'];
+	    $categorias = $defaultSelection + $categorias->toArray();
+
+	    $servicios = Servicios::orderBy('id', 'asc')->lists('nombre', 'id');
+
+	     $catservicios = DB::table('servicios')
+		->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
+		->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
+		->where('servicios.id','=',$usuariosServicios->servicio_id)
+		->select('servicios.id as id','servicios.nombre','servicios.descripcion','servicios.id_tipo_servicio','servicios.id_estatus','servicios.ponderacion','servicios.created_at','servicios.updated_at','servicios.foto as foto','categorias.id as id_categoria')
+		->first();
 
 		$ciudades = Ciudad::get();
 
@@ -190,9 +198,62 @@ class UsuariosServiciosController extends AppBaseController
 
 		$dias = Dias::get();
 
-		//dd($ciudades);
+	    $horarios = DB::select('select a.hora,
+							  (select cast(ho.id as varchar)||cast(di.id as varchar) from horarios c, horas ho, dias di where
+							  c.usuario_servicio_id = ? and
+							  c.hora_id=ho.id and
+							  c.dia_id=di.id and
+							  c.hora_id=a.id and
+							  di.id=1
+							  ) as lunes,
+							  (select cast(ho.id as varchar)||cast(di.id as varchar) from horarios c, horas ho, dias di where
+							  c.usuario_servicio_id = ? and
+							  c.hora_id=ho.id and
+							  c.dia_id=di.id and
+							  c.hora_id=a.id and
+							  di.id=2
+							  ) as martes,
+							  (select cast(ho.id as varchar)||cast(di.id as varchar) from horarios c, horas ho, dias di where
+							  c.usuario_servicio_id = ? and
+							  c.hora_id=ho.id and
+							  c.dia_id=di.id and
+							  c.hora_id=a.id and
+							  di.id=3
+							  ) as miercoles,
+							  (select cast(ho.id as varchar)||cast(di.id as varchar) from horarios c, horas ho, dias di where
+							  c.usuario_servicio_id = ? and
+							  c.hora_id=ho.id and
+							  c.dia_id=di.id and
+							  c.hora_id=a.id and
+							  di.id=4
+							  ) as jueves,
+							  (select cast(ho.id as varchar)||cast(di.id as varchar) from horarios c, horas ho, dias di where
+							  c.usuario_servicio_id = ? and
+							  c.hora_id=ho.id and
+							  c.dia_id=di.id and
+							  c.hora_id=a.id and
+							  di.id=5
+							  ) as viernes,
+							  (select cast(ho.id as varchar)||cast(di.id as varchar) from horarios c, horas ho, dias di where
+							  c.usuario_servicio_id = ? and
+							  c.hora_id=ho.id and
+							  c.dia_id=di.id and
+							  c.hora_id=a.id and
+							  di.id=6
+							  ) as sabado,
+							  (select cast(ho.id as varchar)||cast(di.id as varchar) from horarios c, horas ho, dias di where
+							  c.usuario_servicio_id = ? and
+							  c.hora_id=ho.id and
+							  c.dia_id=di.id and
+							  c.hora_id=a.id and
+							  di.id=7
+							  ) as domingo,
+                              a.id as id
+							  from horas as a
+							   order by a.id
+							   ', array($id,$id,$id,$id,$id,$id,$id));
 
-		return view('usuariosServicios.edit', compact('usuariosServicios','ciudades','categorias','horas','dias','servicios'));
+	  return view('usuariosServicios.edit', compact('usuariosServicios','ciudades','categorias','horas','dias','servicios','horarios','lugares'));
 
 	}
 
@@ -210,12 +271,55 @@ class UsuariosServiciosController extends AppBaseController
 
 		if(empty($usuariosServicios))
 		{
-			Flash::error('UsuariosServicios not found');
+			Flash::error('No hay Registros');
 
 			return redirect(route('usuario.servicios.index'));
 		}
 
-		$this->usuariosServiciosRepository->updateRich($request->all(), $id);
+	   $datos = array(
+		  'servicio_id'  => $request->get('servicio_id'),
+		  'user_id'  => \Auth::user()->id,
+		  'created_at' => new \DateTime,
+		  'updated_at' =>  new \Datetime,
+		);
+
+	  $this->usuariosServiciosRepository->updateRich($datos, $id);
+
+	/*  if($request->get('horario')){
+
+		foreach ($request->get('horario') as $horario)
+		{
+		  $id = explode('-',$horario);
+		  $data= [
+			'usuario_servicio_id'  => $usuarioServiciosId,
+			'dia_id'  => $id[0],
+			'hora_id'  =>  $id[1],
+			'created_at' => new \DateTime,
+			'updated_at' =>  new \Datetime,
+		  ];
+		  Horarios::create($data);
+		}
+
+	  }
+
+	  if($request->get('sectores')){
+
+		//dd($request);
+
+		foreach ($request->get('sectores') as $sectores)
+		{
+
+		  $data2= [
+			'usuario_servicio_id'  => $usuarioServiciosId,
+			'sector_id'  => $sectores,
+			'created_at' => new \DateTime,
+			'updated_at' =>  new \Datetime,
+		  ];
+
+		  $lugares = Lugares::create($data2);
+		}
+
+	  }*/
 
 		Flash::success('UsuariosServicios updated successfully.');
 
