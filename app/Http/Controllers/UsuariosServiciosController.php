@@ -44,6 +44,7 @@ class UsuariosServiciosController extends AppBaseController
 			->join('users', 'users.id', '=', 'usuarios_servicios.user_id')
 			->where('user_id',\Auth::user()->id)
 			->select('usuarios_servicios.id','usuarios_servicios.servicio_id', 'usuarios_servicios.user_id','servicios.nombre','servicios.descripcion','servicios.foto','users.name')
+		    ->orderBy('servicios.id','desc')
 			->get();
 
 		return view('usuariosServicios.index')
@@ -285,18 +286,23 @@ class UsuariosServiciosController extends AppBaseController
 
 	  $this->usuariosServiciosRepository->updateRich($datos, $id);
 
-	/*  if($request->get('horario')){
+
+
+	  if($request->get('horario')){
+
+		Horarios::where('usuario_servicio_id', '=', $id)->delete();
 
 		foreach ($request->get('horario') as $horario)
 		{
-		  $id = explode('-',$horario);
+		  $idH = explode('-',$horario);
 		  $data= [
-			'usuario_servicio_id'  => $usuarioServiciosId,
-			'dia_id'  => $id[0],
-			'hora_id'  =>  $id[1],
+			'usuario_servicio_id'  => $id,
+			'dia_id'  => $idH[0],
+			'hora_id'  =>  $idH[1],
 			'created_at' => new \DateTime,
 			'updated_at' =>  new \Datetime,
 		  ];
+
 		  Horarios::create($data);
 		}
 
@@ -304,13 +310,13 @@ class UsuariosServiciosController extends AppBaseController
 
 	  if($request->get('sectores')){
 
-		//dd($request);
+		Lugares::where('usuario_servicio_id', '=', $id)->delete();
 
 		foreach ($request->get('sectores') as $sectores)
 		{
 
 		  $data2= [
-			'usuario_servicio_id'  => $usuarioServiciosId,
+			'usuario_servicio_id'  => $id,
 			'sector_id'  => $sectores,
 			'created_at' => new \DateTime,
 			'updated_at' =>  new \Datetime,
@@ -319,9 +325,9 @@ class UsuariosServiciosController extends AppBaseController
 		  $lugares = Lugares::create($data2);
 		}
 
-	  }*/
+	  }
 
-		Flash::success('UsuariosServicios updated successfully.');
+		Flash::success('Horario y Lugar Actualizados Correctamente');
 
 		return redirect(route('usuario.servicios.index'));
 	}
