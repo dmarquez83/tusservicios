@@ -53,6 +53,12 @@ Route::get('login/{provider}',['uses' => 'Auth\AuthController@login','as'   => '
 Route::get('user/solicitudes/listado', ['as' => 'solicitudes.getlistado','uses' => 'SolicitudesCategoriasController@getListado']);
 Route::get('user/solicitud/detalle/{id}', ['as' => 'solicitudes.getDetSolicitud','uses' => 'SolicitudesCategoriasController@getDetSolicitud']);
 
+Route::get('user/solicitud/servicios', ['as' => 'solicitudes.getUsuariosSolicitudes','uses' => 'UsuariosServiciosController@getUsuariosSolicitudes']);
+
+/**********************************Registro de Servicios y horario**********************************/
+Route::resource('usuario/servicios', 'UsuariosServiciosController'); /*cambiar a user*/
+Route::get('usuariosServicios/borrar/{id}', ['as' => 'usuario.servicios.delete','uses' => 'UsuariosServiciosController@destroy']);
+Route::get('servicios/desplegable', ['as' => 'usuario.servicios.desplegable','uses' => 'UsuariosServiciosController@desplegable']);
 // ADMIN ------------------------------------------------------------------------------------
 
 Route::group(['middleware' => ['auth']], function()
@@ -141,9 +147,6 @@ Route::group(['middleware' => ['auth']], function()
     Route::resource('admin/dias', 'DiasController');
     Route::get('admin/dias/borrar/{id}', ['as' => 'admin.dias.delete','uses' => 'DiasController@destroy']);
 
-    /**********************************Registro de Servicios y horario**********************************/
-    Route::resource('usuario/servicios', 'UsuariosServiciosController');
-    Route::get('usuariosServicios/borrar/{id}', ['as' => 'usuario.servicios.delete','uses' => 'UsuariosServiciosController@destroy']);
-    Route::get('servicios/desplegable', ['as' => 'usuario.servicios.desplegable','uses' => 'UsuariosServiciosController@desplegable']);
+
 
 }); /****************************fin de admin *******************------------------------***/

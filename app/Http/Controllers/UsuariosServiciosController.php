@@ -390,4 +390,23 @@ class UsuariosServiciosController extends AppBaseController
 
 	return $lugares;
   }
+
+  public function getUsuariosSolicitudes(){
+	$usuariosSolicitudes = DB::table('usuarios_solicitudes')
+	  ->join('solicitudes', 'solicitudes.id', '=', 'usuarios_solicitudes.solicitud_id')
+	  ->join('users', 'users.id', '=', 'usuarios_solicitudes.user_id')
+	  ->join('servicios', 'servicios.id', '=', 'solicitudes.id_servicio')
+	  ->where('user_id',\Auth::user()->id)
+	  ->select('usuarios_solicitudes.id','usuarios_solicitudes.solicitud_id', 'usuarios_solicitudes.user_id','servicios.nombre','servicios.descripcion as descripcion_servicio','servicios.foto','users.name','solicitudes.fecha','solicitudes.descripcion','solicitudes.direccion')
+	  ->orderBy('servicios.id','desc')
+	  ->get();
+
+	//dd($usuariosSolicitudes);
+
+	//indexUsuariosSolicitudes
+
+
+	return view('usuariosServicios.indexUsuariosSolicitudes')
+	  ->with('usuariosSolicitudes', $usuariosSolicitudes);
+  }
 }
