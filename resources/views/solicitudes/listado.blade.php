@@ -23,7 +23,7 @@
                         </td>
                         <td>
                             <div class="col-sm-6 border-right">
-                                <a class="btn btn-primary" href="{!! route('solicitudes.asignar', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-search"></i></a>
+                                <a class="btn btn-primary" href="{!! route('solicitudes.getAsignar', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-search"></i></a>
                             </div>
                         </td>
                     </tr>

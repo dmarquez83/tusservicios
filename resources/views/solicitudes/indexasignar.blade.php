@@ -8,7 +8,14 @@
         </div>
 
         <div class="row">
+
+
+            {!! Form::model($solicitudes, ['route' => ['solicitudes.asignar', $solicitudes->id], 'method' => 'POST']) !!}
+
             @include('solicitudes.asignarSolicitud')
+
+            {!! Form::close() !!}
+
         </div>
     </div>
 @endsection

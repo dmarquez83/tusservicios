@@ -119,7 +119,9 @@ Route::group(['middleware' => ['auth']], function()
 
 
     /**********************************Asignar usuarios a una solicitud de servicios **********************************/
-    Route::get('admin/solicitudes/asignar/{id}', ['as' => 'solicitudes.asignar','uses' => 'SolicitudesCategoriasController@asignar']);
+    Route::get('admin/solicitudes/asignar/{id}', ['as' => 'solicitudes.getAsignar','uses' => 'SolicitudesCategoriasController@getAsignar']);
+
+    Route::post('admin/asignar/usuarios/{id}', ['as' => 'solicitudes.asignar','uses' => 'SolicitudesCategoriasController@asignar']);
 
     /**********************************Ciudades**********************************/
     Route::resource('admin/ciudades', 'CiudadController');

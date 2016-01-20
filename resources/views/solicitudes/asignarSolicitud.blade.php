@@ -46,11 +46,12 @@
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">listado de usuarios que prestan el servicio</h3>
+            <h3 class="box-title">listado de usuarios que prestan el servicio:  {!! $solicitudes->servicios !!}</h3>
         </div>
 
-            <table >
+            <table id="lissolicitud" class="table table-bordered table-striped">
                 <thead>
+                <th>Seleccionar</th>
                 <th> id usuario </th>
                 <th> nombre de usuario </th>
                 <th> ver Lugares </th>
@@ -60,8 +61,11 @@
                 <tbody>
                 @foreach($usuariosServicios as $usuariosservicio)
                     <tr>
+                        <td>{!! Form::radio('usuario', $usuariosservicio->user_id, false) !!}</td>
                         <td>{!! $usuariosservicio->user_id !!}</td>
                         <td>{!! $usuariosservicio->name !!}</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -70,3 +74,6 @@
 
 </div>
 
+<div class="box-footer">
+    {!! Form::submit('Asignar', ['class' => 'btn btn-warning pull-right']) !!}
+</div>

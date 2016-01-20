@@ -564,4 +564,5 @@ return array(
     'TipoServiciosTableSeeder' => $baseDir . '/database/seeds/TipoServiciosTableSeeder.php',
     'TipoUsuarioTableSeeder' => $baseDir . '/database/seeds/TipoUsuarioTableSeeder.php',
     'UsersTableSeeder' => $baseDir . '/database/seeds/UsersTableSeeder.php',
+    'UsuariosSolicitudes' => $baseDir . '/database/migrations/2016_01_19_232330_usuarios_solicitudes.php',
 );

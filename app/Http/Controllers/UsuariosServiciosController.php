@@ -379,4 +379,15 @@ class UsuariosServiciosController extends AppBaseController
 		//dd ($tiposervicios);
 		return $servicios;
 	}
+
+  public function getLugares($id)
+  {
+	$lugares = DB::table('lugares')
+	  ->join('sectores','sectores.id','=','lugares.sector_id')
+	  ->select('lugares.id','sectores.nombre','sectores.id as sector_id')
+	  ->where('lugares.usuario_servicio_id','=',$id)
+	  ->get();
+
+	return $lugares;
+  }
 }

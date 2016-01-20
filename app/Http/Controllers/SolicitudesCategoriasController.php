@@ -15,6 +15,7 @@ use App\Models\Servicios;
 use App\Models\InsumosSolicitudes;
 use App\User;
 use App\Models\Solicitudes;
+use App\Models\UsuariosSolicitudes;
 
 use Flash;
 use Response;
@@ -221,7 +222,7 @@ class SolicitudesCategoriasController extends AppBaseController
 		return view('solicitudes.indexsolicitudesusers')->with('solicitudes', $solicitudes);
 	}
 
-    public function asignar($id){
+    public function getAsignar($id){
 
 	  $solicitudes = DB::table('solicitudes')
 		->join('estatus', 'estatus.id', '=', 'solicitudes.id_estatus')
@@ -255,6 +256,25 @@ class SolicitudesCategoriasController extends AppBaseController
 	  //ojo mandar los datos del horario y lugar de trabajo
 
 	}
+
+  public function asignar($id, UpdateSolicitudesRequest $request){
+
+	//dd($request);
+
+	$data= [
+	  'solicitud_id'  => $id,
+	  'user_id'  => $request->get('usuario'),
+	  'created_at' => new \DateTime,
+	  'updated_at' =>  new \Datetime,
+	];
+
+	UsuariosSolicitudes::create($data);
+
+	Flash::success('Usuario asignado correctamente');
+
+	return redirect(route('solicitudes.listado'));
+
+  }
 
 
 	public function getDetSolicitud($id)
