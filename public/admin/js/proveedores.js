@@ -102,13 +102,12 @@ $(document).ready(function(){
                      "<input type='text'  name='precio" + idlistaProveedores +  listaProveedores +  "' value=''></input></td>" +
                      "<input type='hidden'  name='proveedor_id" + idlistaProveedores + "["+  listaProveedores +  "]' value='" + listaProveedores + "'></input></td>";
                 fila += "<td>" +  "<input type=file  name='foto" + idlistaProveedores +  listaProveedores +  "'>" + "</td>";
-                fila += "<td>" +  "<button class='delete'>Borrar</button>" +  "</td>";
+                fila += "<td>" +  "<button class='btn-sm btn-primary delete'><i class='glyphicon glyphicon-remove'></i></button>" +  "</td>";
                 fila += "</tr>";
                 tabla.append(fila);
 
                 repetido = 0;
             }
-
         }
         else{ //con el modal abierto cuando deselecciona se quita la fila
 

@@ -1,79 +1,95 @@
-<!-- Descripcion Field -->
-<div class="form-group">
-    {!! Form::label('descripcion', 'Descripcion:') !!}
-    <p>{!! $solicitudes->descripcion !!}</p>
-</div>
-
-<!-- Fecha Field -->
-<div class="form-group">
-    {!! Form::label('fecha', 'Fecha:') !!}
-    <p>{!! $solicitudes->fecha !!}</p>
-</div>
-
-<!-- Hora Field -->
-<div class="form-group">
-    {!! Form::label('hora', 'Hora:') !!}
-    <p>{!! $solicitudes->hora !!}</p>
-</div>
-
-<!-- Direccion Field -->
-<div class="form-group">
-    {!! Form::label('direccion', 'Direccion:') !!}
-    <p>{!! $solicitudes->direccion !!}</p>
-</div>
-
-<!-- Telefono Field -->
-<div class="form-group">
-    {!! Form::label('telefono', 'Telefono:') !!}
-    <p>{!! $solicitudes->telefono !!}</p>
-</div>
-
-<!-- Horas Field -->
-<div class="form-group">
-    {!! Form::label('horas', 'Horas:') !!}
-    <p>{!! $solicitudes->horas !!}</p>
-</div>
-
-<!-- Costo Field -->
-<div class="form-group">
-    {!! Form::label('costo', 'Costo:') !!}
-    <p>{!! $solicitudes->costo !!}</p>
-</div>
-
-
-
-
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="box">
-        <div class="box-header">
-            <h3 class="box-title">listado de usuarios que prestan el servicio:  {!! $solicitudes->servicios !!}</h3>
+    <div class="box box-warning">
+        <div class="box-header with-border">
+            <h3 class="box-title">Solicitud de {!! $solicitudes->servicios !!}</h3>
         </div>
+        <form role="form">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('descripcion', 'Descripcion:', ['class' => 'control-label']) !!}
+                            <p>{!! $solicitudes->descripcion !!}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- Fecha Field -->
+                        <div class="form-group">
+                            {!! Form::label('fecha', 'Fecha:', ['class' => 'control-label']) !!}
+                            <p>{!! $solicitudes->fecha !!}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- Hora Field -->
+                        <div class="form-group">
+                            {!! Form::label('hora', 'Hora:', ['class' => 'control-label']) !!}
+                            <p>{!! $solicitudes->hora !!}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Direccion Field -->
+                        <div class="form-group">
+                            {!! Form::label('direccion', 'Direccion:', ['class' => 'control-label']) !!}
+                            <p>{!! $solicitudes->direccion !!}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Telefono Field -->
+                        <div class="form-group">
+                            {!! Form::label('telefono', 'Telefono:', ['class' => 'control-label']) !!}
+                            <p>{!! $solicitudes->telefono !!}</p>
+                        </div>
+                    </div>
 
-            <table id="lissolicitud" class="table table-bordered table-striped">
-                <thead>
-                <th>Seleccionar</th>
-                <th> id usuario </th>
-                <th> nombre de usuario </th>
-                <th> ver Lugares </th>
-                <th> ver Horario </th>
+                    <div class="col-md-3">
+                        <!-- Horas Field -->
+                        <div class="form-group">
+                            {!! Form::label('horas', 'Horas:', ['class' => 'control-label']) !!}
+                            <p>{!! $solicitudes->horas !!}</p>
+                        </div>
+                    </div>
 
-                </thead>
-                <tbody>
-                @foreach($usuariosServicios as $usuariosservicio)
-                    <tr>
-                        <td>{!! Form::radio('usuario', $usuariosservicio->user_id, false) !!}</td>
-                        <td>{!! $usuariosservicio->user_id !!}</td>
-                        <td>{!! $usuariosservicio->name !!}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    <div class="col-md-3">
+                        <!-- Costo Field -->
+                        <div class="form-group">
+                            {!! Form::label('costo', 'Costo:',['class' => 'control-label']) !!}
+                            <p>{!! $solicitudes->costo !!}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box box-warning">
+                    <div class="box-header">
+                        <h3 class="box-title">Listado de Usuarios que prestan el servicio:  {!! $solicitudes->servicios !!}</h3>
+                    </div>
+                    <table id="lissolicitud" class="table table-bordered table-striped">
+                        <thead>
+                            <th>Seleccionar</th>
+                            <th>Usuario </th>
+                            <th>Nombre de Usuario </th>
+                            <th>Ver Lugares </th>
+                            <th>Ver Horario </th>
+                        </thead>
+                        <tbody>
+                        @foreach($usuariosServicios as $usuariosservicio)
+                            <tr>
+                                <td>{!! Form::radio('usuario', $usuariosservicio->user_id, false) !!}</td>
+                                <td>{!! $usuariosservicio->user_id !!}</td>
+                                <td>{!! $usuariosservicio->name !!}</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+        <div class="box-footer">
+            {!! Form::submit('Asignar', ['class' => 'btn btn-warning pull-right']) !!}
         </div>
+    </div>
 
-</div>
 
-<div class="box-footer">
-    {!! Form::submit('Asignar', ['class' => 'btn btn-warning pull-right']) !!}
-</div>

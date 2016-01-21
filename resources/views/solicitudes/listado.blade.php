@@ -6,24 +6,39 @@
         <div class="box-body">
             <table class="table table-bordered table-striped" id="lissolicitud">
                 <thead>
-                <th>Usuarios</th>
-                <th>Servicios</th>
-                <th width="50px">Catalago</th>
-                <th width="50px">Asignar Servicio</th>
+                <th>N°</th>
+                <th>Servicio</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                {{-- <th>Descripcion</th> --}}
+                <th>Direccion</th>
+                <th>Telefono</th>
+                {{-- <th>horas</th> --}}
+                {{-- <th>costo</th> --}}
+                <th>Estatus</th>
+                <th>Usuario</th>
+                <th width="100px">Acciones</th>
                 </thead>
                 <tbody>
                 @foreach($solicitudes as $solicitud)
                     <tr>
-                        <td>{!! $solicitud->usuario !!}</td>
+                        <td>{!! $solicitud->id !!}</td>
                         <td>{!! $solicitud->servicios !!}</td>
+                        <td>{!! $solicitud->fecha !!}</td>
+                        <td>{!! $solicitud->hora !!}</td>
+                        {{-- <td>{!! $solicitud->descripcion !!}</td> --}}
+                        <td>{!! $solicitud->direccion !!}</td>
+                        <td>{!! $solicitud->telefono !!}</td>
+                        {{-- <td>{!! $solicitud->horas !!}</td> --}}
+                        {{-- <td>{!! $solicitud->costo !!}</td> --}}
+                        <td>{!! $solicitud->estatus !!}</td>
+                        <td>{!! $solicitud->usuario !!}</td>
                         <td>
                             <div class="col-sm-6 border-right">
                                 <a class="btn btn-primary" href="{!! route('catalogos.createnew', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-search"></i></a>
                             </div>
-                        </td>
-                        <td>
                             <div class="col-sm-6 border-right">
-                                <a class="btn btn-primary" href="{!! route('solicitudes.getAsignar', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-search"></i></a>
+                                <a class="btn btn-primary" href="{!! route('solicitudes.getAsignar', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
                             </div>
                         </td>
                     </tr>
