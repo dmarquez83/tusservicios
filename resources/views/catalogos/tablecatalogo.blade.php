@@ -109,7 +109,7 @@
                                                 <h4 class="box-title">
 
                                                     <div class="col-sm-10">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne{{ $insumo->id }}">
                                                             {!! $insumo->descripcion !!}
                                                         </a>
                                                     </div>
@@ -129,7 +129,7 @@
 
                                                 </h4>
                                             </div>
-                                            <div id="collapseOne" class="panel-collapse collapse in">
+                                            <div id="collapseOne{{ $insumo->id }}" class="panel-collapse collapse in">
                                                 <div class="box-body">
                                                     <div class="">
                                                         <div class="box-body no-padding">
@@ -155,7 +155,7 @@
                             </div>
                         </div>
                         <div class="box-footer">
-                            {!! Form::submit('Guardar', ['class' => 'btn btn-warning pull-right']) !!}
+                            {!! Form::submit('Enviar Catalogo', ['class' => 'btn btn-warning pull-right']) !!}
                         </div>
                     </div>
                 </form>

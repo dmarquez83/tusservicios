@@ -35,10 +35,10 @@
                         <td>{!! $solicitud->usuario !!}</td>
                         <td>
                             <div class="col-sm-6 border-right">
-                                <a class="btn btn-primary" href="{!! route('catalogos.createnew', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-search"></i></a>
+                                <a class="btn btn-primary" href="{!! route('catalogos.createnew', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
                             </div>
                             <div class="col-sm-6 border-right">
-                                <a class="btn btn-primary" href="{!! route('solicitudes.getAsignar', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
+                                <a class="btn btn-primary" href="{!! route('solicitudes.getAsignar', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-search"></i></a>
                             </div>
                         </td>
                     </tr>
