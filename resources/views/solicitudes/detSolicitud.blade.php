@@ -1,87 +1,124 @@
-<!-- Descripcion Field -->
-<div class="form-group">
-    {!! Form::label('descripcion', 'Descripcion:') !!}
-    <p>{!! $solicitudes->descripcion !!}</p>
-</div>
-
-<!-- Fecha Field -->
-<div class="form-group">
-    {!! Form::label('fecha', 'Fecha:') !!}
-    <p>{!! $solicitudes->fecha !!}</p>
-</div>
-
-<!-- Hora Field -->
-<div class="form-group">
-    {!! Form::label('hora', 'Hora:') !!}
-    <p>{!! $solicitudes->hora !!}</p>
-</div>
-
-<!-- Direccion Field -->
-<div class="form-group">
-    {!! Form::label('direccion', 'Direccion:') !!}
-    <p>{!! $solicitudes->direccion !!}</p>
-</div>
-
-<!-- Telefono Field -->
-<div class="form-group">
-    {!! Form::label('telefono', 'Telefono:') !!}
-    <p>{!! $solicitudes->telefono !!}</p>
-</div>
-
-<!-- Horas Field -->
-<div class="form-group">
-    {!! Form::label('horas', 'Horas:') !!}
-    <p>{!! $solicitudes->horas !!}</p>
-</div>
-
-<!-- Costo Field -->
-<div class="form-group">
-    {!! Form::label('costo', 'Costo:') !!}
-    <p>{!! $solicitudes->costo !!}</p>
-</div>
-
-
-
-
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="box">
-        <div class="box-header">
-            <h3 class="box-title">aqui debes hacer la vista del detalle de la solicitud</h3>
+<div class="box box-warning box-solid">
+    <div class="box-header with-border">
+        <h3 class="box-title">Solicitud {!! $solicitudes->servicios !!}</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {!! Form::label('descripcion', 'Descripcion:', ['class' => 'control-label']) !!}
+                    <p>{!! $solicitudes->descripcion !!}</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    {!! Form::label('fecha', 'Fecha:', ['class' => 'control-label']) !!}
+                    <p>{!! $solicitudes->fecha !!}</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    {!! Form::label('hora', 'Hora:', ['class' => 'control-label']) !!}
+                    <p>{!! $solicitudes->hora !!}</p>
+                </div>
+            </div>
         </div>
 
-            <table >
-                <thead>
-                <th>Servicios</th>
-                <th>Estatus</th>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    {!! Form::label('direccion', 'Direccion:', ['class' => 'control-label']) !!}
+                    <p>{!! $solicitudes->direccion !!}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {!! Form::label('telefono', 'Telefono:', ['class' => 'control-label']) !!}
+                    <p>{!! $solicitudes->telefono !!}</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    {!! Form::label('horas', 'Horas:', ['class' => 'control-label']) !!}
+                    <p>{!! $solicitudes->horas !!}</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    {!! Form::label('costo', 'Costo:') !!}
+                    <p>{!! $solicitudes->costo !!}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                </thead>
-                <tbody>
-                @foreach($insumos as $insumo)
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab_1" data-toggle="tab">Catalogo de Insumos</a></li>
+        <li><a href="#tab_2" data-toggle="tab">Insumos Solicitados</a></li>
+    </ul>
+    <div class="tab-content">
+
+        <div class="tab-pane active" id="tab_1">
+            <div class="box-body">
+                <table id="tabla-listado-insumos" class="table table-bordered table-striped">
+                    <thead>
                     <tr>
-                        <td>{!! $insumo->nombre !!}</td>
-                        <td>{!! $insumo->descripcion !!}</td>
+                        <th>Insumo</th>
+                        <th>Descripcion</th>
+                        <th>Estatus</th>
+                        <th>Proveedor</th>
+                        <th>Precio</th>
+                        <th>Foto</th>
+                        <th style="width: 10%">Seleccionar</th>
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    @foreach($catalogos as $catalogo)
+                        <tr>
+                            <td>{!! $catalogo->nombre_insumo !!}</td>
+                            <td>{!! $catalogo->descripcion !!}</td>
+                            <td>{!! $catalogo->estatus !!}</td>
+                            <td>{!! $catalogo->nombre !!}</td>
+                            <td>{!! $catalogo->precio !!}</td>
+                            <td>{!! $catalogo->foto !!}</td>
+                            <td><input id = "{!! $catalogo->id !!}" class="boton_check" type="checkbox" name="{!! $catalogo->id !!}" value="{!! $catalogo->id !!}"></td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div >
-            <table >
-                <thead>
-                <th>Servicios</th>
-                <th>Estatus</th>
 
-                </thead>
-                <tbody>
-                @foreach($catalogos as $catalogo)
-                <tr>
-                    <td>{!! $catalogo->precio !!}</td>
-                    <td>{!! $catalogo->nombre !!}</td>
-                </tr>
-                @endforeach
-                </tbody>
-            </table>
-
+        <div class="tab-pane" id="tab_2">
+            <div class="box-body">
+                <table id="tabla-listado-insumos" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Servicios</th>
+                            <th>Estatus</th>
+                            <th>Foto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($insumos as $insumo)
+                            <tr>
+                                <td>{!! $insumo->nombre !!}</td>
+                                <td>{!! $insumo->descripcion !!}</td>
+                                <td>{!! $insumo->foto !!}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 

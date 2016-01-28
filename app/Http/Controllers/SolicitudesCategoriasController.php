@@ -308,7 +308,7 @@ class SolicitudesCategoriasController extends AppBaseController
 			->join('users','users.id' ,'=','solicitudes.id_usuario')
 			->where('users.id','=',\Auth::user()->id )
 			->where('catalogos.solicitud_id','=',$id )
-			->select('catalogos.id','catalogos.descripcion','estatus.nombre as estatus', 'insumos.nombre','insumos.descripcion','insumos.referencia','insumos.foto',
+			->select('catalogos.id','catalogos.descripcion','estatus.nombre as estatus', 'insumos.nombre as nombre_insumo','insumos.descripcion','insumos.referencia','insumos.foto',
 				     'catalogos_insumos.precio','catalogos_insumos.foto as foto_proveedor','proveedores.rif','proveedores.nombre')
 			->get();
 		//dd($catalogo);

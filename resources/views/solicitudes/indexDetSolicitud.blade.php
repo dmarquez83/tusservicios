@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    <div class="container">
+    <div>
         @include('solicitudes.detSolicitud')
     </div>
 @endsection
