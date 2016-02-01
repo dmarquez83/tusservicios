@@ -52,7 +52,7 @@
             <div class="col-md-3">
                 <div class="form-group">
                     {!! Form::label('costo', 'Costo:') !!}
-                    <p>{!! $solicitudes->costo !!}</p>
+                    <p id="costo" data-costo="{{$solicitudes->costo}}">{{$solicitudes->costo}}</p>
                 </div>
             </div>
         </div>
@@ -65,7 +65,6 @@
         <li><a href="#tab_2" data-toggle="tab">Insumos Solicitados</a></li>
     </ul>
     <div class="tab-content">
-
         <div class="tab-pane active" id="tab_1">
             <div class="box-body">
                 <table id="tabla-listado-insumos" class="table table-bordered table-striped">
@@ -89,7 +88,7 @@
                             <td>{!! $catalogo->nombre !!}</td>
                             <td>{!! $catalogo->precio !!}</td>
                             <td>{!! $catalogo->foto !!}</td>
-                            <td><input id = "{!! $catalogo->id !!}" class="boton_check" type="checkbox" name="{!! $catalogo->id !!}" value="{!! $catalogo->id !!}"></td>
+                            <td><input id = "{!! $catalogo->id !!}" data-valor='{{$catalogo->precio}}' class="boton_check" type="checkbox" name="catalogo[]" value="{!! $catalogo->id !!}"></td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -122,3 +121,45 @@
     </div>
 </div>
 
+<div class="callout callout-warning">
+    <div class="row">
+        <div class="col-md-10"><h4>Total</h4></div>
+        <div class="col-md-2"><h4 id="total" /></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <a class="btn btn-primary pull-right" href="" role="button" data-toggle="Editar"><i class=" glyphicon glyphicon-shopping-cart"></i>Contratar Servicio</a>
+    </div>
+</div>
+
+@section('scripts')
+<script type="text/javascript">
+    $(function(){
+        var costo=parseFloat($('#costo').data('costo'));
+        var total=costo;
+        $("#total").text(total);
+        $('input:checkbox').removeAttr('checked');
+        var check = $('.boton_check');
+        check.click(function(){
+            var valor=parseFloat($(this).data('valor'));
+            if ($(this).prop('checked')){
+                sumar(valor)
+            }
+            else {
+                restar(valor);
+            }
+        })
+
+        function sumar(valor) {
+            total+=valor;
+            $("#total").text(total);
+        }
+        function restar(valor) {
+            total-=valor;
+            $("#total").text(total);
+        }
+    })
+</script>
+@endsection
