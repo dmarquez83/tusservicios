@@ -82,6 +82,27 @@ class EstatusTableSeeder extends Seeder
             'tabla' => 'catalogos_insumos',
             'created_at' => new DateTime,
             'updated_at' => new Datetime,
+          ],
+          [
+            'nombre' => 'Pendiente',
+            'descripcion' => 'Pendiente',
+            'tabla' => 'usuarios_solicitudes',
+            'created_at' => new DateTime,
+            'updated_at' => new Datetime,
+          ],
+          [
+            'nombre' => 'Aceptada',
+            'descripcion' => 'Aceptada',
+            'tabla' => 'usuarios_solicitudes',
+            'created_at' => new DateTime,
+            'updated_at' => new Datetime,
+          ],
+          [
+            'nombre' => 'Rechazada',
+            'descripcion' => 'Rechazada',
+            'tabla' => 'usuarios_solicitudes',
+            'created_at' => new DateTime,
+            'updated_at' => new Datetime,
           ]
         );
         Estatu::insert($data);

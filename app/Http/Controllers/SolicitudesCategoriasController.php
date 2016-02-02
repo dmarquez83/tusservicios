@@ -201,6 +201,7 @@ class SolicitudesCategoriasController extends AppBaseController
 			  ->join('servicios','servicios.id' ,'=','solicitudes.id_servicio')
 			  ->join('users','users.id' ,'=','solicitudes.id_usuario')
 			  ->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario')
+			  ->orderBy('solicitudes.id','desc')
 			  ->get();
 
 		return view('solicitudes.indexsolicitudes')->with('solicitudes', $solicitudes);
@@ -264,11 +265,16 @@ class SolicitudesCategoriasController extends AppBaseController
 	$data= [
 	  'solicitud_id'  => $id,
 	  'user_id'  => $request->get('usuario'),
+	  'id_estatus'  => 11,
 	  'created_at' => new \DateTime,
 	  'updated_at' =>  new \Datetime,
 	];
 
+
+
 	UsuariosSolicitudes::create($data);
+
+
 
 	Flash::success('Usuario asignado correctamente');
 
@@ -330,11 +336,80 @@ class SolicitudesCategoriasController extends AppBaseController
 	  ->where('solicitudes.id','=',$id )
 	  ->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario','servicios.foto')
 	  ->first();
+/*filtrar por los insumos acpetados en el catalogo*/
+	$catalogos = DB::table('catalogos')
+	  ->join('solicitudes','solicitudes.id' ,'=','catalogos.solicitud_id')
+	  ->join('catalogos_insumos','catalogos_insumos.catalogo_id' ,'=','catalogos.id')
+	  ->join('proveedores','proveedores.id' ,'=','catalogos_insumos.proveedor_id')
+	  ->join('insumos','insumos.id' ,'=','catalogos_insumos.insumo_id')
+	  ->join('estatus','estatus.id' ,'=','catalogos_insumos.estatus_id')
+	  ->join('users','users.id' ,'=','solicitudes.id_usuario')
+	  ->where('users.id','=',\Auth::user()->id )
+	  ->where('catalogos.solicitud_id','=',$id )
+	  ->select('catalogos.id','catalogos.descripcion','estatus.nombre as estatus', 'insumos.nombre as nombre_insumo','insumos.descripcion','insumos.referencia','insumos.foto',
+		'catalogos_insumos.precio','catalogos_insumos.id as id_catalogo','catalogos_insumos.foto as foto_proveedor','proveedores.rif','proveedores.nombre')
+	  ->get();
+	//dd($catalogo);
 
 	//dd($solicitudes);
 
 	return view('solicitudes.indexDetPago')->with(array('solicitudes'=>$solicitudes));
 
   }
+
+  public function getDetServicios($id)
+  {
+	$solicitudes = DB::table('solicitudes')
+	  ->join('estatus', 'estatus.id', '=', 'solicitudes.id_estatus')
+	  ->join('servicios', 'servicios.id', '=', 'solicitudes.id_servicio')
+	  ->join('users', 'users.id', '=', 'solicitudes.id_usuario')
+	  ->join('usuarios_solicitudes', 'usuarios_solicitudes.solicitud_id', '=', 'solicitudes.id')
+	  ->where('usuarios_solicitudes.user_id','=', \Auth::user()->id )
+	  ->where('solicitudes.id','=',$id )
+	  ->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario')
+	  ->first();
+	//dd($solicitudes);
+
+	$insumos= DB::table('insumos_solicitudes')
+	  ->join('solicitudes','solicitudes.id' ,'=','insumos_solicitudes.solicitud_id')
+	  ->join('insumos','insumos.id' ,'=','insumos_solicitudes.insumo_id')
+	  ->join('users','users.id' ,'=','solicitudes.id_usuario')
+	  ->where('insumos_solicitudes.solicitud_id','=',$id )
+	  ->select('insumos_solicitudes.id','insumos_solicitudes.insumo_id', 'insumos.nombre','insumos.descripcion','insumos.referencia','insumos.foto')
+	  ->get();
+	//dd($insumos);
+
+	return view('solicitudes.indexDetServicios')->with(array('solicitudes'=>$solicitudes,'insumos'=>$insumos));
+	//return view('solicitudes.indexDetSolicitud')->with('solicitudes', $solicitudes);
+  }
+
+  public function getAceptarServicios($id){
+
+	$aceptar = DB::table('usuarios_solicitudes')->where('solicitud_id', '=', $id)
+	  ->update(array('id_estatus' => 12));
+
+	$solicitud = DB::table('solicitudes')->where('id', '=', $id)
+	  ->update(array('id_estatus' => 4));
+
+	Flash::success('Solicitud Aceptada .');
+
+	return redirect(route('solicitudes.getUsuariosSolicitudes'));
+
+  }
+
+  public function getRechazarServicios($id){
+
+	$rechazar = DB::table('usuarios_solicitudes')->where('solicitud_id', '=', $id)
+	  ->update(array('id_estatus' => 13));
+
+	$solicitud = DB::table('solicitudes')->where('id', '=', $id)
+	  ->update(array('id_estatus' => 14));
+
+	Flash::success('Solicitud Rechazada .');
+
+	return redirect(route('solicitudes.getUsuariosSolicitudes'));
+
+  }
+
 
 }
