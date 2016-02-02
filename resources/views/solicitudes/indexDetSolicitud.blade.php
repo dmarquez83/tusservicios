@@ -9,7 +9,7 @@
 @section('scripts')
     <script type="text/javascript">
         $(function(){
-            var costo=parseFloat($('#costo').data('costo'));
+            var costo=parseFloat($('#costo').data('costo').toFixed(2));
             var total=costo;
             $("#total").text(total);
             $('input:checkbox').removeAttr('checked');
