@@ -87,7 +87,7 @@
                             <td>{!! $catalogo->estatus !!}</td>
                             <td>{!! $catalogo->nombre !!}</td>
                             <td>{!! $catalogo->precio !!}</td>
-                            <td>{!! $catalogo->foto !!}</td>
+                            <td>{!! Html::image('insumos-img/'.$catalogo->foto, '', array('class' => 'responsive-img','width' => '150', 'height' => '100')) !!}</td>
                             <td><input id = "{!! $catalogo->id !!}" data-valor='{{$catalogo->precio}}' class="boton_check" type="checkbox" name="catalogo[]" value="{!! $catalogo->id !!}"></td>
                         </tr>
                     @endforeach
@@ -111,7 +111,7 @@
                             <tr>
                                 <td>{!! $insumo->nombre !!}</td>
                                 <td>{!! $insumo->descripcion !!}</td>
-                                <td>{!! $insumo->foto !!}</td>
+                                <td>{!! Html::image('insumos-img/'.$insumo->foto, '', array('class' => 'responsive-img','width' => '150', 'height' => '100')) !!}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -133,33 +133,3 @@
         <a class="btn btn-primary pull-right" href="" role="button" data-toggle="Editar"><i class=" glyphicon glyphicon-shopping-cart"></i>Contratar Servicio</a>
     </div>
 </div>
-
-@section('scripts')
-<script type="text/javascript">
-    $(function(){
-        var costo=parseFloat($('#costo').data('costo'));
-        var total=costo;
-        $("#total").text(total);
-        $('input:checkbox').removeAttr('checked');
-        var check = $('.boton_check');
-        check.click(function(){
-            var valor=parseFloat($(this).data('valor'));
-            if ($(this).prop('checked')){
-                sumar(valor)
-            }
-            else {
-                restar(valor);
-            }
-        })
-
-        function sumar(valor) {
-            total+=valor;
-            $("#total").text(total);
-        }
-        function restar(valor) {
-            total-=valor;
-            $("#total").text(total);
-        }
-    })
-</script>
-@endsection
