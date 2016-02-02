@@ -328,7 +328,7 @@ class SolicitudesCategoriasController extends AppBaseController
 	  ->join('users', 'users.id', '=', 'solicitudes.id_usuario')
 	  ->where('users.id', '=', \Auth::user()->id)
 	  ->where('solicitudes.id','=',$id )
-	  ->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario')
+	  ->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario','servicios.foto')
 	  ->first();
 
 	//dd($solicitudes);
