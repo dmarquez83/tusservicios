@@ -28,6 +28,7 @@ class UsuariosSolicitudes extends Migration
      *
      * @return void
      */
+
     public function down()
     {
         //

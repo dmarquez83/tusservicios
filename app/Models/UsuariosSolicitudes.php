@@ -9,7 +9,8 @@ class UsuariosSolicitudes extends Model
 
   public $fillable = [
     "solicitud_id",
-    "user_id"
+    "user_id",
+    "id_estatus"
   ];
 
   /**
@@ -19,7 +20,8 @@ class UsuariosSolicitudes extends Model
    */
   protected $casts = [
     "solicitud_id" => "integer",
-    "user_id" => "integer"
+    "user_id" => "integer",
+    "id_estatus" => "integer",
   ];
 
   public static $rules = [

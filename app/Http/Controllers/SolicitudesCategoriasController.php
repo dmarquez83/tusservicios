@@ -265,11 +265,16 @@ class SolicitudesCategoriasController extends AppBaseController
 	$data= [
 	  'solicitud_id'  => $id,
 	  'user_id'  => $request->get('usuario'),
+	  'id_estatus'  => 11,
 	  'created_at' => new \DateTime,
 	  'updated_at' =>  new \Datetime,
 	];
 
+
+
 	UsuariosSolicitudes::create($data);
+
+
 
 	Flash::success('Usuario asignado correctamente');
 
@@ -377,5 +382,34 @@ class SolicitudesCategoriasController extends AppBaseController
 	return view('solicitudes.indexDetServicios')->with(array('solicitudes'=>$solicitudes,'insumos'=>$insumos));
 	//return view('solicitudes.indexDetSolicitud')->with('solicitudes', $solicitudes);
   }
+
+  public function getAceptarServicios($id){
+
+	$aceptar = DB::table('usuarios_solicitudes')->where('solicitud_id', '=', $id)
+	  ->update(array('id_estatus' => 12));
+
+	$solicitud = DB::table('solicitudes')->where('id', '=', $id)
+	  ->update(array('id_estatus' => 4));
+
+	Flash::success('Solicitud Aceptada .');
+
+	return redirect(route('solicitudes.getUsuariosSolicitudes'));
+
+  }
+
+  public function getRechazarServicios($id){
+
+	$rechazar = DB::table('usuarios_solicitudes')->where('solicitud_id', '=', $id)
+	  ->update(array('id_estatus' => 13));
+
+	$solicitud = DB::table('solicitudes')->where('id', '=', $id)
+	  ->update(array('id_estatus' => 14));
+
+	Flash::success('Solicitud Rechazada .');
+
+	return redirect(route('solicitudes.getUsuariosSolicitudes'));
+
+  }
+
 
 }

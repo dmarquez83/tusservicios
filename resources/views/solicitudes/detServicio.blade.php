@@ -63,11 +63,11 @@
 
 <div class="row">
     <div class="col-md-12">
-        <a class="btn btn-primary pull-right" href="" role="button" data-toggle="Editar"><i class=" glyphicon glyphicon-shopping-cart"></i>Aceptar</a>
+        <a class="btn btn-primary pull-right" href="{!! route('solicitudes.getAceptarServicios', [$solicitudes->id]) !!}" role="button" data-toggle="Editar">Aceptar</a>
     </div>
 </div>
 <div class="row">
     <div class="col-md-12">
-        <a class="btn btn-primary pull-right" href="" role="button" data-toggle="Editar"><i class=" glyphicon glyphicon-shopping-cart"></i>Rechazar</a>
+        <a class="btn btn-primary pull-right" href="{!! route('solicitudes.getRechazarServicios', [$solicitudes->id]) !!}" role="button" data-toggle="Editar">Rechazar</a>
     </div>
 </div>
