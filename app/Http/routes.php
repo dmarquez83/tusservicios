@@ -56,6 +56,8 @@ Route::get('user/solicitud/detalle/{id}', ['as' => 'solicitudes.getDetSolicitud'
 
 Route::get('user/solicitud/servicios', ['as' => 'solicitudes.getUsuariosSolicitudes','uses' => 'UsuariosServiciosController@getUsuariosSolicitudes']);
 
+Route::get('user/solicitud/detServicios/{id}', ['as' => 'solicitudes.getDetServicios','uses' => 'SolicitudesCategoriasController@getDetServicios']);
+
 /**********************************Registro de Servicios y horario**********************************/
 Route::resource('usuario/servicios', 'UsuariosServiciosController'); /*cambiar a user*/
 Route::get('usuariosServicios/borrar/{id}', ['as' => 'usuario.servicios.delete','uses' => 'UsuariosServiciosController@destroy']);
