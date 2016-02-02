@@ -122,7 +122,7 @@ class SolicitudesCategoriasController extends AppBaseController
 			$m->to($user->email, $user->name)->subject('Tu Solicitud a sido registrada');
 		});
 
-		return redirect(route('solicitudes.getlistado'));
+		return redirect(route('solicitudes.detPago', array($solicitudesId)));
 	  }
 
 	  /**
@@ -318,5 +318,23 @@ class SolicitudesCategoriasController extends AppBaseController
 		return view('solicitudes.indexDetSolicitud')->with(array('solicitudes'=>$solicitudes,'insumos'=>$insumos,'catalogos'=>$catalogos));
 		//return view('solicitudes.indexDetSolicitud')->with('solicitudes', $solicitudes);
 	}
+
+
+  public function detPago($id)
+  {
+	$solicitudes = DB::table('solicitudes')
+	  ->join('estatus', 'estatus.id', '=', 'solicitudes.id_estatus')
+	  ->join('servicios', 'servicios.id', '=', 'solicitudes.id_servicio')
+	  ->join('users', 'users.id', '=', 'solicitudes.id_usuario')
+	  ->where('users.id', '=', \Auth::user()->id)
+	  ->where('solicitudes.id','=',$id )
+	  ->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario')
+	  ->first();
+
+	//dd($solicitudes);
+
+	return view('solicitudes.indexDetPago')->with(array('solicitudes'=>$solicitudes));
+
+  }
 
 }
