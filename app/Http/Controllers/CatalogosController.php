@@ -24,6 +24,8 @@ use App\Models\ProveedoresInsumos;
 use App\User;
 use Mail;
 
+use Illuminate\Support\Facades\DB;
+
 
 
 class CatalogosController extends AppBaseController
@@ -67,7 +69,7 @@ class CatalogosController extends AppBaseController
 
 	  $insumos = InsumosSolicitudes::join('insumos','insumos.id','=','insumos_solicitudes.insumo_id')
 	    ->where('solicitud_id',$id)
-		->select('insumos.descripcion','insumos.referencia','insumos.foto', 'insumos.id')
+		->select('insumos.descripcion','insumos.nombre','insumos.referencia','insumos.foto', 'insumos.id')
 		->orderBy('id', 'DESC')->get();
 
 	  $insumos = Collection::make($insumos);
@@ -96,7 +98,7 @@ class CatalogosController extends AppBaseController
 	  $catalogoId = \DB::table('catalogos')->insertGetId(array(
 		'descripcion'  => $request->get('descripcion'),
 		'solicitud_id'  => $request->get('solicitud_id'),
-		'estatus_id' => 5,
+		'estatus_id' => 9,
 		'created_at' => new \DateTime,
 		'updated_at' =>  new \Datetime,
 	  ));
@@ -142,7 +144,7 @@ class CatalogosController extends AppBaseController
 			'proveedor_id'  => $proveedor,
 			'precio'  => $request->get($precio),
 			'insumo_id'  => $insumo->insumo_id,
-			'estatus_id'  => 6,
+			'estatus_id'  => 10,
 			'created_at' => new \DateTime,
 			'updated_at' =>  new \Datetime,
 			'foto' => $nombrefoto
@@ -155,6 +157,9 @@ class CatalogosController extends AppBaseController
 		}
 
 	  }
+
+	  $solicitud = DB::table('solicitudes')->where('id', '=', $request->get('solicitud_id'))
+		->update(array('id_estatus' => 16));
 
 
 

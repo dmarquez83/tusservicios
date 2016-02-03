@@ -17,7 +17,9 @@
                 {{-- <th>costo</th> --}}
                 <th>Estatus</th>
                 <th>Usuario</th>
-                <th width="100px">Acciones</th>
+                <th width="100px">Insumos</th>
+                <th width="100px">Asignar</th>
+                <th width="100px">Detalle</th>
                 </thead>
                 <tbody>
                 @foreach($solicitudes as $solicitud)
@@ -34,12 +36,15 @@
                         <td>{!! $solicitud->estatus !!}</td>
                         <td>{!! $solicitud->usuario !!}</td>
                         <td>
-                            <div class="col-sm-6 border-right">
+                            @if($solicitud->id_estatus==15)
                                 <a class="btn btn-primary" href="{!! route('catalogos.createnew', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
-                            </div>
-                            <div class="col-sm-6 border-right">
+                            @endif
+                        </td>
+                        <td>
                                 <a class="btn btn-primary" href="{!! route('solicitudes.getAsignar', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-search"></i></a>
-                            </div>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" href="{!! route('solicitudes.getAsignar', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-search"></i></a>
                         </td>
                     </tr>
                 @endforeach

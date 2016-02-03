@@ -84,6 +84,12 @@ class SolicitudesCategoriasController extends AppBaseController
 		$newDate = date("Y-m-d", strtotime($originalDate));
 		$servicios = Servicios::find($id);
 
+		if($request->get('insumo')) {
+		  $id_status=15;
+		}else{
+		  $id_status=3;
+		}
+
 		$solicitudesId = \DB::table('solicitudes')->insertGetId(array(
 		  'descripcion'  => $request->get('descripcion'),
 		  'fecha'  => $newDate,
@@ -93,7 +99,7 @@ class SolicitudesCategoriasController extends AppBaseController
 		  'horas'  => $request->get('contacto'),
 		  'costo'  => $servicios->precio,
 		  'id_usuario'  => \Auth::user()->id,
-		  'id_estatus'  => '3',
+		  'id_estatus'  => $id_status,
 		  'id_servicio'  => $id,
 		  'created_at' => new \DateTime,
 		  'updated_at' =>  new \Datetime,
@@ -122,7 +128,12 @@ class SolicitudesCategoriasController extends AppBaseController
 			$m->to($user->email, $user->name)->subject('Tu Solicitud a sido registrada');
 		});
 
-		return redirect(route('solicitudes.detPago', array($solicitudesId)));
+		if($request->get('insumo')) {
+		  return redirect(route('solicitudes.getlistado'));
+		}else{
+		  return redirect(route('solicitudes.detPago', array($solicitudesId)));
+		}
+
 	  }
 
 	  /**
@@ -200,7 +211,7 @@ class SolicitudesCategoriasController extends AppBaseController
 			  ->join('estatus','estatus.id' ,'=','solicitudes.id_estatus')
 			  ->join('servicios','servicios.id' ,'=','solicitudes.id_servicio')
 			  ->join('users','users.id' ,'=','solicitudes.id_usuario')
-			  ->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario')
+			  ->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario','estatus.id as id_estatus')
 			  ->orderBy('solicitudes.id','desc')
 			  ->get();
 
@@ -314,8 +325,9 @@ class SolicitudesCategoriasController extends AppBaseController
 			->join('users','users.id' ,'=','solicitudes.id_usuario')
 			->where('users.id','=',\Auth::user()->id )
 			->where('catalogos.solicitud_id','=',$id )
-			->select('catalogos.id','catalogos.descripcion','estatus.nombre as estatus', 'insumos.nombre as nombre_insumo','insumos.descripcion','insumos.referencia','insumos.foto',
+			->select('catalogos.id','catalogos.descripcion','estatus.nombre as estatus', 'insumos.nombre as nombre_insumo','insumos.descripcion','insumos.referencia','insumos.foto','insumos.id as id_insumo',
 				     'catalogos_insumos.precio','catalogos_insumos.id as id_catalogo','catalogos_insumos.foto as foto_proveedor','proveedores.rif','proveedores.nombre')
+		    ->orderBy('insumos.id','desc')
 			->get();
 		//dd($catalogo);
 
@@ -408,6 +420,25 @@ class SolicitudesCategoriasController extends AppBaseController
 	Flash::success('Solicitud Rechazada .');
 
 	return redirect(route('solicitudes.getUsuariosSolicitudes'));
+
+  }
+
+  public function getAceptarInsumosSolicitud($id, Request $request){
+
+	dd($request);
+
+	//voy por aqui falta que cambie el estatus de los insumos que acepta el usuario
+
+	/*foreach ($request->get('catalogo') as $catalogo)
+	{
+	  $data= [
+		'solicitud_id'  => $solicitudesId,
+		'insumo_id'  => $insumos,
+		'created_at' => new \DateTime,
+		'updated_at' =>  new \Datetime,
+	  ];
+	  InsumosSolicitudes::create($data);
+	}*/
 
   }
 

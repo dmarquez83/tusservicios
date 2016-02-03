@@ -88,7 +88,7 @@
                             <td>{!! $catalogo->nombre !!}</td>
                             <td>{!! $catalogo->precio !!}</td>
                             <td>{!! Html::image('insumos-img/'.$catalogo->foto, '', array('class' => 'responsive-img','width' => '150', 'height' => '100')) !!}</td>
-                            <td><input id = "{!! $catalogo->id !!}" data-valor='{{$catalogo->precio}}' class="boton_check" type="checkbox" name="catalogo[]" value="{!! $catalogo->id !!}"></td>
+                            <td><input id = "{!! $catalogo->id_catalogo !!}" data-valor='{{$catalogo->precio}}' class="boton_check" type="checkbox" name="catalogo[]" value="{!! $catalogo->id_catalogo !!}"></td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -130,6 +130,6 @@
 
 <div class="row">
     <div class="col-md-12">
-        <a class="btn btn-primary pull-right" href="" role="button" data-toggle="Editar"><i class=" glyphicon glyphicon-shopping-cart"></i>Contratar Servicio</a>
+        {!! Form::submit('Aceptar', ['class' => 'btn btn-warning pull-right']) !!}
     </div>
 </div>

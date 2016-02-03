@@ -2,7 +2,12 @@
 
 @section('content')
     <div>
-        @include('solicitudes.detSolicitud')
+
+        {!! Form::model($solicitudes, ['route' => ['solicitudes.getAceptarInsumosSolicitud', $solicitudes->id], 'method' => 'post']) !!}
+
+           @include('solicitudes.detSolicitud')
+
+        {!! Form::close() !!}
     </div>
 @endsection
 

@@ -52,6 +52,7 @@ Route::get('login/{provider}',['uses' => 'Auth\AuthController@login','as'   => '
 
 /**********************************Lista de Solicitudes  + Registro de Catalogo**********************/
 Route::get('user/solicitudes/listado', ['as' => 'solicitudes.getlistado','uses' => 'SolicitudesCategoriasController@getListado']);
+
 Route::get('user/solicitud/detalle/{id}', ['as' => 'solicitudes.getDetSolicitud','uses' => 'SolicitudesCategoriasController@getDetSolicitud']);
 
 Route::get('user/solicitud/servicios', ['as' => 'solicitudes.getUsuariosSolicitudes','uses' => 'UsuariosServiciosController@getUsuariosSolicitudes']);
@@ -61,6 +62,8 @@ Route::get('user/solicitud/detServicios/{id}', ['as' => 'solicitudes.getDetServi
 Route::get('user/solicitud/aceptar/{id}', ['as' => 'solicitudes.getAceptarServicios','uses' => 'SolicitudesCategoriasController@getAceptarServicios']);
 
 Route::get('user/solicitud/rechazar/{id}', ['as' => 'solicitudes.getRechazarServicios','uses' => 'SolicitudesCategoriasController@getRechazarServicios']);
+
+Route::post('user/insumos/solicitud/{id}', ['as' => 'solicitudes.getAceptarInsumosSolicitud','uses' => 'SolicitudesCategoriasController@getAceptarInsumosSolicitud']);
 
 /**********************************Registro de Servicios y horario**********************************/
 Route::resource('usuario/servicios', 'UsuariosServiciosController'); /*cambiar a user*/

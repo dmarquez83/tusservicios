@@ -110,6 +110,13 @@ class EstatusTableSeeder extends Seeder
             'tabla' => 'solicitud',
             'created_at' => new DateTime,
             'updated_at' => new Datetime,
+          ],
+          [
+            'nombre' => 'Consulta de Insumos',
+            'descripcion' => 'Consulta de precios de Insumos',
+            'tabla' => 'solicitud',
+            'created_at' => new DateTime,
+            'updated_at' => new Datetime,
           ]
         );
         Estatu::insert($data);
