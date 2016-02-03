@@ -12,6 +12,7 @@
                 <div class="form-group">
                     {!! Form::label('descripcion', 'Descripcion:', ['class' => 'control-label']) !!}
                     <p>{!! $solicitudes->descripcion !!}</p>
+                    {!! Form::hidden('id', $solicitudes->id, ['class' => 'form-control']) !!}
                 </div>
             </div>
             <div class="col-md-3">

@@ -358,10 +358,11 @@ class SolicitudesCategoriasController extends AppBaseController
 	  ->join('users','users.id' ,'=','solicitudes.id_usuario')
 	  ->where('users.id','=',\Auth::user()->id )
 	  ->where('catalogos.solicitud_id','=',$id )
+	  ->where('catalogos_insumos.estatus_id','=','17' )
 	  ->select('catalogos.id','catalogos.descripcion','estatus.nombre as estatus', 'insumos.nombre as nombre_insumo','insumos.descripcion','insumos.referencia','insumos.foto',
 		'catalogos_insumos.precio','catalogos_insumos.id as id_catalogo','catalogos_insumos.foto as foto_proveedor','proveedores.rif','proveedores.nombre')
 	  ->get();
-	//dd($catalogo);
+	//dd($catalogos);
 
 	//dd($solicitudes);
 
@@ -425,20 +426,21 @@ class SolicitudesCategoriasController extends AppBaseController
 
   public function getAceptarInsumosSolicitud($id, Request $request){
 
-	dd($request);
+	//dd($request);
 
 	//voy por aqui falta que cambie el estatus de los insumos que acepta el usuario
 
-	/*foreach ($request->get('catalogo') as $catalogo)
+	foreach ($request->get('catalogo') as $catalogo)
 	{
-	  $data= [
-		'solicitud_id'  => $solicitudesId,
-		'insumo_id'  => $insumos,
-		'created_at' => new \DateTime,
-		'updated_at' =>  new \Datetime,
-	  ];
-	  InsumosSolicitudes::create($data);
-	}*/
+	  $aceptar = DB::table('catalogos_insumos')->where('id', '=', $catalogo)
+		->update(array('estatus_id' => 17));
+
+	}
+
+	$aceptarSolicitud = DB::table('solicitudes')->where('id', '=', $request->get('id'))
+	  ->update(array('id_estatus' => 18));
+
+	return redirect(route('solicitudes.detPago', array($request->get('id'))));
 
   }
 
