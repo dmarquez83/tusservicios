@@ -25,28 +25,32 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <div class="form-group">
                         <h4><i class="glyphicon glyphicon-calendar"></i> {!! Form::label('fecha', 'Fecha:', ['class' => 'control-label']) !!}</h4>
                         <p>{!! $solicitudes->fecha !!}</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <div class="form-group">
                         <h4><i class="glyphicon glyphicon-time"></i> {!! Form::label('hora', 'Hora:', ['class' => 'control-label']) !!}</h4>
                         <p>{!! $solicitudes->hora !!}</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <h4><i class="glyphicon glyphicon-user"></i> {!! Form::label('persona', 'Persona Contacto:', ['class' => 'control-label']) !!}</h4>
+                        <p>{!! $solicitudes->horas !!}</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
                     <div class="form-group">
                         <h4><i class="glyphicon glyphicon-phone-alt"></i> {!! Form::label('telefono', 'Telefono:', ['class' => 'control-label']) !!}</h4>
                         <p>{!! $solicitudes->telefono !!}</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <h4><i class="glyphicon glyphicon-time"></i> {!! Form::label('horas', 'Horas:', ['class' => 'control-label']) !!}</h4>
-                        <p>{!! $solicitudes->horas !!}</p>
                     </div>
                 </div>
             </div>

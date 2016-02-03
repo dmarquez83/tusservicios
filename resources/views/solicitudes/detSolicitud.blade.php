@@ -45,7 +45,7 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    {!! Form::label('horas', 'Horas:', ['class' => 'control-label']) !!}
+                    {!! Form::label('persona', 'Persona Contacto:', ['class' => 'control-label']) !!}
                     <p>{!! $solicitudes->horas !!}</p>
                 </div>
             </div>
