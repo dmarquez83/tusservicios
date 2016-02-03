@@ -110,19 +110,19 @@
 
                                                     <div class="col-sm-10">
                                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne{{ $insumo->id }}">
-                                                            {!! $insumo->descripcion !!}
+                                                            {!! $insumo->nombre !!}
                                                         </a>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <a href="#"
                                                            class="btn-sm btn-primary btn-listado-proveedores"
                                                            data-id="{{ $insumo->id }}"
-                                                           data-name="{{ $insumo->descripcion }}"
+                                                           data-name="{{ $insumo->nombre }}"
                                                            data-path="{{ route('catalogoproveedores.detalle') }}"
                                                            data-toggle="modal"
                                                            data-target="#myModal"
                                                            data-token="{{ csrf_token() }}">
-                                                            <i class="fa fa-external-link">Agregar Proveedor</i>
+                                                            <i class="fa fa-external-link">Proveedor</i>
                                                         </a>
                                                     </div>
                                                     {{-- no va a estar relacionada a nada el href por que  lo vamos a implementar con ajax --}}
