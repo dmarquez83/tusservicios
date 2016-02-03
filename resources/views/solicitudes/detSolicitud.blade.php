@@ -101,8 +101,8 @@
                 <table id="tabla-listado-insumos" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Servicios</th>
-                            <th>Estatus</th>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
                             <th>Foto</th>
                         </tr>
                     </thead>

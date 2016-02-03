@@ -8,15 +8,20 @@
        <div class="box-body">
            <table class="table table-bordered table-striped" id="tipousuario">
                <thead>
+                   <th>N°</th>
                    <th>Usuario</th>
                    <th>Servicio</th>
+                   <th>Descripcion</th>
                    <th width="150px">Acciones</th>
                </thead>
                <tbody>
                @foreach($usuariosServicios as $usuariosServicios)
                    <tr>
+                       <td>{!! $usuariosServicios->id !!}</td>
                        <td>{!! $usuariosServicios->name !!}</td>
                        <td>{!! $usuariosServicios->nombre !!}</td>
+                       <td>{!! $usuariosServicios->descripcion !!}</td>
+
                        <td>
                            <div class="col-sm-6 border-right">
                                <a class="btn btn-primary" href="{!! route('usuario.servicios.edit', [$usuariosServicios->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-pencil"></i></a>

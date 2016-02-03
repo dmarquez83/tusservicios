@@ -396,7 +396,7 @@ class ServiciosController extends AppBaseController
 		//return response()->json($servicios);
 
         //var_dump($servicios);
-		return view('servicios.listar')->with('servicios', $servicios);
+		return view('servicios.indexListar')->with('servicios', $servicios);
 
 	}
 

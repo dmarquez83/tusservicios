@@ -2,21 +2,25 @@
 
 @section('content')
 
-    <div class="container">
+    <div>
 
         @include('flash::message')
-
-        <div class="row">
-            <h1 class="pull-left">Tus Servicios</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('usuario.servicios.create') !!}">Nuevo</a>
-        </div>
 
         <div class="row">
             @include('usuariosServicios.listado')
         </div>
 
-
-
-
     </div>
+@endsection
+
+@section('scripts')
+
+    {!! Html::script('assets/inc/bootstrap/js/jquery.dataTables.min.js') !!}
+    {!! Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js') !!}
+
+    <script type="text/javascript">
+        $(function () {
+            $('#usuarioSolicitud').DataTable({});
+        });
+    </script>
 @endsection

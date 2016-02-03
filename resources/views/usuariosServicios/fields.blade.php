@@ -102,11 +102,13 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
+                                                {{$ciudades}}
                                                 @foreach($ciudades as $ciudad)
                                                     <div class="checkbox">
                                                         <label>
                                                             {!! Form::checkbox('ciudad', $ciudad->id, false,['class' => 'ciudad', 'data-path' => route('admin.sectores.listado',$ciudad->id)]) !!} {{$ciudad->nombre}}
                                                         </label>
+
                                                     </div>
                                                 @endforeach
                                             </div>

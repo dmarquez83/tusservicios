@@ -11,8 +11,8 @@
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
+        <a href="#" class="" data-toggle="offcanvas" role="button">
+            <!--<span class="glyphicon glyphicon-menu-hamburger"></span>-->
         </a>
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">

@@ -45,7 +45,7 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    {!! Form::label('horas', 'Horas:', ['class' => 'control-label']) !!}
+                    {!! Form::label('persona', 'Persona Contacto:', ['class' => 'control-label']) !!}
                     <p>{!! $solicitudes->horas !!}</p>
                 </div>
             </div>
@@ -59,15 +59,57 @@
     </div>
 </div>
 
-
-
-<div class="row">
-    <div class="col-md-12">
-        <a class="btn btn-primary pull-right" href="{!! route('solicitudes.getAceptarServicios', [$solicitudes->id]) !!}" role="button" data-toggle="Editar">Aceptar</a>
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">
+            Insumos
+        </h3>
+    </div>
+    <div class="box-body">
+        <table class="table table-bordered table-striped" id="usuarioSolicitud">
+            <thead>
+                <th width="150px">Nombre</th>
+                <th>Descripcion</th>
+                <th>Referencia</th>
+                <th>Foto</th>
+            </thead>
+            <tbody>
+            @foreach($insumos as $insumo)
+                <tr>
+                    <td>{!! $insumo->nombre !!}</td>
+                    <td>{!! $insumo->descripcion !!}</td>
+                    <td>{!! $insumo->referencia !!}</td>
+                    <td>{!! Html::image('insumos-img/'.$insumo->foto, '', array('class' => 'responsive-img','width' => '150', 'height' => '100')) !!}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
+
 <div class="row">
-    <div class="col-md-12">
-        <a class="btn btn-primary pull-right" href="{!! route('solicitudes.getRechazarServicios', [$solicitudes->id]) !!}" role="button" data-toggle="Editar">Rechazar</a>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-success center-block" href="{!! route('solicitudes.getAceptarServicios', [$solicitudes->id]) !!}" role="button" data-toggle="Editar">Aceptar</a>
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-danger center-block" href="{!! route('solicitudes.getRechazarServicios', [$solicitudes->id]) !!}" role="button" data-toggle="Editar">Rechazar</a>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-4">
+        <a class="btn btn-primary center-block" href="{!! route('solicitudes.getAceptarServicios', [$solicitudes->id]) !!}" role="button" data-toggle="Editar">Pagos</a>
+    </div>
+    <div class="col-md-4">
+        <a class="btn btn-primary center-block" href="{!! route('solicitudes.getRechazarServicios', [$solicitudes->id]) !!}" role="button" data-toggle="Editar">Factura</a>
+    </div>
+    <div class="col-md-4">
+        <a class="btn btn-primary center-block" href="{!! route('solicitudes.getRechazarServicios', [$solicitudes->id]) !!}" role="button" data-toggle="Editar">Evaluacion</a>
     </div>
 </div>
