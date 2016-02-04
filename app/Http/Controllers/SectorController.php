@@ -166,7 +166,7 @@ class SectorController extends AppBaseController
 			->select('sectores.id', 'sectores.nombre')
 			->get();
 
-		//	dd($ciudad);
+			//dd($sectores);
 
 		return ($sectores);
 	}

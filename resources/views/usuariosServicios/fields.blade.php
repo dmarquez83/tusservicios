@@ -11,7 +11,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label>Categorias</label>
-                                {!! Form::select('id_categoria', $categorias, null, ['class' => 'form-control', 'id'=> 'id_categoria', 'data-path' => route('usuario.servicios.desplegable')]) !!}
+                                {!! Form::select('id_categoria', $categorias, null, ['class' => 'form-control', 'id'=> 'id_categoria', 'data-path' => route('user.servicios.desplegable')]) !!}
                             </div>
                         </div>
                     </div>
@@ -100,18 +100,18 @@
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                @foreach($ciudades as $ciudad)
+                                       @foreach($ciudades as $ciudad)
+                                            <div class="col-md-3">
+                                                <div class="form-group">
                                                     <div class="checkbox">
                                                         <label>
-                                                            {!! Form::checkbox('ciudad', $ciudad->id, false,['class' => 'ciudad', 'data-path' => route('admin.sectores.listado',$ciudad->id)]) !!} {{$ciudad->nombre}}
+                                                            {!! Form::checkbox('ciudad', $ciudad->id, false,['class' => 'ciudad', 'data-path' => route('user.sectores.listado',$ciudad->id)]) !!} {{$ciudad->nombre}}
                                                         </label>
 
                                                     </div>
-                                                @endforeach
+                                                </div>
                                             </div>
-                                        </div>
+                                       @endforeach
                                      </div>
                                 </div>
                              </div>
@@ -132,13 +132,7 @@
 
                                 <div class="row">
 
-                                    <div class="col-md-6">
-
-                                        <div class="form-group sectores">
-
-
-
-                                        </div>
+                                    <div class="sectores">
 
                                     </div>
 

@@ -137,7 +137,7 @@ class UsuariosServiciosController extends AppBaseController
 
 		Flash::success('Tus Horario y Lugar de Trabajo a sido Guardado.');
 
-		return redirect(route('usuario.servicios.index'));
+		return redirect(route('user.servicios.index'));
 	}
 
 	/**
@@ -155,7 +155,7 @@ class UsuariosServiciosController extends AppBaseController
 		{
 			Flash::error('UsuariosServicios not found');
 
-			return redirect(route('usuario.servicios.index'));
+			return redirect(route('user.servicios.index'));
 		}
 
 		return view('usuariosServicios.show')->with('usuariosServicios', $usuariosServicios);
@@ -176,7 +176,7 @@ class UsuariosServiciosController extends AppBaseController
 		{
 			Flash::error('No hay registros');
 
-			return redirect(route('usuario.servicios.index'));
+			return redirect(route('user.servicios.index'));
 		}
 
 	    //$horarios = Horarios::where('usuario_servicio_id','=',$id)->get();
@@ -283,7 +283,7 @@ class UsuariosServiciosController extends AppBaseController
 		{
 			Flash::error('No hay Registros');
 
-			return redirect(route('usuario.servicios.index'));
+			return redirect(route('user.servicios.index'));
 		}
 
 	   $datos = array(
@@ -338,7 +338,7 @@ class UsuariosServiciosController extends AppBaseController
 
 		Flash::success('Horario y Lugar Actualizados Correctamente');
 
-		return redirect(route('usuario.servicios.index'));
+		return redirect(route('user.servicios.index'));
 	}
 
 	/**
@@ -356,14 +356,14 @@ class UsuariosServiciosController extends AppBaseController
 		{
 			Flash::error('UsuariosServicios not found');
 
-			return redirect(route('usuario.servicios.index'));
+			return redirect(route('user.servicios.index'));
 		}
 
 		$this->usuariosServiciosRepository->delete($id);
 
 		Flash::success('UsuariosServicios deleted successfully.');
 
-		return redirect(route('usuario.servicios.index'));
+		return redirect(route('user.servicios.index'));
 	}
 
 	public function desplegable()

@@ -11,26 +11,25 @@ $(document).ready(function(){
             });
     });
 
-    $(document).on('change','.ciudad',function(){
+    /*$(document).on('change','.ciudad',function(){*/
+    $('.ciudad').change(function(){
 
+        if($(this).prop('checked')) {
 
-      /*  var listaCiudades= new Array();
+            $.get($(this).data('path'),
+                {option: $(this).val()},
+                function (data) {
+                    //console.log(data.length,'este');
+                    $.each(data, function (key, element) {
+                        //console.log(element.nombre);
+                        $('.sectores').append("<div class='col-md-3'><div class='form-group'><div class='checkbox'><label><input name='sectores[" + element.id + "]' type='checkbox' value='" + element.id + "'>" + element.nombre + "</label></div></div></div>");
 
-        listaCiudades.push(parseInt($(this).val())) ;
-
-        alert($(this).val());*/
-
-        $.get($(this).data('path'),
-            { option: $(this).val() },
-            function(data) {
-                //console.log(data);
-                $.each(data, function(key, element) {
-                    //console.log(element.nombre);
-                    $('.sectores').append("<div class='checkbox'><label><input name='sectores[" + element.id +  "]' type='checkbox' value='" + element.id +  "'>" + element.nombre + "</label></div>");
+                    });
                 });
-            });
 
-
+        }else{
+            /*falta eliminar la fila si la deselecciona de ciudad*/
+        }
 
     });
 });

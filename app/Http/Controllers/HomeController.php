@@ -26,4 +26,12 @@ class HomeController extends Controller
 
        return   view('home.index');
     }
+
+    public function dashboradUser()
+    {
+      return   view('dashborad.tableusuario');
+    }
+
+
+
 }

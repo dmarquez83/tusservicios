@@ -5,7 +5,7 @@
 
     @include('common.errors')
 
-    {!! Form::open(['route' => 'usuario.servicios.store']) !!}
+    {!! Form::open(['route' => 'user.servicios.store']) !!}
 
         @include('usuariosServicios.fields')
 
