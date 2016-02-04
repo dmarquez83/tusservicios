@@ -101,7 +101,7 @@ class InsumoController extends AppBaseController
 
 
 
-	  return redirect(route('insumos.index'));
+	  return redirect(route('admin.insumos.index'));
 	}
 
 	/**
@@ -119,7 +119,7 @@ class InsumoController extends AppBaseController
 		{
 			Flash::error('No hay Insumos');
 
-			return redirect(route('insumos.index'));
+			return redirect(route('admin.insumos.index'));
 		}
 
 		return view('insumos.show')->with('insumo', $insumo);
@@ -141,7 +141,7 @@ class InsumoController extends AppBaseController
 		{
 			Flash::error('Insumo not found');
 
-			return redirect(route('insumos.index'));
+			return redirect(route('admin.insumos.index'));
 		}
 
 		return view('insumos.edit')->with('insumos', $insumos);
@@ -158,6 +158,7 @@ class InsumoController extends AppBaseController
 	public function update($id, UpdateInsumoRequest $request)
 	{
 	  $this->validate($request, [
+		'nombre' => 'required|max:500',
 		'descripcion' => 'required|max:500',
 		'referencia' => 'required|max:100',
 		'foto'  => 'required'
@@ -185,6 +186,7 @@ class InsumoController extends AppBaseController
 
 
 	  $data = [
+		'nombre' => $request->get('nombre'),
 		'descripcion' => $request->get('descripcion'),
 		'referencia' => $request->get('referencia'),
 		'foto' => $file->getClientOriginalName()
@@ -195,7 +197,7 @@ class InsumoController extends AppBaseController
 
 		Flash::success('Insumo Guardado Correctamente.');
 
-		return redirect(route('insumos.index'));
+		return redirect(route('admin.insumos.index'));
 	}
 
 	/**
@@ -213,14 +215,14 @@ class InsumoController extends AppBaseController
 		{
 			Flash::error('Insumo no funciona');
 
-			return redirect(route('insumos.index'));
+			return redirect(route('admin.insumos.index'));
 		}
 
 		$this->insumoRepository->delete($id);
 
 		Flash::success('Insumo borrado correctamente.');
 
-		return redirect(route('insumos.index'));
+		return redirect(route('admin.insumos.index'));
 	}
 
 	public function getListadoInsumos()

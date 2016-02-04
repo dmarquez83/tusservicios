@@ -17,8 +17,7 @@
                     {!! Form::select('tabla', array(
                     'solicitud' => 'Solicitud',
                     'servicios' => 'Servicios',
-                    'postulados' => 'Postulados',
-                    'servicios' => 'Servicios',
+                    'usuarios_solicitudes' => 'Usuarios Solicitudes',
                     'catalogos' => 'Catalogos',
                     'catalogos_insumos' => 'Catalogos Insumos',
                 ), null, ['class' => 'form-control']) !!}

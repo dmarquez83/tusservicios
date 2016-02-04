@@ -6,7 +6,7 @@
             <div class="col s12 m6 ">
                 @include('common.errors')
 
-                {!! Form::open(['route' => 'insumos.store', 'method' => 'POST', 'files' => 'true']) !!}
+                {!! Form::open(['route' => 'admin.insumos.store', 'method' => 'POST', 'files' => 'true']) !!}
 
                 @include('insumos.fields')
 

@@ -27,7 +27,7 @@ class CiudadController extends AppBaseController
 	 */
 	public function index()
 	{
-		$ciudades = $this->ciudadRepository->paginate(10);
+		$ciudades = $this->ciudadRepository->all();
 
 		//dd($ciudades);
 

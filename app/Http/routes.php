@@ -99,21 +99,16 @@ Route::group(['middleware' => ['auth']], function()
     Route::resource('admin/estatus', 'EstatuController');
     Route::get('admin/estatus/borrar/{id}', ['as' => 'estatus.delete','uses' => 'EstatuController@destroy']);
 
+    /**********************************Insumos*********************************/
+    Route::resource('admin/insumos', 'InsumoController');
+    Route::get('admin/insumos/borrar/{id}', ['as' => 'insumos.delete','uses' => 'InsumoController@destroy']);
+
+    Route::post('solicitud/insumos', ['as' => 'insumosSolicitudes.detalle','uses' => 'InsumosSolicitudesController@detalle']);///////////ojo no he revisao esto
+    Route::post('insumoSolicitudes/guardar', ['as' => 'insumoSolicitudes.getGuardar','uses' => 'InsumosSolicitudesController@getGuardar']);
+
     /**********************************Servicios**********************************/
     Route::resource('admin/servicios', 'ServiciosAdminController');
     Route::get('admin/servicios/nuevo/{id}', ['as' => 'admin.servicios.create','uses' => 'ServiciosAdminController@create']);
-    /**********************************Servicios con categorias**********************************/
-    Route::resource('categorias/servicios', 'ServiciosController'); /*ojo con este se usa para grabar*/
-    Route::get('categorias/servicios/{id}/delete', ['as' => 'categorias.servicios.delete','uses' => 'ServiciosController@destroy']);
-    Route::get('categorias/desplegable', ['as' => 'categorias.servicios.desplegable','uses' => 'ServiciosController@desplegable']);
-
-
-
-    /**********************************Insumos*********************************/
-    Route::resource('insumos', 'InsumoController');
-    Route::get('insumos/borrar/{id}', ['as' => 'insumos.delete','uses' => 'InsumoController@destroy']);
-    Route::post('solicitud/insumos', ['as' => 'insumosSolicitudes.detalle','uses' => 'InsumosSolicitudesController@detalle']);
-    Route::post('insumoSolicitudes/guardar', ['as' => 'insumoSolicitudes.getGuardar','uses' => 'InsumosSolicitudesController@getGuardar']);
 
     /**********************************Proveedores*******************************/
     Route::resource('admin/proveedores', 'ProveedoresController');
@@ -121,8 +116,34 @@ Route::group(['middleware' => ['auth']], function()
     Route::get('admin/insumos/listado', ['as' => 'admin.insumos.getListadoInsumos','uses' => 'InsumoController@getListadoInsumos']);
 
     /**********************************Proveedores Insumos **********************/
-   /* Route::resource('proveedoresInsumos', 'ProveedoresInsumosController');
-    Route::get('proveedoresInsumos/borrar/{id}', ['as' => 'proveedoresInsumos.delete','uses' => 'ProveedoresInsumosController@destroy']);*/
+    /* Route::resource('proveedoresInsumos', 'ProveedoresInsumosController');
+     Route::get('proveedoresInsumos/borrar/{id}', ['as' => 'proveedoresInsumos.delete','uses' => 'ProveedoresInsumosController@destroy']);*/
+
+
+    /**********************************Horas**********************************/
+    Route::resource('admin/horas', 'HorasController');
+    Route::get('admin/horas/borrar/{id}', ['as' => 'admin.horas.delete','uses' => 'HorasController@destroy']);
+
+    /**********************************Dias**********************************/
+    Route::resource('admin/dias', 'DiasController');
+    Route::get('admin/dias/borrar/{id}', ['as' => 'admin.dias.delete','uses' => 'DiasController@destroy']);
+
+    /**********************************Ciudades**********************************/
+    Route::resource('admin/ciudades', 'CiudadController');
+    Route::get('admin/ciudades/borrar/{id}', ['as' => 'admin.ciudades.delete','uses' => 'CiudadController@destroy']);
+    Route::get('admi/ciudades/listado', ['as' => 'admin.ciudades.listado','uses' => 'CiudadController@listado']);
+
+    /**********************************Sectores**********************************/
+    Route::resource('admin/sectores', 'SectorController');
+    Route::get('admin/sectores/borrar/{id}', ['as' => 'admin.sectores.delete','uses' => 'SectorController@destroy']);
+  #    Route::get('admi/sectores/listado/{id}', ['as' => 'admin.sectores.listado','uses' => 'SectorController@listado']);
+
+
+  /**********************************Servicios con categorias**********************************/
+    Route::resource('categorias/servicios', 'ServiciosController'); /*ojo con este se usa para grabar*/
+    Route::get('categorias/servicios/{id}/delete', ['as' => 'categorias.servicios.delete','uses' => 'ServiciosController@destroy']); ///////////ojo no he revisao esto
+    Route::get('categorias/desplegable', ['as' => 'categorias.servicios.desplegable','uses' => 'ServiciosController@desplegable']);
+
 
     /**********************************Lista de Solicitudes  + Registro de Catalogo**********************/
     Route::get('admin/solicitudes/listado', ['as' => 'solicitudes.listado','uses' => 'SolicitudesCategoriasController@listado']);
@@ -138,23 +159,6 @@ Route::group(['middleware' => ['auth']], function()
 
     Route::post('admin/asignar/usuarios/{id}', ['as' => 'solicitudes.asignar','uses' => 'SolicitudesCategoriasController@asignar']);
 
-    /**********************************Ciudades**********************************/
-    Route::resource('admin/ciudades', 'CiudadController');
-    Route::get('admin/ciudades/borrar/{id}', ['as' => 'admin.ciudades.delete','uses' => 'CiudadController@destroy']);
-    Route::get('admi/ciudades/listado', ['as' => 'admin.ciudades.listado','uses' => 'CiudadController@listado']);
-
-    /**********************************Sectores**********************************/
-    Route::resource('admin/sectores', 'SectorController');
-    Route::get('admin/sectores/borrar/{id}', ['as' => 'admin.sectores.delete','uses' => 'SectorController@destroy']);
-#    Route::get('admi/sectores/listado/{id}', ['as' => 'admin.sectores.listado','uses' => 'SectorController@listado']);
-
-    /**********************************Horas**********************************/
-    Route::resource('admin/horas', 'HorasController');
-    Route::get('admin/horas/borrar/{id}', ['as' => 'admin.horas.delete','uses' => 'HorasController@destroy']);
-
-    /**********************************Dias**********************************/
-    Route::resource('admin/dias', 'DiasController');
-    Route::get('admin/dias/borrar/{id}', ['as' => 'admin.dias.delete','uses' => 'DiasController@destroy']);
 
 
 }); /****************************fin de admin *******************------------------------***/

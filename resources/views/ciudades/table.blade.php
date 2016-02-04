@@ -6,12 +6,14 @@
         <div class="box-body">
             <table class="table table-bordered table-striped" id="ciudades">
                 <thead>
+                <th>Id</th>
                 <th>Nombre</th>
                 <th width="150px">Action</th>
                 </thead>
                 <tbody>
                 @foreach($ciudades as $ciudad)
                     <tr>
+                        <td>{!! $ciudad->id !!}</td>
                         <td>{!! $ciudad->nombre !!}</td>
                         <td>
                             <div class="col-sm-6 border-right">

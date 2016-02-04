@@ -26,7 +26,7 @@ class DiasController extends AppBaseController
 	 */
 	public function index()
 	{
-		$dias = $this->diasRepository->paginate(10);
+		$dias = $this->diasRepository->all();
 		//return reponse()->json($dias);
 		return view('dias.index')
 			->with('dias', $dias);

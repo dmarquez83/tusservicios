@@ -9,14 +9,12 @@
         </div>
 
         <div class="row">
-            @if($sectores->isEmpty())
-                <div class="well text-center">No Sectors found.</div>
-            @else
+
                 @include('sectores.table')
-            @endif
+
         </div>
 
-        @include('common.paginate', ['records' => $sectores])
+
 
     </div>
 @endsection

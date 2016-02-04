@@ -18,8 +18,6 @@
             @endif
         </div>
 
-        @include('common.paginate', ['records' => $dias])
-
 
     </div>
 @endsection

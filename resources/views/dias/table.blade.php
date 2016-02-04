@@ -7,6 +7,7 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Dia</th>
                     <th style="width: 20%">Accion</th>
                 </tr>
@@ -14,6 +15,7 @@
                 <tbody>
                 @foreach($dias as $dias)
                     <tr>
+                        <td>{!! $dias->id !!}</td>
                         <td>{!! $dias->dia !!}</td>
                         <td>
                             <div class="col-sm-6 border-right">

@@ -189,7 +189,7 @@ class ServiciosController extends AppBaseController
 
 	$data = [
 	  'nombre' => $request->get('nombre'),
-	  'descripcion' => str_slug($request->get('descripcion')),
+	  'descripcion' => ($request->get('descripcion')),
 	  'id_tipo_servicio' => $request->get('tiposervicio_id'),
 	  'id_estatus' => '1',
 	  'ponderacion' => $request->get('ponderacion'),
@@ -330,7 +330,7 @@ class ServiciosController extends AppBaseController
 
 	$data = [
 	  'nombre' => $request->get('nombre'),
-	  'descripcion' => str_slug($request->get('descripcion')),
+	  'descripcion' => ($request->get('descripcion')),
 	  'id_tipo_servicio' => $request->get('tiposervicio_id'),
 	  'id_estatus' => $request->get('id_estatus'),
 	  'ponderacion' => $request->get('ponderacion'),
@@ -374,7 +374,7 @@ class ServiciosController extends AppBaseController
 
 	Flash::success('Servicio Borrado Correctamente.');
 
-	return redirect(route('categorias.servicios.index'));
+	return redirect(route('admin.servicios.index'));
   }
 
 	public function listar()

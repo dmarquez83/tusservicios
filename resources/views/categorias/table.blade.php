@@ -7,6 +7,7 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Categorias</th>
                         <th>Descripcion</th>
                         <th>Acciones</th>
@@ -15,6 +16,7 @@
                 <tbody>
                     @foreach($categorias as $categoria)
                         <tr>
+                            <td>{{$categoria->id}}</td>
                             <td>{{$categoria->nombre}}</td>
                             <td>{{$categoria->descripcion}}</td>
                             <td>

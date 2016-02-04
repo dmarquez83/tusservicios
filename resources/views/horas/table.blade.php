@@ -7,6 +7,7 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Horas</th>
                     <th style="width: 20%">Accion</th>
                 </tr>
@@ -14,6 +15,7 @@
                 <tbody>
                 @foreach($horas as $horas)
                     <tr>
+                        <td>{!! $horas->id !!}</td>
                         <td>{!! $horas->hora !!}</td>
                         <td>
                             <div class="col-sm-6 border-right">

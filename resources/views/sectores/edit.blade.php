@@ -7,7 +7,7 @@
             @include('common.errors')
             {!! Form::model($sector, ['route' => ['admin.sectores.update', $sector->id], 'method' => 'patch']) !!}
 
-                @include('sectors.fields')
+                @include('sectores.fields')
 
             {!! Form::close() !!}
         </div>

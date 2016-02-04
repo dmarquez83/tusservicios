@@ -6,6 +6,8 @@
         <div class="box-body">
             <table class="table table-bordered table-striped" id="insumos">
                 <thead>
+                <th>Id</th>
+                <th>Nombre</th>
                 <th>Descripcion</th>
                 <th>Referencia</th>
                 <th width="150px">Action</th>
@@ -13,11 +15,13 @@
                 <tbody>
                 @foreach($insumos as $insumo)
                     <tr>
+                        <td>{!! $insumo->id !!}</td>
+                        <td>{!! $insumo->nombre !!}</td>
                         <td>{!! $insumo->descripcion !!}</td>
                         <td>{!! $insumo->referencia !!}</td>
                         <td>
                             <div class="col-sm-6 border-right">
-                                <a class="btn btn-primary" href="{!! route('insumos.edit', [$insumo->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
+                                <a class="btn btn-primary" href="{!! route('admin.insumos.edit', [$insumo->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
                             </div>
                             <div class="col-sm-6 border-right">
                                 <a class="btn btn-primary" href="{!! route('insumos.delete', [$insumo->id]) !!}" onclick="return confirm('Esta seguro que desea eliminar el Insumo?')" role="button" data-toggle="Eliminar"><i class="glyphicon glyphicon-remove"></i></a>

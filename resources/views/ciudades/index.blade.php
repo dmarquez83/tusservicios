@@ -15,7 +15,7 @@
             @endif
         </div>
 
-        @include('common.paginate', ['records' => $ciudades])
+
 
 
     </div>

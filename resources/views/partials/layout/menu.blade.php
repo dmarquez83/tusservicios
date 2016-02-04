@@ -111,13 +111,13 @@
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="{{ route('admin.categorias.index') }}">
+                    <a href="{{ route('admin.insumos.index') }}">
                         <i class="glyphicon glyphicon-list-alt"></i>
                         <span>Insumos</span>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="{{ route('admin.categorias.index') }}">
+                    <a href="{{ route('admin.servicios.index') }}">
                         <i class="glyphicon glyphicon-list-alt"></i>
                         <span>Servicios</span>
                     </a>
@@ -129,25 +129,25 @@
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="{{ route('admin.categorias.index') }}">
+                    <a href="{{ route('admin.horas.index') }}">
                         <i class="glyphicon glyphicon-list-alt"></i>
                         <span>Horas</span>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="{{ route('admin.categorias.index') }}">
+                    <a href="{{ route('admin.dias.index') }}">
                         <i class="glyphicon glyphicon-list-alt"></i>
                         <span>Dias</span>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="{{ route('admin.categorias.index') }}">
+                    <a href="{{ route('admin.ciudades.index') }}">
                         <i class="glyphicon glyphicon-list-alt"></i>
                         <span>Ciudades</span>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="{{ route('admin.categorias.index') }}">
+                    <a href="{{ route('admin.sectores.index') }}">
                         <i class="glyphicon glyphicon-list-alt"></i>
                         <span>Sectores</span>
                     </a>

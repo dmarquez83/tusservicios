@@ -6,7 +6,7 @@
             <div class="col s12 m6 ">
                 @include('common.errors')
 
-                {!! Form::model($insumos, ['route' => ['insumos.update', $insumos->id], 'method' => 'patch', 'files' => 'true']) !!}
+                {!! Form::model($insumos, ['route' => ['admin.insumos.update', $insumos->id], 'method' => 'patch', 'files' => 'true']) !!}
 
                 @include('insumos.fields')
 

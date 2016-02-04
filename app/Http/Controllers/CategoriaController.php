@@ -87,7 +87,7 @@ class CategoriaController extends AppBaseController
 
 	$data = [
 	  'nombre' => $request->get('nombre'),
-	  'descripcion' => str_slug($request->get('descripcion')),
+	  'descripcion' => ($request->get('descripcion')),
 	  'foto' => $file->getClientOriginalName()
 	];
 

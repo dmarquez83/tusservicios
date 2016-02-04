@@ -26,7 +26,7 @@ class HorasController extends AppBaseController
 	 */
 	public function index()
 	{
-		$horas = $this->horasRepository->paginate(10);
+		$horas = $this->horasRepository->all();
 
 		return view('horas.index')
 			->with('horas', $horas);

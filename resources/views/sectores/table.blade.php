@@ -6,15 +6,19 @@
         <div class="box-body">
             <table class="table table-bordered table-striped" id="sectores">
                 <thead>
-                <th>Nombre</th>
-                <th>Ciudad Id</th>
+                <th>Id Sector</th>
+                <th>Sector</th>
+                <th>Id Ciudad</th>
+                <th>ciudad</th>
                 <th width="150px">Action</th>
                 </thead>
                 <tbody>
                 @foreach($sectores as $sector)
                     <tr>
+                        <td>{!! $sector->id !!}</td>
                         <td>{!! $sector->nombre !!}</td>
                         <td>{!! $sector->ciudad_id !!}</td>
+                        <td>{!! $sector->ciudad !!}</td>
                         <td>
                             <div class="col-sm-6 border-right">
                                 <a class="btn btn-primary" href="{!! route('admin.sectores.edit', [$sector->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-pencil"></i></a>

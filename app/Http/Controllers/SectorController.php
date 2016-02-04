@@ -29,7 +29,13 @@ class SectorController extends AppBaseController
 	 */
 	public function index()
 	{
-		$sectores = $this->sectorRepository->paginate(10);
+
+	  $sectores= DB::table('sectores')
+		->join('ciudades','ciudades.id' ,'=','sectores.ciudad_id')
+		->select('sectores.id','sectores.nombre', 'sectores.ciudad_id','ciudades.nombre as ciudad')
+		->orderby('sectores.ciudad_id','desc')
+		->get();
+	  //dd($sectores);
 
 		return view('sectores.index')
 			->with('sectores', $sectores);
@@ -95,7 +101,10 @@ class SectorController extends AppBaseController
 	 */
 	public function edit($id)
 	{
-		$sector = $this->sectorRepository->find($id);
+	  $sector = $this->sectorRepository->find($id);
+
+	  $ciudades = Ciudad::orderBy('id', 'asc')->lists('nombre', 'id');
+
 
 		if(empty($sector))
 		{
@@ -104,7 +113,7 @@ class SectorController extends AppBaseController
 			return redirect(route('admin.sectores.index'));
 		}
 
-		return view('sectores.edit')->with('sector', $sector);
+		return view('sectores.edit')->with(array('sector' => $sector, 'ciudades' => $ciudades));
 	}
 
 	/**
