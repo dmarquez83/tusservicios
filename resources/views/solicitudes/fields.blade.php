@@ -23,7 +23,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                     {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31383.5441410657!2d-66.94185019999999!3d10.50515445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sve!4v1448581560441" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>--}}
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31383.5441410657!2d-66.94185019999999!3d10.50515445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sve!4v1448581560441" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="col-md-6">

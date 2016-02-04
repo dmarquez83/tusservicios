@@ -102,7 +102,6 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                {{$ciudades}}
                                                 @foreach($ciudades as $ciudad)
                                                     <div class="checkbox">
                                                         <label>
