@@ -32,6 +32,9 @@ class HomeController extends Controller
       return   view('dashborad.tableusuario');
     }
 
-
+    public function dashboradAdmin()
+    {
+      return   view('dashborad.tableadmin');
+    }
 
 }

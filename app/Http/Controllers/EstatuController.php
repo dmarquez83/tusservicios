@@ -26,7 +26,7 @@ class EstatuController extends AppBaseController
 	 */
 	public function index()
 	{
-		$estatus = $this->estatuRepository->paginate(10);
+		$estatus = $this->estatuRepository->all();
 
 	  return view('estatus.index')
 			->with('estatus', $estatus);
@@ -60,7 +60,7 @@ class EstatuController extends AppBaseController
 
 		Flash::success('Estatu saved successfully.');
 
-		return redirect(route('estatus.index'));
+		return redirect(route('admin.estatus.index'));
 	}
 
 	/**
@@ -78,7 +78,7 @@ class EstatuController extends AppBaseController
 		{
 			Flash::error('Estatu not found');
 
-			return redirect(route('estatus.index'));
+			return redirect(route('admin.estatus.index'));
 		}
 
 		return view('estatus.show')->with('estatu', $estatu);
@@ -99,7 +99,7 @@ class EstatuController extends AppBaseController
 		{
 			Flash::error('Estatu not found');
 
-			return redirect(route('estatus.index'));
+			return redirect(route('admin.estatus.index'));
 		}
 
 		return view('estatus.edit')->with('estatu', $estatu);
@@ -121,14 +121,14 @@ class EstatuController extends AppBaseController
 		{
 			Flash::error('Estatu not found');
 
-			return redirect(route('estatus.index'));
+			return redirect(route('admin.estatus.index'));
 		}
 
 		$estatu = $this->estatuRepository->updateRich($request->all(), $id);
 
 		Flash::success('Estatu updated successfully.');
 
-		return redirect(route('estatus.index'));
+		return redirect(route('admin.estatus.index'));
 	}
 
 	/**
@@ -146,13 +146,13 @@ class EstatuController extends AppBaseController
 		{
 			Flash::error('Estatu not found');
 
-			return redirect(route('estatus.index'));
+			return redirect(route('admin.estatus.index'));
 		}
 
 		$this->estatuRepository->delete($id);
 
 		Flash::success('Estatu deleted successfully.');
 
-		return redirect(route('estatus.index'));
+		return redirect(route('admin.estatus.index'));
 	}
 }

@@ -5,7 +5,7 @@
 
     @include('common.errors')
 
-    {!! Form::model($ponderacion, ['route' => ['ponderacions.update', $ponderacion->id], 'method' => 'patch']) !!}
+    {!! Form::model($ponderacion, ['route' => ['admin.ponderaciones.update', $ponderacion->id], 'method' => 'patch']) !!}
 
         @include('ponderaciones.fields')
 

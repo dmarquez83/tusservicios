@@ -6,7 +6,7 @@
         <div class="col s12 m6 ">
             @include('common.errors')
 
-            {!! Form::open(['route' => 'estatus.store']) !!}
+            {!! Form::open(['route' => 'admin.estatus.store']) !!}
 
                 @include('estatus.fields')
 

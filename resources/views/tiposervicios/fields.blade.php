@@ -14,13 +14,13 @@
             <div class="col-md-6">
                 <div class="form-group">
                     {!! Form::label('id_categoria', 'Categoria:', ['class' => 'control-label']) !!}
-                    {!! Form::text('id_categoria', null, ['class' => 'form-control']) !!}
-                </div>
-            </div>
+                    {!! Form::select('id_categoria', $categorias, null, ['class' => 'form-control', 'id'=> 'id_categoria', 'data-path' => route('user.servicios.desplegable')])!!}
+                 </div>
+             </div>
 
-            <div class="col-md-12">
-                <div class="form-group">
-                    {!! Form::label('descripcion', 'Descripcion:', ['class' => 'control-label']) !!}
+             <div class="col-md-12">
+                 <div class="form-group">
+                     {!! Form::label('descripcion', 'Descripcion:', ['class' => 'control-label']) !!}
                     {!! Form::textarea('descripcion', null,['class' => 'form-control','rows' =>'3']) !!}
                 </div>
             </div>

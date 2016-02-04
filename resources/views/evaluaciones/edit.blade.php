@@ -6,7 +6,7 @@
         <div class="col s12 m6 ">
             @include('common.errors')
 
-            {!! Form::model($evaluaciones, ['route' => ['evaluaciones.update', $evaluaciones->id], 'method' => 'patch']) !!}
+            {!! Form::model($evaluaciones, ['route' => ['admin.evaluaciones.update', $evaluaciones->id], 'method' => 'patch']) !!}
 
                 @include('evaluaciones.fields')
 

@@ -7,7 +7,7 @@
 
            {{-- @include('common.errors') --}}
 
-            {!! Form::open(['route' => 'tipousuarios.store']) !!}
+            {!! Form::open(['route' => 'admin.tipousuarios.store']) !!}
 
                 @include('tipousuarios.fields')
 

@@ -12,7 +12,7 @@
                             <div class="form-group">
                                 <label>Categorias</label>
 
-                                {!! Form::select('id_categoria', $categorias, null, ['class' => 'form-control', 'id'=> 'id_categoria', 'data-path' => route('usuario.servicios.desplegable')]) !!}
+                                {!! Form::select('id_categoria', $categorias, null, ['class' => 'form-control', 'id'=> 'id_categoria', 'data-path' => route('user.servicios.desplegable')]) !!}
                             </div>
                         </div>
                     </div>
@@ -90,18 +90,19 @@
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                @foreach($ciudades as $ciudad)
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            {!! Form::checkbox('ciudad', $ciudad->id, false,['class' => 'ciudad', 'data-path' => route('admin.sectores.listado',$ciudad->id)]) !!} {{$ciudad->nombre}}
-                                                        </label>
+                                            @foreach($ciudades as $ciudad)
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                {!! Form::checkbox('ciudad', $ciudad->id, false,['class' => 'ciudad', 'data-path' => route('user.sectores.listado',$ciudad->id)]) !!} {{$ciudad->nombre}}
+                                                            </label>
+
+                                                        </div>
                                                     </div>
-                                                @endforeach
-                                            </div>
+                                                </div>
+                                            @endforeach
                                         </div>
-                                     </div>
                                 </div>
                              </div>
                         </div>
@@ -121,22 +122,20 @@
 
                                 <div class="row">
 
-                                    <div class="col-md-6">
-
-                                        <div class="form-group sectores">
-
-                                            @foreach($lugares as $lugar)
+                                  @foreach($lugares as $lugar)
+                                        <div class="col-md-3 ">
+                                            <div class="form-group">
                                                 <div class="checkbox">
                                                     <label>
                                                         {!! Form::checkbox('sectores', $lugar->sector_id, true,['class' => 'checkbox']) !!} {{$lugar->nombre}}
                                                     </label>
                                                 </div>
-                                            @endforeach
-
-
+                                            </div>
                                         </div>
+                                   @endforeach
+                                      <div class="sectores">
 
-                                    </div>
+                                      </div>
 
                                </div>
                         </div>
@@ -147,12 +146,15 @@
 
             </div>
         </div>
+        @if(auth()->user()->id_tipo_usuario == '2')
 
-        <div class="box-footer">
-            {!! Form::submit('Guardar', ['class' => 'btn btn-warning pull-right']) !!}
+            <div class="box-footer">
+                {!! Form::submit('Guardar', ['class' => 'btn btn-warning pull-right']) !!}
+                </div>
+
             </div>
 
-        </div>
+        @endif
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
         </div>
     </div>

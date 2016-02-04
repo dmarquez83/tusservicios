@@ -7,7 +7,7 @@
 
             @include('common.errors')
 
-            {!! Form::open(['route' => 'evaluaciones.store']) !!}
+            {!! Form::open(['route' => 'admin.evaluaciones.store']) !!}
 
                 @include('evaluaciones.fields')
 

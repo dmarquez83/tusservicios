@@ -5,9 +5,9 @@
         <ul class="sidebar-menu">
             <li class="header">Opciones de Administrador</li>
             <li class="treeview">
-                <a href="#">
+                <a href="{{ route ('home') }}">
                     <i class="fa fa-dashboard"></i>
-                    <span>Principal</span>
+                    <span>Home</span>
                 </a>
             </li>
 
@@ -29,7 +29,7 @@
                 <li class="treeview">
                     <a href="{{ route ('solicitudes.getlistado') }}">
                         <i class="glyphicon glyphicon-list-alt"></i>
-                        <span>Mis Solicitudes</span>
+                        <span>Solicitudes</span>
                     </a>
                 </li>
                 <li class="treeview">
@@ -55,7 +55,7 @@
             @if(auth()->user()->id_tipo_usuario == '1')
 
                 <li class="treeview">
-                    <a href="{!! route('user.dashborad') !!}">
+                    <a href="{!! route('admin.dashborad') !!}">
                         <i class="glyphicon glyphicon-th"></i>
                         <span>Dashboard</span>
                     </a>
@@ -64,32 +64,92 @@
                 <li class="treeview">
                     <a href="{{ route ('user.servicios.index') }}" >
                         <i class="glyphicon glyphicon-wrench"></i>
-                        <span>Servicios</span>
+                        <span>Servicios de los usuarios</span>
                     </a>
                 </li>
 
                 <li class="treeview">
-                    <a href="{{ route('admin.proveedores.index') }}">
+                    <a href="{{ route('solicitudes.listado') }}">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <span>Solicitudes</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="{{ route('admin.categorias.index') }}">
                         <i class="glyphicon glyphicon-user"></i>
+                        <span>Tipo de Usuario</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="{{ route('admin.categorias.index') }}">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <span>Categorias</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="{{ route('admin.tiposervicios.index') }}">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <span>Tipo de Servicios</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="{{ route('admin.evaluaciones.index') }}">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <span>Evaluaciones</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="{{ route('admin.ponderaciones.index') }}">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <span>Ponderaciones</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="{{ route('admin.estatus.index') }}">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <span>Estatus</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="{{ route('admin.categorias.index') }}">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <span>Insumos</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="{{ route('admin.categorias.index') }}">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <span>Servicios</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="{{ route('admin.proveedores.index') }}">
+                        <i class="glyphicon glyphicon-list-alt"></i>
                         <span>Proveedores</span>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="">
+                    <a href="{{ route('admin.categorias.index') }}">
                         <i class="glyphicon glyphicon-list-alt"></i>
-                        <span>Mis Solicitudes</span>
+                        <span>Horas</span>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="">
-                        <i class="glyphicon glyphicon-credit-card"></i>
-                        <span>Pagos Realizados</span>
+                    <a href="{{ route('admin.categorias.index') }}">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <span>Dias</span>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="">
-                        <i class="glyphicon glyphicon-briefcase"></i>
-                        <span>Mis Servicios</span>
+                    <a href="{{ route('admin.categorias.index') }}">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <span>Ciudades</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="{{ route('admin.categorias.index') }}">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <span>Sectores</span>
                     </a>
                 </li>
                 <li class="treeview">
@@ -106,8 +166,8 @@
                 </li>
                 <li class="treeview">
                     <a href="">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                        <span>Registro de Insumos</span>
+                        <i class="glyphicon glyphicon-user"></i>
+                        <span>Usuarios</span>
                     </a>
                 </li>
             @endif

@@ -5,7 +5,7 @@
 
     @include('common.errors')
 
-    {!! Form::model($usuariosServicios, ['route' => ['usuario.servicios.update', $usuariosServicios->id], 'method' => 'patch']) !!}
+    {!! Form::model($usuariosServicios, ['route' => ['user.servicios.update', $usuariosServicios->id], 'method' => 'patch']) !!}
 
         @include('usuariosServicios.fields_edit')
 

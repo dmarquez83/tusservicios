@@ -59,7 +59,7 @@ class EvaluacionesController extends AppBaseController
 
 		Flash::success('Evaluaciones saved successfully.');
 
-		return redirect(route('evaluaciones.index'));
+		return redirect(route('admin.evaluaciones.index'));
 	}
 
 	/**
@@ -77,7 +77,7 @@ class EvaluacionesController extends AppBaseController
 		{
 			Flash::error('Evaluaciones not found');
 
-			return redirect(route('evaluaciones.index'));
+			return redirect(route('admin.evaluaciones.index'));
 		}
 
 		return view('evaluaciones.show')->with('evaluaciones', $evaluaciones);
@@ -98,7 +98,7 @@ class EvaluacionesController extends AppBaseController
 		{
 			Flash::error('Evaluaciones not found');
 
-			return redirect(route('evaluaciones.index'));
+			return redirect(route('admin.evaluaciones.index'));
 		}
 
 		return view('evaluaciones.edit')->with('evaluaciones', $evaluaciones);
@@ -120,14 +120,14 @@ class EvaluacionesController extends AppBaseController
 		{
 			Flash::error('Evaluaciones not found');
 
-			return redirect(route('evaluaciones.index'));
+			return redirect(route('admin.evaluaciones.index'));
 		}
 
 		$evaluaciones = $this->evaluacionesRepository->updateRich($request->all(), $id);
 
 		Flash::success('Evaluaciones updated successfully.');
 
-		return redirect(route('evaluaciones.index'));
+		return redirect(route('admin.evaluaciones.index'));
 	}
 
 	/**
@@ -145,13 +145,13 @@ class EvaluacionesController extends AppBaseController
 		{
 			Flash::error('Evaluaciones not found');
 
-			return redirect(route('evaluaciones.index'));
+			return redirect(route('admin.evaluaciones.index'));
 		}
 
 		$this->evaluacionesRepository->delete($id);
 
 		Flash::success('Evaluaciones deleted successfully.');
 
-		return redirect(route('evaluaciones.index'));
+		return redirect(route('admin.evaluaciones.index'));
 	}
 }

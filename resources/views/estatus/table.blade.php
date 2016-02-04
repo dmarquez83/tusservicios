@@ -6,6 +6,7 @@
         <div class="box-body">
             <table class="table table-bordered table-striped" id="estatus">
                 <thead>
+                    <th>id</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Tabla</th>
@@ -14,12 +15,13 @@
                 <tbody>
                 @foreach($estatus as $estatus)
                     <tr>
+                        <td>{!! $estatus->id !!}</td>
                         <td>{!! $estatus->nombre !!}</td>
                         <td>{!! $estatus->descripcion !!}</td>
                         <td>{!! $estatus->tabla !!}</td>
                         <td>
                             <div class="col-sm-6 border-right">
-                                <a class="btn btn-primary" href="{!! route('estatus.edit', [$estatus->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
+                                <a class="btn btn-primary" href="{!! route('admin.estatus.edit', [$estatus->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
                             </div>
                             <div class="col-sm-6 border-right">
                                 <a class="btn btn-primary" href="{!! route('estatus.delete', [$estatus->id]) !!}" onclick="return confirm('Esta seguro que desea eliminar el Estatus?')" role="button" data-toggle="Eliminar"><i class="glyphicon glyphicon-remove"></i></a>

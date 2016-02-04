@@ -40,10 +40,19 @@ class TiposervicioController extends AppBaseController
 	public function index()
 	{
 
-		$categorias = $this->categoriaRepository->paginate(10);
-	    //dd($categorias);
 
-		return view('tiposervicios.index')->with('categorias', $categorias);
+	  $tiposervicios = DB::table('tiposervicios')
+		->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
+		->orderBy('id', 'desc')
+		->select('tiposervicios.id','tiposervicios.nombre','tiposervicios.descripcion','tiposervicios.id_categoria','categorias.nombre as categoria')
+		->get();
+
+	  //$tiposervicios = $this->tiposervicioRepository->all();
+
+	  //return response()->json($tiposervicios);
+
+
+	  return view('tiposervicios.indextiposervicios')->with('tiposervicios', $tiposervicios);
 
 	}
 
@@ -54,19 +63,11 @@ class TiposervicioController extends AppBaseController
    */
   public function indextiposervicio()
   {
+	$categorias = $this->categoriaRepository->paginate(10);
+	//dd($categorias);
 
-	$tiposervicios = DB::table('tiposervicios')
-        ->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
-	    ->orderBy('id', 'desc')
-        ->select('tiposervicios.id','tiposervicios.nombre','tiposervicios.descripcion','tiposervicios.id_categoria','categorias.nombre as categoria')
-        ->get();
+	return view('tiposervicios.index')->with('categorias', $categorias);
 
-	//$tiposervicios = $this->tiposervicioRepository->all();
-
-	//return response()->json($tiposervicios);
-
-
-	return view('tiposervicios.indextiposervicios')->with('tiposervicios', $tiposervicios);
 
   }
 
@@ -98,11 +99,28 @@ class TiposervicioController extends AppBaseController
 		{
 			Flash::error('Tiposervicio not found');
 
-			return redirect(route('tiposervicios.index'));
+			return redirect(route('admin.tiposervicios.index'));
 		}
 
 		return view('tiposervicios.show')->with('tiposervicio', $tiposervicio);
 	}
+  /**
+   * Store a newly created Tiposervicio in storage.
+   *
+   * @param CreateTiposervicioRequest $request
+   *
+   * @return Response
+   */
+  public function store(CreateTiposervicioRequest $request)
+  {
+	$input = $request->all();
+
+	$tiposervicio = $this->tiposervicioRepository->create($input);
+
+	Flash::success('Tiposervicio saved successfully.');
+
+	return redirect(route('admin.tiposervicios.index'));
+  }
 
 	/**
 	 * Show the form for editing the specified Tiposervicio.
@@ -119,13 +137,7 @@ class TiposervicioController extends AppBaseController
 		return view('tiposervicios.create')->with('categoria', $categoria);
 	}
 
-	/**
-	 * storenew a newly created Tiposervicio in storage.
-	 *
-	 * @param CreateTiposervicioRequest $request
-	 * @param  int  $id
-	 * @return Response
-	 */
+
 	public function storenew($id, CreateTiposervicioRequest $request)
 	{
          //  return response($id);
@@ -161,7 +173,7 @@ class TiposervicioController extends AppBaseController
 		{
 			Flash::error('Tiposervicio not found');
 
-			return redirect(route('tiposervicios.index'));
+			return redirect(route('admin.tiposervicios.index'));
 		}
 
 		$categorias = Categoria::find($tiposervicio->id_categoria)->lists('nombre', 'id');
@@ -185,14 +197,14 @@ class TiposervicioController extends AppBaseController
 		{
 			Flash::error('Tiposervicio not found');
 
-			return redirect(route('tiposervicios.index'));
+			return redirect(route('admin.tiposervicios.index'));
 		}
 
 		$tiposervicio = $this->tiposervicioRepository->updateRich($request->all(), $id);
 
 		Flash::success('Tipo de Servicio Actulizado correctamente.');
 
-		return redirect(route('tiposerviciost.indextiposervicio'));
+		return redirect(route('admin.tiposervicios.index'));
 	}
 
 	/**
@@ -210,13 +222,13 @@ class TiposervicioController extends AppBaseController
 		{
 			Flash::error('Tiposervicio not found');
 
-			return redirect(route('tiposervicios.index'));
+			return redirect(route('admin.tiposervicios.index'));
 		}
 
 		$this->tiposervicioRepository->delete($id);
 
 		Flash::success('Tipo de servicio Borrado Correctamente.');
 
-		return redirect(route('tiposerviciost.indextiposervicio'));
+	  return redirect(route('admin.tiposervicios.index'));
 	}
 }

@@ -5,7 +5,7 @@
     <div class="row margin-top_small">
         <div class="col s12 m6 ">
         {{-- @include('common.errors') --}}
-        {!! Form::open(['route' => 'ponderaciones.store']) !!}
+        {!! Form::open(['route' => 'admin.ponderaciones.store']) !!}
 
             @include('ponderaciones.fields')
 

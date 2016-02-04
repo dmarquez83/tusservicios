@@ -5,7 +5,7 @@
     <div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             @include('flash::message')
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('ponderaciones.create') !!}">Nuevo</a>
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('admin.ponderaciones.create') !!}">Nuevo</a>
         </div>
 
         <div class="row">

@@ -7,7 +7,7 @@
 
             @include('common.errors')
 
-            {!! Form::model($estatu, ['route' => ['estatus.update', $estatu->id], 'method' => 'patch']) !!}
+            {!! Form::model($estatu, ['route' => ['admin.estatus.update', $estatu->id], 'method' => 'patch']) !!}
 
                 @include('estatus.fields')
 

@@ -57,7 +57,7 @@ class TipousuariosController extends AppBaseController
 
 		Flash::success('Tipousuarios saved successfully.');
 
-		return redirect(route('tipousuarios.index'));
+		return redirect(route('admin.tipousuarios.index'));
 	}
 
 	/**
@@ -75,7 +75,7 @@ class TipousuariosController extends AppBaseController
 		{
 			Flash::error('Tipousuarios not found');
 
-			return redirect(route('tipousuarios.index'));
+			return redirect(route('admin.tipousuarios.index'));
 		}
 
 		return view('tipousuarios.show')->with('tipousuarios', $tipousuarios);
@@ -96,7 +96,7 @@ class TipousuariosController extends AppBaseController
 		{
 			Flash::error('Tipousuarios not found');
 
-			return redirect(route('tipousuarios.index'));
+			return redirect(route('admin.tipousuarios.index'));
 		}
 
 		return view('tipousuarios.edit')->with('tipousuarios', $tipousuarios);
@@ -118,14 +118,14 @@ class TipousuariosController extends AppBaseController
 		{
 			Flash::error('Tipousuarios not found');
 
-			return redirect(route('tipousuarios.index'));
+			return redirect(route('admin.tipousuarios.index'));
 		}
 
 		$tipousuarios = $this->tipousuariosRepository->updateRich($request->all(), $id);
 
 		Flash::success('Tipousuarios updated successfully.');
 
-		return redirect(route('tipousuarios.index'));
+		return redirect(route('admin.tipousuarios.index'));
 	}
 
 	/**
@@ -143,13 +143,13 @@ class TipousuariosController extends AppBaseController
 		{
 			Flash::error('Tipousuarios not found');
 
-			return redirect(route('tipousuarios.index'));
+			return redirect(route('admin.tipousuarios.index'));
 		}
 
 		$this->tipousuariosRepository->delete($id);
 
 		Flash::success('Tipousuarios deleted successfully.');
 
-		return redirect(route('tipousuarios.index'));
+		return redirect(route('admin.tipousuarios.index'));
 	}
 }

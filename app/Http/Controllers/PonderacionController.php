@@ -63,7 +63,7 @@ class PonderacionController extends AppBaseController
 
 		Flash::success('Ponderacion guardada correctamente.');
 
-		return redirect(route('ponderaciones.index'));
+		return redirect(route('admin.ponderaciones.index'));
 	}
 
 	/**
@@ -81,7 +81,7 @@ class PonderacionController extends AppBaseController
 		{
 			Flash::error('Ponderacion no funciona');
 
-			return redirect(route('ponderaciones.index'));
+			return redirect(route('admin.ponderaciones.index'));
 		}
 
 		return view('ponderaciones.show')->with('ponderacion', $ponderacion);
@@ -102,7 +102,7 @@ class PonderacionController extends AppBaseController
 		{
 			Flash::error('Ponderacion no funciona');
 
-			return redirect(route('ponderaciones.index'));
+			return redirect(route('admin.ponderaciones.index'));
 		}
 
 		return view('ponderaciones.edit')->with('ponderacion', $ponderacion);
@@ -124,14 +124,14 @@ class PonderacionController extends AppBaseController
 		{
 			Flash::error('Ponderacion no funciona');
 
-			return redirect(route('ponderaciones.index'));
+			return redirect(route('admin.ponderaciones.index'));
 		}
 
 		$ponderacion = $this->ponderacionRepository->updateRich($request->all(), $id);
 
 		Flash::success('Ponderacion modificada correctamente.');
 
-		return redirect(route('ponderaciones.index'));
+		return redirect(route('admin.ponderaciones.index'));
 	}
 
 	/**
@@ -149,13 +149,13 @@ class PonderacionController extends AppBaseController
 		{
 			Flash::error('Ponderacion no funciona');
 
-			return redirect(route('ponderaciones.index'));
+			return redirect(route('admin.ponderaciones.index'));
 		}
 
 		$this->ponderacionRepository->delete($id);
 
 		Flash::success('Ponderacion deleted successfully.');
 
-		return redirect(route('ponderaciones.index'));
+		return redirect(route('admin.ponderaciones.index'));
 	}
 }

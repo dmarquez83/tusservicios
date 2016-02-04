@@ -6,9 +6,11 @@
 
         @include('flash::message')
 
-        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('user.servicios.create') !!}">Nuevo</a>
-        </div>
+        @if(auth()->user()->id_tipo_usuario == '2')
+            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('user.servicios.create') !!}">Nuevo</a>
+            </div>
+        @endif
 
         <div class="row">
             @include('usuariosServicios.table')
