@@ -57,6 +57,7 @@ Route::get('user/solicitud/detServicios/{id}', ['as' => 'solicitudes.getDetServi
 Route::get('user/solicitud/aceptar/{id}', ['as' => 'solicitudes.getAceptarServicios','uses' => 'SolicitudesCategoriasController@getAceptarServicios']);
 Route::get('user/solicitud/rechazar/{id}', ['as' => 'solicitudes.getRechazarServicios','uses' => 'SolicitudesCategoriasController@getRechazarServicios']);
 Route::post('user/insumos/solicitud/{id}', ['as' => 'solicitudes.getAceptarInsumosSolicitud','uses' => 'SolicitudesCategoriasController@getAceptarInsumosSolicitud']);
+Route::post('solicitud/insumos', ['as' => 'insumosSolicitudes.detalle','uses' => 'InsumosSolicitudesController@detalle']);
 
 /**********************************Registro de Servicios y horario**********************************/
 Route::resource('user/servicios', 'UsuariosServiciosController'); /*cambiar a user*/
@@ -103,7 +104,7 @@ Route::group(['middleware' => ['auth']], function()
     Route::resource('admin/insumos', 'InsumoController');
     Route::get('admin/insumos/borrar/{id}', ['as' => 'insumos.delete','uses' => 'InsumoController@destroy']);
 
-    Route::post('solicitud/insumos', ['as' => 'insumosSolicitudes.detalle','uses' => 'InsumosSolicitudesController@detalle']);///////////ojo no he revisao esto
+///////////ojo no he revisao esto
     Route::post('insumoSolicitudes/guardar', ['as' => 'insumoSolicitudes.getGuardar','uses' => 'InsumosSolicitudesController@getGuardar']);
 
     /**********************************Servicios**********************************/
