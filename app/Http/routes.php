@@ -31,7 +31,7 @@ Route::get('servicios/index/{id}', ['as' => 'servicios.index','uses' => 'Solicit
 //solicitudes
 Route::get('solicitudes/nuevo/{id}', ['as' => 'solicitudes.create', 'uses' => 'SolicitudesCategoriasController@create',]);
 Route::get('solicitudes/detPago/{id}', ['as' => 'solicitudes.detPago', 'uses' => 'SolicitudesCategoriasController@detPago',]);
-Route::get('solicitudes/guardar/{id}', ['middleware' => 'authusuario','as' => 'solicitudes.store','uses' => 'SolicitudesCategoriasController@store',]);
+Route::post('solicitudes/guardar/{id}', ['middleware' => 'authusuario','as' => 'solicitudes.store','uses' => 'SolicitudesCategoriasController@store',]);
 
 /*******************************LOGIN******************************************/
 Route::get('auth/login', 'Auth\AuthController@getLogin');
