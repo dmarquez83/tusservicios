@@ -7,7 +7,7 @@
             @include('common.errors')
 
 
-                {!! Form::open(['route' => ['solicitudes.store', $servicios], 'method' => 'post', 'files' => 'true']) !!}
+                {!! Form::open(['route' => ['solicitudes.store', $servicios], 'method' => 'get', 'files' => 'true']) !!}
 
             @include('solicitudes.fields')
 

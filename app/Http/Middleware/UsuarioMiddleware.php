@@ -37,6 +37,12 @@ class UsuarioMiddleware
             }
         }
 
+        if(auth()->user()->id_tipo_usuario != '2'){
+            $message = 'Permiso denegado: Solo los Usuarios pueden entrar a esta sección';
+            return redirect()->route('home')->with('message', $message);
+        }
+
+
         return $next($request);
     }
 }

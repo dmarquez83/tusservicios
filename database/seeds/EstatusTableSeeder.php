@@ -119,6 +119,13 @@ class EstatusTableSeeder extends Seeder
             'updated_at' => new Datetime,
           ],
           [
+            'nombre' => 'Consulta de Catalogo',
+            'descripcion' => 'Consulta de Catalogo',
+            'tabla' => 'solicitud',
+            'created_at' => new DateTime,
+            'updated_at' => new Datetime,
+          ],
+          [
             'nombre' => 'Aceptado',
             'descripcion' => 'Aceptado',
             'tabla' => 'catalogos_insumos',

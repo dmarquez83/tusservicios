@@ -30,8 +30,35 @@ Route::get('servicios/index/{id}', ['as' => 'servicios.index','uses' => 'Solicit
 
 //solicitudes
 Route::get('solicitudes/nuevo/{id}', ['as' => 'solicitudes.create', 'uses' => 'SolicitudesCategoriasController@create',]);
-Route::get('solicitudes/detPago/{id}', ['as' => 'solicitudes.detPago', 'uses' => 'SolicitudesCategoriasController@detPago',]);
-Route::post('solicitudes/guardar/{id}', ['middleware' => 'authusuario','as' => 'solicitudes.store','uses' => 'SolicitudesCategoriasController@store',]);
+Route::post('solicitud/insumos', ['as' => 'insumosSolicitudes.detalle','uses' => 'InsumosSolicitudesController@detalle']);
+
+Route::group(['middleware' => ['authusuario']], function()
+{
+      Route::get('solicitudes/detPago/{id}', ['as' => 'solicitudes.detPago', 'uses' => 'SolicitudesCategoriasController@detPago',]);
+      Route::get('solicitudes/guardar/{id}', ['middleware' => 'authusuario','as' => 'solicitudes.store','uses' => 'SolicitudesCategoriasController@store',]);
+
+    // CLIENTE
+
+      /**********************************Lista de Solicitudes  + Registro de Catalogo**********************/
+      Route::get('user/dashborad', ['as' => 'user.dashborad','uses' => 'HomeController@dashboradUser']);
+      Route::get('user/solicitudes/listado', ['as' => 'solicitudes.getlistado','uses' => 'SolicitudesCategoriasController@getListado']);
+      Route::get('user/solicitud/detalle/{id}', ['as' => 'solicitudes.getDetSolicitud','uses' => 'SolicitudesCategoriasController@getDetSolicitud']);
+      Route::get('user/solicitud/servicios', ['as' => 'solicitudes.getUsuariosSolicitudes','uses' => 'UsuariosServiciosController@getUsuariosSolicitudes']);
+      Route::get('user/solicitud/detServicios/{id}', ['as' => 'solicitudes.getDetServicios','uses' => 'SolicitudesCategoriasController@getDetServicios']);
+      Route::get('user/solicitud/aceptar/{id}', ['as' => 'solicitudes.getAceptarServicios','uses' => 'SolicitudesCategoriasController@getAceptarServicios']);
+      Route::get('user/solicitud/rechazar/{id}', ['as' => 'solicitudes.getRechazarServicios','uses' => 'SolicitudesCategoriasController@getRechazarServicios']);
+      Route::post('user/insumos/solicitud/{id}', ['as' => 'solicitudes.getAceptarInsumosSolicitud','uses' => 'SolicitudesCategoriasController@getAceptarInsumosSolicitud']);
+
+
+      /**********************************Registro de Servicios y horario**********************************/
+      Route::resource('user/servicios', 'UsuariosServiciosController'); /*cambiar a user*/
+      Route::get('user/servicios/borrar/{id}', ['as' => 'user.servicios.delete','uses' => 'UsuariosServiciosController@destroy']);
+      Route::get('user/desplegable', ['as' => 'user.servicios.desplegable','uses' => 'UsuariosServiciosController@desplegable']);
+      Route::get('user/sectores/listado/{id}', ['as' => 'user.sectores.listado','uses' => 'SectorController@listado']);
+
+});
+
+
 
 /*******************************LOGIN******************************************/
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -46,24 +73,6 @@ Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', ['as' => 'password/postReset', 'uses' =>  'Auth\PasswordController@postReset']);
 //Socialite
 Route::get('login/{provider}',['uses' => 'Auth\AuthController@login','as'   => 'auth.getSocialAuth']);
-// CLIENTE
-
-/**********************************Lista de Solicitudes  + Registro de Catalogo**********************/
-Route::get('user/dashborad', ['as' => 'user.dashborad','uses' => 'HomeController@dashboradUser']);
-Route::get('user/solicitudes/listado', ['as' => 'solicitudes.getlistado','uses' => 'SolicitudesCategoriasController@getListado']);
-Route::get('user/solicitud/detalle/{id}', ['as' => 'solicitudes.getDetSolicitud','uses' => 'SolicitudesCategoriasController@getDetSolicitud']);
-Route::get('user/solicitud/servicios', ['as' => 'solicitudes.getUsuariosSolicitudes','uses' => 'UsuariosServiciosController@getUsuariosSolicitudes']);
-Route::get('user/solicitud/detServicios/{id}', ['as' => 'solicitudes.getDetServicios','uses' => 'SolicitudesCategoriasController@getDetServicios']);
-Route::get('user/solicitud/aceptar/{id}', ['as' => 'solicitudes.getAceptarServicios','uses' => 'SolicitudesCategoriasController@getAceptarServicios']);
-Route::get('user/solicitud/rechazar/{id}', ['as' => 'solicitudes.getRechazarServicios','uses' => 'SolicitudesCategoriasController@getRechazarServicios']);
-Route::post('user/insumos/solicitud/{id}', ['as' => 'solicitudes.getAceptarInsumosSolicitud','uses' => 'SolicitudesCategoriasController@getAceptarInsumosSolicitud']);
-Route::post('solicitud/insumos', ['as' => 'insumosSolicitudes.detalle','uses' => 'InsumosSolicitudesController@detalle']);
-
-/**********************************Registro de Servicios y horario**********************************/
-Route::resource('user/servicios', 'UsuariosServiciosController'); /*cambiar a user*/
-Route::get('user/servicios/borrar/{id}', ['as' => 'user.servicios.delete','uses' => 'UsuariosServiciosController@destroy']);
-Route::get('user/desplegable', ['as' => 'user.servicios.desplegable','uses' => 'UsuariosServiciosController@desplegable']);
-Route::get('user/sectores/listado/{id}', ['as' => 'user.sectores.listado','uses' => 'SectorController@listado']);
 
 // ADMIN ------------------------------------------------------------------------------------
 
