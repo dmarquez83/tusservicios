@@ -9,14 +9,13 @@
                 <th>N°</th>
                 <th>Servicio</th>
                 <th>Fecha</th>
-                <th>Hora</th>
-                {{-- <th>Descripcion</th> --}}
+                {{--<th>Hora</th>--}}
                 <th>Direccion</th>
                 <th>Telefono</th>
-                {{-- <th>horas</th> --}}
-                {{-- <th>costo</th> --}}
                 <th>Estatus</th>
-                <th>Usuario</th>
+                <th>Usuario Solicitud</th>
+                <th>Usuario Asignado</th>
+                <th>Estatus Usuario Asignado</th>
                 <th width="100px">Insumos</th>
                 <th width="100px">Asignar</th>
                 <th width="100px">Detalle</th>
@@ -27,7 +26,7 @@
                         <td>{!! $solicitud->id !!}</td>
                         <td>{!! $solicitud->servicios !!}</td>
                         <td>{!! $solicitud->fecha !!}</td>
-                        <td>{!! $solicitud->hora !!}</td>
+                        {{--<td>{!! $solicitud->hora !!}</td>--}}
                         {{-- <td>{!! $solicitud->descripcion !!}</td> --}}
                         <td>{!! $solicitud->direccion !!}</td>
                         <td>{!! $solicitud->telefono !!}</td>
@@ -35,16 +34,19 @@
                         {{-- <td>{!! $solicitud->costo !!}</td> --}}
                         <td>{!! $solicitud->estatus !!}</td>
                         <td>{!! $solicitud->usuario !!}</td>
+                        <td>{!! $solicitud->usuario_user_solicitud !!}</td>
+                        <td>{!! $solicitud->nombre_estatus_user_solicitud !!}</td>
                         <td>
                             @if($solicitud->id_estatus==15)
                                 <a class="btn btn-primary" href="{!! route('catalogos.createnew', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
                             @endif
                         </td>
-                        <td>
+                        <td>  @if(!$solicitud->id_estatus_user_solicitud or $solicitud->id_estatus_user_solicitud==13)
                                 <a class="btn btn-primary" href="{!! route('solicitudes.getAsignar', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-search"></i></a>
+                            @endif
                         </td>
                         <td>
-                            <a class="btn btn-primary" href="{!! route('solicitudes.getAsignar', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-search"></i></a>
+                            <a class="btn btn-primary" href="{!! route('solicitudes.getDetSolicitudAdmin', [$solicitud->id]) !!}" role="button" data-toggle="Editar"><i class="glyphicon glyphicon-search"></i></a>
                         </td>
                     </tr>
                 @endforeach

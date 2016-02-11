@@ -1,4 +1,19 @@
 <?php
+
+/*******************************LOGIN******************************************/
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', [ 'as' => 'auth/login','uses' => 'Auth\AuthController@postLogin',]);
+Route::get('public/logout', ['as' => 'auth/logout','uses' => 'Auth\AuthController@getLogout',]);
+Route::get('public/registro', ['as' => 'auth/register','uses' => 'Auth\AuthController@getRegister',]);
+Route::post('public/registro', ['as' => 'auth/register','uses' => 'Auth\AuthController@postRegister',]);
+Route::get('public/password', [ 'as' => 'password/email', 'uses' => 'Auth\PasswordController@getEmail',]);
+Route::post('public/password', ['as' => 'password/postEmail','uses' => 'Auth\PasswordController@postEmail']);
+// Password reset routes...
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', ['as' => 'password/postReset', 'uses' =>  'Auth\PasswordController@postReset']);
+//Socialite
+Route::get('login/{provider}',['uses' => 'Auth\AuthController@login','as'   => 'auth.getSocialAuth']);
+
 /*-- Rutas de Acceso Publico --*/
 
 Route::get('/', ['as' => 'home','uses' => 'HomeController@index',]);
@@ -11,11 +26,6 @@ Route::get('public/servicios/listar', ['as' => 'listar','uses' => 'ServiciosCont
 
 // Detalle de Servicio //revisar si se esta utilizando
 Route::get('public/servicios/{id}', ['as' => 'detalle', 'uses' => 'ServiciosController@detalle']);
-
-/**********************************dashborad carolina**********************************/
-
-#Route::get('public/dashborad/proveedor',function () { return view('dashborad.tableproveedor'); });
-#Route::get('public/dashborad/consultor',function () { return view('dashborad.tableconsultor'); });
 
 /**********************************solicitudes**********************************/
 
@@ -57,22 +67,6 @@ Route::group(['middleware' => ['authusuario']], function()
       Route::get('user/sectores/listado/{id}', ['as' => 'user.sectores.listado','uses' => 'SectorController@listado']);
 
 });
-
-
-
-/*******************************LOGIN******************************************/
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', [ 'as' => 'auth/login','uses' => 'Auth\AuthController@postLogin',]);
-Route::get('public/logout', ['as' => 'auth/logout','uses' => 'Auth\AuthController@getLogout',]);
-Route::get('public/registro', ['as' => 'auth/register','uses' => 'Auth\AuthController@getRegister',]);
-Route::post('public/registro', ['as' => 'auth/register','uses' => 'Auth\AuthController@postRegister',]);
-Route::get('public/password', [ 'as' => 'password/email', 'uses' => 'Auth\PasswordController@getEmail',]);
-Route::post('public/password', ['as' => 'password/postEmail','uses' => 'Auth\PasswordController@postEmail']);
-// Password reset routes...
-Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-Route::post('password/reset', ['as' => 'password/postReset', 'uses' =>  'Auth\PasswordController@postReset']);
-//Socialite
-Route::get('login/{provider}',['uses' => 'Auth\AuthController@login','as'   => 'auth.getSocialAuth']);
 
 // ADMIN ------------------------------------------------------------------------------------
 
@@ -157,6 +151,7 @@ Route::group(['middleware' => ['auth']], function()
 
     /**********************************Lista de Solicitudes  + Registro de Catalogo**********************/
     Route::get('admin/solicitudes/listado', ['as' => 'solicitudes.listado','uses' => 'SolicitudesCategoriasController@listado']);
+    Route::get('admin/solicitud/detalle/{id}', ['as' => 'solicitudes.getDetSolicitudAdmin','uses' => 'SolicitudesCategoriasController@getDetSolicitudAdmin']);
 
     /**********************************Catalogo Solicitud**********************************/
     Route::resource('admin/catalogos', 'CatalogosController');

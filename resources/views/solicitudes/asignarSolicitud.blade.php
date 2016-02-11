@@ -1,4 +1,5 @@
-    <div class="box box-warning">
+@if(!$solicitudes->id_estatus_user_solicitud or $solicitudes->id_estatus_user_solicitud==13)
+<div class="box box-warning">
         <div class="box-header with-border">
             <h3 class="box-title">Solicitud de {!! $solicitudes->servicios !!}</h3>
         </div>
@@ -91,5 +92,5 @@
             {!! Form::submit('Asignar', ['class' => 'btn btn-warning pull-right']) !!}
         </div>
     </div>
-
+@endif
 

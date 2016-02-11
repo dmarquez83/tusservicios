@@ -67,34 +67,40 @@
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="tab_1">
-            <div class="box-body">
-                <table id="tabla-listado-insumos" class="table table-bordered table-striped">
-                    <thead>
-                    <tr>
-                        <th>Insumo</th>
-                        <th>Descripcion</th>
-                        <th>Estatus</th>
-                        <th>Proveedor</th>
-                        <th>Precio</th>
-                        <th>Foto</th>
-                        <th style="width: 10%">Seleccionar</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($catalogos as $catalogo)
+            @if($solicitudes->id_estatus == 16)
+                <div class="box-body">
+                    <table id="tabla-listado-insumos" class="table table-bordered table-striped">
+                        <thead>
                         <tr>
-                            <td>{!! $catalogo->nombre_insumo !!}</td>
-                            <td>{!! $catalogo->descripcion !!}</td>
-                            <td>{!! $catalogo->estatus !!}</td>
-                            <td>{!! $catalogo->nombre !!}</td>
-                            <td>{!! $catalogo->precio !!}</td>
-                            <td>{!! Html::image('insumos-img/'.$catalogo->foto, '', array('class' => 'responsive-img','width' => '150', 'height' => '100')) !!}</td>
-                            <td><input id = "{!! $catalogo->id_catalogo !!}" data-valor='{{$catalogo->precio}}' class="boton_check" type="checkbox" name="catalogo[]" value="{!! $catalogo->id_catalogo !!}"></td>
+                            <th>Insumo</th>
+                            <th>Descripcion</th>
+                            <th>Estatus</th>
+                            <th>Proveedor</th>
+                            <th>Precio</th>
+                            <th>Foto</th>
+                            <th style="width: 10%">Seleccionar</th>
                         </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                        @foreach($catalogos as $catalogo)
+                            <tr>
+                                <td>{!! $catalogo->nombre_insumo !!}</td>
+                                <td>{!! $catalogo->descripcion !!}</td>
+                                <td>{!! $catalogo->estatus !!}</td>
+                                <td>{!! $catalogo->nombre !!}</td>
+                                <td>{!! $catalogo->precio !!}</td>
+                                <td>{!! Html::image('insumos-img/'.$catalogo->foto, '', array('class' => 'responsive-img','width' => '150', 'height' => '100')) !!}</td>
+                                <td><input id = "{!! $catalogo->id_catalogo !!}" data-valor='{{$catalogo->precio}}' class="boton_check" type="checkbox" name="catalogo[]" value="{!! $catalogo->id_catalogo !!}"></td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+           @elseif($solicitudes->id_estatus == 15)
+                <div class="box-body">
+                    En Proceso
+                </div>
+           @endif
         </div>
 
         <div class="tab-pane" id="tab_2">
@@ -128,9 +134,10 @@
         <div class="col-md-2"><h4 id="total" /></div>
     </div>
 </div>
-
-<div class="row">
-    <div class="col-md-12">
-        {!! Form::submit('Aceptar', ['class' => 'btn btn-warning pull-right']) !!}
+@if($solicitudes->id_estatus == 16)
+    <div class="row">
+        <div class="col-md-12">
+            {!! Form::submit('Aceptar', ['class' => 'btn btn-warning pull-right']) !!}
+        </div>
     </div>
-</div>
+@endif

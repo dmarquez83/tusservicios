@@ -211,7 +211,10 @@ class SolicitudesCategoriasController extends AppBaseController
 			  ->join('estatus','estatus.id' ,'=','solicitudes.id_estatus')
 			  ->join('servicios','servicios.id' ,'=','solicitudes.id_servicio')
 			  ->join('users','users.id' ,'=','solicitudes.id_usuario')
-			  ->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario','estatus.id as id_estatus')
+			  ->leftJoin('usuarios_solicitudes','usuarios_solicitudes.solicitud_id' ,'=','solicitudes.id')
+			  ->leftJoin('estatus as estatus_user','estatus_user.id' ,'=','usuarios_solicitudes.id_estatus')
+			  ->leftJoin('users as users_user','users_user.id' ,'=','usuarios_solicitudes.user_id')
+			  ->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario','estatus.id as id_estatus','estatus_user.id as id_estatus_user_solicitud','estatus_user.nombre as nombre_estatus_user_solicitud','users_user.name as usuario_user_solicitud','users_user.id as id_usuario_user_solicitud')
 			  ->orderBy('solicitudes.id','desc')
 			  ->get();
 
@@ -240,8 +243,9 @@ class SolicitudesCategoriasController extends AppBaseController
 		->join('estatus', 'estatus.id', '=', 'solicitudes.id_estatus')
 		->join('servicios', 'servicios.id', '=', 'solicitudes.id_servicio')
 		->join('users', 'users.id', '=', 'solicitudes.id_usuario')
+		->leftJoin('usuarios_solicitudes','usuarios_solicitudes.solicitud_id' ,'=','solicitudes.id')
 		->where('solicitudes.id','=',$id )
-		->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario','solicitudes.id_servicio')
+		->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario','solicitudes.id_servicio','usuarios_solicitudes.id_estatus as id_estatus_user_solicitud')
 		->first();
 
 	  //dd($solicitudes);
@@ -302,7 +306,7 @@ class SolicitudesCategoriasController extends AppBaseController
 			->join('users', 'users.id', '=', 'solicitudes.id_usuario')
 			->where('users.id', '=', \Auth::user()->id)
 			->where('solicitudes.id','=',$id )
-			->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario')
+			->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario','estatus.id as id_estatus')
 			->first();
 		//dd($solicitudes);
 
@@ -401,9 +405,6 @@ class SolicitudesCategoriasController extends AppBaseController
 	$aceptar = DB::table('usuarios_solicitudes')->where('solicitud_id', '=', $id)
 	  ->update(array('id_estatus' => 12));
 
-	$solicitud = DB::table('solicitudes')->where('id', '=', $id)
-	  ->update(array('id_estatus' => 4));
-
 	Flash::success('Solicitud Aceptada .');
 
 	return redirect(route('solicitudes.getUsuariosSolicitudes'));
@@ -441,6 +442,47 @@ class SolicitudesCategoriasController extends AppBaseController
 	  ->update(array('id_estatus' => 18));
 
 	return redirect(route('solicitudes.detPago', array($request->get('id'))));
+
+  }
+
+
+  public function getDetSolicitudAdmin($id)
+  {
+	$solicitudes = DB::table('solicitudes')
+	  ->join('estatus', 'estatus.id', '=', 'solicitudes.id_estatus')
+	  ->join('servicios', 'servicios.id', '=', 'solicitudes.id_servicio')
+	  ->join('users', 'users.id', '=', 'solicitudes.id_usuario')
+	  ->where('solicitudes.id','=',$id )
+	  ->select('solicitudes.id','solicitudes.fecha', 'solicitudes.hora','solicitudes.descripcion','solicitudes.direccion','solicitudes.telefono','solicitudes.horas','solicitudes.costo','estatus.nombre as estatus','servicios.nombre as servicios','users.name as usuario','estatus.id as id_estatus')
+	  ->first();
+	//dd($solicitudes);
+
+	$insumos= DB::table('insumos_solicitudes')
+	  ->join('solicitudes','solicitudes.id' ,'=','insumos_solicitudes.solicitud_id')
+	  ->join('insumos','insumos.id' ,'=','insumos_solicitudes.insumo_id')
+	  ->join('users','users.id' ,'=','solicitudes.id_usuario')
+	  ->where('insumos_solicitudes.solicitud_id','=',$id )
+	  ->select('insumos_solicitudes.id','insumos_solicitudes.insumo_id', 'insumos.nombre','insumos.descripcion','insumos.referencia','insumos.foto')
+	  ->get();
+	//dd($insumos);
+
+	$catalogos = DB::table('catalogos')
+	  ->join('solicitudes','solicitudes.id' ,'=','catalogos.solicitud_id')
+	  ->join('catalogos_insumos','catalogos_insumos.catalogo_id' ,'=','catalogos.id')
+	  ->join('proveedores','proveedores.id' ,'=','catalogos_insumos.proveedor_id')
+	  ->join('insumos','insumos.id' ,'=','catalogos_insumos.insumo_id')
+	  ->join('estatus','estatus.id' ,'=','catalogos_insumos.estatus_id')
+	  ->join('users','users.id' ,'=','solicitudes.id_usuario')
+	  ->where('catalogos.solicitud_id','=',$id )
+	  ->select('catalogos.id','catalogos.descripcion','estatus.nombre as estatus', 'insumos.nombre as nombre_insumo','insumos.descripcion','insumos.referencia','insumos.foto','insumos.id as id_insumo',
+		'catalogos_insumos.precio','catalogos_insumos.id as id_catalogo','catalogos_insumos.foto as foto_proveedor','proveedores.rif','proveedores.nombre')
+	  ->orderBy('insumos.id','desc')
+	  ->get();
+	//dd($catalogo);
+
+
+
+	//return view('solicitudes.Ojooooooo hay que hacerla')->with(array('solicitudes'=>$solicitudes,'insumos'=>$insumos,'catalogos'=>$catalogos));
 
   }
 
