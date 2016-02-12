@@ -90,7 +90,7 @@
                                 <td>{!! $catalogo->nombre !!}</td>
                                 <td>{!! $catalogo->precio !!}</td>
                                 <td>{!! Html::image('insumos-img/'.$catalogo->foto, '', array('class' => 'responsive-img','width' => '150', 'height' => '100')) !!}</td>
-                                <td><input id = "{!! $catalogo->id_catalogo !!}" data-valor='{{$catalogo->precio}}' class="boton_check" type="checkbox" name="catalogo[]" value="{!! $catalogo->id_catalogo !!}"></td>
+                                <td><input id = "{!! $catalogo->id_catalogo !!}" data-valor='{{$catalogo->precio}}' class="boton_check" type="checkbox" name="catalogo[]" value="{!! $catalogo->id_catalogo !!}-{!! $catalogo->id_insumo !!}"></td>
                             </tr>
                         @endforeach
                         </tbody>

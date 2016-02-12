@@ -427,13 +427,35 @@ class SolicitudesCategoriasController extends AppBaseController
 
   public function getAceptarInsumosSolicitud($id, Request $request){
 
-	//dd($request);
+	foreach ($request->get('catalogo') as $value)
+	{
+	  $valor = explode('-',$value);
+	  $contador = 0;
+	  $inArray = false;
 
-	//voy por aqui falta que cambie el estatus de los insumos que acepta el usuario
+	  foreach ($request->get('catalogo') as $value_2)
+	  {
+		$valor2 = explode('-',$value_2);
+		if( $valor[1] == $valor2[1] )
+		{
+		  $inArray = true;
+		  $contador = $contador + 1;
+		}
+
+	  }
+
+	  if($inArray && $contador>1){
+		return redirect()->back()->withErrors('Debe seleccionar un solo Precio por Insumo')->withInput($request->all());
+	  }
+
+	}
+
+
 
 	foreach ($request->get('catalogo') as $catalogo)
 	{
-	  $aceptar = DB::table('catalogos_insumos')->where('id', '=', $catalogo)
+	  $valor2 = explode('-',$catalogo);
+	  $aceptar = DB::table('catalogos_insumos')->where('id', '=', $catalogo[0])
 		->update(array('estatus_id' => 17));
 
 	}
