@@ -1,0 +1,28 @@
+.text-white {
+  color: #FFFFFF; }
+
+.margin {
+  margin: 1.5em; }
+
+.margin-top {
+  margin-top: 1.5em; }
+
+.margin-bottom {
+  margin-bottom: 1.5em; }
+
+.border-radius {
+  border-radius: 0.5em; }
+
+.border-radius-1 {
+  border-radius: 1em; }
+
+.border-radius-2 {
+  border-radius: 2em; }
+
+.border-gray-1 {
+  border: 1px solid #DDD; }
+
+.solid {
+  display: inline-block; }
+
+/*# sourceMappingURL=app.css.map */

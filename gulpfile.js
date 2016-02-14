@@ -11,6 +11,12 @@ var elixir = require('laravel-elixir');
  |
  */
 
-elixir(function(mix) {
-    mix.less('app.less');
+elixir(function (mix) {
+    mix.sass("app.scss", 'public/assets/css/app.css')
+        .sass("home.scss", 'public/assets/css/home.css')
+        .copy('resources/assets/css/', 'public/assets/css/')
+        .copy('resources/assets/fonts/', 'public/assets/fonts/')
+        .copy('resources/assets/img/', 'public/assets/img/')
+        .copy('resources/assets/js', 'public/assets/js')
+        .copy('resources/assets/plugins', 'public/assets/plugins');
 });

@@ -1,71 +1,45 @@
-@extends('home.app')
+@extends('layout.home')
 @section('content')
+
     @include('home.partials.header')
 
+    @include('home.partials.menu')
 
-    <div class="menu-wrap">
-        @include('home.partials.menu')
-    </div><!-- content -->
+    <section id="categorias-list bg-gray-light">
 
+        <div class="row">
+            <div class="col-md-12 col-lg-10 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul class="text-center">
+                                @foreach($categories AS $categorie)
+                                    <li class="solid ">
+                                        <a class="btn bg-gray border-radius-2" href="#">
+                                            <i class="fa fa-gear"></i>
+                                            {{ $categorie->nombre }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
 
-    <div class="l-content-wrap" id="standard-content">
+                    </div>
+                </div>
 
-        <section>
+            </div>
+            <div class="hidden-md col-lg-2">
+                <div class="box box-solid">
+                    <div class="box-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam et harum numquam odio omnis pariatur, quia rem sed sequi tenetur. Architecto aspernatur commodi ducimus harum libero modi numquam obcaecati, voluptatum?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam et harum numquam odio omnis pariatur, quia rem sed sequi tenetur. Architecto aspernatur commodi ducimus harum libero modi numquam obcaecati, voluptatum?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam et harum numquam odio omnis pariatur, quia rem sed sequi tenetur. Architecto aspernatur commodi ducimus harum libero modi numquam obcaecati, voluptatum?</p>
+                    </div>
 
-            @include('home.partials.home')
-
-        </section>
-
-
-        <!-- WHAT WE DO PARALAX SECTION -->
-        <section>
-
-            @include('home.partials.que_hacemos')
-
-        </section>
-
-        <!-- LATEST POSTS SECTION -->
-        <section>
-
-            @include('home.partials.noticias')
-
-        </section>
-
-        <!-- TESTIMONIALS PARALAX SECTION -->
-        <section>
-
-            @include('home.partials.testimonios')
-
-        </section>
-
-        <!-- TECHNICAL SKILLS SECTION -->
-        <section>
-
-            @include('home.partials.skills')
-
-        </section>
-
-        <!-- GALLERY SECTION -->
-        <section>
-
-            @include('home.partials.galeria')
-
-        </section>
-
-        <!-- LATEST POSTS SECTION -->
-        <section>
-
-            @include('home.partials.contact')
-
-        </section>
-
-        <!-- TECHNICAL SKILLS SECTION -->
-        <section>
-
-            @include('home.partials.contact2')
-
-        </section>
-
+                </div>
+            </div>
+        </div>
+    </section>
 
 @endsection
 

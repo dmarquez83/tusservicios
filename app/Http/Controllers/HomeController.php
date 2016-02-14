@@ -20,11 +20,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-       //return \View::make('home.index');
 
-      //  return view('home');
+       $categories = \App\Models\Categoria::take(5)
+           ->get();
 
-       return   view('home.index');
+       return   view('home.index')->with([
+           'categories' => $categories
+       ]);
     }
 
     public function dashboradUser()

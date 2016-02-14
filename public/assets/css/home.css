@@ -1,0 +1,34 @@
+.header-principal {
+  background-image: url(../img/principal.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0; }
+
+.logo-header {
+  padding: 1em;
+  border: 1px solid #fff;
+  border-radius: 0.5em;
+  opacity: 0.90;
+  width: 80%;
+  max-width: 25em; }
+
+.text-shadow-dark {
+  text-shadow: 1px 1px 3px #333; }
+
+.navbar-home {
+  height: 90px; }
+
+.navbar-nav > li > a:hover {
+  color: orangered; }
+
+.navbar-nav > li:first-child > a {
+  border-top-left-radius: 0.7em;
+  border-bottom-left-radius: 0.7em;
+  border-right: 1px solid #fff; }
+
+.navbar-nav > li:last-child > a {
+  border-top-right-radius: 0.7em;
+  border-bottom-right-radius: 0.7em;
+  border-left: 1px solid #fff; }
+
+/*# sourceMappingURL=home.css.map */
