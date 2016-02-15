@@ -1,3 +1,3 @@
 <footer class="main-footer">
-            <p class="pull-right">Copyright 2015 @tusservicios.com.ve</p>
+    <p class="white-text pull-right">TusServicios.com.ve | &copy; 201 Copyright</p>
 </footer>

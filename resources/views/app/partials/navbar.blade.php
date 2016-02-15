@@ -1,109 +1,77 @@
-<header class="main-header">
-    <!-- Logo -->
-    <a class="logo" href="#">
-        <span class="logo-mini">
-            {!! Html::image('assets/img/tusservicios-logo-min.jpg', 'logo', array('class' => '')) !!}
-        </span>
-        <span class="logo-lg">
-            {!! Html::image('assets/img/logo.png', 'logo', array('class' => '')) !!}
-        </span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top" role="navigation">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="" data-toggle="offcanvas" role="button">
-            <!--<span class="glyphicon glyphicon-menu-hamburger"></span>-->
-        </a>
-        <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-            @if(Auth::check())
-                <li class="dropdown messages-menu">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-envelope-o"></i>
-                        <span class="label label-success">4</span>
+<nav class="navbar bg-blue-active flat navbar-home no-margin hidden-xs navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header text-center">
+            <a class="navbar-brand" href="{{ route('home') }}">
+                <img src="{{ asset('assets/img/logo-hz.jpg') }}" alt="logo" class="border-radius"/>
+            </a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav navbar-right margin-top">
+                <li>
+                    <a href="" class="text-white">
+                        <i class="fa fa-user"></i> Registro
                     </a>
                 </li>
-                <li class="dropdown notifications-menu">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell-o"></i>
-                        <span class="label label-warning">10</span>
+                <li>
+                    <a href="" class="text-white">
+                        <i class="fa fa-sign-in"></i> Acceso
                     </a>
                 </li>
-                <li class="dropdown user user-menu">
-                    <a href="#">
-                        <i class="glyphicon glyphicon-user"></i>
-                        {{ Auth::user()->name }}
+                <li>
+                    <a href="" class="text-white">
+                        <i class="fa fa-info-circle"></i> Ayuda
                     </a>
                 </li>
-                <li class="dropdown user user-menu">
-                    <a href="{{ route('auth/logout') }}"><i class="glyphicon glyphicon-off"></i></a>
-                </li>
-            @else
-                <li class="dropdown messages-menu">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="glyphicon glyphicon-user"></i>
-                        <i class="glyphicon glyphicon-chevron-down"></i>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+                <div class="input-group input-group-sm margin-top">
+                    <input type="text" class="form-control" placeholder="Buscar servicio">
+                    <span class="input-group-btn">
+                      <button class="btn bg-orange-active btn-flat" type="button">
+                          <i class="fa fa-search"></i>
+                      </button>
+                    </span>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</nav>
+<div class="container-fluid bg-blue-active hidden-lg hidden-md hidden-sm navbar-fixed-top" >
+    <div class="row">
+        <div class="col-xs-12 text-center margin-top margin-bottom">
+            <a class="" href="#">
+                <img src="{{ asset('assets/img/logo-hz.jpg') }}" alt="logo" class="border-radius"/>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-10">
+            <ul class="list-inline text-center menu-hz">
+                <li>
+                    <a href="" class="text-white">
+                        <i class="fa fa-user"></i> Registro
                     </a>
-                    <ul class="dropdown-menu" style="width: 100px">
-                        <li>
-                            <ul class="menu">
-                                <li><!-- start message -->
-                                    <a data-toggle="modal" data-target="#inici_sesion">
-                                        Inicio Sesion
-                                    </a>
-                                </li>
-                                <li><!-- start message -->
-                                    <a data-toggle="modal" data-target="#registro">
-                                        Registrarse
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
                 </li>
-            @endif
+                <li>
+                    <a href="" class="text-white">
+                        <i class="fa fa-sign-in"></i> Acceso
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="text-white">
+                        <i class="fa fa-info-circle"></i> Ayuda
+                    </a>
+                </li>
             </ul>
         </div>
-    </nav>
-</header>
-
-<!-- Modal inicio sesion -->
-{!! Form::open(['route' => 'auth/login', 'class' => 'form-horizontal']) !!}
-<div class="modal fade" id="inici_sesion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Inicio de Sesion</h4>
-            </div>
-            <div class="modal-body">
-                @include('app.partials.login')
-            </div>
-            <div class="modal-footer">
-                {!! Form::submit(trans('form.login.submit'),['class' => 'btn btn-primary']) !!}
-                <a href="{{ url('password/email') }}" class="btn btn-primary">{{ trans('passwords.forgot') }}</a>
-            </div>
+        <div class="col-xs-2">
+            <a href="#" class="sidebar-toggle text-white" data-toggle="offcanvas" role="button">
+                <i class="fa fa-bars"></i>
+            </a>
         </div>
     </div>
 </div>
-{!! Form::close() !!}
-
-<!-- Modal Registro -->
-{!! Form::open(['route' => 'auth/register', 'class' => 'form']) !!}
-<div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Re5gistro de Usuario</h4>
-            </div>
-            <div class="modal-body">
-                @include('app.partials.registro')
-            </div>
-            <div class="modal-footer">
-                {!! Form::submit(trans('form.signup.submit'),['class' => 'btn btn-primary']) !!}
-            </div>
-        </div>
-    </div>
-</div>
-{!! Form::close() !!}

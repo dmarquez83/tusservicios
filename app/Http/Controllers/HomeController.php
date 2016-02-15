@@ -24,7 +24,7 @@ class HomeController extends Controller
        $categories = \App\Models\Categoria::take(8)
            ->get();
 
-       return   view('home.index')->with([
+       return   view('modulos.home.index')->with([
            'categories' => $categories
        ]);
     }

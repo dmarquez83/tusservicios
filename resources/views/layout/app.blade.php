@@ -11,19 +11,18 @@
         {!! Html::style('assets/css/font-awesome.min.css') !!}
         {!! Html::style('assets/css/ionicons.min.css') !!}
         {!! Html::style('assets/css/app.css') !!}
-        {!! Html::style('assets/css/home.css') !!}
 
         @yield('styles')
 
     </head>
-    <body class="skin-blue-light sidebar-mini">
+    <body class="sidebar-mini skin-black-light">
 
-        <div class="wrapper">
-            @include('app')
+        <div class="wrapper" >
+            @include('app.partials.navbar')
             @include('app.partials.menu')
-            <div class="content-wrapper">
-                <section class="content">
-                    @include('partials')
+            <div class="content-wrapper bg-gray-light">
+                <section class="content ">
+                    @include('app.partials.errors')
                     @yield('content')
                 </section>
             </div>

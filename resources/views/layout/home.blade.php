@@ -10,7 +10,6 @@
         {!! Html::style('assets/css/skins/skin-black-light.min.css') !!}
         {!! Html::style('assets/css/font-awesome.min.css') !!}
         {!! Html::style('assets/css/ionicons.min.css') !!}
-        {!! Html::style('assets/css/app.css') !!}
         {!! Html::style('assets/css/home.css') !!}
 
         @yield('styles')
