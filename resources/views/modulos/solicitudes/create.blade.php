@@ -19,7 +19,7 @@
 
 @section('scripts-modulo')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    {!! Html::script('admin/js/insumos.js') !!}
+    {!! Html::script('assets/js/app/insumos.js') !!}
     {!! Html::script('assets/inc/bootstrap/js/jquery.dataTables.min.js') !!}
     {!! Html::script('assets/inc/bootstrap/js/dataTables.bootstrap.min.js') !!}
     {!! Html::script('assets/inc/bootstrap/js/bootstrap-timepicker.min.js') !!}

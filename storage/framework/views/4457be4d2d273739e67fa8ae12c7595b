@@ -1,27 +1,68 @@
 <?php $__env->startSection('content'); ?>
-    <div class="">
-        <div class="row">
-            <div class="col-md-3">
-            </div>
-            <div class="col-md-6">
-                <div class="box box-warning">
-                    <div class="box-header with-border">
-                        <h3 class="box-title"><?php echo e(trans('form.login.title')); ?></h3>
-                    </div>
-                    <?php echo Form::open(['route' => 'auth/login', 'class' => 'form-horizontal']); ?>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><?php echo e(trans('form.login.title')); ?></h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <h4 class="text-center text-black">Datos de Acceso</h4>
+                            <?php echo Form::open(['route' => 'login', 'class' => 'form-horizontal']); ?>
 
-                        <?php echo $__env->make('partials.layout.login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-                        <div class="box-footer">
-                            <?php echo Form::submit(trans('form.login.submit'),['class' => 'btn btn-primary']); ?>
+                            <div class="margin-bottom">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                    <?php echo Form::email('email', '', ['class'=> 'form-control', 'placeholder' => "Email" ]); ?>
 
-                            <a href="<?php echo e(url('password/email')); ?>" class="btn btn-primary"><?php echo e(trans('passwords.forgot')); ?></a>
+                                </div>
+                            </div>
+                            <div class="margin-bottom">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                    <?php echo Form::password('password', ['class'=> 'form-control', 'placeholder' => "Clave"]); ?>
+
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <button class="btn bg-blue-active">
+                                    <i class="fa fa-sign-in"></i> Acceder
+                                </button>
+                            </div>
+                            <?php echo Form::close(); ?>
+
+                            <a href="<?php echo e(url('password/email')); ?>" class="btn btn-sm text-orange pull-right">
+                                <?php echo e(trans('passwords.forgot')); ?>
+
+                            </a>
                         </div>
-                    <?php echo Form::close(); ?>
-
+                        <div class="col-xs-12 col-md-6">
+                            <h4 class="text-center text-black">Acceso por Redes</h4>
+                            <div class="margin-bottom">
+                                <a href="<?php echo e(route('auth.getSocialAuth','facebook')); ?>"
+                                   class="btn btn-social btn-facebook">
+                                    <i class="fa fa-facebook"></i> Acceder con Facebook
+                                </a>
+                            </div>
+                            <div class="margin-bottom">
+                                <a href="<?php echo e(route('auth.getSocialAuth','twitter')); ?>"
+                                   class="btn btn-social btn-twitter">
+                                    <i class="fa fa-twitter"></i> Acceder con Twitter
+                                </a>
+                            </div>
+                            <div class="margin-bottom">
+                                <a href="<?php echo e(route('auth.getSocialAuth','google')); ?>"
+                                   class="btn btn-social btn-google">
+                                    <i class="fa fa-google-plus"></i> Acceder con Google Plus
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-            <div class="col-md-2">
-            </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layout.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -35,5 +35,6 @@
         <script src="{{ asset('assets/js/modernizr.js') }}"></script>
 
         @yield('scripts')
+        @yield('scripts-modulo')
     </body>
 </html>

@@ -24,7 +24,7 @@
         <!-- flexslider -->
 {!! Html::script('assets/inc/flexslider/jquery.flexslider.js') !!}
 
-{!! Html::script('admin/js/usuarios-insumos.js') !!}
+{!! Html::script('assets/js/app/usuarios-insumos.js') !!}
 
 @endsection
 
