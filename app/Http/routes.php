@@ -3,7 +3,7 @@
 /*******************************LOGIN******************************************/
 Route::get('login',['as' => 'login', 'uses' => 'Auth\AuthController@getLogin',]);
 Route::post('login', [ 'as' => 'login','uses' => 'Auth\AuthController@postLogin',]);
-Route::get('public/logout', ['as' => 'auth/logout','uses' => 'Auth\AuthController@getLogout',]);
+Route::get('logout', ['as' => 'logout','uses' => 'Auth\AuthController@getLogout',]);
 Route::get('registro', ['as' => 'registro','uses' => 'Auth\AuthController@getRegister',]);
 Route::post('registro', ['as' => 'registro','uses' => 'Auth\AuthController@postRegister',]);
 Route::get('public/password', [ 'as' => 'password/email', 'uses' => 'Auth\PasswordController@getEmail',]);

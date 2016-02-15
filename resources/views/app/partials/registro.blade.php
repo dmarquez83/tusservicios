@@ -1,4 +1,4 @@
-{!! Form::open(['route' => 'auth/register', 'class' => 'form']) !!}
+{!! Form::open(['route' => 'registro', 'class' => 'form']) !!}
 
 <div class="form-group">
     <label>{{ trans('form.label.name') }}</label>
