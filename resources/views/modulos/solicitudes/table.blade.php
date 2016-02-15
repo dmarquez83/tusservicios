@@ -1,10 +1,10 @@
 @foreach($categorias as $categoria)
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
         <div class="box box-widget widget-user">
-            <div class="widget-user-header bg-black" style="background: url('../categorias-img/{{$categoria->foto}}') center center;">
+            <div class="widget-user-header bg-black" style="background: url('../assets/img/categorias-img/{{$categoria->foto}}') center center;">
             </div>
             <div class="widget-user-image">
-                {!! Html::image('categorias-img/thumb_tusservicios-logo.jpg', '', array('class' => 'img-circle')) !!}
+                {!! Html::image('assets/img/thumb-tusservicios-logo.jpg', '', array('class' => 'img-circle')) !!}
             </div>
             <div class="box-footer">
                 <div class="row">

@@ -50,7 +50,7 @@ class SolicitudesCategoriasController extends AppBaseController
 	   */
 	  public function index()
 	  {
-		$categorias = $this->categoriaRepository->paginate(10);
+		$categorias = $this->categoriaRepository->all();
 
 		return view('modulos.solicitudes.index')->with('categorias', $categorias);
 	  }

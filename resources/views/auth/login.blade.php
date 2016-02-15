@@ -29,7 +29,7 @@
                                 </button>
                             </div>
                             {!! Form::close() !!}
-                            <a href="{{ url('password/email') }}" class="btn btn-sm text-orange">
+                            <a href="{{ url('password/email') }}" class="btn btn-sm text-orange pull-right">
                                 {{ trans('passwords.forgot') }}
                             </a>
                         </div>

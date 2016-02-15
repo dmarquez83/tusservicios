@@ -17,7 +17,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                {!! Html::image('categorias-img/'.$categorias[0]->foto, '', array('class' => 'responsive-img','width' => '300', 'height' => '200')) !!}
+                                {!! Html::image('assets/img/categorias-img/'.$categorias[0]->foto, '', array('class' => 'responsive-img','width' => '300', 'height' => '200')) !!}
                             </div>
                         </div>
 
