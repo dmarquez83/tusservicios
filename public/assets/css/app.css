@@ -10,6 +10,9 @@
 .margin-bottom {
   margin-bottom: 1.5em; }
 
+.padding {
+  padding: 1em; }
+
 .border-radius {
   border-radius: 0.5em; }
 
@@ -24,5 +27,21 @@
 
 .solid {
   display: inline-block; }
+
+.img-rounded {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  display: inline-block;
+  margin: auto; }
+
+.text-ts-blue {
+  color: #222662; }
+
+.vertical-text {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  height: 100px; }
 
 /*# sourceMappingURL=app.css.map */

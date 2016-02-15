@@ -21,7 +21,7 @@ class HomeController extends Controller
     public function index()
     {
 
-       $categories = \App\Models\Categoria::take(5)
+       $categories = \App\Models\Categoria::take(8)
            ->get();
 
        return   view('home.index')->with([

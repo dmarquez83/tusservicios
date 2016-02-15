@@ -1,61 +1,56 @@
-                    <div class="l-paralax-section testimonials-paralax paralax-section2 l-section"  data-0="background-position:0px 800px;" data-10000="background-position:0px -2000px;"  id="testimonials">
-
-                    
-                            <div class="flexslider-testimonials flexslider">
-                                <ul class="slides">
-                                  <li class="text-center">
-                                      <div class="container opacity">
-                                          <div class="col-lg-12">
-                                              {!! Html::image('assets/img/avatar5.png', 'Avatar', array('class' => '')) !!}
-
-                                                <h4>Robert Delacruz</h4>
-                                                <span>~ParalaxProduction</span>
-
-                                                <p>
-                                                    Integer fermentum purus nibh, sed dignissim dolor elementum vel. Aliquam lacinia vel risus id semper. Duis tempus sapien eu sollicitudin mollis. 
-                                                    Etiam eget tempus erat, ut vehicula dolor. In hac habitasse platea dictumst. 
-                                                </p>
-                                          </div><!-- col-lg-12 -->
-                                      </div><!-- container -->
-                                    
-                                  </li>
-
-                                    <li class="text-center">
-                                        <div class="container opacity">
-                                          <div class="col-lg-12">
-                                              {!! Html::image('assets/img/avatar.png', 'Avatar', array('class' => '')) !!}
-
-                                              <h4>Venus Puleo</h4>
-                                            <span>~CEO of Fitness2Go</span>
-
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae scelerisque nibh. 
-                                                Morbi fermentum ipsum odio, id dictum leo egestas vel. 
-                                                Sed commodo, nunc eget ultrices viverra, turpis odio luctus nisl, sit amet porttitor diam nulla in augue. 
-                                                Etiam eu felis libero. Nam feugiat ultrices sapien eget sagittis.
-                                            </p>
-                                          </div><!--  col-lg-12  -->
-                                        </div><!-- container -->
-                                      </li>
-                                      
-                                        <li class="text-center">
-                                            <div class="container opacity">
-                                              <div class="col-lg-12">
-                                                  {!! Html::image('assets/img/avatar6.png', 'Avatar', array('class' => '')) !!}
-
-                                                  <h4>Martha Lehman</h4>
-                                                <span>~Athletic director in Brown Derby</span>
-
-                                                <p>
-                                                    Morbi placerat mi consectetur est venenatis porta. Curabitur velit lacus, cursus a egestas quis, ullamcorper ut odio. 
-                                                    Praesent purus magna, luctus volutpat dignissim aliquam, lacinia a neque. Quisque congue nulla id mauris dictum, eu scelerisque dolor tincidunt. 
-                                                    Nam posuere metus fermentum risus scelerisque ultrices. Morbi rutrum fermentum laoreet.
-                                                </p>
-                                              </div><!--  col-lg-12  -->
-                                            </div><!-- container -->
-                                          </li>
-
-                                </ul>
-                              </div><!-- flexslider -->
-
-
-                    </div><!-- l-paralax-section -->
+<section class="hidden-xs">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img alt="First slide" src="http://placehold.it/1500x400/f4641d/ffffff&amp;text=+">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <img src="{{ asset('assets/img/avatar.png') }}" alt="avatar"/>
+                        <h3>Example headline.</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, asperiores iure nulla ratione sapiente sunt voluptatibus. Accusantium consectetur culpa dolore earum eveniet ipsa ipsam magnam, modi sint voluptatem! Accusantium, omnis?
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img alt="First slide" src="http://placehold.it/1500x400/f4641d/ffffff&amp;text=+">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <img src="{{ asset('assets/img/avatar5.png') }}" alt="avatar"/>
+                        <h3>Another example headline.</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor doloremque eaque illo. Ab alias harum molestias odio suscipit! Alias blanditiis commodi error esse in iure maxime nobis officiis sint sunt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img alt="First slide" src="http://placehold.it/1500x400/f4641d/ffffff&amp;text=+">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <img src="{{ asset('assets/img/avatar6.png') }}" alt="avatar"/>
+                        <h3>One more for good measure.</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus et necessitatibus nemo nostrum quae recusandae tempora voluptatibus. Accusamus, aliquid dignissimos eos eveniet, expedita labore, molestiae qui quia ut velit voluptas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>

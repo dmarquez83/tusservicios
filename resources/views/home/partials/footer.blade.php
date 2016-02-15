@@ -1,23 +1,11 @@
-<footer class="page-footer indigo darken-4">
+<footer class="bg-blue-active">
     <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">TusServicios.com.ve</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        <div class="row margin-top">
+            <div class="col-md-5 col-xs-12">
+                <p class="white-text">TusServicios.com.ve | &copy; 201 Copyright</p>
             </div>
-            <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Enlaces</h5>
-                <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Contacto</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Terminos y Condiciones</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="row">
-            <div class="col s12 right">
-                © 2015 Copyright
+            <div class="col-md-7 col-xs-12 text-right ">
+                <a class="text-white" href="#!">Terminos y Condiciones</a>
             </div>
         </div>
     </div>

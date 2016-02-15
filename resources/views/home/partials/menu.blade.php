@@ -1,13 +1,6 @@
-<nav class="navbar bg-light-blue-gradient flat navbar-home">
+<nav class="navbar bg-blue-active flat navbar-home no-margin hidden-xs">
     <div class="container">
-        <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed pull-right margin-top"
-                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                    aria-controls="navbar">
-                <span class="fa fa-bars"></span>
-            </button>
-
+        <div class="navbar-header text-center">
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('assets/img/logo-hz.jpg') }}" alt="logo" class="border-radius"/>
             </a>
@@ -33,3 +26,26 @@
         </div>
     </div>
 </nav>
+<div class="container-fluid bg-blue-active hidden-lg hidden-md hidden-sm" >
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="list-inline text-center menu-hz">
+                <li>
+                    <a href="./" class="text-white">
+                        <i class="fa fa-user"></i> Registro
+                    </a>
+                </li>
+                <li>
+                    <a href="./" class="text-white">
+                        <i class="fa fa-sign-in"></i> Acceso
+                    </a>
+                </li>
+                <li>
+                    <a href="./" class="text-white">
+                        <i class="fa fa-info-circle"></i> Ayuda
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

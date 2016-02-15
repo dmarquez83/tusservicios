@@ -19,7 +19,7 @@
   height: 90px; }
 
 .navbar-nav > li > a:hover {
-  color: orangered; }
+  color: #222662; }
 
 .navbar-nav > li:first-child > a {
   border-top-left-radius: 0.7em;
@@ -29,6 +29,28 @@
 .navbar-nav > li:last-child > a {
   border-top-right-radius: 0.7em;
   border-bottom-right-radius: 0.7em;
+  border-left: 1px solid #fff; }
+
+.menu-hz {
+  padding: 0.5em 1em 0; }
+
+.menu-hz > li {
+  padding: 0 1em; }
+
+.menu-hz > li:hover {
+  background-color: #FFF; }
+
+.menu-hz > li > a:hover {
+  color: #222662; }
+
+.menu-hz > li:first-child {
+  border-top-left-radius: 0.25em;
+  border-bottom-left-radius: 0.25em;
+  border-right: 1px solid #fff; }
+
+.menu-hz > li:last-child {
+  border-top-right-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
   border-left: 1px solid #fff; }
 
 /*# sourceMappingURL=home.css.map */

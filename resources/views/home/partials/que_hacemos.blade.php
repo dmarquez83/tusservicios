@@ -1,25 +1,91 @@
-<div class="l-paralax-section what-we-do-section paralax-section1 l-section"  data-0="background-position:0px 180px" data-10000="background-position: 0px -2000px;"  id="whatwedo">
+<section id="how-to" class="container-fluid bg-gray-light padding">
 
-                        <div class="container">
-                            <h4 class="text-center">Qué ofrecemos</h4>
+    <div class="row">
 
-                            <div class="row pasos">
+        <div class="col-xs-12">
+            <h2 class="text-center text-ts-blue margin">Como funciona</h2>
+        </div>
 
-                                {!! Html::image('assets/img/paso-paso.png', '', array('class' => '')) !!}
+        <div class="col-xs-12">
+            <ul class="timeline">
+                <li class="time-label">
+                        <span class="bg-orange-active ">
+                            1er Paso
+                        </span>
+                </li>
+                <li>
+                    <i class="fa fa-search bg-blue-active"></i>
+                    <div class="timeline-item">
+                        <h3 class="timeline-header">Ubica el Servicios que necesitas en nuestra web</h3>
 
-                            </div><!-- row -->
+                        <div class="timeline-body">
+                            Contamos con una serie de profesionales en ....
+                        </div>
+                    </div>
+                </li>
+                <li class="time-label">
+                        <span class="bg-orange-active ">
+                            2do Paso
+                        </span>
+                </li>
+                <li>
+                    <i class="fa fa-shopping-cart bg-blue-active"></i>
+                    <div class="timeline-item">
+                        <h3 class="timeline-header">Cotiza lo que necesitas</h3>
 
-                            <div class="row bg-hacemos" style="margin-left:-20px;">
-                                <div class="col-md-6 col-md-offset-5">
-                                    <div class="box-hacemos">
-                                        <h3 style="color:orange">Déjanos ayudarte</h3>
-                                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum sint est aut accusamus illum delectus, non debitis ut, ex, optio autem dolores minus dignissimos consectetur ratione quaerat! Placeat, excepturi error.</div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="timeline-body">
+                            te enviaremos un presupuesto online
+                        </div>
+                    </div>
+                </li>
+                <li class="time-label">
+                        <span class="bg-orange-active ">
+                            3er Paso
+                        </span>
+                </li>
+                <li>
+                    <i class="fa fa-ticket bg-blue-active"></i>
+                    <div class="timeline-item">
+                        <h3 class="timeline-header">Paga tu Reservación</h3>
 
-                        </div><!-- container -->
+                        <div class="timeline-body">
+                            el 30% según lo cotizado
+                        </div>
+                    </div>
+                </li>
+                <li class="time-label">
+                        <span class="bg-orange-active ">
+                            4to Paso
+                        </span>
+                </li>
+                <li>
+                    <i class="fa fa-home bg-blue-active"></i>
+                    <div class="timeline-item">
+                        <h3 class="timeline-header">Recibe el servicio</h3>
 
-                    </div><!-- l-paralax-section -->
+                        <div class="timeline-body">
+                            en la comodidad de tu hogar...
+                        </div>
+                    </div>
+                </li>
+                <li class="time-label">
+                        <span class="bg-orange-active ">
+                            5to Paso
+                        </span>
+                </li>
+                <li>
+                    <i class="fa fa-money bg-blue-active"></i>
+                    <div class="timeline-item">
+                        <h3 class="timeline-header">Paga y Evalua</h3>
 
+                        <div class="timeline-body">
+                            Pagas el resto por el servicio recibido
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
+    </div>
+
+</section>
