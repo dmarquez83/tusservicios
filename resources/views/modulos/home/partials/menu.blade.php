@@ -8,12 +8,12 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right margin-top">
                 <li>
-                    <a href="" class="text-white">
+                    <a href="{{ route('registro') }}" class="text-white">
                         <i class="fa fa-user"></i> Registro
                     </a>
                 </li>
                 <li>
-                    <a href="" class="text-white">
+                    <a href="{{ route('login') }}" class="text-white">
                         <i class="fa fa-sign-in"></i> Acceso
                     </a>
                 </li>
@@ -31,12 +31,12 @@
         <div class="col-xs-12">
             <ul class="list-inline text-center menu-hz">
                 <li>
-                    <a href="" class="text-white">
+                    <a href="{{ route('registro') }}" class="text-white">
                         <i class="fa fa-user"></i> Registro
                     </a>
                 </li>
                 <li>
-                    <a href="" class="text-white">
+                    <a href="{{ route('login') }}" class="text-white">
                         <i class="fa fa-sign-in"></i> Acceso
                     </a>
                 </li>

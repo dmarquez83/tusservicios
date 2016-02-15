@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-md-6">
                             <h4 class="text-center text-black">Datos de Acceso</h4>
-                            {!! Form::open(['route' => 'auth/login', 'class' => 'form-horizontal']) !!}
+                            {!! Form::open(['route' => 'login', 'class' => 'form-horizontal']) !!}
                             <div class="margin-bottom">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
