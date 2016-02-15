@@ -48,7 +48,7 @@ class CatalogosController extends AppBaseController
 	{
 		$catalogos = $this->catalogosRepository->paginate(10);
 
-		return view('catalogos.index')
+		return view('modulos.catalogos.index')
 			->with('catalogos', $catalogos);
 	}
 
@@ -76,7 +76,7 @@ class CatalogosController extends AppBaseController
 
 	 // dd($insumos);
 
-		return view('catalogos.tablecatalogo', compact('solicitudes',$solicitudes, 'insumos', $insumos));
+		return view('modulos.catalogos.tablecatalogo', compact('solicitudes',$solicitudes, 'insumos', $insumos));
 	}
 
 	/**
@@ -212,7 +212,7 @@ class CatalogosController extends AppBaseController
 			return redirect(route('catalogos.index'));
 		}
 
-		return view('catalogos.show')->with('catalogos', $catalogos);
+		return view('modulos.catalogos.show')->with('catalogos', $catalogos);
 	}
 
 	/**
@@ -233,7 +233,7 @@ class CatalogosController extends AppBaseController
 			return redirect(route('catalogos.index'));
 		}
 
-		return view('catalogos.edit')->with('catalogos', $catalogos);
+		return view('modulos.catalogos.edit')->with('catalogos', $catalogos);
 	}
 
 	/**

@@ -52,7 +52,7 @@ class SolicitudesCategoriasController extends AppBaseController
 	  {
 		$categorias = $this->categoriaRepository->paginate(10);
 
-		return view('solicitudes.index')->with('categorias', $categorias);
+		return view('modulos.solicitudes.index')->with('categorias', $categorias);
 	  }
 
 	  /**
@@ -73,7 +73,7 @@ class SolicitudesCategoriasController extends AppBaseController
 		// dd($servicios);
 
 
-		return view('solicitudes.create')->with('servicios', $servicios);
+		return view('modulos.solicitudes.create')->with('servicios', $servicios);
 
 	  }
 
@@ -154,7 +154,7 @@ class SolicitudesCategoriasController extends AppBaseController
 		  return redirect(route('solicitudes.index'));
 		}
 
-		return view('solicitudes.show')->with('solicitudes', $solicitudes);
+		return view('modulos.solicitudes.show')->with('solicitudes', $solicitudes);
 	  }
 
 	  /**
@@ -175,7 +175,7 @@ class SolicitudesCategoriasController extends AppBaseController
 		  return redirect(route('solicitudes.index'));
 		}
 
-		return view('solicitudes.edit')->with('solicitudes', $solicitudes);
+		return view('modulos.solicitudes.edit')->with('solicitudes', $solicitudes);
 	  }
 
 	  /**
@@ -218,7 +218,7 @@ class SolicitudesCategoriasController extends AppBaseController
 			  ->orderBy('solicitudes.id','desc')
 			  ->get();
 
-		return view('solicitudes.indexsolicitudes')->with('solicitudes', $solicitudes);
+		return view('modulos.solicitudes.indexsolicitudes')->with('solicitudes', $solicitudes);
 	  }
 
 
@@ -234,7 +234,7 @@ class SolicitudesCategoriasController extends AppBaseController
 
 		//dd($solicitudes);
 
-		return view('solicitudes.indexsolicitudesusers')->with('solicitudes', $solicitudes);
+		return view('modulos.solicitudes.indexsolicitudesusers')->with('solicitudes', $solicitudes);
 	}
 
     public function getAsignar($id){
@@ -267,7 +267,7 @@ class SolicitudesCategoriasController extends AppBaseController
 
 	  //dd($usuariosServicios);
 
-	  return view('solicitudes.indexasignar')->with(array('solicitudes'=>$solicitudes,'usuariosServicios'=>$usuariosServicios));
+	  return view('modulos.solicitudes.indexasignar')->with(array('solicitudes'=>$solicitudes,'usuariosServicios'=>$usuariosServicios));
 
 	  //ojo mandar los datos del horario y lugar de trabajo
 
@@ -337,7 +337,7 @@ class SolicitudesCategoriasController extends AppBaseController
 
 
 
-		return view('solicitudes.indexDetSolicitud')->with(array('solicitudes'=>$solicitudes,'insumos'=>$insumos,'catalogos'=>$catalogos));
+		return view('modulos.solicitudes.indexDetSolicitud')->with(array('solicitudes'=>$solicitudes,'insumos'=>$insumos,'catalogos'=>$catalogos));
 		//return view('solicitudes.indexDetSolicitud')->with('solicitudes', $solicitudes);
 	}
 

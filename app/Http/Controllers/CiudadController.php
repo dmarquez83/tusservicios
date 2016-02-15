@@ -31,7 +31,7 @@ class CiudadController extends AppBaseController
 
 		//dd($ciudades);
 
-		return view('ciudades.index')
+		return view('modulos.ciudades.index')
 			->with('ciudades', $ciudades);
 	}
 
@@ -42,7 +42,7 @@ class CiudadController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('ciudades.create');
+		return view('modulos.ciudades.create');
 	}
 
 	/**
@@ -81,7 +81,7 @@ class CiudadController extends AppBaseController
 			return redirect(route('admin.ciudades.index'));
 		}
 
-		return view('ciudades.show')->with('ciudad', $ciudad);
+		return view('modulos.ciudades.show')->with('ciudad', $ciudad);
 	}
 
 	/**
@@ -102,7 +102,7 @@ class CiudadController extends AppBaseController
 			return redirect(route('admin.ciudades.index'));
 		}
 
-		return view('ciudades.edit')->with('ciudad', $ciudad);
+		return view('modulos.ciudades.edit')->with('ciudad', $ciudad);
 	}
 
 	/**

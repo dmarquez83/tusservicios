@@ -52,7 +52,7 @@ class TiposervicioController extends AppBaseController
 	  //return response()->json($tiposervicios);
 
 
-	  return view('tiposervicios.indextiposervicios')->with('tiposervicios', $tiposervicios);
+	  return view('modulos.tiposervicios.indextiposervicios')->with('tiposervicios', $tiposervicios);
 
 	}
 
@@ -66,7 +66,7 @@ class TiposervicioController extends AppBaseController
 	$categorias = $this->categoriaRepository->paginate(10);
 	//dd($categorias);
 
-	return view('tiposervicios.index')->with('categorias', $categorias);
+	return view('modulos.tiposervicios.index')->with('categorias', $categorias);
 
 
   }
@@ -80,7 +80,7 @@ class TiposervicioController extends AppBaseController
 	{
 
 		$categorias = Categoria::orderBy('id', 'asc')->lists('nombre', 'id');
-		return view('tiposervicios.create', compact('categorias'));
+		return view('modulos.tiposervicios.create', compact('categorias'));
 	}
 
 
@@ -102,7 +102,7 @@ class TiposervicioController extends AppBaseController
 			return redirect(route('admin.tiposervicios.index'));
 		}
 
-		return view('tiposervicios.show')->with('tiposervicio', $tiposervicio);
+		return view('modulos.tiposervicios.show')->with('tiposervicio', $tiposervicio);
 	}
   /**
    * Store a newly created Tiposervicio in storage.
@@ -134,7 +134,7 @@ class TiposervicioController extends AppBaseController
 	    $categoria = $this->categoriaRepository->find($id);
 		//$categoria = Categoria::where('id', $id)->lists('nombre', 'id');
 		//return response()->json($categorias);
-		return view('tiposervicios.create')->with('categoria', $categoria);
+		return view('modulos.tiposervicios.create')->with('categoria', $categoria);
 	}
 
 
@@ -178,7 +178,7 @@ class TiposervicioController extends AppBaseController
 
 		$categorias = Categoria::find($tiposervicio->id_categoria)->lists('nombre', 'id');
 
-		return view('tiposervicios.edit', compact('categorias'))->with('tiposervicio', $tiposervicio);
+		return view('modulos.tiposervicios.edit', compact('categorias'))->with('tiposervicio', $tiposervicio);
 	}
 
 	/**

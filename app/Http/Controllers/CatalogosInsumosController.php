@@ -28,7 +28,7 @@ class CatalogosInsumosController extends AppBaseController
 	{
 		$catalogosInsumos = $this->catalogosInsumosRepository->paginate(10);
 
-		return view('catalogosInsumos.index')
+		return view('modulos.catalogosInsumos.index')
 			->with('catalogosInsumos', $catalogosInsumos);
 	}
 
@@ -39,7 +39,7 @@ class CatalogosInsumosController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('catalogosInsumos.create');
+		return view('modulos.catalogosInsumos.create');
 	}
 
 	/**
@@ -78,7 +78,7 @@ class CatalogosInsumosController extends AppBaseController
 			return redirect(route('catalogosInsumos.index'));
 		}
 
-		return view('catalogosInsumos.show')->with('catalogosInsumos', $catalogosInsumos);
+		return view('modulos.catalogosInsumos.show')->with('catalogosInsumos', $catalogosInsumos);
 	}
 
 	/**
@@ -99,7 +99,7 @@ class CatalogosInsumosController extends AppBaseController
 			return redirect(route('catalogosInsumos.index'));
 		}
 
-		return view('catalogosInsumos.edit')->with('catalogosInsumos', $catalogosInsumos);
+		return view('modulos.catalogosInsumos.edit')->with('catalogosInsumos', $catalogosInsumos);
 	}
 
 	/**

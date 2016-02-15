@@ -73,7 +73,7 @@ class ServiciosAdminController extends AppBaseController
 		//return response()->json($servicios);
 
 
-		return view('servicios.indexservicios')->with('servicios', $servicios);
+		return view('modulos.servicios.indexservicios')->with('servicios', $servicios);
 	}
 
 
@@ -100,7 +100,7 @@ class ServiciosAdminController extends AppBaseController
 		$ponderacion = Ponderacion::orderBy('id', 'asc')->lists('nombre','valor', 'id');
 
 
-		return view('servicios.create', compact('tiposervicios','estatu','ponderacion'));
+		return view('modulos.servicios.create', compact('tiposervicios','estatu','ponderacion'));
 	}
 
 	/**

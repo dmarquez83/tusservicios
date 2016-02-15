@@ -38,7 +38,7 @@ class ProveedoresController extends AppBaseController
 	{
 		$proveedores = $this->proveedoresRepository->all();
 
-		return view('proveedores.index')
+		return view('modulos.proveedores.index')
 			->with('proveedores', $proveedores);
 	}
 
@@ -52,7 +52,7 @@ class ProveedoresController extends AppBaseController
 
 		$insumos = Insumo::orderby('id','desc')->get();
 
-		return view('proveedores.create', compact('insumos'));
+		return view('modulos.proveedores.create', compact('insumos'));
 	}
 
 	/**
@@ -158,7 +158,7 @@ class ProveedoresController extends AppBaseController
 			return redirect(route('admin.proveedores.index'));
 		}
 
-		return view('proveedores.show')->with('proveedores', $proveedores);
+		return view('modulos.proveedores.show')->with('proveedores', $proveedores);
 	}
 
 	/**
@@ -181,7 +181,7 @@ class ProveedoresController extends AppBaseController
 			return redirect(route('admin.proveedores.index'));
 		}
 
-		return view('proveedores.edit')->with(array('proveedores'=>$proveedores,'insumos'=>$insumos));
+		return view('modulos.proveedores.edit')->with(array('proveedores'=>$proveedores,'insumos'=>$insumos));
 	}
 
 	/**

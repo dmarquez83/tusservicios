@@ -44,13 +44,13 @@ class TableHelper extends Helper
     }
 
     /**
-     * Sets table layout type.
+     * Sets table partials type.
      *
      * @param int $layout self::LAYOUT_*
      *
      * @return TableHelper
      *
-     * @throws \InvalidArgumentException when the table layout is not known
+     * @throws \InvalidArgumentException when the table partials is not known
      */
     public function setLayout($layout)
     {
@@ -68,7 +68,7 @@ class TableHelper extends Helper
                 break;
 
             default:
-                throw new \InvalidArgumentException(sprintf('Invalid table layout "%s".', $layout));
+                throw new \InvalidArgumentException(sprintf('Invalid table partials "%s".', $layout));
         };
 
         return $this;

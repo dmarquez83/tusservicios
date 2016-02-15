@@ -28,7 +28,7 @@ class LugaresController extends AppBaseController
 	{
 		$lugares = $this->lugaresRepository->paginate(10);
 
-		return view('lugares.index')
+		return view('modulos.lugares.index')
 			->with('lugares', $lugares);
 	}
 
@@ -78,7 +78,7 @@ class LugaresController extends AppBaseController
 			return redirect(route('lugares.index'));
 		}
 
-		return view('lugares.show')->with('lugares', $lugares);
+		return view('modulos.lugares.show')->with('lugares', $lugares);
 	}
 
 	/**
@@ -99,7 +99,7 @@ class LugaresController extends AppBaseController
 			return redirect(route('lugares.index'));
 		}
 
-		return view('lugares.edit')->with('lugares', $lugares);
+		return view('modulos.lugares.edit')->with('lugares', $lugares);
 	}
 
 	/**

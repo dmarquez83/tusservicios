@@ -61,7 +61,7 @@ class SolicitudServiciosController extends AppBaseController
 	 // dd($servicios);
 
 
-	  return view('solicitudes.indexservicios')->with('servicios', $servicios);
+	  return view('modulos.solicitudes.indexservicios')->with('servicios', $servicios);
 
 	}
 
@@ -79,7 +79,7 @@ class SolicitudServiciosController extends AppBaseController
 		$servicios = Servicios::where('id', '1')->orderBy('id', 'asc')->lists('nombre', 'id');
 
 
-		return view('solicitudes.create')->with('servicios', $servicios);
+		return view('modulos.solicitudes.create')->with('servicios', $servicios);
 
 	}
 
@@ -129,7 +129,7 @@ class SolicitudServiciosController extends AppBaseController
 			return redirect(route('solicitudes.index'));
 		}
 
-		return view('solicitudes.show')->with('solicitudes', $solicitudes);
+		return view('modulos.solicitudes.show')->with('solicitudes', $solicitudes);
 	}
 
 	/**
@@ -150,7 +150,7 @@ class SolicitudServiciosController extends AppBaseController
 			return redirect(route('solicitudes.index'));
 		}
 
-		return view('solicitudes.edit')->with('solicitudes', $solicitudes);
+		return view('modulos.solicitudes.edit')->with('solicitudes', $solicitudes);
 	}
 
 	/**

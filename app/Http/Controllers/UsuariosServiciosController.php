@@ -56,7 +56,7 @@ class UsuariosServiciosController extends AppBaseController
 	   }
 
 
-		return view('usuariosServicios.index')
+		return view('modulos.usuariosServicios.index')
 			->with('usuariosServicios', $usuariosServicios);
 	}
 
@@ -77,7 +77,7 @@ class UsuariosServiciosController extends AppBaseController
 
 		$dias = Dias::get();
 
-		return view('usuariosServicios.create', compact('ciudades','categorias','horas','dias','servicios'));
+		return view('modulos.usuariosServicios.create', compact('ciudades','categorias','horas','dias','servicios'));
 
 	}
 
@@ -158,7 +158,7 @@ class UsuariosServiciosController extends AppBaseController
 			return redirect(route('user.servicios.index'));
 		}
 
-		return view('usuariosServicios.show')->with('usuariosServicios', $usuariosServicios);
+		return view('modulos.usuariosServicios.show')->with('usuariosServicios', $usuariosServicios);
 	}
 
 	/**
@@ -263,7 +263,7 @@ class UsuariosServiciosController extends AppBaseController
 							   order by a.id
 							   ', array($id,$id,$id,$id,$id,$id,$id));
 
-	  return view('usuariosServicios.edit', compact('usuariosServicios','ciudades','categorias','horas','dias','servicios','horarios','lugares'));
+	  return view('modulos.usuariosServicios.edit', compact('usuariosServicios','ciudades','categorias','horas','dias','servicios','horarios','lugares'));
 
 	}
 
@@ -407,7 +407,7 @@ class UsuariosServiciosController extends AppBaseController
 	//indexUsuariosSolicitudes
 
 
-	return view('usuariosServicios.indexUsuariosSolicitudes')
+	return view('modulos.usuariosServicios.indexUsuariosSolicitudes')
 	  ->with('usuariosSolicitudes', $usuariosSolicitudes);
   }
 

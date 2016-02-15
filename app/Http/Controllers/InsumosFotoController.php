@@ -28,7 +28,7 @@ class InsumosFotoController extends AppBaseController
 	{
 		$insumosFotos = $this->insumosFotoRepository->paginate(10);
 
-		return view('insumosFotos.index')
+		return view('modulos.insumosFotos.index')
 			->with('insumosFotos', $insumosFotos);
 	}
 
@@ -39,7 +39,7 @@ class InsumosFotoController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('insumosFotos.create');
+		return view('modulos.insumosFotos.create');
 	}
 
 	/**
@@ -78,7 +78,7 @@ class InsumosFotoController extends AppBaseController
 			return redirect(route('insumosFotos.index'));
 		}
 
-		return view('insumosFotos.show')->with('insumosFoto', $insumosFoto);
+		return view('modulos.insumosFotos.show')->with('insumosFoto', $insumosFoto);
 	}
 
 	/**
@@ -99,7 +99,7 @@ class InsumosFotoController extends AppBaseController
 			return redirect(route('insumosFotos.index'));
 		}
 
-		return view('insumosFotos.edit')->with('insumosFoto', $insumosFoto);
+		return view('modulos.insumosFotos.edit')->with('insumosFoto', $insumosFoto);
 	}
 
 	/**

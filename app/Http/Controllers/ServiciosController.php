@@ -59,7 +59,7 @@ class ServiciosController extends AppBaseController
   {
 	$categorias = $this->categoriaRepository->paginate(10);
 
-	return view('servicios.index')->with('categorias', $categorias);
+	return view('modulos.servicios.index')->with('categorias', $categorias);
   }
 
 
@@ -87,7 +87,7 @@ class ServiciosController extends AppBaseController
 	//return response()->json($servicios);
 
 
-	return view('servicios.indexservicios')->with('servicios', $servicios);
+	return view('modulos.servicios.indexservicios')->with('servicios', $servicios);
 
   }
 
@@ -108,7 +108,7 @@ class ServiciosController extends AppBaseController
 
 	//$email = DB::table('users')->where('name', 'John')->value('email');
 
-	return view('servicios.create', compact('tiposervicios','estatu','ponderacion','categorias'));
+	return view('modulos.servicios.create', compact('tiposervicios','estatu','ponderacion','categorias'));
   }
 
 
@@ -134,7 +134,7 @@ class ServiciosController extends AppBaseController
 	$ponderacion = Ponderacion::orderBy('id', 'asc')->lists('nombre','valor', 'id');
 
 
-	return view('servicios.create', compact('tiposervicios','estatu','ponderacion'));
+	return view('modulos.servicios.create', compact('tiposervicios','estatu','ponderacion'));
   }
 
   /**
@@ -231,7 +231,7 @@ class ServiciosController extends AppBaseController
 	  return redirect(route('servicios.index'));
 	}
 
-	return view('servicios.show')->with('servicios', $servicios);
+	return view('modulos.servicios.show')->with('servicios', $servicios);
   }
 
   /**
@@ -280,7 +280,7 @@ class ServiciosController extends AppBaseController
 	  return redirect(route('categorias.servicios.index'));
 	}
 
-	return view('servicios.edit')->with(array('servicios'=>$servicios,'tiposervicios'=>$tiposervicios,'estatu'=>$estatu,'ponderacion'=>$ponderacion,'categorias'=>$categorias));
+	return view('modulos.servicios.edit')->with(array('servicios'=>$servicios,'tiposervicios'=>$tiposervicios,'estatu'=>$estatu,'ponderacion'=>$ponderacion,'categorias'=>$categorias));
   }
 
   /**
@@ -396,7 +396,7 @@ class ServiciosController extends AppBaseController
 		//return response()->json($servicios);
 
         //var_dump($servicios);
-		return view('servicios.indexListar')->with('servicios', $servicios);
+		return view('modulos.servicios.indexListar')->with('servicios', $servicios);
 
 	}
 
@@ -421,7 +421,7 @@ class ServiciosController extends AppBaseController
 			return redirect(route('servicios.index',$id));
 		}
 
-		return view('servicios.show')->with('servicios', $servicios);
+		return view('modulos.servicios.show')->with('servicios', $servicios);
 	}
 
     public function detallecategorias($id)
@@ -448,7 +448,7 @@ class ServiciosController extends AppBaseController
 
         $detcategoria = Collection::make($servicios1);
 
-        return view('categorias.show_categorias')->with(array('categorias' => $categorias, 'detcategoria' => $detcategoria));
+        return view('modulos.categorias.show_categorias')->with(array('categorias' => $categorias, 'detcategoria' => $detcategoria));
 
         //var_dump($detcategoria);
 

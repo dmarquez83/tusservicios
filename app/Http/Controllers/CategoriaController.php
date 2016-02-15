@@ -33,7 +33,7 @@ class CategoriaController extends AppBaseController
   {
 	$categorias = $this->categoriaRepository->all();
 
-	return view('categorias.index')
+	return view('modulos.categorias.index')
 	  ->with('categorias', $categorias);
   }
 
@@ -44,7 +44,7 @@ class CategoriaController extends AppBaseController
    */
   public function create()
   {
-	return view('categorias.create');
+	return view('modulos.categorias.create');
   }
 
   /**
@@ -118,7 +118,7 @@ class CategoriaController extends AppBaseController
 	  return redirect(route('categorias.index'));
 	}
 
-	return view('categorias.show')->with('categoria', $categoria);
+	return view('modulos.categorias.show')->with('categoria', $categoria);
   }
 
   /**
@@ -140,7 +140,7 @@ class CategoriaController extends AppBaseController
 	  return redirect(route('categorias.index'));
 	}
 
-	return view('categorias.edit')->with('categoria', $categoria);
+	return view('modulos.categorias.edit')->with('categoria', $categoria);
   }
 
   /**

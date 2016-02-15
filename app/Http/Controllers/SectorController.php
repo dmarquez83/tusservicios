@@ -37,7 +37,7 @@ class SectorController extends AppBaseController
 		->get();
 	  //dd($sectores);
 
-		return view('sectores.index')
+		return view('modulos.sectores.index')
 			->with('sectores', $sectores);
 	}
 
@@ -50,7 +50,7 @@ class SectorController extends AppBaseController
 	{
 		$ciudades = Ciudad::orderBy('id', 'asc')->lists('nombre', 'id');
 
-		return view('sectores.create', compact('ciudades',$ciudades));
+		return view('modulos.sectores.create', compact('ciudades',$ciudades));
 	}
 
 	/**
@@ -89,7 +89,7 @@ class SectorController extends AppBaseController
 			return redirect(route('admin.sectores.index'));
 		}
 
-		return view('sectores.show')->with('sector', $sector);
+		return view('modulos.sectores.show')->with('sector', $sector);
 	}
 
 	/**
@@ -113,7 +113,7 @@ class SectorController extends AppBaseController
 			return redirect(route('admin.sectores.index'));
 		}
 
-		return view('sectores.edit')->with(array('sector' => $sector, 'ciudades' => $ciudades));
+		return view('modulos.sectores.edit')->with(array('sector' => $sector, 'ciudades' => $ciudades));
 	}
 
 	/**

@@ -28,7 +28,7 @@ class EvaluacionesController extends AppBaseController
 	{
 		$evaluaciones = $this->evaluacionesRepository->paginate(10);
 
-		return view('evaluaciones.index')
+		return view('modulos.evaluaciones.index')
 			->with('evaluaciones', $evaluaciones);
 
 	 // return response()->json($evaluaciones);
@@ -41,7 +41,7 @@ class EvaluacionesController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('evaluaciones.create');
+		return view('modulos.evaluaciones.create');
 	}
 
 	/**
@@ -101,7 +101,7 @@ class EvaluacionesController extends AppBaseController
 			return redirect(route('admin.evaluaciones.index'));
 		}
 
-		return view('evaluaciones.edit')->with('evaluaciones', $evaluaciones);
+		return view('modulos.evaluaciones.edit')->with('evaluaciones', $evaluaciones);
 	}
 
 	/**

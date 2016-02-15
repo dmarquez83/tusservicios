@@ -28,7 +28,7 @@ class TipousuariosController extends AppBaseController
 	{
 		$tipousuarios = $this->tipousuariosRepository->paginate(10);
 
-		return view('tipousuarios.index')
+		return view('modulos.tipousuarios.index')
 			->with('tipousuarios', $tipousuarios);
 	}
 
@@ -39,7 +39,7 @@ class TipousuariosController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('tipousuarios.create');
+		return view('modulos.tipousuarios.create');
 	}
 
 	/**
@@ -78,7 +78,7 @@ class TipousuariosController extends AppBaseController
 			return redirect(route('admin.tipousuarios.index'));
 		}
 
-		return view('tipousuarios.show')->with('tipousuarios', $tipousuarios);
+		return view('modulos.tipousuarios.show')->with('tipousuarios', $tipousuarios);
 	}
 
 	/**
@@ -99,7 +99,7 @@ class TipousuariosController extends AppBaseController
 			return redirect(route('admin.tipousuarios.index'));
 		}
 
-		return view('tipousuarios.edit')->with('tipousuarios', $tipousuarios);
+		return view('modulos.tipousuarios.edit')->with('tipousuarios', $tipousuarios);
 	}
 
 	/**

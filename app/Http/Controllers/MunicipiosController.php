@@ -28,7 +28,7 @@ class MunicipiosController extends AppBaseController
 	{
 		$municipios = $this->municipiosRepository->paginate(10);
 
-		return view('municipios.index')
+		return view('modulos.municipios.index')
 			->with('municipios', $municipios);
 	}
 
@@ -39,7 +39,7 @@ class MunicipiosController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('municipios.create');
+		return view('modulos.municipios.create');
 	}
 
 	/**
@@ -78,7 +78,7 @@ class MunicipiosController extends AppBaseController
 			return redirect(route('municipios.index'));
 		}
 
-		return view('municipios.show')->with('municipios', $municipios);
+		return view('modulos.municipios.show')->with('municipios', $municipios);
 	}
 
 	/**

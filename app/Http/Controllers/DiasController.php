@@ -28,7 +28,7 @@ class DiasController extends AppBaseController
 	{
 		$dias = $this->diasRepository->all();
 		//return reponse()->json($dias);
-		return view('dias.index')
+		return view('modulos.dias.index')
 			->with('dias', $dias);
 	}
 
@@ -39,7 +39,7 @@ class DiasController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('dias.create');
+		return view('modulos.dias.create');
 	}
 
 	/**
@@ -78,7 +78,7 @@ class DiasController extends AppBaseController
 			return redirect(route('admin.dias.index'));
 		}
 
-		return view('dias.show')->with('dias', $dias);
+		return view('modulos.dias.show')->with('dias', $dias);
 	}
 
 	/**
@@ -99,7 +99,7 @@ class DiasController extends AppBaseController
 			return redirect(route('admin.dias.index'));
 		}
 
-		return view('dias.edit')->with('dias', $dias);
+		return view('modulos.dias.edit')->with('dias', $dias);
 	}
 
 	/**

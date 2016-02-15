@@ -40,7 +40,7 @@ class MockingProtectedMethodsTest extends MockeryTestCase
      * @test
      *
      * This is a regression test, basically we don't want the mock handling
-     * interfering with calling protected methods partials
+     * interfering with calling protected methods app
      */
     public function shouldAutomaticallyDeferCallsToProtectedMethodsForPartials()
     {
@@ -52,7 +52,7 @@ class MockingProtectedMethodsTest extends MockeryTestCase
      * @test
      *
      * This is a regression test, basically we don't want the mock handling
-     * interfering with calling protected methods partials
+     * interfering with calling protected methods app
      */
     public function shouldAutomaticallyDeferCallsToProtectedMethodsForRuntimePartials()
     {

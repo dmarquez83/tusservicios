@@ -28,7 +28,7 @@ class EstatuController extends AppBaseController
 	{
 		$estatus = $this->estatuRepository->all();
 
-	  return view('estatus.index')
+	  return view('modulos.estatus.index')
 			->with('estatus', $estatus);
 
 	  // return response()->json($estatus);
@@ -42,7 +42,7 @@ class EstatuController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('estatus.create');
+		return view('modulos.estatus.create');
 	}
 
 	/**
@@ -81,7 +81,7 @@ class EstatuController extends AppBaseController
 			return redirect(route('admin.estatus.index'));
 		}
 
-		return view('estatus.show')->with('estatu', $estatu);
+		return view('modulos.estatus.show')->with('estatu', $estatu);
 	}
 
 	/**
@@ -102,7 +102,7 @@ class EstatuController extends AppBaseController
 			return redirect(route('admin.estatus.index'));
 		}
 
-		return view('estatus.edit')->with('estatu', $estatu);
+		return view('modulos.estatus.edit')->with('estatu', $estatu);
 	}
 
 	/**

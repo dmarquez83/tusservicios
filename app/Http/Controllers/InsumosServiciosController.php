@@ -28,7 +28,7 @@ class InsumosServiciosController extends AppBaseController
 	{
 		$insumosServicios = $this->insumosServiciosRepository->paginate(10);
 
-		return view('insumosServicios.index')
+		return view('modulos.insumosServicios.index')
 			->with('insumosServicios', $insumosServicios);
 	}
 
@@ -39,7 +39,7 @@ class InsumosServiciosController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('insumosServicios.create');
+		return view('modulos.insumosServicios.create');
 	}
 
 	/**
@@ -78,7 +78,7 @@ class InsumosServiciosController extends AppBaseController
 			return redirect(route('insumosServicios.index'));
 		}
 
-		return view('insumosServicios.show')->with('insumosServicios', $insumosServicios);
+		return view('modulos.insumosServicios.show')->with('insumosServicios', $insumosServicios);
 	}
 
 	/**
@@ -99,7 +99,7 @@ class InsumosServiciosController extends AppBaseController
 			return redirect(route('insumosServicios.index'));
 		}
 
-		return view('insumosServicios.edit')->with('insumosServicios', $insumosServicios);
+		return view('modulos.insumosServicios.edit')->with('insumosServicios', $insumosServicios);
 	}
 
 	/**

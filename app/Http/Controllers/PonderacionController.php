@@ -28,7 +28,7 @@ class PonderacionController extends AppBaseController
 	{
 		$ponderaciones = $this->ponderacionRepository->paginate(10);
         //dd($ponderaciones);
-		return view('ponderaciones.index')
+		return view('modulos.ponderaciones.index')
 			->with('ponderaciones', $ponderaciones);
 	}
 
@@ -39,7 +39,7 @@ class PonderacionController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('ponderaciones.create');
+		return view('modulos.ponderaciones.create');
 	}
 
 	/**
@@ -84,7 +84,7 @@ class PonderacionController extends AppBaseController
 			return redirect(route('admin.ponderaciones.index'));
 		}
 
-		return view('ponderaciones.show')->with('ponderacion', $ponderacion);
+		return view('modulos.ponderaciones.show')->with('ponderacion', $ponderacion);
 	}
 
 	/**
@@ -105,7 +105,7 @@ class PonderacionController extends AppBaseController
 			return redirect(route('admin.ponderaciones.index'));
 		}
 
-		return view('ponderaciones.edit')->with('ponderacion', $ponderacion);
+		return view('modulos.ponderaciones.edit')->with('ponderacion', $ponderacion);
 	}
 
 	/**

@@ -36,7 +36,7 @@ class InsumoController extends AppBaseController
 
 	  //$insumos = Insumo::orderby('id','desc')->all();
 
-		return view('insumos.index')
+		return view('modulos.insumos.index')
 			->with('insumos', $insumos);
 	}
 
@@ -47,7 +47,7 @@ class InsumoController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('insumos.create');
+		return view('modulos.insumos.create');
 	}
 
 	/**
@@ -122,7 +122,7 @@ class InsumoController extends AppBaseController
 			return redirect(route('admin.insumos.index'));
 		}
 
-		return view('insumos.show')->with('insumo', $insumo);
+		return view('modulos.insumos.show')->with('insumo', $insumo);
 	}
 
 	/**
@@ -144,7 +144,7 @@ class InsumoController extends AppBaseController
 			return redirect(route('admin.insumos.index'));
 		}
 
-		return view('insumos.edit')->with('insumos', $insumos);
+		return view('modulos.insumos.edit')->with('insumos', $insumos);
 	}
 
 	/**

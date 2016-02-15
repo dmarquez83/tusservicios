@@ -28,7 +28,7 @@ class HorasController extends AppBaseController
 	{
 		$horas = $this->horasRepository->all();
 
-		return view('horas.index')
+		return view('modulos.horas.index')
 			->with('horas', $horas);
 	}
 
@@ -39,7 +39,7 @@ class HorasController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('horas.create');
+		return view('modulos.horas.create');
 	}
 
 	/**
@@ -78,7 +78,7 @@ class HorasController extends AppBaseController
 			return redirect(route('admin.horas.index'));
 		}
 
-		return view('horas.show')->with('horas', $horas);
+		return view('modulos.horas.show')->with('horas', $horas);
 	}
 
 	/**
@@ -99,7 +99,7 @@ class HorasController extends AppBaseController
 			return redirect(route('admin.horas.index'));
 		}
 
-		return view('horas.edit')->with('horas', $horas);
+		return view('modulos.horas.edit')->with('horas', $horas);
 	}
 
 	/**

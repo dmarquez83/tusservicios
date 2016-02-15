@@ -39,7 +39,7 @@ class EstadosController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('estados.create');
+		return view('modulos.estados.create');
 	}
 
 	/**
@@ -78,7 +78,7 @@ class EstadosController extends AppBaseController
 			return redirect(route('estados.index'));
 		}
 
-		return view('estados.show')->with('estados', $estados);
+		return view('modulos.estados.show')->with('estados', $estados);
 	}
 
 	/**
@@ -99,7 +99,7 @@ class EstadosController extends AppBaseController
 			return redirect(route('estados.index'));
 		}
 
-		return view('estados.edit')->with('estados', $estados);
+		return view('modulos.estados.edit')->with('estados', $estados);
 	}
 
 	/**

@@ -31,12 +31,12 @@ class HomeController extends Controller
 
     public function dashboradUser()
     {
-      return   view('dashborad.tableusuario');
+      return   view('modulos.dashborad.tableusuario');
     }
 
     public function dashboradAdmin()
     {
-      return   view('dashborad.tableadmin');
+      return   view('modulos.dashborad.tableadmin');
     }
 
 }

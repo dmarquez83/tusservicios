@@ -28,7 +28,7 @@ class HorariosController extends AppBaseController
 	{
 		$horarios = $this->horariosRepository->paginate(10);
 
-		return view('horarios.index')
+		return view('modulos.horarios.index')
 			->with('horarios', $horarios);
 	}
 
@@ -39,7 +39,7 @@ class HorariosController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('horarios.create');
+		return view('modulos.horarios.create');
 	}
 
 	/**
@@ -78,7 +78,7 @@ class HorariosController extends AppBaseController
 			return redirect(route('horarios.index'));
 		}
 
-		return view('horarios.show')->with('horarios', $horarios);
+		return view('modulos.horarios.show')->with('horarios', $horarios);
 	}
 
 	/**
@@ -99,7 +99,7 @@ class HorariosController extends AppBaseController
 			return redirect(route('horarios.index'));
 		}
 
-		return view('horarios.edit')->with('horarios', $horarios);
+		return view('modulos.horarios.edit')->with('horarios', $horarios);
 	}
 
 	/**

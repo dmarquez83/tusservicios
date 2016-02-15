@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layout.app')
  
 @section('content')
 <div class="container">
@@ -9,7 +9,7 @@
  
                 <div class="panel-body">
                     {!! Form::open(['route' => 'auth/register', 'class' => 'form']) !!}
-                    @include('partials.layout.registro')
+                    @include('app.partials.registro')
                     <div class="box-footer">
                         {!! Form::submit(trans('form.signup.submit'),['class' => 'btn btn-primary']) !!}
                     </div>

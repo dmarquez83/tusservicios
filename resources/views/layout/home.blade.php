@@ -12,18 +12,19 @@
         {!! Html::style('assets/css/ionicons.min.css') !!}
         {!! Html::style('assets/css/app.css') !!}
         {!! Html::style('assets/css/home.css') !!}
+
         @yield('styles')
+
     </head>
     <body>
 
         @yield('content')
 
-
-
         <script src="{{ asset('assets/js/jQuery-2.1.4.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/js/app.min.js') }}"></script>
         <script src="{{ asset('assets/js/modernizr.js') }}"></script>
+
         @yield('scripts')
     </body>
 </html>
