@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
 
 
@@ -27,11 +29,11 @@ $(document).ready(function(){
 
                 for(var i=0; i<data.length; i++){
 
-                    var fila = "<tr class='fil" +  data[i].id + "' >";
-                    fila += "<td><input class='boton_check' type='checkbox' name='" + "insumo[" + i + "]" + "' value='" + data[i].id + "'></td>";
+                    var fila = "<tr class='fil" +  data[i].insumo_id + "' >";
+                    fila += "<td><input class='boton_check' type='checkbox' name='" + "insumo[" + i + "]" + "' value='" + data[i].insumo_id + "'></td>";
                     fila += "<td><img src="+ path_img + "/" + data[i].foto  + " width='30'></td>";
-                    fila += "<td class='ref" + data[i].id + "'>" + data[i].referencia + "</td>";
-                    fila += "<td class='des" + data[i].id + "'>" + data[i].descripcion + "</td>";
+                    fila += "<td class='ref" + data[i].insumo_id + "'>" + data[i].referencia + "</td>";
+                    fila += "<td class='des" + data[i].insumo_id + "'>" + data[i].descripcion + "</td>";
                     fila += "</tr>";
 
                     table.append(fila);
@@ -64,26 +66,26 @@ $(document).ready(function(){
             listaInsumos.push(parseInt($(this).val())) ;
 
 
-           $('input[name^="insumoh"]').each(function() {
+            $('input[name^="insumoh"]').each(function() {
 
                 //alert($(this).val());
 
                 if(listaInsumos != $(this).val()){
 
-                   repetido = 1;
+                    repetido = 1;
 
                 }else{
 
-                   alert('Este insumo ya se encuentra en la Lista');
+                    alert('Este insumo ya se encuentra en la Lista');
 
-                   x = 2;
+                    x = 2;
 
                     $("input:checkbox").prop('checked', false);
 
 
 
                 }
-           });
+            });
 
 
 
@@ -93,7 +95,7 @@ $(document).ready(function(){
 
                 fila += "<td>" +  $(".fil" + listaInsumos + " td")[1].innerHTML + "</td>";
                 fila += "<td>" +  $(".fil" + listaInsumos + " td")[2].innerHTML +
-                     "<input type='hidden' class='insumos' name='insumoh["+  listaInsumos +  "]' value='" + listaInsumos + "'></input></td>";
+                    "<input type='hidden' class='insumos' name='insumoh["+  listaInsumos +  "]' value='" + listaInsumos + "'></input></td>";
                 fila += "<td>" +  $(".fil" + listaInsumos + " td")[3].innerHTML + "</td>";
                 fila += "<td>" +  "<button class='delete'>Borrar</button>" +  "</td>";
                 fila += "</tr>";
@@ -130,3 +132,4 @@ $(document).ready(function(){
 
 
 });
+

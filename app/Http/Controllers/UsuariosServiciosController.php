@@ -380,16 +380,19 @@ class UsuariosServiciosController extends AppBaseController
 		return $servicios;
 	}
 
-  public function getLugares($id)
-  {
-	$lugares = DB::table('lugares')
-	  ->join('sectores','sectores.id','=','lugares.sector_id')
-	  ->select('lugares.id','sectores.nombre','sectores.id as sector_id')
-	  ->where('lugares.usuario_servicio_id','=',$id)
-	  ->get();
+	public function getLugares($id)
+	{
+		$lugares = DB::table('lugares')
+			->join('sectores','sectores.id','=','lugares.sector_id')
+			->join('usuarios_servicios','usuarios_servicios.id','=','lugares.usuario_servicio_id')
+			->join('users', 'users.id', '=', 'usuarios_servicios.user_id')
+			->select('lugares.id','sectores.nombre','sectores.id as sector_id')
+			->where('lugares.usuario_servicio_id','=',$id)
+			->get();
 
-	return $lugares;
-  }
+		return $lugares;
+	}
+
 
   public function getUsuariosSolicitudes(){
 	$usuariosSolicitudes = DB::table('usuarios_solicitudes')
@@ -410,6 +413,8 @@ class UsuariosServiciosController extends AppBaseController
 	return view('modulos.usuariosServicios.indexUsuariosSolicitudes')
 	  ->with('usuariosSolicitudes', $usuariosSolicitudes);
   }
+
+
 
 
 }

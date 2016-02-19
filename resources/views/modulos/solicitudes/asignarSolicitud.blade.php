@@ -70,8 +70,8 @@
                             <th>Seleccionar</th>
                             <th>Usuario </th>
                             <th>Nombre de Usuario </th>
-                            <th>Ver Lugares </th>
-                            <th>Ver Horario </th>
+                            <th>Lugares </th>
+                            <th>Horario </th>
                         </thead>
                         <tbody>
                         @foreach($usuariosServicios as $usuariosservicio)
@@ -79,7 +79,7 @@
                                 <td>{!! Form::radio('usuario', $usuariosservicio->user_id, false) !!}</td>
                                 <td>{!! $usuariosservicio->user_id !!}</td>
                                 <td>{!! $usuariosservicio->name !!}</td>
-                                <td></td>
+                                <td><div id="lugares" >   {!! Form::hidden('ruta', route('lugares.getLugares',$usuariosservicio->id ), ['class' => 'form-control', 'id' => 'ruta']) !!}</div></td>
                                 <td></td>
                             </tr>
                         @endforeach

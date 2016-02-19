@@ -164,6 +164,9 @@ Route::group(['middleware' => ['auth']], function()
 
     Route::post('admin/asignar/usuarios/{id}', ['as' => 'solicitudes.asignar','uses' => 'SolicitudesCategoriasController@asignar']);
 
+    /**********************************Asignar usuarios a una solicitud de servicios **********************************/
+    Route::get('admin/servicios/lugares/{id}', ['as' => 'lugares.getLugares','uses' => 'UsuariosServiciosController@getLugares']);
+
 
 
 }); /****************************fin de admin *******************------------------------***/
