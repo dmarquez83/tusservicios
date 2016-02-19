@@ -80,7 +80,7 @@
                                 <td>{!! $usuariosservicio->user_id !!}</td>
                                 <td>{!! $usuariosservicio->name !!}</td>
                                 <td><div id="lugares" >   {!! Form::hidden('ruta', route('lugares.getLugares',$usuariosservicio->id ), ['class' => 'form-control', 'id' => 'ruta']) !!}</div></td>
-                                <td></td>
+                                <td><div id="horario" >   {!! Form::hidden('ruta_horario', route('lugares.getHorario',$usuariosservicio->id ), ['class' => 'form-control', 'id' => 'ruta_horario']) !!}</div></td>
                             </tr>
                         @endforeach
                         </tbody>

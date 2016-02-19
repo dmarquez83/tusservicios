@@ -394,6 +394,18 @@ class UsuariosServiciosController extends AppBaseController
 	}
 
 
+	public function getHorario($id)
+	{
+		$horarios = DB::table('horarios')
+			->join('dias','dias.id','=','horarios.dia_id')
+			->join('horas','horas.id','=','horarios.hora_id')
+			->select('dias.dia','horas.hora')
+			->where('horarios.usuario_servicio_id','=',$id)
+			->get();
+
+		return $horarios;
+	}
+
   public function getUsuariosSolicitudes(){
 	$usuariosSolicitudes = DB::table('usuarios_solicitudes')
 	  ->join('solicitudes', 'solicitudes.id', '=', 'usuarios_solicitudes.solicitud_id')

@@ -167,6 +167,8 @@ Route::group(['middleware' => ['auth']], function()
     /**********************************Asignar usuarios a una solicitud de servicios **********************************/
     Route::get('admin/servicios/lugares/{id}', ['as' => 'lugares.getLugares','uses' => 'UsuariosServiciosController@getLugares']);
 
+    Route::get('admin/servicios/horario/{id}', ['as' => 'lugares.getHorario','uses' => 'UsuariosServiciosController@getHorario']);
+
 
 
 }); /****************************fin de admin *******************------------------------***/
