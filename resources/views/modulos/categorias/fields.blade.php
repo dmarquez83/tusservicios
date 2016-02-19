@@ -55,7 +55,7 @@
             </h3>
         </div>
         <div class="widget-user-image">
-            {!! Html::image('categorias-img/thumb_tusservicios-logo.jpg', '', array('class' => 'img-circle')) !!}
+            {!! Html::image('/assets/img/categorias-img/thumb_tusservicios-logo.jpg', '', array('class' => 'img-circle')) !!}
         </div>
         <div class="box-footer">
             <div class="row">

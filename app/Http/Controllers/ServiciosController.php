@@ -172,7 +172,7 @@ class ServiciosController extends AppBaseController
 	}
 
 	//Ruta donde queremos guardar las imagenes
-	$path = public_path().'/servicios-img/';
+	$path = public_path().'/assets/img/servicios-img/';
 
 	// Guardar Original
 	$image->save($path.$file->getClientOriginalName());
@@ -243,18 +243,12 @@ class ServiciosController extends AppBaseController
    */
   public function edit($id)
   {
-
-
-
-	//$servicios = $this->serviciosRepository->find($id);
-
 	$servicios = DB::table('servicios')
 	  ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
 	  ->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
 	  ->where('servicios.id','=',$id)
 	  ->select('servicios.id as id','servicios.nombre','servicios.descripcion','servicios.id_tipo_servicio','servicios.id_estatus','servicios.ponderacion','servicios.created_at','servicios.updated_at','servicios.foto as foto','categorias.id as id_categoria')
 	  ->get();
-
 
 	//este query de devuelve un arreglo lo convierto en una collection para enviarselo a la vista
 
@@ -265,13 +259,13 @@ class ServiciosController extends AppBaseController
 
 	//$tiposervicios = Tiposervicio::where('id_categoria',$value)->orderBy('id', 'asc')->lists('nombre', 'id');
 
-	  $tiposervicios = Tiposervicio::orderBy('id', 'asc')->lists('nombre', 'id');
+	$tiposervicios = Tiposervicio::orderBy('id', 'asc')->lists('nombre', 'id');
 
 	$estatu = Estatu::where('tabla','servicios')->orderBy('id', 'asc')->lists('nombre', 'id');
 
 	$ponderacion = Ponderacion::orderBy('id', 'asc')->lists('nombre','valor', 'id');
 
-	  $categorias = Categoria::orderBy('id', 'asc')->lists('nombre', 'id');
+	$categorias = Categoria::orderBy('id', 'asc')->lists('nombre', 'id');
 
 	if(empty($servicios))
 	{
@@ -293,49 +287,46 @@ class ServiciosController extends AppBaseController
    */
   public function update($id, UpdateServiciosRequest $request)
   {
-    // dd($request);
+     //
 	/***************************muy importante , 'files' => 'true' esto debe ir en la cabecera del form de lo contrario da error con la imagen por que no la consigue Image source not readable*/
 
-	/*validar que la imagen este llegando de lo contrario explota*/
-	if(!Input::file('foto'))
-	  $foto = $request->get('foto_name');
-	else {
-	  $file = Input::file('foto');
-	  //Creamos una instancia de la libreria instalada
-
-
-
-	  try {
-		$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
-	  } catch (Exception $e) {
-		return redirect()->back()->withErrors('Error: ' . $e->getMessage());
-
+	  /***************************/
+	  if(Input::file('foto')==null) {
+		  $file = Input::file('foto_name');
+		  $data = [
+			  'nombre' => $request->get('nombre'),
+			  'descripcion' => ($request->get('descripcion')),
+			  'id_tipo_servicio' => $request->get('tiposervicio_id'),
+			  'id_estatus' => $request->get('id_estatus'),
+			  'ponderacion' => $request->get('ponderacion')
+		  ];
 	  }
+	  else{
+		  $file = Input::file('foto');
+		  //Creamos una instancia de la libreria instalada
 
-	  //Ruta donde queremos guardar las imagenes
-	  $path = public_path() . '/servicios-img/';
+		  $image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
 
-	  // Guardar Original
-	  $image->save($path . $file->getClientOriginalName());
-	  // Cambiar de tamaño
-	  $image->resize(240, 200);
-	  // Guardar
-	  $image->save($path . 'thumb_' . $file->getClientOriginalName());
+		  //Ruta donde queremos guardar las imagenes
+		  $path = public_path().'/assets/img/servicios-img/';
 
-	  $foto =  $file->getClientOriginalName();
-	 }
+		  // Guardar Original
+		  $image->save($path.$file->getClientOriginalName());
+		  // Cambiar de tamaño
+		  $image->resize(240,200);
+		  // Guardar
+		  $image->save($path.'thumb_'.$file->getClientOriginalName());
 
-	/**************************/
-
-
-	$data = [
-	  'nombre' => $request->get('nombre'),
-	  'descripcion' => ($request->get('descripcion')),
-	  'id_tipo_servicio' => $request->get('tiposervicio_id'),
-	  'id_estatus' => $request->get('id_estatus'),
-	  'ponderacion' => $request->get('ponderacion'),
-	  'foto' => $foto,
-	];
+		  $data = [
+			  'nombre' => $request->get('nombre'),
+			  'descripcion' => ($request->get('descripcion')),
+			  'id_tipo_servicio' => $request->get('tiposervicio_id'),
+			  'id_estatus' => $request->get('id_estatus'),
+			  'ponderacion' => $request->get('ponderacion'),
+			  'foto' => $file->getClientOriginalName(),
+		  ];
+	  }
+	  /**************************/
 
 
 	if(empty($data))

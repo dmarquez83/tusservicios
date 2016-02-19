@@ -74,7 +74,7 @@ class InsumoController extends AppBaseController
 	  $image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
 
 	  //Ruta donde queremos guardar las imagenes
-	  $path = public_path().'/insumos-img/';
+	  $path = public_path().'/assets/img/insumos-img/';
 
 	  // Guardar Original
 	  $image->save($path.$file->getClientOriginalName());
@@ -172,7 +172,7 @@ class InsumoController extends AppBaseController
 	  $image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
 
 	  //Ruta donde queremos guardar las imagenes
-	  $path = public_path().'/insumos-img/';
+	  $path = public_path().'/assets/img/insumos-img/';
 
 	  // Guardar Original
 	  $image->save($path.$file->getClientOriginalName());

@@ -65,7 +65,7 @@
                                 class="btn btn-primary btn-listado-insumos"
                                 data-id="{{ $servicios->id }}"
                                 data-name="{{ $servicios->nombre }}"
-                                data-img="{{ asset('insumos-img/') }}"
+                                data-img="{{ asset('assets/img/insumos-img/') }}"
                                 data-path="{{ route('insumosSolicitudes.detalle') }}"
                                 data-toggle="modal"
                                 data-target="#myModal"

@@ -72,7 +72,7 @@ class CategoriaController extends AppBaseController
 	$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
 
 	//Ruta donde queremos guardar las imagenes
-	$path = public_path().'/categorias-img/';
+	$path = public_path().'/assets/img/categorias-img/';
 
 	// Guardar Original
 	$image->save($path.$file->getClientOriginalName());
@@ -170,8 +170,14 @@ class CategoriaController extends AppBaseController
 	}
 
 	/***************************/
-	if($request->get('foto')<>'')
-	  $file = Input::file('foto_name');
+	if(Input::file('foto')==null){
+		$file = Input::file('foto_name');
+		$data = [
+			'nombre' => $request->get('nombre'),
+			'descripcion' => str_slug($request->get('descripcion'))
+		];
+	}
+
 	else{
 	  $file = Input::file('foto');
 	  //Creamos una instancia de la libreria instalada
@@ -179,7 +185,7 @@ class CategoriaController extends AppBaseController
 	  $image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
 
 	  //Ruta donde queremos guardar las imagenes
-	  $path = public_path().'/categorias-img/';
+	  $path = public_path().'/assets/img/categorias-img/';
 
 	  // Guardar Original
 	  $image->save($path.$file->getClientOriginalName());
@@ -187,16 +193,14 @@ class CategoriaController extends AppBaseController
 	  $image->resize(240,200);
 	  // Guardar
 	  $image->save($path.'thumb_'.$file->getClientOriginalName());
+
+		$data = [
+			'nombre' => $request->get('nombre'),
+			'descripcion' => str_slug($request->get('descripcion')),
+			'foto' => $file->getClientOriginalName()
+		];
 	}
 	  /**************************/
-
-	  $data = [
-		'nombre' => $request->get('nombre'),
-		'descripcion' => str_slug($request->get('descripcion')),
-		'foto' => $file->getClientOriginalName()
-	  ];
-
-
 
 	$categoria = $this->categoriaRepository->updateRich($data, $id);
 
