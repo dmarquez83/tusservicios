@@ -145,7 +145,9 @@
 
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
-                                {!! Form::submit('Guardar', ['class' => 'btn btn-primary procesarForm btn-opc pull-right']) !!}
+                                {!! Form::submit('Guardar Insumo', ['class' => 'btn btn-primary procesarForm btn-opc pull-right']) !!}
+                                <input type="button" id="btn-form" value="Enviar">
+                                <a class="btn btn-primary" id="botonenviar"  href="{!! route('admin.proveedores.insumos') !!}" role="button" data-toggle="Enviar"><i class="glyphicon glyphicon-pencil"></i></a>
                             </div>
                         </div>
                     </div>

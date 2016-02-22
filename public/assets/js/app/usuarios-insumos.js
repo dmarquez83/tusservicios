@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
-    $('[data-toggle="tooltip"]').tooltip();
+  /*  $('[data-toggle="tooltip"]').tooltip();*/
 
-    $("#example1").DataTable();
+  /*  $("#example1").DataTable();*/
 
 
 

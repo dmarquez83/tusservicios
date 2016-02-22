@@ -65,9 +65,9 @@ class ProveedoresController extends AppBaseController
 	public function store(Request $request)
 	{
 		/*esta condicion guarda solo el insumo*/
-		if($request->get('descripcion')){
+		if($request->ajax()) {
 
-			$this->validate($request, [
+			/*$this->validate($request, [
 				'nombre' => 'required|max:255',
 				'descripcion' => 'required|max:500',
 				'referencia' => 'required|max:100',
@@ -85,11 +85,11 @@ class ProveedoresController extends AppBaseController
 
 			// Guardar Original
 			$image->save($path.$file->getClientOriginalName());
-
+*/
 			$data = [
 				'descripcion' => $request->get('descripcion'),
 				'referencia' => $request->get('referencia'),
-				'foto' => $file->getClientOriginalName(),
+				'foto' => 'prueba',
 				'nombre' => $request->get('nombre')
 			];
 
@@ -235,9 +235,18 @@ class ProveedoresController extends AppBaseController
 		return redirect(route('admin.proveedores.index'));
 	}
 
-	public function storeInsumos($data)
+	/*public function storeInsumos($data)
 	{
 
 
+	}*/
+
+	public function storeInsumos(Request $request){
+
+		dd($request);
+		if($request->ajax()) {
+			//$expediente = Expediente::create($request->all());
+			//return response()->json(['message' => 'Insertado correctamente']);
+		}
 	}
 }

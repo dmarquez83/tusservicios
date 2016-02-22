@@ -119,6 +119,8 @@ Route::group(['middleware' => ['auth']], function()
     Route::get('admin/proveedores/borrar/{id}', ['as' => 'admin.proveedores.delete','uses' => 'ProveedoresController@destroy']);
     Route::get('admin/insumos/listado', ['as' => 'admin.insumos.getListadoInsumos','uses' => 'InsumoController@getListadoInsumos']);
 
+    Route::post('admin/proveedores/insumos', ['as' => 'admin.proveedores.insumos','uses' => 'ProveedoresController@storeInsumos']);
+
     /**********************************Proveedores Insumos **********************/
     /* Route::resource('proveedoresInsumos', 'ProveedoresInsumosController');
      Route::get('proveedoresInsumos/borrar/{id}', ['as' => 'proveedoresInsumos.delete','uses' => 'ProveedoresInsumosController@destroy']);*/
