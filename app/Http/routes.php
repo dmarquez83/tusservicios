@@ -30,9 +30,9 @@ Route::get('public/servicios/{id}', ['as' => 'detalle', 'uses' => 'ServiciosCont
 /**********************************solicitudes**********************************/
 
 // Categorias
-//Route::resource('public/categorias', 'SolicitudesCategoriasController' , ['as' => 'categorias']);
-Route::get('public/categorias', ['as' => 'categorias.index','uses' => 'SolicitudesCategoriasController@index',]);
-Route::get('public/categorias/{id}', ['as' => 'detalle-categorias','uses' => 'ServiciosController@detallecategorias',]);
+Route::resource('public/categorias', 'SolicitudesCategoriasController' ,   ['names' => ['index' => 'categorias.index', 'show' => 'categorias.show']]);
+//Route::get('public/categorias', ['as' => 'categorias.index','uses' => 'SolicitudesCategoriasController@index',]);
+//Route::get('public/categorias/{id}', ['as' => 'detalle-categorias','uses' => 'ServiciosController@detallecategorias',]);
 
 // Servicios
 Route::resource('public/servicios', 'SolicitudServiciosController', ['as' => 'servicios']);

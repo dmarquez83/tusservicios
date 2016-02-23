@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-sm-6 border-right">
                         <div class="description-block">
-                            <a class="description-header" href="{!! route('detalle-categorias', [$categoria->id]) !!}">Detalle Categoria</a>
+                            <a class="description-header" href="{!! route('categorias.show', [$categoria->id]) !!}">Detalle Categoria</a>
                         </div>
                     </div>
                     <div class="col-sm-6">
