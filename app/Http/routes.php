@@ -21,11 +21,7 @@ Route::get('home', ['as' => 'home', 'uses' => 'HomeController@index',]);
 Route::get('buscar/categorias',  ['uses' => 'SearchController@categorias','as' => 'buscar-categorias']);
 Route::get('buscar/servicios/{id}', ['uses' => 'SearchController@servicios', 'as' => 'buscar-servicios']);
 
-// Lista de Servicios //revisar si se esta utilizando
-Route::get('public/servicios/listar', ['as' => 'listar','uses' => 'ServiciosController@listar']);
 
-// Detalle de Servicio //revisar si se esta utilizando
-Route::get('public/servicios/{id}', ['as' => 'detalle', 'uses' => 'ServiciosController@detalle']);
 
 /**********************************solicitudes**********************************/
 
@@ -35,7 +31,14 @@ Route::resource('public/categorias', 'SolicitudesCategoriasController' ,   ['nam
 //Route::get('public/categorias/{id}', ['as' => 'detalle-categorias','uses' => 'ServiciosController@detallecategorias',]);
 
 // Servicios
-Route::resource('public/servicios', 'SolicitudServiciosController', ['as' => 'servicios']);
+//Route::resource('public/servicios', 'SolicitudServiciosController', ['as' => 'servicios']);
+
+// Lista de Servicios //revisar si se esta utilizando
+Route::get('public/servicios', ['as' => 'listar','uses' => 'ServiciosController@listar']);
+
+// Detalle de Servicio //revisar si se esta utilizando
+Route::get('public/servicios/{id}', ['as' => 'detalle', 'uses' => 'ServiciosController@detalle']);
+
 Route::get('servicios/index/{id}', ['as' => 'servicios.index','uses' => 'SolicitudServiciosController@index',]);
 
 //solicitudes
@@ -50,10 +53,10 @@ Route::group(['middleware' => ['authusuario']], function()
     // CLIENTE
 
       /**********************************Lista de Solicitudes  + Registro de Catalogo**********************/
-      Route::get('user/dashborad', ['as' => 'user.dashborad','uses' => 'HomeController@dashboradUser']);
-      Route::get('user/solicitudes/listado', ['as' => 'solicitudes.getlistado','uses' => 'SolicitudesCategoriasController@getListado']);
+      Route::get('user/dashboard', ['as' => 'user.dashborad','uses' => 'HomeController@dashboradUser']);
+      Route::get('user/solicitudes', ['as' => 'solicitudes.getlistado','uses' => 'SolicitudesCategoriasController@getListado']);
       Route::get('user/solicitud/detalle/{id}', ['as' => 'solicitudes.getDetSolicitud','uses' => 'SolicitudesCategoriasController@getDetSolicitud']);
-      Route::get('user/solicitud/servicios', ['as' => 'solicitudes.getUsuariosSolicitudes','uses' => 'UsuariosServiciosController@getUsuariosSolicitudes']);
+      Route::get('user/ofertas', ['as' => 'solicitudes.getUsuariosSolicitudes','uses' => 'UsuariosServiciosController@getUsuariosSolicitudes']);
       Route::get('user/solicitud/detServicios/{id}', ['as' => 'solicitudes.getDetServicios','uses' => 'SolicitudesCategoriasController@getDetServicios']);
       Route::get('user/solicitud/aceptar/{id}', ['as' => 'solicitudes.getAceptarServicios','uses' => 'SolicitudesCategoriasController@getAceptarServicios']);
       Route::get('user/solicitud/rechazar/{id}', ['as' => 'solicitudes.getRechazarServicios','uses' => 'SolicitudesCategoriasController@getRechazarServicios']);
@@ -61,7 +64,7 @@ Route::group(['middleware' => ['authusuario']], function()
 
 
       /**********************************Registro de Servicios y horario**********************************/
-      Route::resource('user/servicios', 'UsuariosServiciosController'); /*cambiar a user*/
+      Route::resource('user/servicios', 'UsuariosServiciosController' );
       Route::get('user/servicios/borrar/{id}', ['as' => 'user.servicios.delete','uses' => 'UsuariosServiciosController@destroy']);
       Route::get('user/desplegable', ['as' => 'user.servicios.desplegable','uses' => 'UsuariosServiciosController@desplegable']);
       Route::get('user/sectores/listado/{id}', ['as' => 'user.sectores.listado','uses' => 'SectorController@listado']);
