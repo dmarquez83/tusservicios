@@ -1,62 +1,76 @@
 @extends('layout.app')
 
 @section('content')
-    <div class="container">
+    <div class="row">
         <div class="col-md-10">
-            <div class="box box-warning">
+            <div class="box box-solid">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{!! $categorias[0]->nombre !!}</h3>
+                    <a class="btn btn-sm bg-orange pull-right" href="{{ route('categorias.index') }}">
+                        <i class="fa fa-list-alt"></i> Todas Categorias
+                    </a>
+                    <h3 class="box-title">{!! $categoria->nombre !!}</h3>
+
                 </div>
                 <form role="form">
                     <div class="box-body">
                         <div class="col-md-7">
-                            <div class="form-group">
-                                {!! Form::label('Descripcion', 'Descripcion:', ['class' => 'control-label']) !!}
-                                <h5>{!! $categorias[0]->descripcion !!}</h5>
+                            <div class="text-center margin">
+                            {!! Html::image('assets/img/categorias-img/'.$categoria->foto, '', array('class' => 'responsive-img thumbnail','width' => '300', 'height' => '200')) !!}
                             </div>
+
+                            <p>{!! $categoria->descripcion !!}</p>
+
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                {!! Html::image('assets/img/categorias-img/'.$categorias[0]->foto, '', array('class' => 'responsive-img','width' => '300', 'height' => '200')) !!}
+                        <div class="col-md-5">
+
+                            <div class="list-group">
+                                <li class="list-group-item">
+                                    <h4>Tipos de Servicios</h4>
+                                </li>
+                                @foreach( $categoria->tiposervicio AS $tipo )
+                                <a href="#" class="list-group-item" data-id="{{ $tipo->id }}">
+                                    <span class="badge bg-blue-active">
+                                        <i class="fa fa-angle-right"></i>
+                                    </span>
+                                    {{ $tipo->nombre }}
+                                </a>
+                                @endforeach
                             </div>
                         </div>
 
-                    </div>
-                    <div class="box-footer">
-                        <a class="btn btn-warning pull-right" href="{{ route('categorias.index') }}">Categorias</a>
                     </div>
                 </form>
             </div>
-        </div>
 
-        <div class="col-md-10">
-            <div class="box">
+            <div class="box box-solid">
                 <div class="box-header">
                     <h3 class="box-title">Servicios</h3>
-                    <div class="box-tools">
-                    </div>
-                </div>
+                    <div class="box-body">
+                        <div class="media">
+                            @foreach($servicios AS $servicio)
+                                <div class="media-left media-middle">
+                                    <a href="{{ route('servicios.index') }}">
+                                        {!! Html::image('assets/img/servicios-img/'.$servicio->foto, '', array('class' => 'media-object responsive-img','width' => '60', 'height' => '40')) !!}
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Middle aligned media</h4>
+                                    ...
+                                </div>
 
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Descripcion</th>
-                            <th></th>
-                        </tr>
-                        @foreach($detcategoria as $detcategoria)
-                        <tr>
-                            <td>{!! $detcategoria->nombre !!}</td>
-                            <td>{!! $detcategoria->descripcion !!}</td>
-                            <td><a class="description-header" href="{!! route('detalle', [$detcategoria->id]) !!}">Detalle</a></td>
-                        </tr>
-                        @endforeach
-                    </table>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-2">
 
+        <div class="col-md-2">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Publicidad</h3>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
