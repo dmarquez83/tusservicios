@@ -145,16 +145,38 @@ class SolicitudesCategoriasController extends AppBaseController
 	   */
 	  public function show($id)
 	  {
-		$solicitudes = $this->solicitudesRepository->find($id);
+		  $categoria = Categoria::findOrFail($id);
 
-		if(empty($solicitudes))
-		{
-		  Flash::error('No hay Solicitudes');
+		  $servicios = DB::table('servicios')
+			  ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
+			  ->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
+			  ->where('categorias.id','=',$categoria->id)
+			  ->select('servicios.*')
+			  ->get();
+		  /*
+                  //dd($servicios);
 
-		  return redirect(route('solicitudes.index'));
-		}
+                  if(empty($categorias))
+                  {
+                      Flash::error('Servicios not found');
 
-		return view('modulos.solicitudes.show')->with('solicitudes', $solicitudes);
+                      //return redirect(route('servicios.index',$id));
+                  }
+
+                  $detcategoria = Collection::make($servicios);
+
+                  dd($detcategoria);
+          */
+
+
+
+
+		  return view('modulos.categorias.show_categorias')->with(
+			  array(
+				  'categoria' => $categoria,
+				  'servicios' => $servicios
+			  )
+		  );
 	  }
 
 	  /**

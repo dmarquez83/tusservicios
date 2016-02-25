@@ -405,6 +405,8 @@ class ServiciosController extends AppBaseController
             ->get();
 
 
+		//$servicios = Servicios::findOrFail($id);
+
 		if(empty($servicios))
 		{
 			Flash::error('Servicios not found');
@@ -417,32 +419,48 @@ class ServiciosController extends AppBaseController
 
     public function detallecategorias($id)
     {
-
-        $categorias = DB::table('categorias')
+/*
+		$categorias = DB::table('categorias')
             ->select('categorias.id', 'categorias.nombre', 'categorias.descripcion', 'categorias.foto')
             ->where('categorias.id','=',$id)
             ->get();
 
-        $servicios1 = DB::table('servicios')
+
+
+		//dd($categorias);
+
+*/
+
+		$categoria = Categoria::findOrFail($id);
+
+        $servicios = DB::table('servicios')
             ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
             ->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
-            ->where('categorias.id','=',$id)
-            ->select('servicios.id', 'servicios.nombre', 'servicios.descripcion')
+            ->where('categorias.id','=',$categoria->id)
+            ->select('servicios.*')
             ->get();
+/*
+		//dd($servicios);
 
         if(empty($categorias))
         {
             Flash::error('Servicios not found');
 
-            return redirect(route('servicios.index',$id));
+            //return redirect(route('servicios.index',$id));
         }
 
-        $detcategoria = Collection::make($servicios1);
+        $detcategoria = Collection::make($servicios);
+
+		dd($detcategoria);
+*/
+
+
+
 
         return view('modulos.categorias.show_categorias')->with(
 			array(
-				'categorias' => $categorias,
-				'detcategoria' => $detcategoria
+				'categoria' => $categoria,
+				'servicios' => $servicios
 			)
 		);
 

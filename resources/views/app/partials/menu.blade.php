@@ -43,7 +43,7 @@
                     <li class="treeview">
                         <a href="{{ route ('solicitudes.getUsuariosSolicitudes') }}">
                             <i class="glyphicon glyphicon-list-alt"></i>
-                            <span>Solicitudes Asignadas</span>
+                            <span>Ofertas</span>
                         </a>
                     </li>
                     <li class="treeview">

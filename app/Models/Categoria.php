@@ -54,6 +54,7 @@ class Categoria extends Model
 		}
 	}*/
     /* esto es para procesar los valores al momento de guardalos automaticamente lo toma sin llamarlo ni nada*/
+
 }
 
 

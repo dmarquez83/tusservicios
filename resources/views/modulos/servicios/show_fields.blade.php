@@ -1,5 +1,5 @@
 <div class="col-md-10">
-    <div class="box box-warning">
+    <div class="box box-solid">
         <div class="box-header with-border">
             <h3 class="box-title">{!! $servicios[0]->nombre !!}</h3>
         </div>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        {!! Html::image('servicios-img/'.$servicios[0]->foto, '', array('class' => 'responsive-img','width' => '300', 'height' => '200')) !!}
+                        {!! Html::image('assets/img/servicios-img/'.$servicios[0]->foto, '', array('class' => 'responsive-img','width' => '300', 'height' => '200')) !!}
                     </div>
                 </div>
 
