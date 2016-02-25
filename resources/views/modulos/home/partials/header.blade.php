@@ -7,7 +7,7 @@
             Somos un grupo de profesionales a tu disposición para ayudarte....
         </p>
         <p class="text-center">
-            <a class="btn bg-orange" href="{{ route('categorias.index') }}" role="button">Busca el Servicio que necesitas &raquo;</a>
+            <a class="btn bg-orange" href="{{ route('public.categorias.index') }}" role="button">Busca el Servicio que necesitas &raquo;</a>
         </p>
     </div>
 </header>

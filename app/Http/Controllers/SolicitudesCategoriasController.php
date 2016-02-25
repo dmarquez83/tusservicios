@@ -52,7 +52,7 @@ class SolicitudesCategoriasController extends AppBaseController
 	  {
 		$categorias = $this->categoriaRepository->all();
 
-		return view('modulos.solicitudes.index')->with('categorias', $categorias);
+		return view('modulos.categorias.public.index')->with('categorias', $categorias);
 	  }
 
 	  /**
@@ -136,48 +136,7 @@ class SolicitudesCategoriasController extends AppBaseController
 
 	  }
 
-	  /**
-	   * Display the specified Solicitudes.
-	   *
-	   * @param  int $id
-	   *
-	   * @return Response
-	   */
-	  public function show($id)
-	  {
-		  $categoria = Categoria::findOrFail($id);
 
-		  $servicios = DB::table('servicios')
-			  ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
-			  ->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
-			  ->where('categorias.id','=',$categoria->id)
-			  ->select('servicios.*')
-			  ->get();
-		  /*
-                  //dd($servicios);
-
-                  if(empty($categorias))
-                  {
-                      Flash::error('Servicios not found');
-
-                      //return redirect(route('servicios.index',$id));
-                  }
-
-                  $detcategoria = Collection::make($servicios);
-
-                  dd($detcategoria);
-          */
-
-
-
-
-		  return view('modulos.categorias.show_categorias')->with(
-			  array(
-				  'categoria' => $categoria,
-				  'servicios' => $servicios
-			  )
-		  );
-	  }
 
 	  /**
 	   * Show the form for editing the specified Solicitudes.

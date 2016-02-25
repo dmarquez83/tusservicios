@@ -8,7 +8,7 @@
                     </div>
                     @foreach($categories AS $categorie)
                         <div class="col-xs-12 col-sm-4 col-md-3 text-center margin-bottom">
-                            <a href="{{ route('categorias.show',$categorie->id) }}" class="text-black">
+                            <a href="{{ route('public.categorias.show',$categorie->id) }}" class="text-black">
                                 <img class="thumbnail img-responsive img-rounded"
                                      src="{{ asset('assets/img/categorias-img/'.$categorie->foto) }}"
                                      alt="categoria"/>

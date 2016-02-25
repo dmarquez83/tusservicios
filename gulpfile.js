@@ -17,6 +17,8 @@ elixir(function (mix) {
         .copy('resources/assets/css/', 'public/assets/css/')
         .copy('resources/assets/fonts/', 'public/assets/fonts/')
         .copy('resources/assets/img/', 'public/assets/img/')
-        .copy('resources/assets/js', 'public/assets/js')
-        .copy('resources/assets/plugins', 'public/assets/plugins');
+        //.copy('resources/assets/js/', 'public/assets/js/')
+        .copy('resources/assets/plugins', 'public/assets/plugins')
+        .scripts('resources/assets/js/admin/categorias_index.js', 'public/assets/js/admin/categorias_index.js')
+        .scripts('resources/assets/js/admin/categorias_create.js', 'public/assets/js/admin/categorias_create.js');
 });

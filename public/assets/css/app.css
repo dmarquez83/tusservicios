@@ -40,6 +40,9 @@ body {
 .text-white {
   color: #FFFFFF; }
 
+.bg-white {
+  background-color: #FFF; }
+
 .margin {
   margin: 1.5em; }
 

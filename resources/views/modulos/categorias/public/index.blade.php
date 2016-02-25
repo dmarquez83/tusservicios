@@ -4,8 +4,7 @@
         <div class="row">
             <h1>Categorías test</h1>
         </div>
-        @include('flash::message')
-        @include('modulos.solicitudes.buscar')
+
         <div class="row">
             @foreach($categorias as $categoria)
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
@@ -35,12 +34,12 @@
                             <div class="row">
                                 <div class="col-sm-6 border-right">
                                     <div class="description-block">
-                                        <a class="description-header" href="{!! route('categorias.show', [$categoria->id]) !!}">Detalle Categoria</a>
+                                        <a class="description-header" href="{!! route('public.categorias.show', [$categoria->id]) !!}">Detalle Categoria</a>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="description-block">
-                                        <a class="description-header pull-right" href="{!! route('servicios.index', [$categoria->id]) !!}" role="button">Ver Servicios</a>
+                                        <a class="description-header pull-right" href="{!! route('public.servicios.index', [$categoria->id]) !!}" role="button">Ver Servicios</a>
                                     </div>
                                 </div>
                             </div>

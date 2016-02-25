@@ -18,7 +18,7 @@
                             {!! Html::image('assets/img/categorias-img/'.$categoria->foto, '', array('class' => 'responsive-img thumbnail img-300-200')) !!}
                             </div>
 
-                            <p>{!! $categoria->descripcion !!}</p>
+                            <p>{{ $categoria->descripcion }}</p>
 
                         </div>
                         <div class="col-md-5">

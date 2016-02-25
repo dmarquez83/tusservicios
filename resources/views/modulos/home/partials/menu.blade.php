@@ -1,7 +1,7 @@
 <nav class="navbar bg-blue-active flat navbar-home no-margin hidden-xs">
     <div class="container">
         <div class="navbar-header text-center">
-            <a class="navbar-brand" href="{{ route('categorias.index') }}">
+            <a class="navbar-brand" href="{{ route('public.categorias.index') }}">
                 <img src="{{ asset('assets/img/logo-hz.jpg') }}" alt="logo" class="border-radius"/>
             </a>
         </div>

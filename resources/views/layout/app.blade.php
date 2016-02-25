@@ -21,7 +21,8 @@
             @include('app.partials.navbar')
             @include('app.partials.menu')
             <div class="content-wrapper bg-gray-light">
-                <section class="content ">
+                <section class="content">
+
                     @include('app.partials.errors')
                     @yield('content')
                 </section>
@@ -35,6 +36,5 @@
         <script src="{{ asset('assets/js/modernizr.js') }}"></script>
 
         @yield('scripts')
-        @yield('scripts-modulo')
     </body>
 </html>
