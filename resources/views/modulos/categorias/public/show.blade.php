@@ -15,7 +15,7 @@
                     <div class="box-body">
                         <div class="col-md-7">
                             <div class="text-center margin">
-                            {!! Html::image('assets/img/categorias-img/'.$categoria->foto, '', array('class' => 'responsive-img thumbnail','width' => '300', 'height' => '200')) !!}
+                            {!! Html::image('assets/img/categorias-img/'.$categoria->foto, '', array('class' => 'responsive-img thumbnail img-300-200')) !!}
                             </div>
 
                             <p>{!! $categoria->descripcion !!}</p>
@@ -50,12 +50,13 @@
                             @foreach($servicios AS $servicio)
                                 <div class="media-left media-middle">
                                     <a href="{{ route('servicios.index') }}">
-                                        {!! Html::image('assets/img/servicios-img/'.$servicio->foto, '', array('class' => 'media-object responsive-img','width' => '60', 'height' => '40')) !!}
+                                        {!! Html::image('assets/img/servicios-img/'.$servicio->foto, '', array('class' => 'media-object thumbnail responsive-img img-64')) !!}
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Middle aligned media</h4>
-                                    ...
+                                    <h4 class="media-heading">{{ $servicio->nombre }}</h4>
+                                    <p>{{ substr($servicio->descripcion,0,30) }}...</p>
+                                    <a href="{{ route('detalle',$servicio->id) }}" class="" >Detalles</a>
                                 </div>
 
                             @endforeach

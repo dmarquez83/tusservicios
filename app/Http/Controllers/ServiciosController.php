@@ -405,6 +405,8 @@ class ServiciosController extends AppBaseController
             ->get();
 
 
+		//$servicios = Servicios::findOrFail($id);
+
 		if(empty($servicios))
 		{
 			Flash::error('Servicios not found');

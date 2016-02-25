@@ -69,11 +69,33 @@ body {
 
 .img-rounded {
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
   margin: 0 auto;
   display: inline-block;
   margin: auto; }
+
+.img-64 {
+  width: 64px;
+  height: 64px; }
+
+.img-100 {
+  width: 100px;
+  height: 100px; }
+
+.img-200 {
+  width: 200px;
+  height: 200px; }
+
+.img-300 {
+  width: 300px;
+  height: 300px; }
+
+.img-300-200 {
+  width: 300px;
+  height: 200px; }
+
+.img-400-300 {
+  width: 400px;
+  height: 300px; }
 
 .text-ts-blue {
   color: #222662; }

@@ -26,7 +26,13 @@ Route::get('buscar/servicios/{id}', ['uses' => 'SearchController@servicios', 'as
 /**********************************solicitudes**********************************/
 
 // Categorias
-Route::resource('public/categorias', 'SolicitudesCategoriasController' ,   ['names' => ['index' => 'categorias.index', 'show' => 'categorias.show']]);
+Route::resource('public/categorias',
+    'SolicitudesCategoriasController' ,
+    ['names' => [
+        'index' => 'categorias.index',
+        'show' => 'categorias.show'
+    ]
+]);
 //Route::get('public/categorias', ['as' => 'categorias.index','uses' => 'SolicitudesCategoriasController@index',]);
 //Route::get('public/categorias/{id}', ['as' => 'detalle-categorias','uses' => 'ServiciosController@detallecategorias',]);
 
