@@ -75,6 +75,6 @@ Route::get('public/servicios', [
 ]);
 
 Route::get('public/servicios/{id}', [
-    'as' => 'detalle',
-    'uses' => 'PublicServiciosController@detalle'
+    'as' => 'public.servicios.show',
+    'uses' => 'PublicServiciosController@show'
 ]);

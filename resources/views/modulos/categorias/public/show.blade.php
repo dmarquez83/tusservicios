@@ -1,6 +1,9 @@
 @extends('layout.app')
 
 @section('content')
+
+    @include('modulos.publicidad.public.horizontal')
+
     <div class="row">
         <div class="col-md-10">
             <div class="box box-solid">
@@ -49,14 +52,14 @@
                         <div class="media">
                             @foreach($servicios AS $servicio)
                                 <div class="media-left media-middle">
-                                    <a href="{{ route('servicios.index') }}">
+                                    <a href="{{ route('public.servicios.show',$servicio->id) }}">
                                         {!! Html::image('assets/img/servicios-img/'.$servicio->foto, '', array('class' => 'media-object thumbnail responsive-img img-64')) !!}
                                     </a>
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading">{{ $servicio->nombre }}</h4>
                                     <p>{{ substr($servicio->descripcion,0,30) }}...</p>
-                                    <a href="{{ route('detalle',$servicio->id) }}" class="" >Detalles</a>
+                                    <a href="{{ route('public.servicios.show',$servicio->id) }}" class="" >Detalles</a>
                                 </div>
 
                             @endforeach
@@ -67,11 +70,8 @@
         </div>
 
         <div class="col-md-2">
-            <div class="box box-solid">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Publicidad</h3>
-                </div>
-            </div>
+            @include('modulos.publicidad.public.vertical')
+            @include('modulos.publicidad.public.vertical')
         </div>
     </div>
 @endsection
