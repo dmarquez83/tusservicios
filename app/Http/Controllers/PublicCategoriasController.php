@@ -35,10 +35,12 @@ class PublicCategoriasController extends Controller
             ->select('servicios.*')
             ->get();
 
+        $i = 0;
         return view('modulos.categorias.public.show')->with(
             array(
                 'categoria' => $categoria,
-                'servicios' => $servicios
+                'servicios' => $servicios,
+                'i' => $i
             )
         );
     }

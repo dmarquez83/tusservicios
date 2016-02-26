@@ -5,7 +5,7 @@
         <div class="col-md-10">
             <div class="box box-solid">
                 <div class="box-header with-border">
-                    <a class="btn btn-sm bg-orange pull-right" href="{{ route('categorias.index') }}">
+                    <a class="btn btn-sm bg-orange pull-right" href="{{ route('public.categorias.index') }}">
                         <i class="fa fa-list-alt"></i> Todas Categorias
                     </a>
                     <h3 class="box-title">{!! $categoria->nombre !!}</h3>

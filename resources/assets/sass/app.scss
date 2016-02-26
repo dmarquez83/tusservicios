@@ -145,9 +145,25 @@ body {
 
 .vertical-text {
    transform: rotate(-90deg);
-   height: 100px;
 }
 
+.height-50{
+   height: 50%;
+}
+
+.vertical-middle{
+   display: table;
+   height: 100%;
+}
+
+.vertical-middle > h3{
+   display: table-cell;
+   vertical-align: middle;
+}
+
+.widget-user .widget-user-image > img{
+   border: 3px solid #EEE;
+}
 
 
 @media (max-width: 640px){
@@ -156,3 +172,4 @@ body {
       padding-top: 120px;
    }
 }
+

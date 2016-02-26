@@ -368,28 +368,7 @@ class ServiciosController extends AppBaseController
 	return redirect(route('admin.servicios.index'));
   }
 
-	public function listar()
-	{
 
-		$servicios1 = DB::table('servicios')
-			->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
-			->join('estatus','estatus.id' ,'=','servicios.id_estatus')
-			->join('ponderaciones','ponderaciones.id' ,'=','servicios.ponderacion')
-			->select('servicios.nombre','servicios.foto', 'servicios.id','servicios.descripcion','tiposervicios.nombre as nombre_tipo_servicio','estatus.nombre as nombre_estatus','ponderaciones.nombre as nombre_ponderacion')
-			->get();
-
-		//este query de devuelve un arreglo lo convierto en una collection para enviarselo a la vista
-
-		$servicios = Collection::make($servicios1);
-
-		//dd($servicios);
-
-		//return response()->json($servicios);
-
-        //var_dump($servicios);
-		return view('modulos.servicios.indexListar')->with('servicios', $servicios);
-
-	}
 
 	public function detalle($id)
 	{

@@ -105,8 +105,21 @@ body {
 
 .vertical-text {
   -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-  height: 100px; }
+  transform: rotate(-90deg); }
+
+.height-50 {
+  height: 50%; }
+
+.vertical-middle {
+  display: table;
+  height: 100%; }
+
+.vertical-middle > h3 {
+  display: table-cell;
+  vertical-align: middle; }
+
+.widget-user .widget-user-image > img {
+  border: 3px solid #EEE; }
 
 @media (max-width: 640px) {
   body {

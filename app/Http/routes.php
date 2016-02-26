@@ -62,8 +62,19 @@ Route::get('public/categorias',[
     'as' => 'public.categorias.index'
 ]);
 
-// Categorias
+// Detalle Categoria
 Route::get('public/categorias/{id}',[
     'uses' => 'PublicCategoriasController@show',
     'as' => 'public.categorias.show'
+]);
+
+// Servicios
+Route::get('public/servicios', [
+    'as' => 'public.servicios.index',
+    'uses' => 'PublicServiciosController@index'
+]);
+
+Route::get('public/servicios/{id}', [
+    'as' => 'detalle',
+    'uses' => 'PublicServiciosController@detalle'
 ]);
