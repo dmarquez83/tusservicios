@@ -11,33 +11,33 @@ class Categoria extends Model
 	// no need for this, but you can define default searchable columns:
 	protected $searchableColumns = ['nombre', 'descripcion'];
 
-    public $table = "categorias";
-    
+	public $table = "categorias";
+
 
 	public $fillable = [
-	    "nombre",
+		"nombre",
 		"descripcion",
 		"foto"
 	];
 
-    /**
-     * The attributes that should be casted to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        "nombre" => "string",
+	/**
+	 * The attributes that should be casted to native types.
+	 *
+	 * @var array
+	 */
+	protected $casts = [
+		"nombre" => "string",
 		"descripcion" => "string",
 		"foto"  => "string",
-    ];
+	];
 
 	public static $rules = [
 
 	];
 
-	  public function tiposervicio() {
+	public function tiposServicio() {
 		return $this->hasMany('App\Models\Tiposervicio', 'id_categoria');
-	  }
+	}
 
 
 	/**
@@ -53,7 +53,7 @@ class Categoria extends Model
 			$this->attributes['foto'] = strtolower($value);
 		}
 	}*/
-    /* esto es para procesar los valores al momento de guardalos automaticamente lo toma sin llamarlo ni nada*/
+	/* esto es para procesar los valores al momento de guardalos automaticamente lo toma sin llamarlo ni nada*/
 
 }
 

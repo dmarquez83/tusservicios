@@ -1,19 +1,15 @@
-@extends('layout.app')
+@extends('layout.admin')
 
 @section('content')
 
     <div class="row">
-
-        <div class="col-xs-12 margin-bottom">
-            <a class="btn btn-primary pull-right btn-sm" style="margin-top: 25px" href="{!! route('admin.categorias.create') !!}">
-                <i class="fa fa-plus-square"></i> Agregar Categorias
-            </a>
-        </div>
-
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="box box-solid">
                 <div class="box-header">
                     <h3 class="box-title">Lista de Categorias</h3>
+                    <a class="btn bg-navy btn-sm pull-right " href="{!! route('admin.categorias.create') !!}">
+                        <i class="fa fa-plus-square"></i>&nbsp;Agregar Categorias
+                    </a>
                 </div>
                 <div class="box-body">
 
