@@ -8,7 +8,7 @@
 
         <div id="navbar" class="navbar-collapse collapse">
 
-            <ul class="nav navbar-nav navbar-right margin-top">
+            <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="{{ route('registro')}}" class="text-white">
                         <i class="fa fa-user"></i> Registro
@@ -26,8 +26,8 @@
                 </li>
             </ul>
             <form class="navbar-form navbar-right" role="search">
-                <div class="input-group input-group-sm margin-top">
-                    <input type="text" class="form-control" placeholder="Buscar servicio">
+                <div class="input-group input-group-sm margin-05">
+                    <input type="text" class="form-control" placeholder="Buscar servicio" style="width: 100% ">
                     <span class="input-group-btn">
                       <button class="btn bg-orange-active btn-flat" type="button">
                           <i class="fa fa-search"></i>

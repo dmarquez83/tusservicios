@@ -1,5 +1,5 @@
 body {
-  padding-top: 90px; }
+  padding-top: 60px; }
 
 .logo-header {
   padding: 1em;
@@ -13,19 +13,30 @@ body {
   text-shadow: 1px 1px 3px #333; }
 
 .navbar-home {
-  height: 90px; }
+  height: 60px; }
+
+.navbar-brand img {
+  max-height: 50px;
+  margin-top: -10px; }
+
+.navbar-collapse.collapse {
+  height: 60px !important; }
+
+.navbar-nav > li > a {
+  margin-top: 1.5em;
+  padding: 0 1em; }
 
 .navbar-nav > li > a:hover {
   color: #222662; }
 
 .navbar-nav > li:first-child > a {
-  border-top-left-radius: 0.7em;
-  border-bottom-left-radius: 0.7em;
+  border-top-left-radius: 0.2em;
+  border-bottom-left-radius: 0.2em;
   border-right: 1px solid #fff; }
 
 .navbar-nav > li:last-child > a {
-  border-top-right-radius: 0.7em;
-  border-bottom-right-radius: 0.7em;
+  border-top-right-radius: 0.2em;
+  border-bottom-right-radius: 0.2em;
   border-left: 1px solid #fff; }
 
 .menu-hz > li {
@@ -52,11 +63,14 @@ body {
 .margin-bottom {
   margin-bottom: 1.5em; }
 
+.margin-05 {
+  margin: 0.5em; }
+
 .padding {
   padding: 1em; }
 
 .border-radius {
-  border-radius: 0.5em; }
+  border-radius: 0.2em; }
 
 .border-radius-1 {
   border-radius: 1em; }

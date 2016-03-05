@@ -14,6 +14,7 @@
                 @foreach($categorias as $categoria)
 
                     <div class="col-md-3 col-sm-4 col-xs-6 text-center">
+                        <a class="" href="{!! route('public.categorias.show', [$categoria->id]) !!}">
                         <div class="box box-widget widget-user">
                             <div class="widget-user-header bg-black" style="background: url('../assets/img/categorias-img/{{$categoria->foto}}') center center;">
                             </div>
@@ -31,24 +32,15 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="description-block">
-                                            <h3  class="widget-user-username">
+                                            <h3>
                                                 {{$categoria->nombre}}
                                             </h3>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12 text-right">
-                                        <a class="btn btn-sm bg-blue-active" href="{!! route('public.categorias.show', [$categoria->id]) !!}">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                        <a class="btn btn-sm bg-orange-active" href="{!! route('public.servicios.index', [$categoria->id]) !!}" role="button">
-                                            <i class="fa fa-list"></i>
-                                        </a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <?php $i++ ?>
                     @if( $i % 8 == 0)

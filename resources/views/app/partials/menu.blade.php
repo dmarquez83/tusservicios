@@ -1,5 +1,6 @@
-<aside class="main-sidebar no-padding">
-    <section class="sidebar">
+<div class="box box-solid bg-gray">
+    <div class="box-body">
+        <section class="sidebar">
         <ul class="sidebar-menu">
             <li class="header text-center">Opciones Publicas</li>
 
@@ -14,10 +15,8 @@
                     <span>Servicios</span>
                 </a>
             </li>
-
             <li class="list-seperator"></li>
-
-
         </ul>
     </section>
-</aside>
+    </div>
+</div>

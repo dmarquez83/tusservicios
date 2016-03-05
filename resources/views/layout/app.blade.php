@@ -15,20 +15,30 @@
         @yield('styles')
 
     </head>
-    <body class="sidebar-mini skin-black-light">
-
-        <div class="wrapper" >
+    <body class="bg-yellow-active text-black">
+        <div class="container-fluid">
             @include('app.partials.navbar')
-            @include('app.partials.menu')
-            <div class="content-wrapper bg-gray-light">
-                <section class="content">
+            <div class="row" >
+                <div class="col-sm-12">
+                    @include('app.partials.navigation')
+                </div>
+                <div class="col-sm-12">
+                    <div class="container bg-gray-light">
+                        <div class="row">
+                            <div class="col-lg-2 hidden-md hidden-sm hidden-xs">
+                                @include('app.partials.menu')
+                            </div>
+                            <div class="col-lg-10">
+                                @yield('content')
+                            </div>
 
-                    @include('app.partials.errors')
-                    @yield('content')
-                </section>
+                        </div>
+                    </div>
+                </div>
             </div>
             @include('app.partials.footer')
-        </div><!-- l-wrapper -->
+        </div>
+
 
         <script src="{{ asset('assets/js/jQuery-2.1.4.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
