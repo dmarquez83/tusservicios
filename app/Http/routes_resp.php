@@ -97,11 +97,11 @@ Route::group(['middleware' => ['auth']], function()
     Route::get('admin/tipousuarios/borrar/{id}', ['as' => 'tipousuarios.delete','uses' => 'TipousuariosController@destroy']);
 
     /**********************************tipo_servicios**************************/
-    Route::resource('admin/tiposervicios', 'TiposervicioController');
-    Route::get('admin/tiposervicios/borrar/{id}', ['as' => 'tiposervicios.delete','uses' => 'TiposervicioController@destroy']);
+    Route::resource('admin/tiposServicio', 'TiposervicioController');
+    Route::get('admin/tiposServicio/borrar/{id}', ['as' => 'tiposServicio.delete','uses' => 'TiposervicioController@destroy']);
 
-    #Route::get('tiposervicios/createnew/{id}', ['as' => 'tiposervicios.createnew','uses' => 'TiposervicioController@createnew']);
-    #Route::post('tiposervicios/storenew/{id}', ['as' => 'tiposervicios.storenew','uses' => 'TiposervicioController@storenew']);
+    #Route::get('tiposServicio/createnew/{id}', ['as' => 'tiposServicio.createnew','uses' => 'TiposervicioController@createnew']);
+    #Route::post('tiposServicio/storenew/{id}', ['as' => 'tiposServicio.storenew','uses' => 'TiposervicioController@storenew']);
     #Route::get('tiposerviciost/indextiposervicio', ['as' => 'tiposerviciost.indextiposervicio','uses' => 'TiposervicioController@indextiposervicio']);//ojo buscar si la utilizo
 
     /****************************Evaluaciones**********************************/

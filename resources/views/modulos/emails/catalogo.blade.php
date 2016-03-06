@@ -1,1 +1,0 @@
-Tu catalogo a sido registrada

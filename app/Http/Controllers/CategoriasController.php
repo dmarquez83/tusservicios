@@ -116,32 +116,14 @@ class CategoriasController extends AppBaseController
 	 */
 	public function show($id)
 	{
-		$categoria = $this->categoriaRepository->find($id);
-
-
-		if(empty($categoria))
-		{
-			Flash::error('Categoria no encontrada');
-
-			return redirect(route('categorias.index'));
-		}
-
 
 		$categoria = Categoria::findOrFail($id);
-
-		$servicios = \DB::table('servicios')
-			->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
-			->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
-			->where('categorias.id','=',$categoria->id)
-			->select('servicios.*')
-			->get();
 
 		return view('modulos.categorias.admin.show')->with(
 			array(
 				'categoria' => $categoria,
-				'servicios' => $servicios,
 				'appModulo' => $this->modulo,
-				'appOpcion' => 'Registrar'
+				'appOpcion' => 'Datos'
 			)
 		);
 

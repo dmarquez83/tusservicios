@@ -19,7 +19,7 @@ class TiposervicioAPIController extends AppBaseController
 
 	/**
 	 * Display a listing of the Tiposervicio.
-	 * GET|HEAD /tiposervicios
+	 * GET|HEAD /tiposServicio
 	 *
 	 * @return Response
 	 */
@@ -32,7 +32,7 @@ class TiposervicioAPIController extends AppBaseController
 
 	/**
 	 * Show the form for creating a new Tiposervicio.
-	 * GET|HEAD /tiposervicios/create
+	 * GET|HEAD /tiposServicio/create
 	 *
 	 * @return Response
 	 */
@@ -42,7 +42,7 @@ class TiposervicioAPIController extends AppBaseController
 
 	/**
 	 * Store a newly created Tiposervicio in storage.
-	 * POST /tiposervicios
+	 * POST /tiposServicio
 	 *
 	 * @param Request $request
 	 *
@@ -62,7 +62,7 @@ class TiposervicioAPIController extends AppBaseController
 
 	/**
 	 * Display the specified Tiposervicio.
-	 * GET|HEAD /tiposervicios/{id}
+	 * GET|HEAD /tiposServicio/{id}
 	 *
 	 * @param  int $id
 	 *
@@ -77,7 +77,7 @@ class TiposervicioAPIController extends AppBaseController
 
 	/**
 	 * Show the form for editing the specified Tiposervicio.
-	 * GET|HEAD /tiposervicios/{id}/edit
+	 * GET|HEAD /tiposServicio/{id}/edit
 	 *
 	 * @param  int $id
 	 *
@@ -91,7 +91,7 @@ class TiposervicioAPIController extends AppBaseController
 
 	/**
 	 * Update the specified Tiposervicio in storage.
-	 * PUT/PATCH /tiposervicios/{id}
+	 * PUT/PATCH /tiposServicio/{id}
 	 *
 	 * @param  int              $id
 	 * @param Request $request
@@ -114,7 +114,7 @@ class TiposervicioAPIController extends AppBaseController
 
 	/**
 	 * Remove the specified Tiposervicio from storage.
-	 * DELETE /tiposervicios/{id}
+	 * DELETE /tiposServicio/{id}
 	 *
 	 * @param  int $id
 	 *

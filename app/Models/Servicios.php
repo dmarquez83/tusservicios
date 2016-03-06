@@ -43,13 +43,25 @@ class Servicios extends Model
 	    
 	];
 
-    public function insumoservicios() {
-	 return $this->hasOne('App\Models\InsumosServicios');
+    public function insumos() {
+		return $this->hasMany('App\Models\InsumosServicios');
     }
 
 	public function solicitud()
 	{
-	  return $this->hasOne('App\Models\Solicitudes');
+		return $this->hasMany('App\Models\Solicitudes');
+	}
+
+	public function tipoServicio(){
+		return $this->belongsTo('App\Models\TiposServicio','id_tipo_servicio');
+	}
+
+	public function categoria(){
+
+		$tipo = $this->tipoServicio();
+
+		return $tipo->categoria();
+
 	}
 
 }

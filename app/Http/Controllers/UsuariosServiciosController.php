@@ -196,8 +196,8 @@ class UsuariosServiciosController extends AppBaseController
 	    $servicios = Servicios::orderBy('id', 'asc')->lists('nombre', 'id');
 
 	     $catservicios = DB::table('servicios')
-		->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
-		->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
+		->join('tiposServicio','tiposServicio.id' ,'=','servicios.id_tipo_servicio')
+		->join('categorias','categorias.id' ,'=','tiposServicio.id_categoria')
 		->where('servicios.id','=',$usuariosServicios->servicio_id)
 		->select('servicios.id as id','servicios.nombre','servicios.descripcion','servicios.id_tipo_servicio','servicios.id_estatus','servicios.ponderacion','servicios.created_at','servicios.updated_at','servicios.foto as foto','categorias.id as id_categoria')
 		->first();
@@ -371,12 +371,12 @@ class UsuariosServiciosController extends AppBaseController
 		$id = Input::get('option');
 
 		$servicios = DB::table('servicios')
-			->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
-			->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
+			->join('tiposServicio','tiposServicio.id' ,'=','servicios.id_tipo_servicio')
+			->join('categorias','categorias.id' ,'=','tiposServicio.id_categoria')
 			->where('categorias.id','=',$id)
 			->select('servicios.id', 'servicios.nombre')
 			->get();
-		//dd ($tiposervicios);
+		//dd ($tiposServicio);
 		return $servicios;
 	}
 

@@ -29,8 +29,8 @@ class PublicCategoriasController extends Controller
         $categoria = Categoria::findOrFail($id);
 
         $servicios = \DB::table('servicios')
-            ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
-            ->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
+            ->join('tiposServicio','tiposServicio.id' ,'=','servicios.id_tipo_servicio')
+            ->join('categorias','categorias.id' ,'=','tiposServicio.id_categoria')
             ->where('categorias.id','=',$categoria->id)
             ->select('servicios.*')
             ->get();

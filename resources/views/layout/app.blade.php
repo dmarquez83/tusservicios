@@ -11,6 +11,7 @@
         {!! Html::style('assets/css/font-awesome.min.css') !!}
         {!! Html::style('assets/css/ionicons.min.css') !!}
         {!! Html::style('assets/css/app.css') !!}
+        {!! Html::style('assets/css/admin.css') !!}
 
         @yield('styles')
 

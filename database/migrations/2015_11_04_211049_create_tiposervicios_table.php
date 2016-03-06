@@ -13,7 +13,7 @@ class CreateTiposerviciosTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('tiposervicios', function(Blueprint $table)
+		Schema::create('tiposServicio', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('nombre')->nullable();
@@ -31,7 +31,7 @@ class CreateTiposerviciosTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('tiposervicios');
+		Schema::drop('tiposServicio');
 	}
 
 }

@@ -57,7 +57,7 @@ class ServiciosAPIController extends AppBaseController
 
 		//$email = DB::table('users')->where('name', 'John')->value('email');
 
-		return view('servicios.create', compact('tiposervicios','estatu','ponderacion'));
+		return view('servicios.create', compact('tiposServicio','estatu','ponderacion'));
 	}
 
 	/**
@@ -152,7 +152,7 @@ class ServiciosAPIController extends AppBaseController
 			return redirect(route('servicios.index'));
 		}
 
-		return view('servicios.edit',compact('servicios','tiposervicios','estatu','ponderacion'));
+		return view('servicios.edit',compact('servicios','tiposServicio','estatu','ponderacion'));
 	}
 
 	/**

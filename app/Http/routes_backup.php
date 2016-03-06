@@ -227,15 +227,15 @@ Route::group(['middleware' => ['auth']], function()
     /**********************************tipo_servicios**************************/
 
 
-    Route::resource('tiposervicios', 'TiposervicioController');
+    Route::resource('tiposServicio', 'TiposervicioController');
 
-    Route::get('tiposervicios/{id}/createnew', [
-        'as' => 'tiposervicios.createnew',
+    Route::get('tiposServicio/{id}/createnew', [
+        'as' => 'tiposServicio.createnew',
         'uses' => 'TiposervicioController@createnew',
     ]);
 
-    Route::post('tiposervicios/{id}/storenew', [
-        'as' => 'tiposervicios.storenew',
+    Route::post('tiposServicio/{id}/storenew', [
+        'as' => 'tiposServicio.storenew',
         'uses' => 'TiposervicioController@storenew',
     ]);
 
@@ -246,8 +246,8 @@ Route::group(['middleware' => ['auth']], function()
     ]);
 
 
-    Route::get('tiposervicios/{id}/delete', [
-        'as' => 'tiposervicios.delete',
+    Route::get('tiposServicio/{id}/delete', [
+        'as' => 'tiposServicio.delete',
         'uses' => 'TiposervicioController@destroy',
     ]);
 
@@ -520,6 +520,6 @@ Route::get('lugares/{id}/delete', [
 Route::get('dropdown', function(){
     $id = Input::get('option');
     $tiposervicios = \App\Models\Categoria::find($id)->tiposervicio;
-    // dd ($tiposervicios);
-    return $tiposervicios->lists('tiposervicios', 'id');
+    // dd ($tiposServicio);
+    return $tiposervicios->lists('tiposServicio', 'id');
 });

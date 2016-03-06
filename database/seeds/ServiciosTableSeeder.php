@@ -17,9 +17,9 @@ class ServiciosTableSeeder extends Seeder
     public function run()
     {
         // $servicios = Tiposervicio::orderBy('id_categoria', 'asc');
-        $servicios = DB::table('tiposervicios')
-          ->join('categorias','categorias.id' ,'=','tiposervicios.id_categoria')
-          ->select('tiposervicios.id as id','tiposervicios.nombre','categorias.nombre as categoria')
+        $servicios = DB::table('tiposServicio')
+          ->join('categorias','categorias.id' ,'=','tiposServicio.id_categoria')
+          ->select('tiposServicio.id as id','tiposServicio.nombre','categorias.nombre as categoria')
           ->get();
         foreach ($servicios as $serv) {
             \DB::table('servicios')->insert(array(

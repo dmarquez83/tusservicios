@@ -25,8 +25,8 @@ class SearchController extends Controller
         $search = $request->get('search');
 
         $servicios = Servicios::search($search,['nombre', 'descripcion'])
-            ->join('tiposervicios','tiposervicios.id' ,'=','servicios.id_tipo_servicio')
-            ->where('tiposervicios.id_categoria','=',$id)
+            ->join('tiposServicio','tiposServicio.id' ,'=','servicios.id_tipo_servicio')
+            ->where('tiposServicio.id_categoria','=',$id)
             ->orderBy('servicios.id', 'DESC')->paginate(10);
 
         return view('solicitudes.indexservicios')->with('servicios', $servicios);

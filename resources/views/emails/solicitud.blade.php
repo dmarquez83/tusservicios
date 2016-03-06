@@ -1,0 +1,1 @@
+Tu solicitud a sido registrada

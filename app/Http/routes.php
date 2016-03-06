@@ -81,7 +81,7 @@ Route::get('public/servicios/{id}', [
 
 
 
-// ADMIN ------------------------------------------------------------------------------------
+/*************************** ADMIN ***************************************/
 
 Route::group(['middleware' => ['auth']], function()
 {
@@ -91,22 +91,27 @@ Route::group(['middleware' => ['auth']], function()
     /********************************** Categorias **********************************/
     Route::resource('admin/categorias', 'CategoriasController');
 
-    Route::get('admin/categorias/{id}/delete', [
+    Route::get('admin/categorias/delete/{id}', [
         'as' => 'admin.categorias.delete',
         'uses' => 'CategoriasController@destroy'
     ]);
+
+    /**********************************tipo_servicios**************************/
+    //Route::resource('admin/tiposServicio', 'TipoServicioController');
+    Route::get('admin/tiposServicio/borrar/{id}', ['as' => 'tiposServicio.delete','uses' => 'TiposervicioController@destroy']);
+    Route::get('admin/tiposServicio/servicios/{id}', ['as' => 'tiposServicio.servicios','uses' => 'TiposServicioController@services']);
+    Route::put('admin/tiposServicio/servicios/{id}', ['as' => 'tiposServicio.update','uses' => 'TiposServicioController@update']);
+
+    /**********************************Servicios**********************************/
+    Route::resource('admin/servicios', 'ServiciosController');
+    Route::get('admin/servicios/delete/{id}', ['as' => 'admin.servicios.delete','uses' => 'ServiciosController@destroy']);
+    Route::get('admin/servicios/create/{id?}/', ['as' => 'admin.servicios.delete','uses' => 'ServiciosController@create']);
+
 
     /**********************************Tipo usuarios**********************************/
     Route::resource('admin/tipousuarios', 'TipousuariosController');
     Route::get('admin/tipousuarios/borrar/{id}', ['as' => 'tipousuarios.delete','uses' => 'TipousuariosController@destroy']);
 
-    /**********************************tipo_servicios**************************/
-    Route::resource('admin/tiposervicios', 'TiposervicioController');
-    Route::get('admin/tiposervicios/borrar/{id}', ['as' => 'tiposervicios.delete','uses' => 'TiposervicioController@destroy']);
-
-    #Route::get('tiposervicios/createnew/{id}', ['as' => 'tiposervicios.createnew','uses' => 'TiposervicioController@createnew']);
-    #Route::post('tiposervicios/storenew/{id}', ['as' => 'tiposervicios.storenew','uses' => 'TiposervicioController@storenew']);
-    #Route::get('tiposerviciost/indextiposervicio', ['as' => 'tiposerviciost.indextiposervicio','uses' => 'TiposervicioController@indextiposervicio']);//ojo buscar si la utilizo
 
     /****************************Evaluaciones**********************************/
     Route::resource('admin/evaluaciones', 'EvaluacionesController');
@@ -127,9 +132,6 @@ Route::group(['middleware' => ['auth']], function()
 ///////////ojo no he revisao esto
     Route::post('insumoSolicitudes/guardar', ['as' => 'insumoSolicitudes.getGuardar','uses' => 'InsumosSolicitudesController@getGuardar']);
 
-    /**********************************Servicios**********************************/
-    Route::resource('admin/servicios', 'ServiciosAdminController');
-    Route::get('admin/servicios/nuevo/{id}', ['as' => 'admin.servicios.create','uses' => 'ServiciosAdminController@create']);
 
     /**********************************Proveedores*******************************/
     Route::resource('admin/proveedores', 'ProveedoresController');

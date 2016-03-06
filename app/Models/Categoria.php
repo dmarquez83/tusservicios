@@ -36,24 +36,8 @@ class Categoria extends Model
 	];
 
 	public function tiposServicio() {
-		return $this->hasMany('App\Models\Tiposervicio', 'id_categoria');
+		return $this->hasMany('App\Models\TiposServicio', 'id_categoria');
 	}
-
-
-	/**
-	 * Set the foto
-	 *
-	 * @param  string  $value
-	 * @return string
-	 */
-	/*public function setFotoAttribute($value)
-	{
-		if (! empty ($value))
-		{
-			$this->attributes['foto'] = strtolower($value);
-		}
-	}*/
-	/* esto es para procesar los valores al momento de guardalos automaticamente lo toma sin llamarlo ni nada*/
 
 }
 
