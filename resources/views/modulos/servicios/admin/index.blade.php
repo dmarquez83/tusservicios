@@ -7,9 +7,19 @@
             <div class="box box-solid">
                 <div class="box-header">
                     <h3 class="box-title">Lista de Servicios</h3>
-                    <a class="btn bg-navy btn-sm pull-right " href="{!! route('categorias.servicios.create') !!}">
-                        <i class="fa fa-plus-square"></i>&nbsp;Agregar Servicio
-                    </a>
+
+                    @if(isset($idTipo))
+                        <a class="btn bg-navy btn-sm pull-right margin-left" href="{!! route('admin.tiposServicio.servicio.new',$idTipo) !!}">
+                            <i class="fa fa-plus-square"></i>&nbsp;Agregar Servicio
+                        </a>
+                        <a class="btn bg-orange-active btn-sm pull-right margin-left" href="{!! route('admin.categorias.show',$idCat) !!}">
+                            <i class="fa fa-list"></i>&nbsp;Detalle Categoria
+                        </a>
+                    @else
+                        <a class="btn bg-navy btn-sm pull-right " href="{!! route('categorias.servicios.create') !!}">
+                            <i class="fa fa-plus-square"></i>&nbsp;Agregar Servicio
+                        </a>
+                    @endif
                 </div>
                 <div class="box-body">
 
@@ -56,7 +66,7 @@
 @section('scripts')
     {!! Html::script('assets/plugins/datatables/jquery.dataTables.min.js') !!}
     {!! Html::script('assets/plugins/datatables/dataTables.bootstrap.min.js') !!}
-    {!! Html::script('assets/js/admin/categorias_index.js') !!}
+    {!! Html::script('assets/js/admin/servicios_index.js') !!}
 @endsection
 
 @section('styles')

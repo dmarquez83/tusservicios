@@ -15,4 +15,5 @@ $(function(){
         "info": true,
         "autoWidth": true
     });
+
 });

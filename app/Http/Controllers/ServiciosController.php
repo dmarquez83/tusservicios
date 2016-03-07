@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\Image as Image;
+use Illuminate\Support\Facades\File;
+
 class ServiciosController extends Controller
 {
 
@@ -53,7 +57,53 @@ class ServiciosController extends Controller
     {
         //
 
+        $this->validate($request, [
+            'nombre' => 'required|max:100',
+            'descripcion' => 'required|max:255',
+            'foto'  => 'required|image|mimes:jpg,jpeg',
+            'ponderacion' => 'required|integer|min:1|max:10',
+            'precio' => 'required|numeric',
+            'tipo-servicio' => 'required|integer|exists:tiposervicios,id'
+        ]);
 
+        $data = [
+            'nombre' => $request->get('nombre'),
+            'descripcion' => $request->get('descripcion'),
+            'id_tipo_servicio' => $request->get('tipo-servicio'),
+            'ponderacion' => $request->input('ponderacion'),
+            'precio' => $request->input('precio'),
+            'id_estatus' => 1
+        ];
+
+        $servicio = Servicios::create($data);
+
+        /***************************/
+
+        //Creamos una instancia de la libreria instalada
+        $image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
+
+        //Ruta donde queremos guardar las imagenes
+        $path = public_path().'/assets/img/servicios-img/';
+
+        // Guardar Original
+        if($image->save($path.$servicio->id.'.jpg')){
+            // Cambiar de tamaño
+            $image->resize(240,200);
+            // Guardar
+            $image->save($path.'thumb_'.$servicio->id.'.jpg');
+
+            $servicio->foto = $servicio->id.'.jpg';
+            $servicio->save();
+        }
+
+        /**************************/
+
+
+        return view('modulos.servicios.admin.show')->with([
+            'servicio' => $servicio,
+            'appModulo' => $this->modulo,
+            'appOpcion' => 'Datos'
+        ]);
     }
 
     /**

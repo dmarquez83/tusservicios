@@ -23,6 +23,8 @@
                 <section class="content">
                     @include('admin.partials.navigation')
                     @include('admin.partials.errors')
+                    @include('admin.partials.error')
+                    @include('admin.partials.message')
                     @yield('content')
                 </section>
             </div>

@@ -16,5 +16,7 @@ $(function(){
         "info": true,
         "autoWidth": true
     });
+
+    $('.categoria-delete').deleteRegistro();
 });
 //# sourceMappingURL=categorias_index.js.map

@@ -1,262 +1,208 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Categoria;
+use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Requests\CreateCategoriaRequest;
-use App\Http\Requests\UpdateCategoriaRequest;
-use App\Libraries\Repositories\CategoriaRepository;
-use App\Models\Categoria;
-use Flash;
-use Mitul\Controller\AppBaseController as AppBaseController;
-use Response;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Input;
 use Intervention\Image\Image as Image;
 use Illuminate\Support\Facades\File;
 
-class CategoriasController extends AppBaseController
+
+class CategoriasController extends Controller
 {
 
-	/** @var  CategoriaRepository */
-	private $categoriaRepository;
+    var $modulo = 'Categorias';
 
-	var $modulo = 'Categorias';
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+        $categorias = Categoria::all();
 
-	function __construct(CategoriaRepository $categoriaRepo)
-	{
-		$this->categoriaRepository = $categoriaRepo;
-	}
+        return view('modulos.categorias.admin.index')
+            ->with([
+                'categorias' => $categorias,
+                'appModulo' => $this->modulo,
+                'appOpcion' => 'Listado'
+            ]);
+    }
 
-	/**
-	 * Display a listing of the Categoria.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		$categorias = $this->categoriaRepository->all();
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+        return view('modulos.categorias.admin.create')->with([
+            'appModulo' => $this->modulo,
+            'appOpcion' => 'Registrar'
+        ]);
+    }
 
-		return view('modulos.categorias.admin.index')
-			->with([
-				'categorias' => $categorias,
-				'appModulo' => $this->modulo,
-				'appOpcion' => 'Listado'
-			]);
-	}
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+        $this->validate($request, [
+            'nombre' => 'required|unique:categorias|max:100',
+            'descripcion' => 'required|max:255',
+            'foto'  => 'required'
+        ]);
 
-	/**
-	 * Show the form for creating a new Categoria.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return view('modulos.categorias.admin.create')->with([
-			'appModulo' => $this->modulo,
-			'appOpcion' => 'Registrar'
-		]);
-	}
+        $data = [
+            'nombre' => $request->get('nombre'),
+            'descripcion' => ($request->get('descripcion')),
+            //'foto' => $file->getClientOriginalName()
+        ];
 
-	/**
-	 * Store a newly created Categoria in storage.
-	 *
-	 * @param CreateCategoriaRequest $request
-	 *
-	 * @return Response
-	 */
-	public function store(CreateCategoriaRequest $request)
-	{
+        $categoria = Categoria::create($data);
 
-		$this->validate($request, [
-			'nombre' => 'required|unique:categorias|max:255',
-			'descripcion' => 'required|max:500',
-			'foto'  => 'required'
-		]);
+        /***************************/
 
-		/***************************/
+        //Creamos una instancia de la libreria instalada
 
-		$file = Input::file('foto');
-		//Creamos una instancia de la libreria instalada
+        $image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
 
-		$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
+        //Ruta donde queremos guardar las imagenes
+        $path = public_path().'/assets/img/categorias-img/';
 
-		//Ruta donde queremos guardar las imagenes
-		$path = public_path().'/assets/img/categorias-img/';
+        // Guardar Original
+        if($image->save($path.$categoria->id.'.jpg')){
+            // Cambiar de tamaño
+            $image->resize(240,200);
+            // Guardar
+            $image->save($path.'thumb_'.$categoria->id.'.jpg');
 
-		// Guardar Original
-		$image->save($path.$file->getClientOriginalName());
-		// Cambiar de tamaño
-		$image->resize(240,200);
-		// Guardar
-		$image->save($path.'thumb_'.$file->getClientOriginalName());
+            $categoria->foto = $categoria->id.'.jpg';
+            $categoria->save();
+        }
 
-		/**************************/
+        /**************************/
 
-		$data = [
-			'nombre' => $request->get('nombre'),
-			'descripcion' => ($request->get('descripcion')),
-			'foto' => $file->getClientOriginalName()
-		];
+        \Flash::success('Categoria Guardada Correctamente.');
 
+        return redirect(route('admin.categorias.show',$categoria->id));
+    }
 
-		$categoria = $this->categoriaRepository->create($data);
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+        $categoria = Categoria::findOrFail($id);
 
+        return view('modulos.categorias.admin.show')->with(
+            array(
+                'categoria' => $categoria,
+                'appModulo' => $this->modulo,
+                'appOpcion' => 'Datos'
+            )
+        );
+    }
 
-		Flash::success('Categoria Guardada Correctamente.');
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+        $categoria = Categoria::findOrFail($id);
 
-		return redirect(route('categorias.show',$categoria->id));
+        return view('modulos.categorias.admin.edit')->with(
+            array(
+                'categoria' => $categoria,
+                'appModulo' => $this->modulo,
+                'appOpcion' => 'Editar'
+            )
+        );
 
-	}
+    }
 
-	/**
-	 * Display the specified Categoria.
-	 *
-	 * @param  int $id
-	 *
-	 * @return Response
-	 */
-	public function show($id)
-	{
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'nombre' => 'required|max:100',
+            'descripcion' => 'required|max:255',
+            //'foto'  => 'required'
+        ]);
 
-		$categoria = Categoria::findOrFail($id);
+        $categoria = Categoria::findOrFail($id);
+        $categoria->nombre = $request->get('nombre');
+        $categoria->descripcion = $request->get('descripcion');
 
-		return view('modulos.categorias.admin.show')->with(
-			array(
-				'categoria' => $categoria,
-				'appModulo' => $this->modulo,
-				'appOpcion' => 'Datos'
-			)
-		);
+        //Creamos una instancia de la libreria instalada
+        if($image = \Intervention\Image\Facades\Image::make(Input::file('foto'))) {
 
-	}
+            //Ruta donde queremos guardar las imagenes
+            $path = public_path() . '/assets/img/categorias-img/';
 
-	/**
-	 * Show the form for editing the specified Categoria.
-	 *
-	 * @param  int $id
-	 *
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		$categoria = $this->categoriaRepository->find($id);
+            // Guardar Original
+            if ($image->save($path . $categoria->id . '.jpg')) {
+                $categoria->foto = $categoria->id . '.jpg';
+                // Cambiar de tamaño
+                $image->resize(240, 200);
+                // Guardar
+                $image->save($path . 'thumb_' . $categoria->id . '.jpg');
+            }
+        }
+        $categoria->save();
 
-		if(empty($categoria))
-		{
-			Flash::error('Categoria no encontrada');
+        \Flash::success('Categoria Actualizada Correctamente.');
 
-			return redirect(route('categorias.index'));
-		}
+        return redirect(route('admin.categorias.show',$categoria->id));
+    }
 
-		return view('modulos.categorias.admin.edit')->with([
-			'categoria'=> $categoria,
-			'appModulo' => $this->modulo,
-			'appOpcion' => 'Editar'
-		]);
-	}
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Request $request,$id)
+    {
+        //
+        $categoria = Categoria::findOrFail($id);
 
-	/**
-	 * Update the specified Categoria in storage.
-	 *
-	 * @param  int              $id
-	 * @param UpdateCategoriaRequest $request
-	 *
-	 * @return Response
-	 */
-	public function update($id, UpdateCategoriaRequest $request)
-	{
-		//dd($request);
-		$this->validate($request, [
-			'nombre' => 'max:255',
-			'descripcion' => 'max:500'
-		]);
+        //
+        if(count($categoria->tiposServicio) >= 1){
+            //dd($categoria->tiposServicio);
+            session()->flash('error','La categoria Posee tipos de servicios asociados');
+            //$request->session()->flash('error','Posee Tipos de Servicios asociados');
+        }else{
+            $categoria->delete();
+            session()->flash('message','Categoria eliminada Correctamente.');
+        }
 
-
-		$categoria = $this->categoriaRepository->find($id);
-
-		if(empty($categoria))
-		{
-			Flash::error('Categoria no encontrada');
-
-			return redirect(route('admin.categorias.index'));
-		}
-
-		/***************************/
-		if(Input::file('foto')==null){
-			$file = Input::file('foto_name');
-			$data = [
-				'nombre' => $request->get('nombre'),
-				'descripcion' => str_slug($request->get('descripcion'))
-			];
-		}
-
-		else{
-			$file = Input::file('foto');
-			//Creamos una instancia de la libreria instalada
-
-			$image = \Intervention\Image\Facades\Image::make(Input::file('foto'));
-
-			//Ruta donde queremos guardar las imagenes
-			$path = public_path().'/assets/img/categorias-img/';
-
-			// Guardar Original
-			$image->save($path.$file->getClientOriginalName());
-			// Cambiar de tamaño
-			$image->resize(240,200);
-			// Guardar
-			$image->save($path.'thumb_'.$file->getClientOriginalName());
-
-			$data = [
-				'nombre' => $request->get('nombre'),
-				'descripcion' => str_slug($request->get('descripcion')),
-				'foto' => $file->getClientOriginalName()
-			];
-		}
-		/**************************/
-
-		$categoria = $this->categoriaRepository->updateRich($data, $id);
-
-		Flash::success('Categoria Actualizada Correctamente.');
-
-		return redirect(route('admin.categorias.index'));
-	}
-
-	/**
-	 * Remove the specified Categoria from storage.
-	 *
-	 * @param  int $id
-	 *
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		$categoria = $this->categoriaRepository->find($id);
-
-		if(empty($categoria))
-		{
-			Flash::error('Categoria no encontrada');
-
-			return redirect(route('categorias.index'));
-		}
-
-		$this->categoriaRepository->delete($id);
-
-		Flash::success('Categoria Borrada Correctamente.');
-
-		return redirect(route('admin.categorias.index'));
-	}
-
-	/**
-	 * Get a validator for an incoming registration request.
-	 *
-	 * @param  array  $data
-	 * @return \Illuminate\Contracts\Validation\Validator
-	 */
-	protected function validator(array $data)
-	{
-		return Validator::make($data, [
-			'nombre' => 'required|max:255',
-			'descripcion' => 'required|max:255',
-		]);
-	}
+        return redirect()->route('admin.categorias.index');
+    }
 }
-

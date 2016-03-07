@@ -89,24 +89,28 @@ Route::group(['middleware' => ['auth']], function()
     Route::get('admin/dashborad', ['as' => 'admin.dashborad','uses' => 'HomeController@dashboradAdmin']);
 
     /********************************** Categorias **********************************/
-    Route::resource('admin/categorias', 'CategoriasController');
-
-    Route::get('admin/categorias/delete/{id}', [
-        'as' => 'admin.categorias.delete',
-        'uses' => 'CategoriasController@destroy'
-    ]);
+    Route::get('admin/categorias', ['as' => 'admin.categorias.index','uses' => 'CategoriasController@index']);
+    Route::get('admin/categorias/show/{id}', ['as' => 'admin.categorias.show','uses' => 'CategoriasController@show']);
+    Route::get('admin/categorias/new', ['as' => 'admin.categorias.create','uses' => 'CategoriasController@create']);
+    Route::post('admin/categorias/new', ['as' => 'admin.categorias.store','uses' => 'CategoriasController@store']);
+    Route::get('admin/categorias/edit/{id}', ['as' => 'admin.categorias.edit','uses' => 'CategoriasController@edit']);
+    Route::put('admin/categorias/edit/{id}', ['as' => 'admin.categorias.update','uses' => 'CategoriasController@update']);
+    Route::delete('admin/categorias/delete/{id}', ['as' => 'admin.categorias.delete','uses' => 'CategoriasController@destroy']);
 
     /**********************************tipo_servicios**************************/
     //Route::resource('admin/tiposServicio', 'TipoServicioController');
-    Route::get('admin/tiposServicio/borrar/{id}', ['as' => 'tiposServicio.delete','uses' => 'TiposervicioController@destroy']);
-    Route::get('admin/tiposServicio/servicios/{id}', ['as' => 'tiposServicio.servicios','uses' => 'TiposServicioController@services']);
-    Route::put('admin/tiposServicio/servicios/{id}', ['as' => 'tiposServicio.update','uses' => 'TiposServicioController@update']);
+    Route::delete('admin/tiposServicio/destroy/{id}', ['as' => 'admin.tiposServicio.delete','uses' => 'TiposServicioController@destroy']);
+    Route::get('admin/tiposServicio/servicios/{id}', ['as' => 'admin.tiposServicio.servicios','uses' => 'TiposServicioController@services']);
+    Route::put('admin/tiposServicio/update/{id}', ['as' => 'admin.tiposServicio.update','uses' => 'TiposServicioController@update']);
+    Route::post('admin/tiposServicio/new', ['as' => 'admin.tiposServicio.store','uses' => 'TiposServicioController@store']);
+
+    Route::get('admin/tiposServicio/servicio/new/{id}', ['as' => 'admin.tiposServicio.servicio.new','uses' => 'TiposServicioController@createService']);
+
+
 
     /**********************************Servicios**********************************/
     Route::resource('admin/servicios', 'ServiciosController');
     Route::get('admin/servicios/delete/{id}', ['as' => 'admin.servicios.delete','uses' => 'ServiciosController@destroy']);
-    Route::get('admin/servicios/create/{id?}/', ['as' => 'admin.servicios.delete','uses' => 'ServiciosController@create']);
-
 
     /**********************************Tipo usuarios**********************************/
     Route::resource('admin/tipousuarios', 'TipousuariosController');

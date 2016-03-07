@@ -19,7 +19,10 @@ elixir(function (mix) {
         .copy('resources/assets/fonts/', 'public/assets/fonts/')
         .copy('resources/assets/img/', 'public/assets/img/')
         .copy('resources/assets/plugins', 'public/assets/plugins')
+        .scripts('resources/assets/js/admin/modal_delete.js', 'public/assets/js/admin/modal_delete.js')
         .scripts('resources/assets/js/admin/categorias_index.js', 'public/assets/js/admin/categorias_index.js')
         .scripts('resources/assets/js/admin/categorias_create.js', 'public/assets/js/admin/categorias_create.js')
-        .scripts('resources/assets/js/admin/categorias_show.js', 'public/assets/js/admin/categorias_show.js');
+        .scripts('resources/assets/js/admin/categorias_show.js', 'public/assets/js/admin/categorias_show.js')
+        .scripts('resources/assets/js/admin/servicios_index.js', 'public/assets/js/admin/servicios_index.js')
+        .scripts('resources/assets/js/admin/servicios_create.js', 'public/assets/js/admin/servicios_create.js');
 });

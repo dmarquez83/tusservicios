@@ -33,7 +33,8 @@
                                         <a class="btn btn-sm bg-blue-active" href="{!! route('admin.categorias.show', $categoria->id) !!}" role="button" data-toggle="Editar">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a class="btn btn-sm bg-red" href="{!! route('admin.categorias.delete', [$categoria->id]) !!}" role="button" data-toggle="Eliminar">
+                                        <a class="btn btn-sm bg-red categoria-delete" data-title="{{ $categoria->nombre }}"
+                                           href="{!! route('admin.categorias.delete', [$categoria->id]) !!}" role="button" data-toggle="Eliminar">
                                             <i class="fa fa-remove"></i>
                                         </a>
                                     </div>
@@ -49,12 +50,16 @@
             </div>
         </div>
     </div>
+
+    @include('admin.modals.confirm-delete')
+
 @endsection
 
 @section('scripts')
     {!! Html::script('assets/plugins/datatables/jquery.dataTables.min.js') !!}
     {!! Html::script('assets/plugins/datatables/dataTables.bootstrap.min.js') !!}
-    {!! Html::script('assets/js/admin/servicios_index.js') !!}
+    {!! Html::script('assets/js/admin/modal_delete.js') !!}
+    {!! Html::script('assets/js/admin/categorias_index.js') !!}
 @endsection
 
 @section('styles')
