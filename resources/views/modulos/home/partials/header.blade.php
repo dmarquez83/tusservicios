@@ -1,4 +1,4 @@
-<header class="jumbotron header-principal" >
+<header class="jumbotron header-principal" id="header-home">
     <div class="container text-white">
         <div class="text-center margin-bottom">
             <img src="{{ asset('assets/img/tusservicios.png') }}" alt="logo" class="logo-header">

@@ -9,14 +9,14 @@
         <title>{{ trans('home.header.title') }}</title>
         {!! Html::style('assets/css/bootstrap.min.css') !!}
         {!! Html::style('assets/css/AdminLTE.min.css') !!}
-        {!! Html::style('assets/css/skins/skin-black-light.min.css') !!}
+        {!! Html::style('assets/css/skins/skin-blue-light.min.css') !!}
         {!! Html::style('assets/css/font-awesome.min.css') !!}
         {!! Html::style('assets/css/ionicons.min.css') !!}
         {!! Html::style('assets/css/home.css') !!}
         @yield('styles')
 
     </head>
-    <body>
+    <body class="skin-blue-light text-black">
 
         @yield('content')
 

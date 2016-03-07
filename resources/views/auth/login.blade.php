@@ -34,23 +34,29 @@
                             </a>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <h4 class="text-center text-black">Acceso por Redes</h4>
+                            <h4 class="text-center text-black">Registro por Redes</h4>
                             <div class="margin-bottom">
                                 <a href="{{ route('auth.getSocialAuth','facebook') }}"
-                                   class="btn btn-social btn-facebook">
+                                   class="btn btn-social btn-block btn-facebook">
                                     <i class="fa fa-facebook"></i> Acceder con Facebook
                                 </a>
                             </div>
                             <div class="margin-bottom">
                                 <a href="{{ route('auth.getSocialAuth','twitter') }}"
-                                   class="btn btn-social btn-twitter">
+                                   class="btn btn-social btn-block btn-twitter">
                                     <i class="fa fa-twitter"></i> Acceder con Twitter
                                 </a>
                             </div>
                             <div class="margin-bottom">
                                 <a href="{{ route('auth.getSocialAuth','google') }}"
-                                   class="btn btn-social btn-google">
+                                   class="btn btn-social btn-block btn-google">
                                     <i class="fa fa-google-plus"></i> Acceder con Google Plus
+                                </a>
+                            </div>
+                            <div class="margin-bottom">
+                                <a href="{{ route('auth.getSocialAuth','linkedin') }}"
+                                   class="btn btn-social btn-block btn-linkedin">
+                                    <i class="fa fa-linkedin"></i> Acceder con Linkedin
                                 </a>
                             </div>
                         </div>

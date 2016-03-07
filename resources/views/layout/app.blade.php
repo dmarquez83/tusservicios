@@ -18,8 +18,8 @@
         @yield('styles')
 
     </head>
-    <body class="skin-blue-light">
-        <div class="container-fluid bg-gray-light text-black">
+    <body class="skin-blue-light text-black">
+        <div class="container-fluid bg-gray-alt text-black">
             @include('app.partials.navbar')
             <div class="row" >
                 <div class="col-sm-12">
