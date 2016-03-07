@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <section class="content-header bg-white margin-bottom">
+    <!--<section class="content-header margin-bottom">
         <h1>
             Dashboard <small>Control panel</small>
         </h1>
@@ -7,5 +7,7 @@
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Dashboard</li>
         </ol>
-    </section>
+    </section>-->
+    <h1 class="text-center">tuSServicios.com.ve</h1>
+    <hr>
 </div>

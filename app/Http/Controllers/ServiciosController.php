@@ -99,11 +99,7 @@ class ServiciosController extends Controller
         /**************************/
 
 
-        return view('modulos.servicios.admin.show')->with([
-            'servicio' => $servicio,
-            'appModulo' => $this->modulo,
-            'appOpcion' => 'Datos'
-        ]);
+        return redirect()->route('admin.servicios.show',$servicio->id);
     }
 
     /**

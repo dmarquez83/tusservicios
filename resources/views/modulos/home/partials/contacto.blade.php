@@ -1,4 +1,4 @@
-<section class="bg-blue" id="contacto">
+<section class="bg-navy" id="contacto">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">

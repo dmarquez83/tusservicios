@@ -30,7 +30,7 @@
                                 <li class="list-group-item">
                                     <h4>Tipos de Servicios</h4>
                                 </li>
-                                @foreach( $categoria->tiposervicio AS $tipo )
+                                @foreach( $categoria->tiposServicio AS $tipo )
                                 <a href="#" class="list-group-item" data-id="{{ $tipo->id }}">
                                     <span class="badge bg-blue-active">
                                         <i class="fa fa-angle-right"></i>
@@ -74,4 +74,5 @@
             @include('modulos.publicidad.public.vertical')
         </div>
     </div>
+
 @endsection

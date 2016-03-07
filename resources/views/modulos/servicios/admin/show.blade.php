@@ -5,13 +5,13 @@
 		<div class="col-xs-12">
 			<div class="box box-solid">
 				<div class="box-header with-border">
-					<a class="btn btn-sm bg-navy pull-right margin" href="{{ route('admin.servicios.edit',$servicio->id) }}">
+					<a class="btn btn-sm bg-navy pull-right margin-left" href="{{ route('admin.servicios.edit',$servicio->id) }}">
 						<i class="fa fa-edit"></i> Editar Servicio
 					</a>
-					<a class="btn btn-sm bg-orange-active pull-right margin" href="{{ route('admin.categorias.index') }}">
+					<a class="btn btn-sm bg-orange-active pull-right margin-left" href="{{ route('admin.servicios.index') }}">
 						<i class="fa fa-list-alt"></i> Lista de Servicios
 					</a>
-					<h4 class="margin">{{ $servicio->nombre }}</h4>
+					<h4 class="box-title">{{ $servicio->nombre }}</h4>
 				</div>
 				<div class="box-body">
 					<div class="row">
@@ -22,8 +22,8 @@
 							<p>{{ $servicio->descripcion }}</p>
 							<label>Ponderación:</label>
 							<p>{{ $servicio->ponderacion }}</p>
-							<label>Descripción:</label>
-							<p>{{ $servicio->descripcion }}</p>
+							<label>Precio:</label>
+							<p>{{ number_format($servicio->precio,'2',',','.') }} Bs.</p>
 
 						</div>
 						<div class="col-xs-12 col-md-6">
@@ -38,7 +38,7 @@
 					</div>
 					<div class="list-group">
 							<div class="list-group-item">
-								<span class="badge bg-green">14</span>
+								<span class="badge bg-green"></span>
 								<h5 class="list-group-item-heading">{{ $servicio->nombre }}</h5>
 								<p class="list-group-item-text margin-bottom">{{ $servicio->descripcion }}</p>
 								<div class="text-left">

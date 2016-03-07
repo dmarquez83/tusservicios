@@ -1,4 +1,4 @@
-<nav class="navbar bg-blue-active flat navbar-home no-margin hidden-xs navbar-fixed-top">
+<nav class="navbar bg-orange-active flat navbar-home no-margin hidden-xs navbar-fixed-top">
     <div class="container">
         <div class="navbar-header text-center">
             <a class="navbar-brand" href="{{ route('home') }}">
@@ -29,7 +29,7 @@
                 <div class="input-group input-group-sm margin-05">
                     <input type="text" class="form-control" placeholder="Buscar servicio" style="width: 100% ">
                     <span class="input-group-btn">
-                      <button class="btn bg-orange-active btn-flat" type="button">
+                      <button class="btn bg-navy btn-flat" type="button">
                           <i class="fa fa-search"></i>
                       </button>
                     </span>
